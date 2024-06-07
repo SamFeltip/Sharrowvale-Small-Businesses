@@ -8,7 +8,7 @@ import pagefind from "astro-pagefind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://sharrowvale.co.uk',
   integrations: [mdx(), sitemap(), react(), tailwind({
     applyBaseStyles: false
   }), pagefind()]
