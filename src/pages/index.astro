@@ -1,15 +1,8 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 import "@/styles/globals.css";
-
-import { InteractiveCarousel } from "../components/HomeCarousel.tsx";
-
-import Search from "astro-pagefind/components/Search";
-// import SearchField from "../components/SearchField.astro";
 ---
 
 <html lang="en">
@@ -17,23 +10,33 @@ import Search from "astro-pagefind/components/Search";
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header />
-		<InteractiveCarousel client:load />
-
-		<main>
-			<h1>Sharrow Vale Directory</h1>
-			<h2>Search for local Restaurants, Shops, Cafes and more</h2>
-
-			<Search
-				id="search"
-				className="pagefind-ui"
-				uiOptions={{
-					showImages: true,
-					showEmptyFilters: true,
-					openFilters: ["Tags", "Type"],
-				}}
-			/>
+		<main
+			class="min-h-[100vh] bg-[#FDFAE9] flex flex-col items-center justify-center"
+		>
+			<div
+				class="animate-glide flex flex-col gap-[40px] items-center justify-center max-w-[300px] text-center"
+			>
+				<img
+					src="/imgs/sharrow.jpg"
+					alt="Sharrow Vale View"
+					class="rounded-full h-[240px] w-[240px]"
+				/>
+				<img
+					src="/logo.svg"
+					alt="Sharrow Vale logo"
+					class="max-w-[300px]"
+				/>
+				<h1 class="font-crimson font-semibold text-2xl text-brick">
+					A home for small businesses in Sharrow Vale
+				</h1>
+				<p class="font-almarai tracking-widest text-base">
+					COMING SOON
+				</p>
+				<!-- item is opacity 0 and then animates to opacity 1, with a delay of 1s -->
+				<a class="" href="main:info@sharrowvale.co.uk"
+					>info@sharrowvale.co.uk</a
+				>
+			</div>
 		</main>
-		<Footer />
 	</body>
 </html>
