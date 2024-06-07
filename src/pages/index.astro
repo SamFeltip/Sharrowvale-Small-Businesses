@@ -7,10 +7,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import "@/styles/globals.css";
 
 import { InteractiveCarousel } from "../components/HomeCarousel.tsx";
-import { Button } from "@/components/ui/button";
+
+import Search from "astro-pagefind/components/Search";
+// import SearchField from "../components/SearchField.astro";
+
+const title = "Search | Alex Trost";
+const description = "Search the website of Alex Trost";
 ---
 
-<!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -20,13 +24,18 @@ import { Button } from "@/components/ui/button";
 		<InteractiveCarousel client:load />
 
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a>
-				blog starter template. This template serves as a lightweight, minimally-styled
-				starting point for anyone looking to build a personal website, blog,
-				or portfolio with Astro.
-			</p>
+			<h1>Sharrow Vale Directory</h1>
+			<h2>Search for local Restaurants, Shops, Cafes and more</h2>
+
+			<Search
+				id="search"
+				className="pagefind-ui"
+				uiOptions={{
+					showImages: true,
+					showEmptyFilters: true,
+					openFilters: ["Tags", "Type"],
+				}}
+			/>
 		</main>
 		<Footer />
 	</body>

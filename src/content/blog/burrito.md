@@ -1,9 +1,36 @@
 ---
-title: 'Markdown Style Guide'
+title: 'Street Food Chef'
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
+type: 'food'
 pubDate: 'Jul 01 2022'
 heroImage: '/blog-placeholder-1.jpg'
 ---
+
+This is a page about burritos!
+
+<p data-pagefind-filter="type">food</p>
+
+# why you should try burritos
+
+- it's delicious
+- it's cheap
+- it's fun
+- it's easy
+- it's good for you
+
+# why you should try burritos
+
+- it's delicious
+- it's cheap
+- it's fun
+- it's easy
+- it's good for you
+
+# reasons burritos are the best
+
+- it's delicious
+- it's cheap
+- it's fun
 
 Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
 
