@@ -1,7 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-
 import "@/styles/globals.css";
 ---
 
@@ -19,23 +18,29 @@ import "@/styles/globals.css";
 				<img
 					src="/imgs/sharrow.jpg"
 					alt="Sharrow Vale View"
-					class="rounded-full h-[240px] w-[240px]"
+					class="rounded-full h-[240px] aspect-square object-cover"
 				/>
 				<img
 					src="/logo.svg"
 					alt="Sharrow Vale logo"
 					class="max-w-[300px]"
 				/>
-				<h1 class="font-crimson font-semibold text-2xl text-brick">
-					A home for small businesses in Sharrow Vale
-				</h1>
-				<p class="font-almarai tracking-widest text-base">
-					COMING SOON
-				</p>
-				<!-- item is opacity 0 and then animates to opacity 1, with a delay of 1s -->
-				<a class="font-crimson" href="main:info@sharrowvale.co.uk"
-					>info@sharrowvale.co.uk</a
+				<div
+					class="flex flex-col gap-[15px] items-center justify-center"
 				>
+					<h1 class="font-crimson font-semibold text-2xl text-brick">
+						A home for small <br />businesses in Sharrow Vale
+					</h1>
+					<p class="font-almarai tracking-widest text-base">
+						COMING SOON
+					</p>
+					<a
+						class="font-crimson flex flex-row gap-1 flex-fill"
+						href="mailto:sf.samfelton@icloud.com"
+					>
+						sf.samfelton@icloud.com
+					</a>
+				</div>
 			</div>
 		</main>
 	</body>
