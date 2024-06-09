@@ -1,0 +1,16 @@
+{
+    "name": "Sharrow Vale",
+    "short_name": "Sharrow Vale",
+    "description": "A home for small businesses in Sharrow Vale",
+    "start_url": "/",
+    "background_color": "#FDFAE9",
+    "theme_color": "#FDFAE9",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "/icon.svg",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}
