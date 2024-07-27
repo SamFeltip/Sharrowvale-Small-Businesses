@@ -3,7 +3,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label"
 
-export function SignupForm() {
+export function SignupForm({ url }: { url: string }) {
+
     return (
         <form action="https://api.web3forms.com/submit" method="POST">
             {/* Replace with your Access Key */}
@@ -33,7 +34,7 @@ export function SignupForm() {
             <Input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
             {/* TODO: Redirect to correct page */}
-            <input type="hidden" name="redirect" value="http://localhost:4321/join" />
+            <input type="hidden" name="redirect" value={`${url}/about`} />
 
             <Button variant="outline" type="submit">
                 Submit Form
