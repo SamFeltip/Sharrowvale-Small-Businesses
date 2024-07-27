@@ -15,6 +15,11 @@ export default {
     },
     extend: {
       colors: {
+
+        coral: '#e86868',
+        cream: '#fdfae9',
+        gray: { 800: '#252525' },
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -49,10 +54,18 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      fontFamily: {
+        merriweather: ['Merriweather', 'serif'],
+        lato: ['Lato', 'sans-serif'],
+      },
+      fontSize: {
+        'mega': '6rem', // Add custom font size
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        mega: "30px",
       },
       keyframes: {
         "accordion-down": {

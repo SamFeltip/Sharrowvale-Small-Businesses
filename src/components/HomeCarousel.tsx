@@ -11,8 +11,8 @@ import {
 
 import Autoplay from "embla-carousel-autoplay"
 
-
-export function InteractiveCarousel() {
+// images is an array of image paths
+export function InteractiveCarousel({ images }: { images: string[] }) {
 
     return (
         <div className="w-full flex justify-center">
@@ -23,14 +23,16 @@ export function InteractiveCarousel() {
                 }),
             ]} className="mt-3 w-5/6">
                 <CarouselContent>
-                    {Array.from({ length: 5 }).map((_, index) => (
+                    {images.map((image, index) => (
                         <CarouselItem key={index}>
                             <Card>
                                 <CardContent className="relative">
 
-                                    <img className="" src={`/imgs/wide-${index + 1}.jpg`} alt="image" />
-                                    <div className="absolute bottom-0 right-0 p-5 text-white">
-                                        <h3>Sharrow Vale Market</h3>
+                                    <img className="object-cover h-[400px] w-full" src={image} alt="image" />
+                                    <div className="absolute bottom-0 right-0 p-5 text-white w-3/4 text-end">
+                                        <h3 className="capitalize flex-none w-full mt-0 mb-0 font-merriweather text-[5.5rem] font-bold leading-[1.02] no-underline">
+                                            Sharrow Vale Market
+                                        </h3>
                                         <p>10th - 12th July 2024</p>
                                     </div>
 
