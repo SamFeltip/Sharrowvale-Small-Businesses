@@ -2,20 +2,20 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import PlaceLayout from "../../layouts/Place.astro";
 
-type Props = CollectionEntry<"places">;
-
 export async function getStaticPaths() {
-	const blogEntries = await getCollection("places");
-	return blogEntries.map((entry) => ({
-		params: { slug: entry.slug },
-		props: { entry },
+	const posts = await getCollection("places");
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
 	}));
 }
 
-const { entry } = Astro.props;
+type Props = CollectionEntry<"places">;
+
+const entry: Props = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<PlaceLayout frontmatter={entry.data}>
+<PlaceLayout {...entry.data}>
 	<Content />
 </PlaceLayout>

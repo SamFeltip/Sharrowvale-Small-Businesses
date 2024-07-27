@@ -1,16 +1,15 @@
 ---
 title: 'Street Food Chef'
-description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
+description: 'Starting as street food in Sheffield, street food chef garnered local acclaim with five Eat Sheffield awards, a Good Food Guide recommendation, and an Observer Food Awards runner-up. Their focus is on delicious, additive-free fast food made with fresh, locally sourced ingredients. Visit their Burrito Escotilla for vibrant flavors and a variety of drinks!'
 type: 'food'
 heroImage: '/blog-placeholder-1.jpg'
+
+latitude: 53.367329089056994
+longitude: -1.500218360597763
+# 53.367329089056994, -1.500218360597763
+
 ---
 
-This is a page about burritos!
+Beginning as street food in Sheffield, Street Food Chef's offerings have resonated deeply with the community, resulting in five prestigious Eat Sheffield awards. They're honoured to be recommended in the Good Food Guide and recognised as a runner-up in the Observer Food Awards. Committed to quality, their fast food is crafted without additives, featuring ingredients sourced fresh and locally whenever possible. Collaborations with esteemed local partners like Our Cow Molly, Moss Valley Fine Meats, #brownies, and Yee Kwan ensure their offerings are consistently exceptional.
 
-## why you should try burritos
-
-- it's delicious
-- it's cheap
-- it's fun
-- it's easy
-- it's good for you
+Their menu boasts a tantalising selection of fresh chillies and salsas, designed to satisfy even the discerning palate of someone like Salma Hayek. In addition to their culinary delights, they offer an array of beverages including beers, wines, tequila, Mexican soft drinks, and margarita slush. Whether you visit their Burrito Escotilla in Sheffield city centre or their fully licensed Mexican Canteen, you're invited to indulge in their delicious offerings. And while Mexican waves are optional, bringing a poncho along might just add to the festive atmosphere!

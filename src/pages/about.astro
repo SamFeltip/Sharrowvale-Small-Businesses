@@ -1,75 +1,152 @@
 ---
+import BaseHead from "@/components/BaseHead.astro";
 import Layout from "../layouts/Place.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { YouTube } from "astro-embed";
+import { SignupForm } from "@/components/SignupForm.tsx";
 ---
 
-<Layout
-	title="About Me"
-	type="food"
-	description="Lorem ipsum dolor sit amet"
-	heroImage="/blog-placeholder-about.jpg"
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo
-		integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu
-		turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus
-		sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget
-		magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius
-		sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque
-		sagittis purus sit amet.
-	</p>
+<html lang="en">
+	<head>
+		<BaseHead title="about" description={""} />
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida
-		rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis
-		purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae
-		congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt
-		lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer
-		feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas
-		congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus
-		urna et pharetra pharetra massa massa ultricies mi.
-	</p>
+		<style>
+			/* Set the height of the map container */
+			#map {
+				height: 400px;
+			}
+		</style>
+	</head>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor
-		neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu
-		consequat ac felis donec. Egestas integer eget aliquet nibh praesent
-		tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In
-		vitae turpis massa sed elementum. Tristique et egestas quis ipsum
-		suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis
-		nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper
-		viverra nam. Laoreet suspendisse interdum consectetur libero id
-		faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique.
-		Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices
-		tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium
-		quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus
-		faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet
-		dictum sit amet justo donec enim.
-	</p>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<section>
+					<h1>Joining the site</h1>
+					<p>
+						Interested in finding out more about the Sharrow Vale
+						directory? Scroll down to find out more!
+					</p>
+				</section>
+				<section>
+					<h1>Hey! 👋</h1>
+					<p>
+						An introduction to the site from its founders Dan & Sam
+					</p>
+					<YouTube id="https://youtu.be/zZd_WL1HGBM" />
+				</section>
+				<section>
+					<h1>Our Vision</h1>
+					<p>
+						Our vision is to help grow and support small businesses
+						in Sharrow Vale.
+					</p>
+					<p>
+						As locals we love the unique collection of shops in the
+						Vale and see that a central website would improve the
+						accessibility of the shops and services available,
+						making it easy for locals and visitors to easily search
+						and see what's on offer.
+					</p>
+					<p>
+						To support this we'll be maintaining and growing the
+						site as well as providing regular web articles like:
+						'Top 5 places to grab a drink in Sheffield this Summer'
+						or 'Best places to get graduation gifts in Sheffield'
+						which continue to bring new traffic to the site and to
+						the businesses on it. This alongside promotion at events
+						like the markets will help lead local people to consider
+						Sharrow Vale as the place to go for their local needs.
+					</p>
+					<p>
+						There's lots of ways we could develop this site but for
+						now we're not looking to replace any existing sites,
+						just looking for businesses that want to partner with us
+						in boosting business in the area.
+					</p>
+					<p>
+						This site is not a replacement of the Sharrow Vale
+						Community Association but we are aspiring to partner
+						with them.
+					</p>
+				</section>
+				<section>
+					<h1>Why be on the site?</h1>
+					<h2 class="text-center">Benefits for you</h2>
+					<ol class="flex flex-cols gap-3 list-decimal">
+						<li
+							class="border border-dashed border-black text-black text-center bg-yellow-200 bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
+						>
+							Top class SEO (Google ranking + Analytics)
+						</li>
+						<li
+							class="border border-dashed border-black text-black text-center bg-yellow-200 bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
+						>
+							Fee free set-up, welcome pack & future edits
+						</li>
+						<li
+							class="border border-dashed border-black text-black text-center bg-yellow-200 bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
+						>
+							Regular site promotion with web articles & local
+							promotion
+						</li>
+						<li
+							class="border border-dashed border-black text-black text-center bg-yellow-200 bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
+						>
+							Excellent design with a personal touch
+						</li>
+						<li
+							class="border border-dashed border-black text-black text-center bg-yellow-200 bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
+						>
+							Friendly and accessible support from S11 locals
+						</li>
+					</ol>
+					<h2>Further benefits:</h2>
+					<ul class="list-disc">
+						<li>A site for locals run by locals</li>
+						<li>A cheap alternative to a custom website</li>
+						<li>
+							Mobile first design that looks good on mobile phones
+							every time Promote events and offers in our ad
+							banner
+						</li>
+						<li>
+							Easy, full set up assistance Free photography &
+							copywriting available
+						</li>
+						<li>Easy, cancel anytime payments</li>
+					</ul>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere
-		ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim
-		ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra
-		mauris in. Arcu ac tortor dignissim convallis aenean et tortor at.
-		Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor.
-		Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci
-		nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat
-		maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt
-		arcu. Id cursus metus aliquam eleifend mi.
-	</p>
+					<h2>Benefits for the community</h2>
+					<ul class="list-disc">
+						<li>Build the community of small businesses</li>
+						<li>
+							Increasing footfall to the area, a new customer for
+							you could be one for your neighbour
+						</li>
+						<li>Help tourists and locals find something new</li>
+						<li>
+							Invest in the reputation of Sharrow Vale Central
+							place for promoting community events
+						</li>
+					</ul>
+				</section>
+				<section class="grid grid-cols-2">
+					<div>
+						<h1>Interested?</h1>
+						<p>
+							Start a conversation using the form and we'll be in
+							touch with next steps or email us directly at
+							info@sharrowvale.co.uk
+						</p>
+					</div>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi
-		tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit.
-		Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis
-		elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper
-		feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet
-		nibh praesent tristique magna.
-	</p>
-</Layout>
+					<SignupForm />
+				</section>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

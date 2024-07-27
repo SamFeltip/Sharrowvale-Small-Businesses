@@ -3,6 +3,8 @@ title: 'Broomhill Hair'
 description: 'a page about a salon'
 type: 'haircuts'
 heroImage: '/blog-placeholder-3.jpg'
+longitude: -34.397
+latitude: 150.644
 ---
 this is a page about pizza!
 

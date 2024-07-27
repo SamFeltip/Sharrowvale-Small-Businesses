@@ -6,12 +6,20 @@ import Footer from "../components/Footer.astro";
 
 type Props = CollectionEntry<"places">["data"];
 
-const { title, description, type, heroImage } = Astro.props;
+const { title, description, type, heroImage, longitude, latitude }: Props =
+	Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
+
+		<style>
+			/* Set the height of the map container */
+			#map {
+				height: 400px;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -32,9 +40,51 @@ const { title, description, type, heroImage } = Astro.props;
 						<p><em data-pagefind-filter="type">{type}</em></p>
 						<hr />
 					</div>
+
 					<slot />
 				</div>
 			</article>
+			<div id="map"></div>
+
+			<template
+				data-longitude={longitude}
+				data-latitude={latitude}
+				data-title={title}></template>
+
+			<script
+				async
+				defer
+				is:inline
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGvxOSNHyYXvis9yTKjBuYIJK87dvyxsM&callback=initMap"
+			></script>
+			<script is:inline defer>
+				let map;
+				let marker;
+
+				const { longitude, latitude, title } =
+					document.querySelector("template").dataset;
+
+				const lng = parseFloat(longitude);
+				const lat = parseFloat(latitude);
+
+				async function initMap() {
+					const marketLocation = { lat, lng };
+
+					map = new google.maps.Map(document.getElementById("map"), {
+						center: marketLocation,
+						zoom: 18,
+					});
+
+					marker = new google.maps.Marker({
+						position: marketLocation,
+						map,
+						title: title,
+						icon: "https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666c16f69717f0890a570e5e_Pin%20icon.svg",
+					});
+				}
+
+				initMap();
+			</script>
 		</main>
 		<Footer />
 	</body>
