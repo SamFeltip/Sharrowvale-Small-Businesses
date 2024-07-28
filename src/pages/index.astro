@@ -1,79 +1,62 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-
 import "@/styles/globals.css";
 
 import { InteractiveCarousel } from "../components/HomeCarousel.tsx";
 
 import Search from "astro-pagefind/components/Search";
+import Layout from "@/layouts/Layout.astro";
 // import SearchField from "../components/SearchField.astro";
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="font-lato bg-cream flex flex-col items-center">
-		<Header />
-
-		<main class="w-full">
-			<section
-				class="text-center h-[80svh] mh-[600px] flex flex-col items-center justify-center"
+<Layout>
+	<section
+		class="text-center h-[80svh] mh-[600px] flex flex-col items-center justify-center"
+	>
+		<div class="mb-[150px]">
+			<h2
+				class="font-lato text-3xl text-black tracking-[.08em] uppercase mt-0 mb-0 font-bold leading-none no-underline"
 			>
-				<div class="mb-[150px]">
-					<h2
-						class="font-lato text-3xl text-black tracking-[.08em] uppercase mt-0 mb-0 font-bold leading-none no-underline"
-					>
-						Welcome to
-					</h2>
-					<h1
-						class="font-merriweather font-bold text-coral text-mega text-center capitalize"
-					>
-						Sharrow Vale
-					</h1>
-					<h2
-						class="font-lato text-3xl text-black tracking-[.08em] uppercase mt-0 mb-0 font-bold leading-none no-underline"
-					>
-						small businesses
-					</h2>
-					<p
-						class="font-lato font-light text-xl leading-[1.32] tracking-[.04em] mt-0 mb-0"
-					>
-						The home for exploring the unique community of
-						businesses
-						<br />
-						and services in Sharrow Vale, Sheffield
-					</p>
-				</div>
-				<p
-					class="text-black mt-0 mb-0 font-lato text-base font-light leading-[1.24] no-underline"
-				>
-					Search businesses
-				</p>
-			</section>
+				Welcome to
+			</h2>
+			<h1
+				class="font-merriweather font-bold text-coral text-mega text-center capitalize"
+			>
+				Sharrow Vale
+			</h1>
+			<h2
+				class="font-lato text-3xl text-black tracking-[.08em] uppercase mt-0 mb-0 font-bold leading-none no-underline"
+			>
+				small businesses
+			</h2>
+			<p>
+				The home for exploring the unique community of businesses
+				<br />
+				and services in Sharrow Vale, Sheffield
+			</p>
+		</div>
+		<p
+			class="text-black mt-0 mb-0 font-lato text-base font-light leading-[1.24] no-underline"
+		>
+			Search businesses
+		</p>
+	</section>
 
-			<InteractiveCarousel
-				client:load
-				images={[
-					"https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666576a0c2d4c780054817d3_market%20.jpeg",
-					"https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6665738905abe840eef315ec_eve%20k.jpeg",
-					"https://uploads-ssl.webflow.com/66637bfce5ac00faa1c7cbd8/666b8579fc23fb88222f0dd1_the-best-open-mic-nights-in-london.webp",
-				]}
-			/>
+	<InteractiveCarousel
+		client:load
+		images={[
+			"https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666576a0c2d4c780054817d3_market%20.jpeg",
+			"https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6665738905abe840eef315ec_eve%20k.jpeg",
+			"https://uploads-ssl.webflow.com/66637bfce5ac00faa1c7cbd8/666b8579fc23fb88222f0dd1_the-best-open-mic-nights-in-london.webp",
+		]}
+	/>
 
-			<Search
-				id="search"
-				className="pagefind-ui"
-				uiOptions={{
-					showImages: true,
-					showEmptyFilters: true,
-					openFilters: ["Tags", "Type"],
-				}}
-			/>
-		</main>
-		<Footer />
-	</body>
-</html>
+	<Search
+		id="search"
+		className="pagefind-ui"
+		uiOptions={{
+			showImages: true,
+			showEmptyFilters: true,
+			openFilters: ["Tags", "Type"],
+		}}
+	/>
+</Layout>

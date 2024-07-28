@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Layout from "./Layout.astro";
 
 type Props = CollectionEntry<"places">["data"];
 
@@ -10,82 +11,61 @@ const { title, description, type, heroImage, longitude, latitude }: Props =
 	Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
+<Layout>
+	<article>
+		<div class="hero-image">
+			<img width={1020} height={510} src={heroImage} alt="hero image" />
+		</div>
+		<div class="prose">
+			<div class="title">
+				<p><em data-pagefind-filter="type">{type}</em></p>
+				<h1>{title}</h1>
+				<p>{description}</p>
+				<hr />
+			</div>
 
-		<style>
-			/* Set the height of the map container */
-			#map {
-				height: 400px;
-			}
-		</style>
-	</head>
+			<slot />
+		</div>
+	</article>
+	<div id="map" class="h-[400px]"></div>
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					<img
-						width={1020}
-						height={510}
-						src={heroImage}
-						alt="hero image"
-					/>
-				</div>
-				<div class="prose">
-					<div class="title">
-						<h1>{title}</h1>
-						<p><em data-pagefind-filter="type">{type}</em></p>
-						<hr />
-					</div>
+	<template
+		data-longitude={longitude}
+		data-latitude={latitude}
+		data-title={title}></template>
 
-					<slot />
-				</div>
-			</article>
-			<div id="map"></div>
+	<script
+		async
+		defer
+		is:inline
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGvxOSNHyYXvis9yTKjBuYIJK87dvyxsM&callback=initMap"
+	></script>
+	<script is:inline defer>
+		let map;
+		let marker;
 
-			<template
-				data-longitude={longitude}
-				data-latitude={latitude}
-				data-title={title}></template>
+		const { longitude, latitude, title } =
+			document.querySelector("template").dataset;
 
-			<script
-				async
-				defer
-				is:inline
-				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGvxOSNHyYXvis9yTKjBuYIJK87dvyxsM&callback=initMap"
-			></script>
-			<script is:inline defer>
-				let map;
-				let marker;
+		const lng = parseFloat(longitude);
+		const lat = parseFloat(latitude);
 
-				const { longitude, latitude, title } =
-					document.querySelector("template").dataset;
+		async function initMap() {
+			const marketLocation = { lat, lng };
 
-				const lng = parseFloat(longitude);
-				const lat = parseFloat(latitude);
+			map = new google.maps.Map(document.getElementById("map"), {
+				center: marketLocation,
+				zoom: 18,
+			});
 
-				async function initMap() {
-					const marketLocation = { lat, lng };
+			marker = new google.maps.Marker({
+				position: marketLocation,
+				map,
+				title: title,
+				icon: "https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666c16f69717f0890a570e5e_Pin%20icon.svg",
+			});
+		}
 
-					map = new google.maps.Map(document.getElementById("map"), {
-						center: marketLocation,
-						zoom: 18,
-					});
-
-					marker = new google.maps.Marker({
-						position: marketLocation,
-						map,
-						title: title,
-						icon: "https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666c16f69717f0890a570e5e_Pin%20icon.svg",
-					});
-				}
-
-				initMap();
-			</script>
-		</main>
-		<Footer />
-	</body>
-</html>
+		initMap();
+	</script>
+</Layout>
