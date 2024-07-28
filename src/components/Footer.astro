@@ -3,8 +3,10 @@ const today = new Date();
 import { LOGO_URL_DARK } from "../consts";
 ---
 
-<div class="w-full text-gray-50 bg-gray-800 flex justify-center">
-	<footer>
+<div
+	class="w-full text-gray-50 bg-gray-800 flex justify-center pt-[64px] px-[40px] pb-[80px]"
+>
+	<footer class="flex flex-col gap-[64px]">
 		<div class="flex justify-between">
 			<div>
 				<a href="/">
@@ -15,7 +17,7 @@ import { LOGO_URL_DARK } from "../consts";
 						height="160"
 					/>
 				</a>
-				<p>All rights reserved</p>
+				<p class="font-1">All rights reserved</p>
 			</div>
 			<div class="text-end gap-3">
 				<div>
@@ -23,16 +25,45 @@ import { LOGO_URL_DARK } from "../consts";
 					<span><a href="/about">JOIN</a></span>
 				</div>
 				<div>
-					<span
-						><a href="mailto:info@sharrowvale.co.uk">
+					<p>
+						<a href="mailto:info@sharrowvale.co.uk">
 							info@sharrowvale.co.uk
 						</a>
-					</span>
-					<span>Like this site? Check out D&n Facebook Instagram</span
-					>
+					</p>
+					<p>Like this site? Check out D&n Facebook Instagram</p>
 				</div>
 			</div>
 		</div>
-		<div class="social-links text-center">Facebook Instagram</div>
+		<div class="social-links text-center flex justify-center gap-3 w-full">
+			<p>Facebook</p>
+			<p>Instagram</p>
+		</div>
 	</footer>
 </div>
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const sections = document.querySelectorAll("section");
+
+		const observerOptions = {
+			root: null,
+			rootMargin: "0px",
+			threshold: 0.1,
+		};
+
+		const sectionObserver = new IntersectionObserver(
+			(entries, observer) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("visible");
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			observerOptions,
+		);
+
+		sections.forEach((section) => {
+			sectionObserver.observe(section);
+		});
+	});
+</script>

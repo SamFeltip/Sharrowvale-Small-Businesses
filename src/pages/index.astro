@@ -5,6 +5,7 @@ import { InteractiveCarousel } from "../components/HomeCarousel.tsx";
 
 import Search from "astro-pagefind/components/Search";
 import Layout from "@/layouts/Layout.astro";
+
 // import SearchField from "../components/SearchField.astro";
 ---
 
@@ -12,7 +13,7 @@ import Layout from "@/layouts/Layout.astro";
 	<section
 		class="text-center h-[80svh] mh-[600px] flex flex-col items-center justify-center"
 	>
-		<div class="mb-[150px]">
+		<div class="mb-[120px]">
 			<h2
 				class="font-lato text-3xl text-black tracking-[.08em] uppercase mt-0 mb-0 font-bold leading-none no-underline"
 			>
@@ -34,21 +35,26 @@ import Layout from "@/layouts/Layout.astro";
 				and services in Sharrow Vale, Sheffield
 			</p>
 		</div>
-		<p
-			class="text-black mt-0 mb-0 font-lato text-base font-light leading-[1.24] no-underline"
-		>
-			Search businesses
-		</p>
+		<div class="text-center">
+			<p
+				class="text-black mt-0 mb-0 font-lato text-base font-light leading-[1.24] no-underline"
+			>
+				Search businesses
+			</p>
+			<i class="fa-solid fa-chevron-down"></i>
+		</div>
 	</section>
 
-	<InteractiveCarousel
-		client:load
-		images={[
-			"https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666576a0c2d4c780054817d3_market%20.jpeg",
-			"https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6665738905abe840eef315ec_eve%20k.jpeg",
-			"https://uploads-ssl.webflow.com/66637bfce5ac00faa1c7cbd8/666b8579fc23fb88222f0dd1_the-best-open-mic-nights-in-london.webp",
-		]}
-	/>
+	<section>
+		<InteractiveCarousel
+			client:load
+			images={[
+				"https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666576a0c2d4c780054817d3_market%20.jpeg",
+				"https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6665738905abe840eef315ec_eve%20k.jpeg",
+				"https://uploads-ssl.webflow.com/66637bfce5ac00faa1c7cbd8/666b8579fc23fb88222f0dd1_the-best-open-mic-nights-in-london.webp",
+			]}
+		/>
+	</section>
 
 	<Search
 		id="search"

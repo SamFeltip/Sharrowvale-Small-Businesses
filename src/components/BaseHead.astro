@@ -56,3 +56,31 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const sections = document.querySelectorAll("section");
+
+		const observerOptions = {
+			root: null,
+			rootMargin: "0px",
+			threshold: 0.1,
+		};
+
+		const sectionObserver = new IntersectionObserver(
+			(entries, observer) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("visible");
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			observerOptions,
+		);
+
+		sections.forEach((section) => {
+			sectionObserver.observe(section);
+		});
+	});
+</script>
