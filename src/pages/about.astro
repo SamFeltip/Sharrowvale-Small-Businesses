@@ -48,14 +48,30 @@ import Layout from "@/layouts/Layout.astro";
 		}
 	</style>
 	<article>
-		<section>
-			<h1>Joining the site</h1>
-			<p>
-				Interested in finding out more about the Sharrow Vale directory?
-				Scroll down to find out more!
-			</p>
+		<section
+			class="grid grid-cols-2 items-center mb-[40px] p-[8vh_40px] translate-x-[50px]"
+		>
+			<img
+				class="rounded-[40px]"
+				height="319px"
+				src="https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6664bc75f61256fa5208f91c_dyson%20place.jpeg"
+				alt="dyson place"
+			/>
+			<!-- padding 64 px as tailwind unit -->
+			<div class="translate-x-[-100px] body-section p-64">
+				<h1
+					class="font-merriweather font-bold text-coral text-[5.5rem] capitalize text-balance"
+				>
+					Joining the site
+				</h1>
+				<p>
+					Interested in finding out more about the Sharrow Vale
+					directory?
+				</p>
+				<p>Scroll down to find out more!</p>
+			</div>
 		</section>
-		<div class="grid gap-[40px]">
+		<div class="grid gap-[40px] p-[80px_40px]">
 			<section class="body-section">
 				<h2>Hey! 👋</h2>
 				<p>An introduction to the site from its founders Dan & Sam</p>
@@ -100,33 +116,33 @@ import Layout from "@/layouts/Layout.astro";
 				<h3 class="text-center">Benefits for you</h3>
 				<ol class="flex flex-cols gap-3 list-decimal">
 					<li
-						class="border border-dashed border-black text-black text-center bg-cream bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
+						class="border border-dashed border-black text-black text-center bg-yellow-300 bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
 					>
 						Top class SEO (Google ranking + Analytics)
 					</li>
 					<li
-						class="border border-dashed border-black text-black text-center bg-cream bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
+						class="border border-dashed border-black text-black text-center bg-yellow-300 bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
 					>
 						Fee free set-up, welcome pack & future edits
 					</li>
 					<li
-						class="border border-dashed border-black text-black text-center bg-cream bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
+						class="border border-dashed border-black text-black text-center bg-yellow-300 bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
 					>
 						Regular site promotion with web articles & local
 						promotion
 					</li>
 					<li
-						class="border border-dashed border-black text-black text-center bg-cream bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
+						class="border border-dashed border-black text-black text-center bg-yellow-300 bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
 					>
 						Excellent design with a personal touch
 					</li>
 					<li
-						class="border border-dashed border-black text-black text-center bg-cream bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
+						class="border border-dashed border-black text-black text-center bg-yellow-300 bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
 					>
 						Friendly and accessible support from S11 locals
 					</li>
 				</ol>
-				<h3>Further benefits:</h3>
+				<h4>Further benefits:</h4>
 				<ul class="list-disc">
 					<li>A site for locals run by locals</li>
 					<li>A cheap alternative to a custom website</li>
