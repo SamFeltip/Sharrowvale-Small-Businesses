@@ -11,22 +11,22 @@ export function SignupForm({ url }: { url: string }) {
             <Input type="hidden" name="access_key" value="3a1a61c3-7ce8-4b30-830e-958c73c75598" />
 
             <div>
-                <Label htmlFor="business-name">Business Name</Label>
+                <Label className="text-coral" htmlFor="business-name">Business Name</Label>
                 <Input id="business-name" type="text" name="Business Name" required />
             </div>
 
             <div>
-                <Label htmlFor="contact-name">Contact Name</Label>
+                <Label className="text-coral" htmlFor="contact-name">Contact Name</Label>
                 <Input id="contact-name" type="text" name="Contact Name" required />
             </div>
 
             <div>
-                <Label htmlFor="contact-email">Contact Email</Label>
+                <Label className="text-coral" htmlFor="contact-email">Contact Email</Label>
                 <Input id="contact-email" type="email" name="Contact Email" required />
             </div>
 
             <div>
-                <Label htmlFor="comments">Comments</Label>
+                <Label className="text-coral" htmlFor="comments">Comments</Label>
                 <Input id="comments" type="text" name="Comments" />
             </div>
 
@@ -36,7 +36,7 @@ export function SignupForm({ url }: { url: string }) {
             {/* TODO: Redirect to correct page */}
             <input type="hidden" name="redirect" value={`${url}/about`} />
 
-            <Button variant="outline" type="submit">
+            <Button type="submit">
                 Submit Form
             </Button>
         </form>

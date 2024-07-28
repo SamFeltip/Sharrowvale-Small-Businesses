@@ -9,18 +9,6 @@ import Layout from "@/layouts/Layout.astro";
 
 <Layout>
 	<style>
-		.body-section {
-			grid-column-gap: 24px;
-			grid-row-gap: 24px;
-			background-color: var(--white);
-			border-radius: 40px;
-			flex-flow: column;
-			align-items: flex-start;
-			width: 100%;
-			max-width: 1200px;
-			padding: 48px 40px;
-			display: flex;
-		}
 		h2 {
 			color: var(--black);
 			text-align: left;
@@ -58,7 +46,9 @@ import Layout from "@/layouts/Layout.astro";
 				alt="dyson place"
 			/>
 			<!-- padding 64 px as tailwind unit -->
-			<div class="translate-x-[-100px] body-section p-64">
+			<div
+				class="translate-x-[-100px] flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10 p-64"
+			>
 				<h1
 					class="font-merriweather font-bold text-coral text-[5.5rem] capitalize text-balance"
 				>
@@ -72,12 +62,16 @@ import Layout from "@/layouts/Layout.astro";
 			</div>
 		</section>
 		<div class="grid gap-[40px] p-[80px_40px]">
-			<section class="body-section">
+			<section
+				class="flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10"
+			>
 				<h2>Hey! 👋</h2>
 				<p>An introduction to the site from its founders Dan & Sam</p>
 				<YouTube id="https://youtu.be/zZd_WL1HGBM" />
 			</section>
-			<section class="body-section">
+			<section
+				class="flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10"
+			>
 				<h2>Our Vision</h2>
 				<p>
 					Our vision is to help grow and support small businesses in
@@ -111,7 +105,9 @@ import Layout from "@/layouts/Layout.astro";
 					Association but we are aspiring to partner with them.
 				</p>
 			</section>
-			<section class="body-section">
+			<section
+				class="flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10"
+			>
 				<h2>Why be on the site?</h2>
 				<h3 class="text-center">Benefits for you</h3>
 				<ol class="flex flex-cols gap-3 list-decimal">
@@ -171,7 +167,9 @@ import Layout from "@/layouts/Layout.astro";
 					</li>
 				</ul>
 			</section>
-			<section class="body-section grid grid-cols-2">
+			<section
+				class="w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10 grid grid-cols-2"
+			>
 				<div>
 					<h2>Interested?</h2>
 					<p>
