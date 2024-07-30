@@ -1,6 +1,8 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
-import PlaceLayout from "../../layouts/Place.astro";
+import Layout from "@/layouts/Layout.astro";
+import GoogleMap from "@/components/places/GoogleMap.astro";
+import LightBox from "@/components/places/LightBox.tsx";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("places");
@@ -13,9 +15,104 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"places">;
 
 const entry: Props = Astro.props;
-const { Content } = await entry.render();
+const { title, description, type, heroImage, longitude, latitude } = entry.data;
 ---
 
-<PlaceLayout {...entry.data}>
-	<Content />
-</PlaceLayout>
+<Layout>
+	<style>
+		@keyframes parallax-background {
+			to {
+				transform: translateY(200px);
+			}
+		}
+
+		@keyframes parallax-foreground {
+			to {
+				transform: translateY(-200px);
+			}
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+			#parallax-background {
+				view-timeline-name: --parallax-background;
+			}
+
+			#hero-image {
+				animation: parallax-background both;
+				animation-timing-function: ease-in-out;
+
+				animation-timeline: --parallax-background;
+				animation-range: 40% 120%;
+			}
+
+			#parallax-foreground {
+				view-timeline-name: --parallax-foreground;
+			}
+
+			#place-content {
+				animation: parallax-foreground both;
+				animation-timing-function: ease-in-out;
+
+				animation-timeline: --parallax-foreground;
+				animation-range: 0% 120%;
+			}
+		}
+	</style>
+
+	<article class="py-[3rem] px-[1rem] mb-5">
+		<div class="h-[350px]" id="parallax-background">
+			<img
+				id="hero-image"
+				class="rounded-3xl w-full h-[1065px] object-cover sticky"
+				src={heroImage}
+				alt="hero image"
+			/>
+		</div>
+		<div id="parallax-foreground">
+			<section
+				id="place-content"
+				class="gap-12
+				mx-[2rem]
+			bg-white
+			rounded-[40px]
+			flex
+			flex-col
+			justify-center
+			items-center
+			max-w-[1200px]
+			mt-0
+			p-[3.5rem] p-y-[3rem] pb-[4.5rem] static"
+			>
+				<div class="prose">
+					<div class="title grid gap-[24px]">
+						<p class="uppercase text-center">
+							<span data-pagefind-filter="type">{type}</span>
+						</p>
+						<h1
+							class="color-coral text-center font-merriweather font-bold text-coral text-[3rem] text-balance"
+						>
+							{title}
+						</h1>
+						<section>
+							<p>{description}</p>
+						</section>
+						<section>
+							<img
+								class="rounded-3xl w-full h-[400px] object-cover"
+								src="https://cdn.prod.website-files.com/66637ca2fcf1b32b5acc349c/66673de73858e856c9b96e35_sfc%205.avif"
+								alt=""
+							/>
+							<LightBox client:load />
+						</section>
+						<section>
+							<slot />
+						</section>
+					</div>
+				</div>
+			</section>
+		</div>
+	</article>
+	<section class="mb-5">
+		<GoogleMap longitude={longitude} latitude={latitude} title={title} />
+	</section>
+</Layout>

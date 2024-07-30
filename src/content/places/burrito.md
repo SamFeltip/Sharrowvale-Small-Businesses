@@ -1,8 +1,8 @@
 ---
-title: 'Street Food Chef'
-description: 'Starting as street food in Sheffield, street food chef garnered local acclaim with five Eat Sheffield awards, a Good Food Guide recommendation, and an Observer Food Awards runner-up. Their focus is on delicious, additive-free fast food made with fresh, locally sourced ingredients. Visit their Burrito Escotilla for vibrant flavors and a variety of drinks!'
-type: 'food'
-heroImage: 'https://cdn.prod.website-files.com/66637ca2fcf1b32b5acc349c/66673dcdadd7d953c878265e_sfc%202.avif'
+title: "Street Food Chef"
+description: "Starting as street food in Sheffield, street food chef garnered local acclaim with five Eat Sheffield awards, a Good Food Guide recommendation, and an Observer Food Awards runner-up. Their focus is on delicious, additive-free fast food made with fresh, locally sourced ingredients. Visit their Burrito Escotilla for vibrant flavors and a variety of drinks!"
+type: "food"
+heroImage: "https://cdn.prod.website-files.com/66637ca2fcf1b32b5acc349c/66673dcdadd7d953c878265e_sfc%202.avif"
 
 latitude: 53.367329089056994
 longitude: -1.500218360597763

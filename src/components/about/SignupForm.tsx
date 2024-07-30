@@ -1,7 +1,6 @@
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label"
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
+import { Label } from "../ui/label"
 
 export function SignupForm({ url }: { url: string }) {
 
