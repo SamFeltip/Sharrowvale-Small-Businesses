@@ -3,8 +3,9 @@
 // import lgZoom from 'lightgallery/plugins/zoom';
 
 import * as React from "react";
-import Lightbox from "yet-another-react-lightbox";
+import Lightbox, { type ThumbnailsRef } from "yet-another-react-lightbox";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 import { Button } from "@/components/ui/button";
 
@@ -13,7 +14,7 @@ import "yet-another-react-lightbox/styles.css";
 
 export default function LightBox() {
     const [open, setOpen] = React.useState(false);
-    const thumbnailsRef = React.useRef(null);
+    const thumbnailsRef = React.useRef<ThumbnailsRef>(null);
 
     return (
         <>
