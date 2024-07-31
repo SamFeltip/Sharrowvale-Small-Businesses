@@ -17,7 +17,6 @@ export default function LightBox() {
 
     return (
         <>
-
             <p>Thumbnails plugin adds thumbnails track.</p>
 
             <Lightbox
