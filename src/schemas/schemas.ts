@@ -9,4 +9,5 @@ export const placeSchema = z.object({
     heroImage: z.string(),
     longitude: z.number().nullable(),
     latitude: z.number().nullable(),
+    additionalImages: z.array(z.string()),
 })

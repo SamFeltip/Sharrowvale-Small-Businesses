@@ -5,6 +5,15 @@ type: 'food'
 heroImage: '/blog-placeholder-3.jpg'
 longitude: -34.397
 latitude: 150.644
+
+# used for lightbox
+additionalImages: [
+    "https://cdn.prod.website-files.com/66637ca2fcf1b32b5acc349c/66673de73858e856c9b96e35_sfc%205.avif",
+    "https://cdn.prod.website-files.com/66637ca2fcf1b32b5acc349c/66673dc78ea18ad0812ed15b_sfc%204.avif",
+    "https://cdn.prod.website-files.com/66637ca2fcf1b32b5acc349c/66673de7156dc9acc931d5ff_sfc%203.avif",
+    "https://cdn.prod.website-files.com/66637ca2fcf1b32b5acc349c/66673dcdadd7d953c878265e_sfc%202.avif"
+    ]
+    
 ---
 this is a page about pizza!
 
