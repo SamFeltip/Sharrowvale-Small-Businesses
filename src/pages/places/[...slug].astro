@@ -44,30 +44,31 @@ const slides: SlideImage[] = additionalImages.map((slide: string) => ({
 				transform: translateY(-200px);
 			}
 		}
+		@supports (animation-timeline: --parallax-background) {
+			@media (prefers-reduced-motion: no-preference) {
+				#parallax-background {
+					view-timeline-name: --parallax-background;
+				}
 
-		@media (prefers-reduced-motion: no-preference) {
-			#parallax-background {
-				view-timeline-name: --parallax-background;
-			}
+				#hero-image {
+					animation: parallax-background both;
+					animation-timing-function: ease-in-out;
 
-			#hero-image {
-				animation: parallax-background both;
-				animation-timing-function: ease-in-out;
+					animation-timeline: --parallax-background;
+					animation-range: 60% 120%;
+				}
 
-				animation-timeline: --parallax-background;
-				animation-range: 40% 100%;
-			}
+				#parallax-foreground {
+					view-timeline-name: --parallax-foreground;
+				}
 
-			#parallax-foreground {
-				view-timeline-name: --parallax-foreground;
-			}
+				#place-content {
+					animation: parallax-foreground both;
+					animation-timing-function: ease-in-out;
 
-			#place-content {
-				animation: parallax-foreground both;
-				animation-timing-function: ease-in-out;
-
-				animation-timeline: --parallax-foreground;
-				animation-range: 0% 120%;
+					animation-timeline: --parallax-foreground;
+					animation-range: 0% 120%;
+				}
 			}
 		}
 	</style>
