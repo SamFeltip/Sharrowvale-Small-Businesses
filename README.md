@@ -1,6 +1,9 @@
-#
+# Sharrow Vale Directory
 
-invoice
+astro website showcasing businesses on sharrow vale.
 
-added to the directory
-provide the content
+this website is currently being rebuilt in astro to avoid webflow charges.
+
+Visit [sharrowvale.co.uk](https://www.sharowvale.co.uk) to see the webflow project.
+
+you can see this project at [preview.sharrowvale.co.uk](https://preview.sharrowvale.co.uk)
