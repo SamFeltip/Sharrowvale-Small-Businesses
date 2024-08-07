@@ -28,6 +28,8 @@ const {
 	additionalImages,
 } = entry.data;
 
+const { Content, headings } = await entry.render();
+
 const slides: SlideImage[] = additionalImages.map((slide: string) => ({
 	src: slide,
 }));
@@ -116,15 +118,15 @@ console.log(additional_places.length);
 							>
 								{title}
 							</h1>
-							<section>
+							<div>
 								<p>{description}</p>
-							</section>
-							<section>
+							</div>
+							<div>
 								<LightBox slides={slides} client:load />
-							</section>
-							<section>
-								<!-- <Body /> -->
-							</section>
+							</div>
+							<div>
+								<Content />
+							</div>
 						</div>
 					</div>
 				</section>
