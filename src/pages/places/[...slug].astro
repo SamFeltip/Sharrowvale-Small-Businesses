@@ -4,7 +4,7 @@ import Layout from "@/layouts/Layout.astro";
 import GoogleMap from "@/components/places/GoogleMap.astro";
 import LightBox from "@/components/places/LightBox.tsx";
 import type { SlideImage } from "yet-another-react-lightbox";
-import PlaceCard from "./PlaceCard.astro";
+import PlaceCard from "@/components/places/PlaceCard.astro";
 import { Button } from "@/components/ui/button";
 
 export async function getStaticPaths() {
@@ -122,7 +122,7 @@ console.log(additional_places.length);
 								<LightBox slides={slides} client:load />
 							</section>
 							<section>
-								<slot />
+								<!-- <Body /> -->
 							</section>
 						</div>
 					</div>
