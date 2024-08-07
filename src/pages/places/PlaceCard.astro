@@ -4,16 +4,7 @@ import type { CollectionEntry } from "astro:content";
 type Props = CollectionEntry<"places">;
 
 const entry: Props = Astro.props;
-const {
-    title,
-    description,
-    preview,
-    type,
-    heroImage,
-    longitude,
-    latitude,
-    additionalImages,
-} = entry.data;
+const { title, preview, heroImage } = entry.data;
 
 const slug = entry.slug;
 ---
