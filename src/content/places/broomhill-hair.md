@@ -1,8 +1,9 @@
 ---
-title: 'Pizza'
-description: 'a page about pizza'
-type: 'food'
-heroImage: '/blog-placeholder-3.jpg'
+title: "Broomhill Hair"
+preview: "Hair" 
+description: "With over 34 years of hands-on experience and five successful years in business, Giuseppe's offers expert haircuts for all hair types in a friendly and professional atmosphere."
+type: "haircuts"
+heroImage: "/blog-placeholder-3.jpg"
 longitude: -34.397
 latitude: 150.644
 

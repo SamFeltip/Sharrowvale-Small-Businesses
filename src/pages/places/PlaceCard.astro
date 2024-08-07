@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = CollectionEntry<"places">;
+
+const entry: Props = Astro.props;
+const {
+    title,
+    description,
+    preview,
+    type,
+    heroImage,
+    longitude,
+    latitude,
+    additionalImages,
+} = entry.data;
+
+const slug = entry.slug;
+---
+
+<a href={`/places/${slug}/`}>
+    <img class="rounded-3xl aspect-video" src={heroImage} alt={title} />
+
+    <h3
+        class="text-gray mt-0 mb-0 pt-3 pb-1 font-serif text-3xl font-bold no-underline"
+    >
+        {title}
+    </h3>
+
+    <p
+        class="text-gray mt-0 mb-0 font-sans text-base font-light leading-snug no-underline"
+    >
+        {preview}
+    </p>
+</a>

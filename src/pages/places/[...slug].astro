@@ -4,10 +4,11 @@ import Layout from "@/layouts/Layout.astro";
 import GoogleMap from "@/components/places/GoogleMap.astro";
 import LightBox from "@/components/places/LightBox.tsx";
 import type { SlideImage } from "yet-another-react-lightbox";
-
-const places = await getCollection("places");
+import PlaceCard from "./PlaceCard.astro";
+import { Button } from "@/components/ui/button";
 
 export async function getStaticPaths() {
+	const places = await getCollection("places");
 	return places.map((place) => ({
 		params: { slug: place.slug },
 		props: place,
@@ -31,7 +32,12 @@ const slides: SlideImage[] = additionalImages.map((slide: string) => ({
 	src: slide,
 }));
 
-const additional_places = places.where();
+const places: CollectionEntry<"places">[] = await getCollection("places");
+const additional_places = places.filter(
+	(x) => x.data.type === type && x.data.title != title,
+);
+
+console.log(additional_places.length);
 ---
 
 <Layout>
@@ -43,7 +49,7 @@ const additional_places = places.where();
 		}
 
 		@keyframes parallax-foreground {
-			to {
+			from {
 				transform: translateY(-200px);
 			}
 		}
@@ -130,13 +136,25 @@ const additional_places = places.where();
 				</section>
 				<section>
 					<h2
-						class="color-coral text-center font-merriweather text-coral text-[1.5rem] line-height-[112%]"
+						class="color-coral text-center font-merriweather text-coral text-2xl line-height-relaxed"
 					>
 						Similar listings
 					</h2>
 
-					<div class="grid grid-cols-3 gap-4"></div>
+					<div class="grid grid-cols-3 gap-4">
+						{additional_places.map((ap) => <PlaceCard {...ap} />)}
+					</div>
 				</section>
+
+				<div class="flex justify-center align-center">
+					<a
+						href="/places"
+						role="button"
+						class="border text-gray bg-transparent rounded-full justify-center items-center px-4 py-2 font-serif text-base no-underline flex hover:bg-black hover:text-cream"
+					>
+						Back to results
+					</a>
+				</div>
 			</div>
 		</div>
 	</article>

@@ -1,6 +1,6 @@
 import { defineCollection } from 'astro:content';
 
-import { placeSchema } from '../schemas/schemas';
+import { placeSchema } from '../schemas/places';
 
 const placeCollection = defineCollection({
 	type: 'content',
