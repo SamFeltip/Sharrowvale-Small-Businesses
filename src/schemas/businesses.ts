@@ -1,7 +1,7 @@
 
 import { z } from 'astro:content';
 
-export const placeSchema = z.object({
+export const businessSchema = z.object({
     title: z.string(),
     description: z.string(),
     preview: z.string(),

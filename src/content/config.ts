@@ -1,11 +1,11 @@
 import { defineCollection } from 'astro:content';
 
-import { placeSchema } from '../schemas/places';
+import { businessSchema as businessSchema } from '../schemas/businesses';
 
 const placeCollection = defineCollection({
 	type: 'content',
 	// Type-check frontmatter using a schema
-	schema: placeSchema,
+	schema: businessSchema,
 });
 
-export const collections = { "places": placeCollection };
+export const collections = { "businesses": placeCollection };

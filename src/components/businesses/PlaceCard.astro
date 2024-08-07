@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-type Props = CollectionEntry<"places">;
+type Props = CollectionEntry<"businesses">;
 
 const entry: Props = Astro.props;
 const { title, preview, heroImage } = entry.data;
@@ -9,7 +9,7 @@ const { title, preview, heroImage } = entry.data;
 const slug = entry.slug;
 ---
 
-<a href={`/places/${slug}/`}>
+<a href={`/businesses/${slug}/`}>
     <img class="rounded-3xl aspect-video" src={heroImage} alt={title} />
 
     <h3

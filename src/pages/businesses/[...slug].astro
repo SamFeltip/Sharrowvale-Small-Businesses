@@ -1,21 +1,21 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import GoogleMap from "@/components/places/GoogleMap.astro";
-import LightBox from "@/components/places/LightBox.tsx";
+import GoogleMap from "@/components/businesses/GoogleMap.astro";
+import LightBox from "@/components/businesses/LightBox.tsx";
 import type { SlideImage } from "yet-another-react-lightbox";
-import PlaceCard from "@/components/places/PlaceCard.astro";
+import PlaceCard from "@/components/businesses/PlaceCard.astro";
 import { Button } from "@/components/ui/button";
 
 export async function getStaticPaths() {
-	const places = await getCollection("places");
-	return places.map((place) => ({
-		params: { slug: place.slug },
-		props: place,
+	const businesses = await getCollection("businesses");
+	return businesses.map((business) => ({
+		params: { slug: business.slug },
+		props: business,
 	}));
 }
 
-type Props = CollectionEntry<"places">;
+type Props = CollectionEntry<"businesses">;
 
 const entry: Props = Astro.props;
 const {
@@ -32,8 +32,9 @@ const slides: SlideImage[] = additionalImages.map((slide: string) => ({
 	src: slide,
 }));
 
-const places: CollectionEntry<"places">[] = await getCollection("places");
-const additional_places = places.filter(
+const businesses: CollectionEntry<"businesses">[] =
+	await getCollection("businesses");
+const additional_places = businesses.filter(
 	(x) => x.data.type === type && x.data.title != title,
 );
 
@@ -71,7 +72,7 @@ console.log(additional_places.length);
 					view-timeline-name: --parallax-foreground;
 				}
 
-				#place-content {
+				#business-content {
 					animation: parallax-foreground both;
 					animation-timing-function: ease-in-out;
 
@@ -92,7 +93,7 @@ console.log(additional_places.length);
 			/>
 		</div>
 		<div id="parallax-foreground">
-			<div id="place-content" class="flex flex-col gap-6 mx-8 mb-5">
+			<div id="business-content" class="flex flex-col gap-6 mx-8 mb-5">
 				<section
 					class="gap-12
 							bg-white
@@ -148,7 +149,7 @@ console.log(additional_places.length);
 
 				<div class="flex justify-center align-center">
 					<a
-						href="/places"
+						href="/businesses"
 						role="button"
 						class="border text-gray bg-transparent rounded-full justify-center items-center px-4 py-2 font-serif text-base no-underline flex hover:bg-black hover:text-cream"
 					>
