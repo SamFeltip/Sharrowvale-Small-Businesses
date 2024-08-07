@@ -5,8 +5,9 @@ import GoogleMap from "@/components/places/GoogleMap.astro";
 import LightBox from "@/components/places/LightBox.tsx";
 import type { SlideImage } from "yet-another-react-lightbox";
 
+const places = await getCollection("places");
+
 export async function getStaticPaths() {
-	const places = await getCollection("places");
 	return places.map((place) => ({
 		params: { slug: place.slug },
 		props: place,
@@ -29,6 +30,8 @@ const {
 const slides: SlideImage[] = additionalImages.map((slide: string) => ({
 	src: slide,
 }));
+
+const additional_places = places.where();
 ---
 
 <Layout>

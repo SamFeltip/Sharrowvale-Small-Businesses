@@ -1,5 +1,6 @@
 ---
-import { YouTube } from "astro-embed";
+import { YouTube } from "@astro-community/astro-embed-youtube";
+
 import { SignupForm } from "@/components/about/SignupForm";
 import AccordionFAQ from "@/components/about/AccordionFAQ";
 import Layout from "@/layouts/Layout.astro";
@@ -35,18 +36,16 @@ import Layout from "@/layouts/Layout.astro";
 	</style>
 	<article>
 		<section>
-			<div
-				class="grid grid-cols-2 items-center mb-[40px] p-[8vh_40px] translate-x-[50px]"
-			>
+			<div class="grid grid-cols-2 items-center mb-[40px] p-[8vh_40px]">
 				<img
-					class="rounded-[40px]"
+					class="rounded-[40px] translate-x-[50px]"
 					height="319px"
 					src="https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6664bc75f61256fa5208f91c_dyson%20place.jpeg"
 					alt="dyson place"
 				/>
 				<!-- padding 64 px as tailwind unit -->
 				<div
-					class="translate-x-[-100px] flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10 p-64"
+					class="translate-x-[-50px] flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10 p-64"
 				>
 					<h1
 						class="font-merriweather font-bold text-coral text-[5.5rem] capitalize text-balance"
@@ -67,7 +66,14 @@ import Layout from "@/layouts/Layout.astro";
 			>
 				<h2>Hey! 👋</h2>
 				<p>An introduction to the site from its founders Dan & Sam</p>
-				<YouTube id="https://youtu.be/zZd_WL1HGBM" />
+				<div class="w-full h-full">
+					<YouTube
+						class="max-w-full rounded-2xl m-auto"
+						id="zZd_WL1HGBM"
+						posterQuality="max"
+						title="Welcome to the Sharrow Vale Directory!"
+					/>
+				</div>
 			</section>
 			<section
 				class="flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10"
