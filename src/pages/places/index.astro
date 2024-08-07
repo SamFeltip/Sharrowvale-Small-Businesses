@@ -11,7 +11,7 @@ const places: CollectionEntry<"places">[] = await getCollection("places");
 ---
 
 <Layout>
-	<article class="pt-[3rem]">
+	<article class="pt-[3rem]" data-pagefind-ignore>
 		<ul class="grid grid-cols-2 gap-4">
 			{
 				places.map((place) => (
