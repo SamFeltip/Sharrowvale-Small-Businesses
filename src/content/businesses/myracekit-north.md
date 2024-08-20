@@ -1,7 +1,7 @@
 ---
 title: "myRaceKit North"
 preview: "Independent specialist running shop"
-description: "Independent specialist running shop"
+description: "Here at myRaceKit North we are experienced runners providing honest advice to our customers. We provide everything you need for your day-to-day running, whether that's Couch to 5K, 10K, half marathon, marathon, ultra, training, or anything in between."
 type: "business"
 
 # used for google maps
@@ -9,10 +9,10 @@ latitude: null
 longitude: null
 
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697975a2b564776ebea09aa_myRacekit%20thumb.jpg"
-
+bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697976278adb68d940c09bf_1000006180%20-%20myRaceKit%20North.jpg"
 # used for lightbox
 additionalImages: [
-        "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697976ea50c6b926e11c1d0_IMG_20230213_101114_422%20-%20myRaceKit%20North.jpg",
+    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697976ea50c6b926e11c1d0_IMG_20230213_101114_422%20-%20myRaceKit%20North.jpg",
     "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697976e01992d31e2550a66_IMG_20240524_082821_346%20-%20myRaceKit%20North.webp",
     "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669797907622ab92a1bb18f5_20240301_095405%20-%20myRaceKit%20North.jpg"
 ]
@@ -26,11 +26,22 @@ facebookLink: "https://www.facebook.com/myRaceKitNorth"
 websiteLink: "https://myracekitnorth.com/"
 yearEstablished: "2003"
 owner: "Matt Rimmer"
-openDaysStatement: "Open everyday"
-specialTag: ""
-tags: "clothing; healthy; sport; shoes; accessories; dog-friendly"
+
 openingHoursDays: "Monday - FridaySaturdaySunday"
 openingHoursTimes: "10:00 - 17:3010:00 - 17:0010:00 - 16:00"
+openDaysStatement: "Open everyday"
+
+# Tags
+specialTag: ""
+tags:
+    - "clothing"
+    - "healthy"
+    - "sport"
+    - "shoes"
+    - "accessories"
+    - "dog friendly"
+
+
 ---
 
 

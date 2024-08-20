@@ -1,7 +1,7 @@
 ---
 title: "Akentannos"
 preview: "Sardinian Gluten Free Culinary Experience "
-description: "Sardinian Gluten Free Culinary Experience "
+description: "At Akentannos we serve a wide choice of unique Sardinian culinary dishes, capable of satisfying even the most demanding palates."
 type: "business"
 
 # used for google maps
@@ -9,10 +9,10 @@ latitude: null
 longitude: null
 
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979b7952df54e1c048a622_Akentannos%20Thumb.jpg"
-
+bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979beb01992d31e257f5d0_laura-lugaresi-4o2gxfuD5BU-unsplash.jpg"
 # used for lightbox
 additionalImages: [
-        "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979bfddf3b42c27461ee04_IMG_4257%20-%20Akentannos%20Restaurant.jpeg",
+    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979bfddf3b42c27461ee04_IMG_4257%20-%20Akentannos%20Restaurant.jpeg",
     "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979bfd8b7be4d995890a8b_IMG_4258%20-%20Akentannos%20Restaurant.jpeg",
     "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979bfe125afc720c9fa80d_IMG_4259%20-%20Akentannos%20Restaurant.jpeg",
     "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979bfe335f49346dcf47e0_IMG_4260%20-%20Akentannos%20Restaurant.jpeg",
@@ -30,11 +30,24 @@ facebookLink: "https://www.facebook.com/akentannosrestaurant/?locale=en_GB"
 websiteLink: "http://akentannos.co.uk/"
 yearEstablished: "2016"
 owner: "Mario"
-openDaysStatement: "Open Tues - Sat"
-specialTag: "Allergen Friendly"
-tags: "sit-in; dinner; dog-friendly; free-wifi; gluten-free; mediterranean; restaurant; romantic"
+
 openingHoursDays: "Tuesday - Saturday"
 openingHoursTimes: "17:00 - 22:00"
+openDaysStatement: "Open Tues - Sat"
+
+# Tags
+specialTag: "Allergen Friendly"
+tags:
+    - "sit in"
+    - "dinner"
+    - "dog friendly"
+    - "free wifi"
+    - "gluten free"
+    - "mediterranean"
+    - "restaurant"
+    - "romantic"
+
+
 ---
 
 

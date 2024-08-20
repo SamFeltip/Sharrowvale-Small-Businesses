@@ -1,7 +1,7 @@
 ---
 title: "Nue"
 preview: "Gluten Free Cafe & Deli"
-description: "Gluten Free Cafe & Deli"
+description: "Sheffield's first completely gluten-free cafe and deli selling a range of handmade baked goods along with sweet and savoury small bites. Perfect for a midday mediterranean bite to eat or coffee catch-up. "
 type: "business"
 
 # used for google maps
@@ -9,10 +9,10 @@ latitude: null
 longitude: null
 
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697d94b146e4bfa69066da5_Nue%20Thumb.jpg"
-
+bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979ef4ff41529e4d88909b_IMG_4264%20-%20Nue%20Sheffield.jpeg"
 # used for lightbox
 additionalImages: [
-        "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979f060ae067a9f529a72f_IMG_4270%20-%20Nue%20Sheffield.jpeg",
+    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979f060ae067a9f529a72f_IMG_4270%20-%20Nue%20Sheffield.jpeg",
     "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979f0444e2a083d1d0f0b1_IMG_4269%20-%20Nue%20Sheffield.jpeg",
     "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979f04ca4bc241fb7dc6cd_IMG_4268%20-%20Nue%20Sheffield.jpeg",
     "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979f041631beb4556035f7_IMG_4272%20-%20Nue%20Sheffield.jpeg",
@@ -28,11 +28,26 @@ facebookLink: "https://www.facebook.com/profile.php?id=100090071303604"
 websiteLink: "https://www.nuesheffield.com/"
 yearEstablished: "2023"
 owner: "Mario"
-openDaysStatement: "Closed Mondays"
-specialTag: "Allergen Friendly"
-tags: "bakery; breakfast; cafe; coffee; sit-in; free-wifi; gluten-free; healthy; lunch; take-out"
+
 openingHoursDays: "MondayTuesday - SaturdaySunday"
 openingHoursTimes: "Closed10:00 - 16:0010:00 - 15:00"
+openDaysStatement: "Closed Mondays"
+
+# Tags
+specialTag: "Allergen Friendly"
+tags:
+    - "bakery"
+    - "breakfast"
+    - "cafe"
+    - "coffee"
+    - "sit in"
+    - "free wifi"
+    - "gluten free"
+    - "healthy"
+    - "lunch"
+    - "take out"
+
+
 ---
 
 

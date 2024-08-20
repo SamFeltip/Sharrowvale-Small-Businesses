@@ -1,7 +1,7 @@
 ---
 title: "Giuseppes Gents Hair"
 preview: "Traditional Gents & Boys Barbers."
-description: "Traditional Gents & Boys Barbers."
+description: "With over 34 years of hands-on experience and five successful years in business, Giuseppe's offers expert haircuts for all hair types in a friendly and professional atmosphere. ‍"
 type: "business"
 
 # used for google maps
@@ -9,10 +9,10 @@ latitude: null
 longitude: null
 
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669b74447124073bea79d35b_thumb.jpg"
-
+bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669af05dc320e52124c7185d_guiseppes3.jpg"
 # used for lightbox
 additionalImages: [
-        "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669af05dc320e52124c7185d_guiseppes3.jpg"
+    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669af05dc320e52124c7185d_guiseppes3.jpg"
 ]
 
 # Other metadata
@@ -24,11 +24,17 @@ facebookLink: "https://www.facebook.com/p/Giuseppes-Gents-Hair-100070052318963/"
 websiteLink: "https://giuseppesgentshair.nearcut.com/"
 yearEstablished: "2016"
 owner: "Nicky Sisman"
-openDaysStatement: "Closed Sun & Mon"
-specialTag: ""
-tags: "hair-beauty"
+
 openingHoursDays: "SaturdaySunday - MondayTuesday - Friday‍"
 openingHoursTimes: "09:00 - 16:00Closed10:00 - 17:00"
+openDaysStatement: "Closed Sun & Mon"
+
+# Tags
+specialTag: ""
+tags:
+    - "hair beauty"
+
+
 ---
 
 

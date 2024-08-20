@@ -5,7 +5,12 @@ import GoogleMap from "@/components/businesses/GoogleMap.astro";
 import LightBox from "@/components/businesses/LightBox.tsx";
 import type { SlideImage } from "yet-another-react-lightbox";
 import PlaceCard from "@/components/businesses/PlaceCard.astro";
-import { Button } from "@/components/ui/button";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faLink } from "@fortawesome/free-solid-svg-icons/faLink";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
 
 export async function getStaticPaths() {
 	const businesses = await getCollection("businesses");
@@ -22,10 +27,15 @@ const {
 	title,
 	description,
 	type,
-	heroImage,
+	bannerImage,
 	longitude,
 	latitude,
 	additionalImages,
+	tags,
+	openDaysStatement,
+	websiteLink,
+	facebookLink,
+	instagramLink,
 } = entry.data;
 
 const { Content } = await entry.render();
@@ -36,9 +46,18 @@ const slides: SlideImage[] = additionalImages.map((slide: string) => ({
 
 const businesses: CollectionEntry<"businesses">[] =
 	await getCollection("businesses");
-const additional_places = businesses.filter(
-	(x) => x.data.type === type && x.data.title != title,
-);
+
+function shuffleBusinesses(array: CollectionEntry<"businesses">[]) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+	return array;
+}
+
+const additional_places = shuffleBusinesses(
+	businesses.filter((x) => x.data.type === type && x.data.title != title),
+).slice(0, 3);
 ---
 
 <Layout>
@@ -51,7 +70,7 @@ const additional_places = businesses.filter(
 
 		@keyframes parallax-foreground {
 			from {
-				transform: translateY(-200px);
+				transform: translateY(-100px);
 			}
 		}
 		@supports (animation-timeline: --parallax-background) {
@@ -65,7 +84,7 @@ const additional_places = businesses.filter(
 					animation-timing-function: ease-in-out;
 
 					animation-timeline: --parallax-background;
-					animation-range: 60% 120%;
+					animation-range: 40% 120%;
 				}
 
 				#parallax-foreground {
@@ -83,13 +102,13 @@ const additional_places = businesses.filter(
 		}
 	</style>
 
-	<article class="py-[3rem] px-[1rem] mb-5">
+	<article class="my-5 mx-7">
 		<div class="h-[350px]" id="parallax-background">
 			<img
 				id="hero-image"
 				data-pagefind-meta="image[src], image_alt[alt]"
 				class="rounded-3xl w-full h-[500px] object-cover sticky"
-				src={heroImage}
+				src={bannerImage}
 				alt="hero image"
 			/>
 		</div>
@@ -113,19 +132,89 @@ const additional_places = businesses.filter(
 								<span data-pagefind-filter="type">{type}</span>
 							</p>
 							<h1
-								class="color-coral text-center font-merriweather font-bold text-coral text-[3rem] text-balance"
+								class="color-coral capitalize text-center font-merriweather font-bold text-coral text-mega text-balance"
 							>
 								{title}
 							</h1>
-							<div>
-								<p>{description}</p>
+							<p class="text-gray-dark text-center">
+								{openDaysStatement}
+							</p>
+							<div class="flex flex-row gap-5 justify-center">
+								{
+									instagramLink && (
+										<a
+											href={instagramLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
+										>
+											<span>
+												<FontAwesomeIcon
+													className="h-5 w-5"
+													icon={faInstagram}
+												/>
+											</span>
+										</a>
+									)
+								}
+
+								{
+									websiteLink && (
+										<a
+											href={websiteLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
+										>
+											<span>
+												<FontAwesomeIcon
+													className="h-5 w-5"
+													icon={faLink}
+												/>
+											</span>
+										</a>
+									)
+								}
+								{
+									facebookLink && (
+										<a
+											href={facebookLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
+										>
+											<span>
+												<FontAwesomeIcon
+													className="h-5 w-5"
+													icon={faFacebook}
+												/>
+											</span>
+										</a>
+									)
+								}
 							</div>
+							<p class="text-gray-dark">
+								{description}
+							</p>
 							<div>
 								<LightBox slides={slides} client:load />
 							</div>
 							<div>
 								<Content />
 							</div>
+							{
+								tags && (
+									<div class="flex flex-col items-center">
+										<div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
+											{tags.map((tag, i) => (
+												<span class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato">
+													{tag}
+												</span>
+											))}
+										</div>
+									</div>
+								)
+							}
 						</div>
 					</div>
 				</section>

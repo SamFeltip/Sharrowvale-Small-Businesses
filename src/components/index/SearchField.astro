@@ -44,6 +44,7 @@ import Search from "astro-pagefind/components/Search";
         display: grid !important;
         grid-template-columns: auto;
         grid-template-rows: 1fr auto;
+        transition: all 0.2s ease-in-out;
 
         img {
             object-fit: cover;
@@ -58,6 +59,10 @@ import Search from "astro-pagefind/components/Search";
             max-width: 100% !important;
             /* height: 100% !important; */
         }
+    }
+
+    .pagefind-ui__result:hover {
+        scale: 1.02;
     }
 </style>
 

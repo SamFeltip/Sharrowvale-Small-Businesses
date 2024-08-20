@@ -1,7 +1,7 @@
 ---
 title: "Sharrow Vale Dental Care"
 preview: "Multi-award winning local dental practice."
-description: "Multi-award winning local dental practice."
+description: "Sharrow Vale Dental Care provides high quality, comprehensive dental care for all the family.We welcome both NHS and private patients as well as offering our own Dental Plan."
 type: "business"
 
 # used for google maps
@@ -9,10 +9,10 @@ latitude: null
 longitude: null
 
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669aedac6680cb4396cf4468_IMG_6369%20-%20Galer%20Farrer.jpeg"
-
+bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669aedefc885ef7ffb6cd166_IMG_6370%20-%20Galer%20Farrer.jpeg"
 # used for lightbox
 additionalImages: [
-        "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669aedac6680cb4396cf4468_IMG_6369%20-%20Galer%20Farrer.jpeg"
+    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669aedac6680cb4396cf4468_IMG_6369%20-%20Galer%20Farrer.jpeg"
 ]
 
 # Other metadata
@@ -24,11 +24,17 @@ facebookLink: "https://www.facebook.com/sharrowvaledentalcare/?locale=en_GB"
 websiteLink: "http://www.sharrowvaledentalcare.co.uk"
 yearEstablished: "1980"
 owner: "Galer Farrer"
-openDaysStatement: "Open Mon - Fri"
-specialTag: ""
-tags: "healthcare"
+
 openingHoursDays: "Saturday - SundayMondayTuesdayWednesdayThursdayFriday‍"
 openingHoursTimes: "Closed8:30 - 18:008:30 - 17:008:30 - 18:008:30 - 17:008:30 - 17:00"
+openDaysStatement: "Open Mon - Fri"
+
+# Tags
+specialTag: ""
+tags:
+    - "healthcare"
+
+
 ---
 
 

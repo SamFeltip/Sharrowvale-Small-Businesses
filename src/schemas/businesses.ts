@@ -8,6 +8,7 @@ export const businessSchema = z.object({
 
     type: z.string(),
     heroImage: z.string(),
+    bannerImage: z.string(),
     longitude: z.number().nullable(),
     latitude: z.number().nullable(),
     additionalImages: z.array(z.string()),
@@ -23,7 +24,7 @@ export const businessSchema = z.object({
     owner: z.string().nullable(),           // Owner
     openDaysStatement: z.string().nullable(), // Open days statement
     specialTag: z.string().nullable(),      // Special Tag
-    tags: z.string().nullable(),            // Tags
+    tags: z.array(z.string()).optional(),  // Updated to an array of strings
     openingHoursDays: z.string().nullable(), // Opening hours (Days of the week)
     openingHoursTimes: z.string().nullable(), // Opening hours (Times of day)
 });

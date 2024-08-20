@@ -1,7 +1,7 @@
 ---
 title: "Refill Tree"
 preview: "Zero Waste Food & Household Shop"
-description: "Zero Waste Food & Household Shop"
+description: "At Refill Tree, our mission is to offer the very best range of household cleaning products, dried foods and oils with a sustainable, zero waste packaging approach. Simply bring your empty jars and containers, weigh them and fill them with a product (which are all marked with the price per gram), then weigh them again so you're only paying for what you get. "
 type: "business"
 
 # used for google maps
@@ -9,10 +9,10 @@ latitude: null
 longitude: null
 
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697c04227d6cf6be78e2281_Refill%20Tree%20Thumbnail.jpg"
-
+bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697bff599f6ca32cc2edcd6_refill%20tree%20thumb.jpg"
 # used for lightbox
 additionalImages: [
-        "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697c0495448d92d5c10b4f9_image_67516161%20-%20Tyler%20Savage.JPG",
+    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697c0495448d92d5c10b4f9_image_67516161%20-%20Tyler%20Savage.JPG",
     "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697c0481c94ccfaf2b140e5_IMG-4370%20-%20Tyler%20Savage.jpg"
 ]
 
@@ -25,11 +25,20 @@ facebookLink: "https://www.facebook.com/profile.php?id=100090414217047"
 websiteLink: "https://refilltree.co.uk"
 yearEstablished: "2023"
 owner: "Tyler Savage"
-openDaysStatement: "Closed Sundays"
-specialTag: ""
-tags: "healthy; eco-aware; groceries; home-household"
+
 openingHoursDays: "Monday - SaturdaySunday"
 openingHoursTimes: "08:30 - 17:00Closed"
+openDaysStatement: "Closed Sundays"
+
+# Tags
+specialTag: ""
+tags:
+    - "healthy"
+    - "eco aware"
+    - "groceries"
+    - "home household"
+
+
 ---
 
 

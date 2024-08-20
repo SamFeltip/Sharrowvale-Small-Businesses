@@ -1,7 +1,7 @@
 ---
 title: "Ora Gallery"
 preview: "Boutique Jewellery and Gift Shop Est 1990"
-description: "Boutique Jewellery and Gift Shop Est 1990"
+description: "Since 1990 Ora Gallery has been operating on Sharrow Vale, selling a wide selection of gifts, accessories, and sterling silver Jewelry. Ora Gallery is the perfect cosy shop to find gifts, greetings cards and wrapping paper. "
 type: "business"
 
 # used for google maps
@@ -9,10 +9,10 @@ latitude: null
 longitude: null
 
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6690101562d13096be5c4fe2_ora-thumbnail.png"
-
+bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6685da9d0fb96ace447a6692_IMG_1824%20Large.jpeg"
 # used for lightbox
 additionalImages: [
-        "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6685d92890e1cd98fceb48a1_IMG_1822%20Large.jpeg"
+    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6685d92890e1cd98fceb48a1_IMG_1822%20Large.jpeg"
 ]
 
 # Other metadata
@@ -24,11 +24,24 @@ facebookLink: "https://www.facebook.com/orasheffield/"
 websiteLink: "http://www.orasheffield.com"
 yearEstablished: "1990"
 owner: "Marika"
-openDaysStatement: "Open Tues - Sat"
-specialTag: ""
-tags: "fashion; accessories; made-in-sheffield; art-design; gifts-for-men; gift-cards; gift-shop; jewelry"
+
 openingHoursDays: "Sunday - MondayTuesday - Saturday"
 openingHoursTimes: "Closed10:00 - 17:00"
+openDaysStatement: "Open Tues - Sat"
+
+# Tags
+specialTag: ""
+tags:
+    - "fashion"
+    - "accessories"
+    - "made in-sheffield"
+    - "art design"
+    - "gifts for-men"
+    - "gift cards"
+    - "gift shop"
+    - "jewelry"
+
+
 ---
 
 
