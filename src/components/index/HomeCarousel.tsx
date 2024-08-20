@@ -24,6 +24,16 @@ export function InteractiveCarousel({ promotions }: {
     }[]
 }) {
 
+    promotions = promotions.filter((promotion) => {
+        if (!promotion.startDate || !promotion.endDate) return true;
+
+        let startDate = new Date(promotion.startDate);
+        let endDate = new Date(promotion.endDate);
+        let currentDate = new Date();
+
+        return currentDate >= startDate && currentDate <= endDate;
+    })
+
     return (
         <div className="w-full flex justify-center">
 

@@ -15,16 +15,6 @@ const promotions: CollectionEntry<"promotion">[] =
 let promotionsData = await promotions.map((promotion) => ({
 	...promotion.data,
 }));
-
-promotionsData = promotionsData.filter((promotion) => {
-	if (!promotion.startDate || !promotion.endDate) return true;
-
-	let startDate = new Date(promotion.startDate);
-	let endDate = new Date(promotion.endDate);
-	let currentDate = new Date();
-
-	return currentDate >= startDate && currentDate <= endDate;
-});
 ---
 
 <Layout>
