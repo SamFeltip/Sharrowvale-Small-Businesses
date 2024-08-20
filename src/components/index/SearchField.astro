@@ -1,5 +1,10 @@
 ---
 import Search from "astro-pagefind/components/Search";
+import { type CollectionEntry, getCollection } from "astro:content";
+import { c } from "dist/_astro/utils.BAMiRCrl";
+
+const businessCategories: CollectionEntry<"business-category">[] =
+    await getCollection("business-category");
 ---
 
 <style is:global>
@@ -28,10 +33,6 @@ import Search from "astro-pagefind/components/Search";
         border-bottom-width: var(--tw-border-width, 2px);
         border-bottom-color: var(--tw-border-color, currentColor);
         border-bottom-style: solid;
-    }
-
-    .pagefind-ui__drawer {
-        flex-direction: column !important;
     }
 
     .pagefind-ui__results {
@@ -66,7 +67,17 @@ import Search from "astro-pagefind/components/Search";
     }
 </style>
 
-<div class="px-12 pb-5 w-full flex flex-col items-center">
+<div
+    class="px-12 pb-5 flex font-merriweather text-sm flex-row items-center flex-wrap justify-center gap-2 w-[60%]"
+>
+    {
+        businessCategories &&
+            businessCategories.map((bc) => (
+                <button class="hover:scale-110 transition-all border border-black rounded-full py-1 px-2">
+                    {bc.data.name}
+                </button>
+            ))
+    }
     <Search
         id="search"
         className="pagefind-ui w-full"
@@ -75,8 +86,7 @@ import Search from "astro-pagefind/components/Search";
                 placeholder: "Search Sharrow Vale",
             },
             showImages: true,
-            showEmptyFilters: true,
-            openFilters: ["Type"],
+            openFilters: ["Tags", "Type"],
         }}
     />
 </div>
