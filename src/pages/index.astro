@@ -8,6 +8,23 @@ import SearchField from "@/components/index/SearchField.astro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
 import { type CollectionEntry, getCollection } from "astro:content";
+
+const promotions: CollectionEntry<"promotion">[] =
+	await getCollection("promotion");
+
+let promotionsData = await promotions.map((promotion) => ({
+	...promotion.data,
+}));
+
+promotionsData = promotionsData.filter((promotion) => {
+	if (!promotion.startDate || !promotion.endDate) return true;
+
+	let startDate = new Date(promotion.startDate);
+	let endDate = new Date(promotion.endDate);
+	let currentDate = new Date();
+
+	return currentDate >= startDate && currentDate <= endDate;
+});
 ---
 
 <Layout>
@@ -43,20 +60,16 @@ import { type CollectionEntry, getCollection } from "astro:content";
 				>
 					Search businesses
 				</span>
-				<FontAwesomeIcon className="text-black" icon={faChevronDown} />
+				<FontAwesomeIcon
+					className="text-black h-5"
+					icon={faChevronDown}
+				/>
 			</a>
 		</div>
 	</section>
 
 	<section>
-		<InteractiveCarousel
-			client:load
-			images={[
-				"https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666576a0c2d4c780054817d3_market%20.jpeg",
-				"https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6665738905abe840eef315ec_eve%20k.jpeg",
-				"https://uploads-ssl.webflow.com/66637bfce5ac00faa1c7cbd8/666b8579fc23fb88222f0dd1_the-best-open-mic-nights-in-london.webp",
-			]}
-		/>
+		<InteractiveCarousel client:load promotions={promotionsData} />
 	</section>
 
 	<section
@@ -73,6 +86,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 			Search For Local Restaurants,<br /> shops, Cafes And More
 		</h1>
 	</section>
+
 	<section class="w-full flex flex-col items-center justify-center">
 		<SearchField />
 	</section>

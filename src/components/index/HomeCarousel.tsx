@@ -12,7 +12,17 @@ import {
 import Autoplay from "embla-carousel-autoplay"
 
 // images is an array of image paths
-export function InteractiveCarousel({ images }: { images: string[] }) {
+export function InteractiveCarousel({ promotions }: {
+    promotions: {
+        title: string,
+        body: string,
+        image: string,
+        location?: string | undefined,
+        startDate?: string | undefined,
+        endDate?: string | undefined,
+        business?: string | undefined,
+    }[]
+}) {
 
     return (
         <div className="w-full flex justify-center">
@@ -23,17 +33,18 @@ export function InteractiveCarousel({ images }: { images: string[] }) {
                 }),
             ]} className="mt-3 w-5/6 rounded-xl overflow-hidden">
                 <CarouselContent>
-                    {images.map((image, index) => (
+                    {promotions.map((promotion, index) => (
                         <CarouselItem key={index}>
                             <Card className="border-none rounded-xl overflow-hidden">
                                 <CardContent className="relative">
 
-                                    <img className="object-cover h-[400px] w-full" src={image} alt="image" />
+                                    <img className="object-cover h-[400px] w-full" src={promotion.image} alt="image" />
                                     <div className="absolute bottom-0 right-0 p-5 text-white w-3/4 text-end">
+
                                         <h3 className="capitalize flex-none w-full mt-0 mb-0 font-merriweather text-[5.5rem] font-bold leading-[1.02] no-underline">
-                                            Sharrow Vale Market
+                                            {promotion.title}
                                         </h3>
-                                        <p>10th - 12th July 2024</p>
+                                        <p>{promotion.body}</p>
                                     </div>
 
                                 </CardContent>

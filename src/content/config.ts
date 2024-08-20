@@ -1,8 +1,9 @@
 import { defineCollection } from 'astro:content';
 
-import { businessSchema as businessSchema } from '../schemas/businesses';
+import { businessSchema as businessSchema } from '@/schemas/businesses';
 
-import { businessCategorySchema as businessCategorySchema } from '../schemas/businessCategory';
+import { businessCategorySchema as businessCategorySchema } from '@/schemas/businessCategory';
+import { promotionSchema as promotionSchema } from '@/schemas/promotion';
 
 const businesses = defineCollection({
 	type: 'content',
@@ -16,4 +17,13 @@ const businessCatCollection = defineCollection({
 	schema: businessCategorySchema,
 });
 
-export const collections = { "businesses": businesses, "business-category": businessCatCollection };
+const promotionCollection = defineCollection({
+	type: 'data',
+	schema: promotionSchema,
+});
+
+export const collections = {
+	"businesses": businesses,
+	"business-category": businessCatCollection,
+	"promotion": promotionCollection
+};
