@@ -39,6 +39,13 @@ footer {
 	max-width: 1200px;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
 h1,
 h2,
 h3,

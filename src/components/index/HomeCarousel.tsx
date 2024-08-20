@@ -21,11 +21,11 @@ export function InteractiveCarousel({ images }: { images: string[] }) {
                 Autoplay({
                     delay: 5000,
                 }),
-            ]} className="mt-3 w-5/6">
+            ]} className="mt-3 w-5/6 rounded-xl overflow-hidden">
                 <CarouselContent>
                     {images.map((image, index) => (
                         <CarouselItem key={index}>
-                            <Card>
+                            <Card className="border-none rounded-xl overflow-hidden">
                                 <CardContent className="relative">
 
                                     <img className="object-cover h-[400px] w-full" src={image} alt="image" />

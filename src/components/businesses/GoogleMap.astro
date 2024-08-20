@@ -25,6 +25,7 @@ const { longitude, latitude, title } = Astro.props;
     <script is:inline defer>
         let map;
         let marker;
+        let geocoder;
 
         const { longitude, latitude, title } =
             document.querySelector("template").dataset;
@@ -33,6 +34,9 @@ const { longitude, latitude, title } = Astro.props;
         const lat = parseFloat(latitude);
 
         async function initMap() {
+            // geocoder = new google.maps.Geocoder();
+            // geocoder.geocode({"address": })
+
             const marketLocation = { lat, lng };
 
             map = new google.maps.Map(document.getElementById("map"), {

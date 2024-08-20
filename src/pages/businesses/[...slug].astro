@@ -28,7 +28,7 @@ const {
 	additionalImages,
 } = entry.data;
 
-const { Content, headings } = await entry.render();
+const { Content } = await entry.render();
 
 const slides: SlideImage[] = additionalImages.map((slide: string) => ({
 	src: slide,
@@ -39,8 +39,6 @@ const businesses: CollectionEntry<"businesses">[] =
 const additional_places = businesses.filter(
 	(x) => x.data.type === type && x.data.title != title,
 );
-
-console.log(additional_places.length);
 ---
 
 <Layout>
@@ -89,6 +87,7 @@ console.log(additional_places.length);
 		<div class="h-[350px]" id="parallax-background">
 			<img
 				id="hero-image"
+				data-pagefind-meta="image[src], image_alt[alt]"
 				class="rounded-3xl w-full h-[500px] object-cover sticky"
 				src={heroImage}
 				alt="hero image"

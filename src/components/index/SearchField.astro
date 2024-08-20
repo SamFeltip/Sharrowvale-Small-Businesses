@@ -1,11 +1,77 @@
-<!-- ---
-import "@pagefind/default-ui/css/ui.css";
-import { join } from "node:path";
+---
+import Search from "astro-pagefind/components/Search";
 ---
 
+<style is:global>
+    :root {
+        --pagefind-ui-scale: 1;
+        --pagefind-ui-primary: var(--menu-surface);
+        --pagefind-ui-message-text: #000;
+        --pagefind-ui-result-title-text: var(--brand);
+        --pagefind-ui-result-text: #000;
+        --pagefind-ui-background: var(--surface1) --pagefind-input-background:
+            var(--brand);
 
-<script>
-    window.addEventListener("DOMContentLoaded", () => {
-        const filters = await pagefind.filters();
-    });
-</script> -->
+        --pagefind-ui-border: var(--accent1);
+        --pagefind-ui-border-width: 0px;
+        --pagefind-ui-border-radius: 0px;
+
+        --pagefind-ui-image-border-radius: 8px;
+        --pagefind-ui-image-box-ratio: 3 / 2;
+
+        --pagefind-button-background: var(--pagefind-input-background);
+        --pagefind-button-color: var(--pagefind-ui-message-text);
+        --pagefind-ui-font: Lato, sans-serif;
+    }
+
+    .pagefind-ui input:focus-visible {
+        border-bottom-width: var(--tw-border-width, 2px);
+        border-bottom-color: var(--tw-border-color, currentColor);
+        border-bottom-style: solid;
+    }
+
+    .pagefind-ui__drawer {
+        flex-direction: column !important;
+    }
+
+    .pagefind-ui__results {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 24px;
+        grid-row-gap: 32px;
+    }
+    .pagefind-ui__result {
+        display: grid !important;
+        grid-template-columns: auto;
+        grid-template-rows: 1fr auto;
+
+        img {
+            object-fit: cover;
+            border-radius: 8px;
+            width: 100% !important;
+            max-width: 100% !important;
+            aspect-ratio: 3 / 2;
+        }
+
+        .pagefind-ui__result-thumb {
+            width: 100% !important;
+            max-width: 100% !important;
+            /* height: 100% !important; */
+        }
+    }
+</style>
+
+<div class="px-12 pb-5 w-full flex flex-col items-center">
+    <Search
+        id="search"
+        className="pagefind-ui w-full"
+        uiOptions={{
+            translations: {
+                placeholder: "Search Sharrow Vale",
+            },
+            showImages: true,
+            showEmptyFilters: true,
+            openFilters: ["Tags", "Type"],
+        }}
+    />
+</div>

@@ -9,6 +9,6 @@ import embeds from 'astro-embed/integration';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://preview.sharrowvale.com',
   integrations: [embeds(), mdx(), sitemap(), react(), tailwind(), pagefind()]
 });

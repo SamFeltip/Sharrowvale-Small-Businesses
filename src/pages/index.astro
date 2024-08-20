@@ -3,10 +3,8 @@ import "@/styles/globals.css";
 
 import { InteractiveCarousel } from "../components/index/HomeCarousel.tsx";
 
-import Search from "astro-pagefind/components/Search";
 import Layout from "@/layouts/Layout.astro";
-
-// import SearchField from "../components/SearchField.astro";
+import SearchField from "@/components/index/SearchField.astro";
 ---
 
 <Layout>
@@ -56,13 +54,21 @@ import Layout from "@/layouts/Layout.astro";
 		/>
 	</section>
 
-	<Search
-		id="search"
-		className="pagefind-ui"
-		uiOptions={{
-			showImages: true,
-			showEmptyFilters: true,
-			openFilters: ["Tags", "Type"],
-		}}
-	/>
+	<section
+		class="text-center flex flex-col items-center justify-center gap-y-5 py-[50px]"
+	>
+		<h2
+			class="font-lato text-3xl text-black tracking-[.08em] uppercase mt-0 mb-0 font-bold leading-none no-underline"
+		>
+			sharrow vale directory
+		</h2>
+		<h1
+			class="font-merriweather text-coral text-[3.5rem] line-height-[124%] text-center capitalize"
+		>
+			Search For Local Restaurants,<br /> shops, Cafes And More
+		</h1>
+	</section>
+	<section class="w-full flex flex-col items-center justify-center">
+		<SearchField />
+	</section>
 </Layout>
