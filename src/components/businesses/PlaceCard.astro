@@ -10,7 +10,11 @@ const slug = entry.slug;
 ---
 
 <a href={`/businesses/${slug}/`}>
-    <img class="rounded-3xl aspect-video" src={heroImage} alt={title} />
+    <img
+        class="rounded-3xl aspect-video object-cover"
+        src={heroImage}
+        alt={title}
+    />
 
     <h3
         class="text-gray mt-0 mb-0 pt-3 pb-1 font-serif text-3xl font-bold no-underline"
