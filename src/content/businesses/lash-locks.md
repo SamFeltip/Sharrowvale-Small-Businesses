@@ -23,15 +23,19 @@ additionalImages: [
 streetAddress: "Lash and Locks, 7 Hickmott Rd, Sheffield, S11 8QF"
 email: ""
 phoneNumber: "07967017936"
-instagramLink: "https://www.instagram.com/alison_belk_lashes/?hl=en-gb"
-facebookLink: ""
-websiteLink: "http://Lashandlockssheffield.booksy.com"
+instagramLink: https://www.instagram.com/alison_belk_lashes/?hl=en-gb
+facebookLink: 
+websiteLink: http://Lashandlockssheffield.booksy.com
 yearEstablished: "2014"
 owner: ""
 
 openingHoursDays: "Monday - SaturdaySunday"
 openingHoursTimes: "09:00 - 20:00Closed"
 openDaysStatement: "Open Mon - Sat"
+
+# Listing types
+businessCategories:
+    - hair-beauty
 
 # Tags
 specialTag: ""

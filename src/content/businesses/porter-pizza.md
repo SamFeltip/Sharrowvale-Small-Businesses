@@ -22,15 +22,19 @@ additionalImages: [
 streetAddress: "394-396 Sharrow Vale Rd, Sharrow, Sheffield S11 8ZP"
 email: "hello@porterpizza.co.uk"
 phoneNumber: "0114 2676672"
-instagramLink: "http://instagram.com/porterpizzaco"
-facebookLink: "https://www.facebook.com/porterpizzaco"
-websiteLink: "http://porterpizza.co.uk"
+instagramLink: http://instagram.com/porterpizzaco
+facebookLink: https://www.facebook.com/porterpizzaco
+websiteLink: http://porterpizza.co.uk
 yearEstablished: "2018"
 owner: "Mr Porter"
 
 openingHoursDays: "Mon - ThursFriday SaturdaySunday"
 openingHoursTimes: "17:00 - 21:0017:00 - 21:3012:00 - 21:3012:00 - 21:00"
 openDaysStatement: "Open every day"
+
+# Listing types
+businessCategories:
+    - resturant
 
 # Tags
 specialTag: "Popular"

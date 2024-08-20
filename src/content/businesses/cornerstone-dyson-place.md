@@ -22,15 +22,21 @@ additionalImages: [
 streetAddress: "Cornerstone Dyson Place, Sheffield"
 email: "info@cornerstonecoffeegroup.co.uk"
 phoneNumber: "01146982679"
-instagramLink: "https://www.instagram.com/cornerstoneatdysonplace/?hl=en"
-facebookLink: "https://www.facebook.com/profile.php?id=100069475006033"
-websiteLink: "https://www.cornerstonecoffeegroup.co.uk/"
+instagramLink: https://www.instagram.com/cornerstoneatdysonplace/?hl=en
+facebookLink: https://www.facebook.com/profile.php?id=100069475006033
+websiteLink: https://www.cornerstonecoffeegroup.co.uk/
 yearEstablished: "2021"
 owner: ""
 
 openingHoursDays: "Sunday - Monday Tuesday - Saturday "
 openingHoursTimes: "10am - 5pm10am - 11pm‍‍"
 openDaysStatement: "Open everyday"
+
+# Listing types
+businessCategories:
+    - cafe
+    - resturant
+    - bar
 
 # Tags
 specialTag: ""

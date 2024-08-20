@@ -19,15 +19,19 @@ additionalImages: [
 streetAddress: "Giuseppe's, 9 Hickmott Rd S11 8QF"
 email: "giuseppesgentshair@gmail.com"
 phoneNumber: "07415275048"
-instagramLink: "https://www.instagram.com/giuseppesgentshair/"
-facebookLink: "https://www.facebook.com/p/Giuseppes-Gents-Hair-100070052318963/"
-websiteLink: "https://giuseppesgentshair.nearcut.com/"
+instagramLink: https://www.instagram.com/giuseppesgentshair/
+facebookLink: https://www.facebook.com/p/Giuseppes-Gents-Hair-100070052318963/
+websiteLink: https://giuseppesgentshair.nearcut.com/
 yearEstablished: "2016"
 owner: "Nicky Sisman"
 
 openingHoursDays: "SaturdaySunday - MondayTuesday - Friday‍"
 openingHoursTimes: "09:00 - 16:00Closed10:00 - 17:00"
 openDaysStatement: "Closed Sun & Mon"
+
+# Listing types
+businessCategories:
+    - hair-beauty
 
 # Tags
 specialTag: ""

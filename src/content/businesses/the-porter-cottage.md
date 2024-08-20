@@ -20,15 +20,20 @@ additionalImages: [
 streetAddress: "Porter Cottage, 286 Sharrow Vale Rd Sharrow Sheffield S11 8ZL United Kingdom"
 email: ""
 phoneNumber: "01661822019"
-instagramLink: ""
-facebookLink: ""
-websiteLink: "https://www.portercottagesheffield.com/"
+instagramLink: 
+facebookLink: 
+websiteLink: https://www.portercottagesheffield.com/
 yearEstablished: "2022"
 owner: ""
 
 openingHoursDays: "Monday - ThursdayFridaySaturdaySunday"
 openingHoursTimes: "16:00 - 00:0016:00 - 01:0012:00 - 01:0014:00 - 00:00"
 openDaysStatement: "Open every day"
+
+# Listing types
+businessCategories:
+    - pub
+    - bar
 
 # Tags
 specialTag: ""

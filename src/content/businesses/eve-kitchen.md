@@ -22,15 +22,20 @@ additionalImages: [
 streetAddress: "380 Sharrow Vale Rd, Sharrow, Sheffield S11 8ZP"
 email: ""
 phoneNumber: ""
-instagramLink: "https://www.instagram.com/eve.kitchen/"
-facebookLink: "https://www.facebook.com/Evekitchen-372212209645336/?fref=ts"
-websiteLink: "http://www.evekitchen.co.uk/"
+instagramLink: https://www.instagram.com/eve.kitchen/
+facebookLink: https://www.facebook.com/Evekitchen-372212209645336/?fref=ts
+websiteLink: http://www.evekitchen.co.uk/
 yearEstablished: "2015"
 owner: "Lauren"
 
 openingHoursDays: "Tuesday - Sunday"
 openingHoursTimes: "10:30 - 16:00"
 openDaysStatement: "Tue-Sun 10:30 -16:00"
+
+# Listing types
+businessCategories:
+    - bakery
+    - cafe
 
 # Tags
 specialTag: ""

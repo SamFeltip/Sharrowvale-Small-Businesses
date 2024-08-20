@@ -22,15 +22,19 @@ additionalImages: [
 streetAddress: "Feline Tattoo, 8 Hickmott Road"
 email: "Fionalong9@gmail.com"
 phoneNumber: "0114 2661817"
-instagramLink: "https://www.instagram.com/felinetattoostudio/"
-facebookLink: "https://www.facebook.com/FelineStudio666/?locale=en_GB"
-websiteLink: ""
+instagramLink: https://www.instagram.com/felinetattoostudio/
+facebookLink: https://www.facebook.com/FelineStudio666/?locale=en_GB
+websiteLink: 
 yearEstablished: "1995"
 owner: "Fiona Long"
 
 openingHoursDays: "Tuesday - SaturdaySunday - Monday"
 openingHoursTimes: "10:00 - 18:00Appointment only"
 openDaysStatement: "Open Tues - Sun"
+
+# Listing types
+businessCategories:
+    - tattoo-piercing
 
 # Tags
 specialTag: ""

@@ -23,15 +23,20 @@ additionalImages: [
 streetAddress: "Nue, 276 Sharrow Vale Rd"
 email: "Info@nuesheffield.com"
 phoneNumber: "0114 321 8141"
-instagramLink: "https://www.instagram.com/nuesheffield/"
-facebookLink: "https://www.facebook.com/profile.php?id=100090071303604"
-websiteLink: "https://www.nuesheffield.com/"
+instagramLink: https://www.instagram.com/nuesheffield/
+facebookLink: https://www.facebook.com/profile.php?id=100090071303604
+websiteLink: https://www.nuesheffield.com/
 yearEstablished: "2023"
 owner: "Mario"
 
 openingHoursDays: "MondayTuesday - SaturdaySunday"
 openingHoursTimes: "Closed10:00 - 16:0010:00 - 15:00"
 openDaysStatement: "Closed Mondays"
+
+# Listing types
+businessCategories:
+    - cafe
+    - deli
 
 # Tags
 specialTag: "Allergen Friendly"

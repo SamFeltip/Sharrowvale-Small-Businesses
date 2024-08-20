@@ -19,15 +19,20 @@ additionalImages: [
 streetAddress: "14 hickmott Road, S11 8 QF"
 email: "info@oragallery.co.uk"
 phoneNumber: "011426614444"
-instagramLink: "https://www.instagram.com/orasheffield/?hl=en"
-facebookLink: "https://www.facebook.com/orasheffield/"
-websiteLink: "http://www.orasheffield.com"
+instagramLink: https://www.instagram.com/orasheffield/?hl=en
+facebookLink: https://www.facebook.com/orasheffield/
+websiteLink: http://www.orasheffield.com
 yearEstablished: "1990"
 owner: "Marika"
 
 openingHoursDays: "Sunday - MondayTuesday - Saturday"
 openingHoursTimes: "Closed10:00 - 17:00"
 openDaysStatement: "Open Tues - Sat"
+
+# Listing types
+businessCategories:
+    - gift-shop
+    - jewellery
 
 # Tags
 specialTag: ""

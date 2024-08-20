@@ -22,15 +22,20 @@ additionalImages: [
 streetAddress: "The hummingbird collective, 365 Sharrowvale Road, Sheffield, S11 8ZG"
 email: "nicola@littlehummingbirdevents.co.uk"
 phoneNumber: "07955 273923"
-instagramLink: "http://www.instagram.com/thehummingbirdcollectiveuk"
-facebookLink: "https://www.facebook.com/profile.php?id=61552594004631"
-websiteLink: "http://www.littlehummingbirdevents.co.uk"
+instagramLink: http://www.instagram.com/thehummingbirdcollectiveuk
+facebookLink: https://www.facebook.com/profile.php?id=61552594004631
+websiteLink: http://www.littlehummingbirdevents.co.uk
 yearEstablished: "2023"
 owner: "Nicola"
 
 openingHoursDays: "10:00 - 16:00"
 openingHoursTimes: "Every day"
 openDaysStatement: "Open every day"
+
+# Listing types
+businessCategories:
+    - gift-shop
+    - jewellery
 
 # Tags
 specialTag: ""

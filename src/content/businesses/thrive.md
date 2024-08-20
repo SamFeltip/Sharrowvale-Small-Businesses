@@ -19,15 +19,19 @@ additionalImages: [
 streetAddress: "Thrive Physiotherapy, 416B Sharrow Vale Rd"
 email: "hello@thrive-physiotherapy.co.uk"
 phoneNumber: "0114 405 5075"
-instagramLink: "https://www.instagram.com/thrivephysio_sheff/"
-facebookLink: "https://www.facebook.com/profile.php?id=61552022351803"
-websiteLink: "http://www.thrive-physiotherapy.co.uk"
+instagramLink: https://www.instagram.com/thrivephysio_sheff/
+facebookLink: https://www.facebook.com/profile.php?id=61552022351803
+websiteLink: http://www.thrive-physiotherapy.co.uk
 yearEstablished: "2023"
 owner: "Roisin O'Bentley"
 
 openingHoursDays: "TuesdayWednesdayThursday - Monday(More hours in September)"
 openingHoursTimes: "9.30am - 5pm9.30am - 5pmClosed"
 openDaysStatement: "Open Tues & Weds"
+
+# Listing types
+businessCategories:
+    - medical-centre
 
 # Tags
 specialTag: "New"

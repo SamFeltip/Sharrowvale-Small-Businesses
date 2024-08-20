@@ -19,15 +19,19 @@ additionalImages: [
 streetAddress: "Sharrow Vale Dental Care, 262 Sharrow Vale Road"
 email: "galer.farrer@live.co.uk"
 phoneNumber: "01142686076"
-instagramLink: "https://www.instagram.com/sharrowvaledentalcare/"
-facebookLink: "https://www.facebook.com/sharrowvaledentalcare/?locale=en_GB"
-websiteLink: "http://www.sharrowvaledentalcare.co.uk"
+instagramLink: https://www.instagram.com/sharrowvaledentalcare/
+facebookLink: https://www.facebook.com/sharrowvaledentalcare/?locale=en_GB
+websiteLink: http://www.sharrowvaledentalcare.co.uk
 yearEstablished: "1980"
 owner: "Galer Farrer"
 
 openingHoursDays: "Saturday - SundayMondayTuesdayWednesdayThursdayFriday‍"
 openingHoursTimes: "Closed8:30 - 18:008:30 - 17:008:30 - 18:008:30 - 17:008:30 - 17:00"
 openDaysStatement: "Open Mon - Fri"
+
+# Listing types
+businessCategories:
+    - medical-centre
 
 # Tags
 specialTag: ""

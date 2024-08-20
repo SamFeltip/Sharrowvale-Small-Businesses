@@ -21,15 +21,19 @@ additionalImages: [
 streetAddress: "myRaceKit, 296 Sharrow Vale Road, Sheffield, S11 8ZL"
 email: "matt@myracekit.com"
 phoneNumber: "01142669591"
-instagramLink: "https://www.instagram.com/myracekit_north/"
-facebookLink: "https://www.facebook.com/myRaceKitNorth"
-websiteLink: "https://myracekitnorth.com/"
+instagramLink: https://www.instagram.com/myracekit_north/
+facebookLink: https://www.facebook.com/myRaceKitNorth
+websiteLink: https://myracekitnorth.com/
 yearEstablished: "2003"
 owner: "Matt Rimmer"
 
 openingHoursDays: "Monday - FridaySaturdaySunday"
 openingHoursTimes: "10:00 - 17:3010:00 - 17:0010:00 - 16:00"
 openDaysStatement: "Open everyday"
+
+# Listing types
+businessCategories:
+    - sport
 
 # Tags
 specialTag: ""

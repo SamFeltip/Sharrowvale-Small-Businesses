@@ -25,15 +25,19 @@ additionalImages: [
 streetAddress: "Akentannos, 270 Sharrow Vale Rd"
 email: "Info@akentannos.co.uk"
 phoneNumber: "0114 268 0505"
-instagramLink: "https://www.instagram.com/akentannos?igsh=MXMzZHYxYndjNW1yMw%3D%3D&utm_source=qr"
-facebookLink: "https://www.facebook.com/akentannosrestaurant/?locale=en_GB"
-websiteLink: "http://akentannos.co.uk/"
+instagramLink: https://www.instagram.com/akentannos?igsh=MXMzZHYxYndjNW1yMw%3D%3D&utm_source=qr
+facebookLink: https://www.facebook.com/akentannosrestaurant/?locale=en_GB
+websiteLink: http://akentannos.co.uk/
 yearEstablished: "2016"
 owner: "Mario"
 
 openingHoursDays: "Tuesday - Saturday"
 openingHoursTimes: "17:00 - 22:00"
 openDaysStatement: "Open Tues - Sat"
+
+# Listing types
+businessCategories:
+    - resturant
 
 # Tags
 specialTag: "Allergen Friendly"

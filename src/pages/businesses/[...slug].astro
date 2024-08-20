@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons/faLink";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
+import { getEntries } from "astro:content";
 
 export async function getStaticPaths() {
 	const businesses = await getCollection("businesses");
@@ -37,6 +38,8 @@ const {
 	facebookLink,
 	instagramLink,
 } = entry.data;
+
+const businessCategories = await getEntries(entry.data.businessCategories);
 
 const { Content } = await entry.render();
 
@@ -128,9 +131,18 @@ const additional_places = shuffleBusinesses(
 				>
 					<div class="prose">
 						<div class="title grid gap-[24px]">
-							<p class="uppercase text-center">
-								<span data-pagefind-filter="type">{type}</span>
-							</p>
+							<dv class="flex flex-row gap-5 justify-center">
+								{
+									businessCategories &&
+										businessCategories.map((bc) => (
+											<p class="uppercase text-center">
+												<span data-pagefind-filter="type">
+													{bc.data.name}
+												</span>
+											</p>
+										))
+								}
+							</dv>
 							<h1
 								class="color-coral capitalize text-center font-merriweather font-bold text-coral text-mega text-balance"
 							>
@@ -207,7 +219,10 @@ const additional_places = shuffleBusinesses(
 									<div class="flex flex-col items-center">
 										<div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
 											{tags.map((tag, i) => (
-												<span class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato">
+												<span
+													data-pagefind-filter="tags"
+													class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato"
+												>
 													{tag}
 												</span>
 											))}

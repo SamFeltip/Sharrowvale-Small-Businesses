@@ -1,5 +1,5 @@
 
-import { z } from 'astro:content';
+import { reference, z } from 'astro:content';
 
 export const businessSchema = z.object({
     title: z.string(),
@@ -13,13 +13,15 @@ export const businessSchema = z.object({
     latitude: z.number().nullable(),
     additionalImages: z.array(z.string()),
 
+    businessCategories: z.array(reference("business-category")),
+
     // Remaining fields
     streetAddress: z.string().nullable(),   // Street address
     email: z.string().nullable(),           // Email
     phoneNumber: z.string().nullable(),     // Phone number
-    instagramLink: z.string().nullable(),   // Instagram link
-    facebookLink: z.string().nullable(),    // Facebook link
-    websiteLink: z.string().nullable(),     // Website link
+    instagramLink: z.string().url().nullable(),   // Instagram link
+    facebookLink: z.string().url().nullable(),    // Facebook link
+    websiteLink: z.string().url().nullable(),     // Website link
     yearEstablished: z.string().nullable(), // Year established
     owner: z.string().nullable(),           // Owner
     openDaysStatement: z.string().nullable(), // Open days statement

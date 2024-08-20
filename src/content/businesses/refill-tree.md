@@ -20,15 +20,20 @@ additionalImages: [
 streetAddress: "Refill Tree, 392 Sharrow Vale Road"
 email: "info@refilltree.co.uk"
 phoneNumber: "07462474874"
-instagramLink: "https://www.instagram.com/refilltreeuk/"
-facebookLink: "https://www.facebook.com/profile.php?id=100090414217047"
-websiteLink: "https://refilltree.co.uk"
+instagramLink: https://www.instagram.com/refilltreeuk/
+facebookLink: https://www.facebook.com/profile.php?id=100090414217047
+websiteLink: https://refilltree.co.uk
 yearEstablished: "2023"
 owner: "Tyler Savage"
 
 openingHoursDays: "Monday - SaturdaySunday"
 openingHoursTimes: "08:30 - 17:00Closed"
 openDaysStatement: "Closed Sundays"
+
+# Listing types
+businessCategories:
+    - food-shop
+    - home-hardware
 
 # Tags
 specialTag: ""

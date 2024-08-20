@@ -21,15 +21,19 @@ additionalImages: [
 streetAddress: "376 Sharrow Vale Rd, Sharrow, Sheffield S11 8ZP"
 email: ""
 phoneNumber: ""
-instagramLink: "http://instagram.com/streetfoodchefsheffield"
-facebookLink: "http://www.tiktok.com/@streetfoodchef"
-websiteLink: "https://www.streetfoodchef.co.uk/"
+instagramLink: http://instagram.com/streetfoodchefsheffield
+facebookLink: http://www.tiktok.com/@streetfoodchef
+websiteLink: https://www.streetfoodchef.co.uk/
 yearEstablished: ""
 owner: "Richard Golland"
 
 openingHoursDays: "Monday - FridaySaturdaySunday"
 openingHoursTimes: "11:00 - 22:0010:00 - 22:0010:00 - 21:00"
 openDaysStatement: "Open every day"
+
+# Listing types
+businessCategories:
+    - resturant
 
 # Tags
 specialTag: "Allergen Friendly"

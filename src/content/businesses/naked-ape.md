@@ -23,15 +23,19 @@ additionalImages: [
 streetAddress: "358 Sharrow Vale Road, Sheffield, S11 8ZP, UK"
 email: "waynebiney@nakedape.uk.com"
 phoneNumber: "0114 349 5934"
-instagramLink: "https://www.instagram.com/nakedape.uk/"
-facebookLink: "https://www.facebook.com/nakedape.uk/"
-websiteLink: "https://www.nakedape.uk.com/"
+instagramLink: https://www.instagram.com/nakedape.uk/
+facebookLink: https://www.facebook.com/nakedape.uk/
+websiteLink: https://www.nakedape.uk.com/
 yearEstablished: ""
 owner: ""
 
 openingHoursDays: "Mon, Wed, Fri, SatTues, ThursSunday"
 openingHoursTimes: "10:00 - 17:0010:00 - 16:30Closed"
 openDaysStatement: "Open Mon - Sat"
+
+# Listing types
+businessCategories:
+    - clothing
 
 # Tags
 specialTag: ""
