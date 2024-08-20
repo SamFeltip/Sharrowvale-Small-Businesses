@@ -4,10 +4,6 @@ preview: "Specialist women's health physiotherapy clinic"
 description: "At Thrive Physiotherapy in Sheffield, we're all about empowering women! We specialise in providing tailored treatment, support and care for common (but NOT normal) female health concerns, in particular pain, incontinence, prolapse, and menopausal symptoms, allowing you to get back to doing what you love, leak and pain free!"
 type: "business"
 
-# used for google maps
-latitude: null
-longitude: null
-
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669b72d7df3fdd3eba47d23d_roisin_23%20-%20Roisin%20at%20Thrive.jpg"
 bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669af4f930fc864516bcb401_fitness-friends-and-senior-women-with-exercise-an-2023-11-27-05-16-17-utc.webp"
 # used for lightbox

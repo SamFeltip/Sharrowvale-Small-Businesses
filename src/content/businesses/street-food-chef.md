@@ -4,10 +4,6 @@ preview: "Sheffield’s Award Winning Burrito Builders"
 description: "Starting as street food in Sheffield, street food chef garnered local acclaim with five Eat Sheffield awards, a Good Food Guide recommendation, and an Observer Food Awards runner-up. Their focus is on delicious, additive-free fast food made with fresh, locally sourced ingredients. Visit their Burrito Escotilla for vibrant flavors and a variety of drinks!"
 type: "business"
 
-# used for google maps
-latitude: null
-longitude: null
-
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66673dc78ea18ad0812ed15b_sfc%204.png"
 bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66673dcdadd7d953c878265e_sfc%202.jpeg"
 # used for lightbox

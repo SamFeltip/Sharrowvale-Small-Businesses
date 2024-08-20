@@ -6,10 +6,6 @@ description: "Sharrow Vale Dental Care provides high quality, comprehensive dent
 We welcome both NHS and private patients as well as offering our own Dental Plan."
 type: "business"
 
-# used for google maps
-latitude: null
-longitude: null
-
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669aedac6680cb4396cf4468_IMG_6369%20-%20Galer%20Farrer.jpeg"
 bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669aedefc885ef7ffb6cd166_IMG_6370%20-%20Galer%20Farrer.jpeg"
 # used for lightbox

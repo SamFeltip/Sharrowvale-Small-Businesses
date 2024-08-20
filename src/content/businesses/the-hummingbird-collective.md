@@ -4,10 +4,6 @@ preview: "A Collection of independent makers & creators"
 description: "Whatever you're looking for our shop has a perfect range of Posters, jewellery, Candles, Cushions, Ceramics, Knitted toys, Home furnishings, Wall decorations and much more. "
 type: "business"
 
-# used for google maps
-latitude: null
-longitude: null
-
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66953b2f522baad460a3fa5c_hummingbird%20thumbnail.png"
 bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669531951276beed4e15c108_8a88aa36-e966-4645-b288-5ea174b3a7a8%20-%20Mark%20Smith.JPG"
 # used for lightbox

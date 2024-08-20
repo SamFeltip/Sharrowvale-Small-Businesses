@@ -4,10 +4,6 @@ preview: "Gluten Free Cafe & Deli"
 description: "Sheffield's first completely gluten-free cafe and deli selling a range of handmade baked goods along with sweet and savoury small bites. Perfect for a midday mediterranean bite to eat or coffee catch-up. "
 type: "business"
 
-# used for google maps
-latitude: null
-longitude: null
-
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697d94b146e4bfa69066da5_Nue%20Thumb.jpg"
 bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66979ef4ff41529e4d88909b_IMG_4264%20-%20Nue%20Sheffield.jpeg"
 # used for lightbox

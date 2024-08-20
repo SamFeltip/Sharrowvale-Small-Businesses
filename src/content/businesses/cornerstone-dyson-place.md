@@ -4,10 +4,6 @@ preview: "Locally sourced neighbourhood Restaurant & Bar"
 description: "Your local neighbourhood restaurant and bar offering quality plates all day, every day. Our life in hospitality has taught us that the best venues are a collection of simple things done well. At the cornerstone of any good venue is good food, sourced locally, made thoughtfully and served with a welcome to match the quality."
 type: "business"
 
-# used for google maps
-latitude: null
-longitude: null
-
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66953f8aadc2d5cf6630bc87_Cornerstone-1%20-%20Richard%20Massarella.jpg"
 bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669542287cd5605f6114b791_Cornerstone-80%20-%20Richard%20Massarella.jpg"
 # used for lightbox

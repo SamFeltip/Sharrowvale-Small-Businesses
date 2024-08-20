@@ -6,10 +6,6 @@ description: "With over 34 years of hands-on experience and five successful year
 ‍"
 type: "business"
 
-# used for google maps
-latitude: null
-longitude: null
-
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669b74447124073bea79d35b_thumb.jpg"
 bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669af05dc320e52124c7185d_guiseppes3.jpg"
 # used for lightbox

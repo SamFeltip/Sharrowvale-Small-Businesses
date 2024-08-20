@@ -4,10 +4,6 @@ preview: "Independent specialist running shop"
 description: "Here at myRaceKit North we are experienced runners providing honest advice to our customers. We provide everything you need for your day-to-day running, whether that's Couch to 5K, 10K, half marathon, marathon, ultra, training, or anything in between."
 type: "business"
 
-# used for google maps
-latitude: null
-longitude: null
-
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697975a2b564776ebea09aa_myRacekit%20thumb.jpg"
 bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697976278adb68d940c09bf_1000006180%20-%20myRaceKit%20North.jpg"
 # used for lightbox

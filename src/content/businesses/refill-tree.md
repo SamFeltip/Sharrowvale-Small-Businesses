@@ -4,10 +4,6 @@ preview: "Zero Waste Food & Household Shop"
 description: "At Refill Tree, our mission is to offer the very best range of household cleaning products, dried foods and oils with a sustainable, zero waste packaging approach. Simply bring your empty jars and containers, weigh them and fill them with a product (which are all marked with the price per gram), then weigh them again so you're only paying for what you get. "
 type: "business"
 
-# used for google maps
-latitude: null
-longitude: null
-
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697c04227d6cf6be78e2281_Refill%20Tree%20Thumbnail.jpg"
 bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697bff599f6ca32cc2edcd6_refill%20tree%20thumb.jpg"
 # used for lightbox

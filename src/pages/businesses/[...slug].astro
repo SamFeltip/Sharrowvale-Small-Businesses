@@ -29,8 +29,7 @@ const {
 	description,
 	type,
 	bannerImage,
-	longitude,
-	latitude,
+	streetAddress,
 	additionalImages,
 	tags,
 	openDaysStatement,
@@ -270,7 +269,7 @@ const additional_places = shuffleBusinesses(
 									}
 								}
 
-								#article-content-grid::after {
+								#article-content-grid::before {
 									grid-area: spacer;
 									content: "";
 									height: 100%;
@@ -354,11 +353,7 @@ const additional_places = shuffleBusinesses(
 					</div>
 				</section>
 				<section>
-					<GoogleMap
-						longitude={longitude}
-						latitude={latitude}
-						title={title}
-					/>
+					<GoogleMap address={streetAddress} title={title} />
 				</section>
 				<section data-pagefind-ignore>
 					<h2

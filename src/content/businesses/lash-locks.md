@@ -4,10 +4,6 @@ preview: "Stylish salon specialising in Hair, Nails and Brows"
 description: "At Lash and Locks we have been serving local customers for over 10yrs. We have the very best highly qualified technical professionals for all you hair and beauty needs. "
 type: "business"
 
-# used for google maps
-latitude: null
-longitude: null
-
 heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/668c13dbf7119001b80cfd49_IMG_1719_Original%20-%20Alison%20Belk.jpeg"
 bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/668c150f3793c88b688549ff_IMG_1839%20Large.jpeg"
 # used for lightbox

@@ -9,8 +9,6 @@ export const businessSchema = z.object({
     type: z.string(),
     heroImage: z.string(),
     bannerImage: z.string(),
-    longitude: z.number().nullable(),
-    latitude: z.number().nullable(),
     additionalImages: z.array(z.string()),
 
     businessCategories: z.array(reference("business-category")),

@@ -1,20 +1,16 @@
 ---
 interface Props {
-    longitude: number | null;
-    latitude: number | null;
+    address: string | null;
     title: string;
 }
 
-const { longitude, latitude, title } = Astro.props;
+const { address, title } = Astro.props;
 ---
 
 <>
     <section id="map" class="h-[400px] rounded-3xl"></section>
 
-    <template
-        data-longitude={longitude}
-        data-latitude={latitude}
-        data-title={title}></template>
+    <template data-address={address} data-title={title}></template>
 
     <script
         async
@@ -27,28 +23,24 @@ const { longitude, latitude, title } = Astro.props;
         let marker;
         let geocoder;
 
-        const { longitude, latitude, title } =
-            document.querySelector("template").dataset;
-
-        const lng = parseFloat(longitude);
-        const lat = parseFloat(latitude);
+        const { address, title } = document.querySelector("template").dataset;
 
         async function initMap() {
-            // geocoder = new google.maps.Geocoder();
-            // geocoder.geocode({"address": })
-
-            const marketLocation = { lat, lng };
-
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: marketLocation,
-                zoom: 18,
-            });
-
-            marker = new google.maps.Marker({
-                position: marketLocation,
-                map,
-                title: title,
-                icon: "https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666c16f69717f0890a570e5e_Pin%20icon.svg",
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ address: address }, (results, status) => {
+                if (status === "OK") {
+                    const marketLocation = results[0].geometry.location;
+                    map = new google.maps.Map(document.getElementById("map"), {
+                        center: marketLocation,
+                        zoom: 19,
+                    });
+                    marker = new google.maps.Marker({
+                        position: marketLocation,
+                        map,
+                        title: title,
+                        icon: "https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666c16f69717f0890a570e5e_Pin%20icon.svg",
+                    });
+                }
             });
         }
 
