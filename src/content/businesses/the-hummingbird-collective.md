@@ -27,9 +27,6 @@ facebookLink: https://www.facebook.com/profile.php?id=61552594004631
 websiteLink: http://www.littlehummingbirdevents.co.uk
 yearEstablished: "2023"
 owner: "Nicola"
-
-openingHoursDays: "10:00 - 16:00"
-openingHoursTimes: "Every day"
 openDaysStatement: "Open every day"
 
 # Listing types
@@ -52,6 +49,20 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| 10:00 - 16:00 | Every day |
+|  |  |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email | nicola@littlehummingbirdevents.co.uk |
+| Phone | 07955 273923 |
+| Website | http://www.littlehummingbirdevents.co.uk |
 
 Established in 2023 The Hummingbird Collective is a collaboration of small local independent makers, traders, artists and creators; bringing them together in under one roof and allowing them to better reach their audience whilst having more time to focus on their craft.
 New to Sharrow Vale in 2024, they are the perfect fit for customers looking to support local artists at reasonable prices.

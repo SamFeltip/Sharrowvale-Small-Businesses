@@ -1,7 +1,9 @@
 ---
 title: "Giuseppes Gents Hair"
 preview: "Traditional Gents & Boys Barbers."
-description: "With over 34 years of hands-on experience and five successful years in business, Giuseppe's offers expert haircuts for all hair types in a friendly and professional atmosphere. ‍"
+description: "With over 34 years of hands-on experience and five successful years in business, Giuseppe's offers expert haircuts for all hair types in a friendly and professional atmosphere. 
+   
+‍"
 type: "business"
 
 # used for google maps
@@ -24,9 +26,6 @@ facebookLink: https://www.facebook.com/p/Giuseppes-Gents-Hair-100070052318963/
 websiteLink: https://giuseppesgentshair.nearcut.com/
 yearEstablished: "2016"
 owner: "Nicky Sisman"
-
-openingHoursDays: "SaturdaySunday - MondayTuesday - Friday‍"
-openingHoursTimes: "09:00 - 16:00Closed10:00 - 17:00"
 openDaysStatement: "Closed Sun & Mon"
 
 # Listing types
@@ -41,6 +40,23 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Saturday | 09:00 - 16:00 |
+| Sunday - Monday | Closed |
+| Tuesday - Friday | 10:00 - 17:00 |
+| ‍ |  |
+|  | undefined |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email | giuseppesgentshair@gmail.com |
+| Phone | 07415275048 |
+| Website | https://giuseppesgentshair.nearcut.com/ |
 
 Giuseppe's is an easy, non nonsense mens barbers.
 Nicky has been cutting hair for over 34 years and is able to do whatever you need.

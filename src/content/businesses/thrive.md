@@ -24,9 +24,6 @@ facebookLink: https://www.facebook.com/profile.php?id=61552022351803
 websiteLink: http://www.thrive-physiotherapy.co.uk
 yearEstablished: "2023"
 owner: "Roisin O'Bentley"
-
-openingHoursDays: "TuesdayWednesdayThursday - Monday(More hours in September)"
-openingHoursTimes: "9.30am - 5pm9.30am - 5pmClosed"
 openDaysStatement: "Open Tues & Weds"
 
 # Listing types
@@ -41,6 +38,23 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Tuesday | 9.30am - 5pm |
+| Wednesday | 9.30am - 5pm |
+| Thursday - Monday | Closed |
+| (More hours in September) |  |
+|  | undefined |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email | hello@thrive-physiotherapy.co.uk |
+| Phone | 0114 405 5075 |
+| Website | http://www.thrive-physiotherapy.co.uk |
 
 Welcome to Thrive Physiotherapy in Sheffield, where we specialise in women's health.
 Our expert team provides tailored physiotherapy treatments for pain, leakage/incontinence, prolapse, and menopausal symptoms.

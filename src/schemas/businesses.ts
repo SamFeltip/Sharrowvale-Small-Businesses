@@ -27,6 +27,4 @@ export const businessSchema = z.object({
     openDaysStatement: z.string().nullable(), // Open days statement
     specialTag: z.string().nullable(),      // Special Tag
     tags: z.array(z.string()).optional(),  // Updated to an array of strings
-    openingHoursDays: z.string().nullable(), // Opening hours (Days of the week)
-    openingHoursTimes: z.string().nullable(), // Opening hours (Times of day)
 });

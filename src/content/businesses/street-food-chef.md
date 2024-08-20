@@ -26,9 +26,6 @@ facebookLink: http://www.tiktok.com/@streetfoodchef
 websiteLink: https://www.streetfoodchef.co.uk/
 yearEstablished: ""
 owner: "Richard Golland"
-
-openingHoursDays: "Monday - FridaySaturdaySunday"
-openingHoursTimes: "11:00 - 22:0010:00 - 22:0010:00 - 21:00"
 openDaysStatement: "Open every day"
 
 # Listing types
@@ -51,6 +48,22 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Monday - Friday | 11:00 - 22:00 |
+| Saturday | 10:00 - 22:00 |
+| Sunday | 10:00 - 21:00 |
+|  |  |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email |  |
+| Phone |  |
+| Website | https://www.streetfoodchef.co.uk/ |
 
 Beginning as street food in Sheffield, Street Food Chef's offerings have resonated deeply with the community, resulting in five prestigious Eat Sheffield awards.
 They're honoured to be recommended in the Good Food Guide and recognised as a runner-up in the Observer Food Awards.

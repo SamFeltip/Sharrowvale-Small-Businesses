@@ -27,9 +27,6 @@ facebookLink: https://www.facebook.com/profile.php?id=100069475006033
 websiteLink: https://www.cornerstonecoffeegroup.co.uk/
 yearEstablished: "2021"
 owner: ""
-
-openingHoursDays: "Sunday - Monday Tuesday - Saturday "
-openingHoursTimes: "10am - 5pm10am - 11pm‍‍"
 openDaysStatement: "Open everyday"
 
 # Listing types
@@ -58,6 +55,21 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Sunday - Monday | 10am - 5pm |
+| Tuesday - Saturday | 10am - 11pm |
+|  | ‍ |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email | info@cornerstonecoffeegroup.co.uk |
+| Phone | 01146982679 |
+| Website | https://www.cornerstonecoffeegroup.co.uk/ |
 
 Cornerstone @ Dyson Place has quickly become one of Sheffield’s go-to contemporary restaurants and brunch spots since opening last year.
 This two-storey building, located just off Sharrow Vale Road, was formerly used by the church as a mission hall and has been transformed into a light, airy hangout that still proudly boasts many original features.

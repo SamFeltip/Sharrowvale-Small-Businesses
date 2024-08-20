@@ -30,9 +30,6 @@ facebookLink: https://www.facebook.com/akentannosrestaurant/?locale=en_GB
 websiteLink: http://akentannos.co.uk/
 yearEstablished: "2016"
 owner: "Mario"
-
-openingHoursDays: "Tuesday - Saturday"
-openingHoursTimes: "17:00 - 22:00"
 openDaysStatement: "Open Tues - Sat"
 
 # Listing types
@@ -54,6 +51,20 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Tuesday - Saturday | 17:00 - 22:00 |
+|  |  |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email | Info@akentannos.co.uk |
+| Phone | 0114 268 0505 |
+| Website | http://akentannos.co.uk/ |
 
 Akentannos is the only Restaurant in Sheffield specialising in Gluten Free Sardinian cuisine.
 We pride ourselves in using the finest and freshest ingredients, to cook authentic and innovative Sardinian food, we prepare them on the spot, &nbsp;respecting the right cooking times, in order to enhance the true aromas and flavours of Sardinia.

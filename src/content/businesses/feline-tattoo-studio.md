@@ -27,9 +27,6 @@ facebookLink: https://www.facebook.com/FelineStudio666/?locale=en_GB
 websiteLink: 
 yearEstablished: "1995"
 owner: "Fiona Long"
-
-openingHoursDays: "Tuesday - SaturdaySunday - Monday"
-openingHoursTimes: "10:00 - 18:00Appointment only"
 openDaysStatement: "Open Tues - Sun"
 
 # Listing types
@@ -45,6 +42,21 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Tuesday - Saturday | 10:00 - 18:00 |
+| Sunday - Monday | Appointment only |
+|  |  |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email | Fionalong9@gmail.com |
+| Phone | 0114 2661817 |
+| Website |  |
 
 All styles of tattooing are available with art designed just for you in a friendly, hygienic space.
 Perfect for your first tattoo or to add to your collection.

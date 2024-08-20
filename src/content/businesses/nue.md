@@ -28,9 +28,6 @@ facebookLink: https://www.facebook.com/profile.php?id=100090071303604
 websiteLink: https://www.nuesheffield.com/
 yearEstablished: "2023"
 owner: "Mario"
-
-openingHoursDays: "MondayTuesday - SaturdaySunday"
-openingHoursTimes: "Closed10:00 - 16:0010:00 - 15:00"
 openDaysStatement: "Closed Mondays"
 
 # Listing types
@@ -55,6 +52,22 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Monday | Closed |
+| Tuesday - Saturday | 10:00 - 16:00 |
+| Sunday | 10:00 - 15:00 |
+|  |  |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email | Info@nuesheffield.com |
+| Phone | 0114 321 8141 |
+| Website | https://www.nuesheffield.com/ |
 
 At Nue, we believe that eating gluten-free doesn't have to mean sacrificing taste or nutrition.
 Our menu is designed to cater to people with celiac disease, gluten intolerance, or those who simply choose to follow a gluten-free diet.

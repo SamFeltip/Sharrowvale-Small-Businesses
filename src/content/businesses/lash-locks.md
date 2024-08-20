@@ -28,9 +28,6 @@ facebookLink:
 websiteLink: http://Lashandlockssheffield.booksy.com
 yearEstablished: "2014"
 owner: ""
-
-openingHoursDays: "Monday - SaturdaySunday"
-openingHoursTimes: "09:00 - 20:00Closed"
 openDaysStatement: "Open Mon - Sat"
 
 # Listing types
@@ -47,6 +44,21 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Monday - Saturday | 09:00 - 20:00 |
+| Sunday | Closed |
+|  |  |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email |  |
+| Phone | 07967017936 |
+| Website | http://Lashandlockssheffield.booksy.com |
 
 Lash and Locks services include everything you need with: Lash extensions and liftsBrowsAcrylic, Gel and Biab nailsHair styling, cutting, colouring and all types of hair extensionsFacials and morePop in anytime to chat to our stylists.
 For prices and booking visit our website.

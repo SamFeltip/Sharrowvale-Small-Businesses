@@ -27,9 +27,6 @@ facebookLink: https://www.facebook.com/porterpizzaco
 websiteLink: http://porterpizza.co.uk
 yearEstablished: "2018"
 owner: "Mr Porter"
-
-openingHoursDays: "Mon - ThursFriday SaturdaySunday"
-openingHoursTimes: "17:00 - 21:0017:00 - 21:3012:00 - 21:3012:00 - 21:00"
 openDaysStatement: "Open every day"
 
 # Listing types
@@ -51,6 +48,23 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Mon - Thurs | 17:00 - 21:00 |
+| Friday | 17:00 - 21:30 |
+| Saturday | 12:00 - 21:30 |
+| Sunday | 12:00 - 21:00 |
+|  |  |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email | hello@porterpizza.co.uk |
+| Phone | 0114 2676672 |
+| Website | http://porterpizza.co.uk |
 
 Discover Porter Pizza, your neighborhood spot at the heart of Hunters Bar and Sharrow Vale, now relocated to a spacious new venue in Spring 2024.
 Renowned for their authentic Neapolitan pizzas, each dough is meticulously prepared in-house, left to prove overnight, and topped with the finest artisan ingredients.

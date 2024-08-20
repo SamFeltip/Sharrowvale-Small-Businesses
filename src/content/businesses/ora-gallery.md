@@ -24,9 +24,6 @@ facebookLink: https://www.facebook.com/orasheffield/
 websiteLink: http://www.orasheffield.com
 yearEstablished: "1990"
 owner: "Marika"
-
-openingHoursDays: "Sunday - MondayTuesday - Saturday"
-openingHoursTimes: "Closed10:00 - 17:00"
 openDaysStatement: "Open Tues - Sat"
 
 # Listing types
@@ -49,6 +46,21 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Sunday - Monday | Closed |
+| Tuesday - Saturday | 10:00 - 17:00 |
+|  |  |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email | info@oragallery.co.uk |
+| Phone | 011426614444 |
+| Website | http://www.orasheffield.com |
 
 At Ora we specialise in the offer of beautiful Sterling Silver jewellery.
 We have a wide collection of jewellery from all over the world, which includes stylish Scandinavian jewellery, beautiful Mexican silver, colourful Venetian glass jewellery and sparkly Coer de Lion Chrystal and stainless still pieces.

@@ -28,9 +28,6 @@ facebookLink: https://www.facebook.com/nakedape.uk/
 websiteLink: https://www.nakedape.uk.com/
 yearEstablished: ""
 owner: ""
-
-openingHoursDays: "Mon, Wed, Fri, SatTues, ThursSunday"
-openingHoursTimes: "10:00 - 17:0010:00 - 16:30Closed"
 openDaysStatement: "Open Mon - Sat"
 
 # Listing types
@@ -47,6 +44,22 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Mon, Wed, Fri, Sat | 10:00 - 17:00 |
+| Tues, Thurs | 10:00 - 16:30 |
+| Sunday | Closed |
+|  |  |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email | waynebiney@nakedape.uk.com |
+| Phone | 0114 349 5934 |
+| Website | https://www.nakedape.uk.com/ |
 
 We are official UK stockists of premium quality brands that include : Vibram Five Fingers and Vibram Furoshiki wrap-around shoes, Patagonia outdoor clothing, Carhartt workwear, Danner Boots, Teva Sandals, Keen Footwear, North Sea Clothing, Mephisto shoes &nbsp;and others.
 Our mission is to inspire people to live active, healthy and environmentally responsible lives and promote the best equipment and other resources in support of those ends.

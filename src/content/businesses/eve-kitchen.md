@@ -27,9 +27,6 @@ facebookLink: https://www.facebook.com/Evekitchen-372212209645336/?fref=ts
 websiteLink: http://www.evekitchen.co.uk/
 yearEstablished: "2015"
 owner: "Lauren"
-
-openingHoursDays: "Tuesday - Sunday"
-openingHoursTimes: "10:30 - 16:00"
 openDaysStatement: "Tue-Sun 10:30 -16:00"
 
 # Listing types
@@ -49,6 +46,20 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Tuesday - Sunday | 10:30 - 16:00 |
+|  |  |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email |  |
+| Phone |  |
+| Website | http://www.evekitchen.co.uk/ |
 
 Eve Kitchen represents the dedication and dream of opening a handmade doughnut shop and artisan cafe.
 Lauren Eve, the visionary behind this venture, is the creator, maker, and baker who ensures each doughnut is crafted to perfection.

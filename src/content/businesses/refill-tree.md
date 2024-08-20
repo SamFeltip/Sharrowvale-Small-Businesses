@@ -25,9 +25,6 @@ facebookLink: https://www.facebook.com/profile.php?id=100090414217047
 websiteLink: https://refilltree.co.uk
 yearEstablished: "2023"
 owner: "Tyler Savage"
-
-openingHoursDays: "Monday - SaturdaySunday"
-openingHoursTimes: "08:30 - 17:00Closed"
 openDaysStatement: "Closed Sundays"
 
 # Listing types
@@ -46,6 +43,21 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Monday - Saturday | 08:30 - 17:00 |
+| Sunday | Closed |
+|  |  |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email | info@refilltree.co.uk |
+| Phone | 07462474874 |
+| Website | https://refilltree.co.uk |
 
 Refill Tree is your go-to destination for sustainable living products.
 We offer a wide range of refillable household products, that are available to collect in reusable packaging such as tubs, jars and paper bags; helping you reduce single-use plastic waste.

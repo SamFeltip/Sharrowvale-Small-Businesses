@@ -131,7 +131,7 @@ const additional_places = shuffleBusinesses(
 				>
 					<div class="prose">
 						<div class="title grid gap-[24px]">
-							<dv class="flex flex-row gap-5 justify-center">
+							<div class="flex flex-row gap-5 justify-center">
 								{
 									businessCategories &&
 										businessCategories.map((bc) => (
@@ -142,7 +142,7 @@ const additional_places = shuffleBusinesses(
 											</p>
 										))
 								}
-							</dv>
+							</div>
 							<h1
 								class="color-coral capitalize text-center font-merriweather font-bold text-coral text-mega text-balance"
 							>
@@ -211,7 +211,73 @@ const additional_places = shuffleBusinesses(
 							<div>
 								<LightBox slides={slides} client:load />
 							</div>
-							<div>
+
+							<style is:global>
+								#article-content-grid {
+									display: grid;
+
+									grid-template-areas:
+										"open-hours-title . business-contact-title"
+										"open-hours spacer business-contact";
+
+									grid-template-columns: 1fr 0.5px 1fr;
+									column-gap: 2rem;
+
+									p {
+										grid-column: 1/-1;
+										margin-top: 1rem;
+									}
+
+									td {
+										font-size: 1rem;
+										font-weight: 300;
+										line-height: 124%;
+									}
+
+									td {
+										padding-bottom: 10px;
+									}
+
+									h2 {
+										font-family: "Merriweather", serif;
+										font-weight: 400;
+										font-size: 2rem;
+										line-height: 1.12;
+										margin-bottom: 0.5rem;
+										text-align: center;
+										color: var(--coral);
+
+										+ table tr :last-child {
+											text-align: right;
+										}
+									}
+
+									h2#open-hours {
+										grid-area: open-hours-title;
+										text-align: center;
+									}
+
+									h2#open-hours + table {
+										grid-area: open-hours;
+									}
+
+									h2#business-contact {
+										grid-area: business-contact-title;
+									}
+
+									h2#business-contact + table {
+										grid-area: business-contact;
+									}
+								}
+
+								#article-content-grid::after {
+									grid-area: spacer;
+									content: "";
+									height: 100%;
+									background-color: black;
+								}
+							</style>
+							<div id="article-content-grid">
 								<Content />
 							</div>
 							{
@@ -230,6 +296,60 @@ const additional_places = shuffleBusinesses(
 									</div>
 								)
 							}
+							<div class="flex flex-row gap-5 justify-center">
+								{
+									instagramLink && (
+										<a
+											href={instagramLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
+										>
+											<span>
+												<FontAwesomeIcon
+													className="h-5 w-5"
+													icon={faInstagram}
+												/>
+											</span>
+										</a>
+									)
+								}
+
+								{
+									websiteLink && (
+										<a
+											href={websiteLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
+										>
+											<span>
+												<FontAwesomeIcon
+													className="h-5 w-5"
+													icon={faLink}
+												/>
+											</span>
+										</a>
+									)
+								}
+								{
+									facebookLink && (
+										<a
+											href={facebookLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
+										>
+											<span>
+												<FontAwesomeIcon
+													className="h-5 w-5"
+													icon={faFacebook}
+												/>
+											</span>
+										</a>
+									)
+								}
+							</div>
 						</div>
 					</div>
 				</section>

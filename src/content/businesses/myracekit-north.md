@@ -26,9 +26,6 @@ facebookLink: https://www.facebook.com/myRaceKitNorth
 websiteLink: https://myracekitnorth.com/
 yearEstablished: "2003"
 owner: "Matt Rimmer"
-
-openingHoursDays: "Monday - FridaySaturdaySunday"
-openingHoursTimes: "10:00 - 17:3010:00 - 17:0010:00 - 16:00"
 openDaysStatement: "Open everyday"
 
 # Listing types
@@ -48,6 +45,22 @@ tags:
 
 ---
 
+## Open Hours
+
+| | |
+| - | - |
+| Monday - Friday | 10:00 - 17:30 |
+| Saturday | 10:00 - 17:00 |
+| Sunday | 10:00 - 16:00 |
+|  |  |
+
+## Business Contact
+
+| | |
+| - | - |
+| Email | matt@myracekit.com |
+| Phone | 01142669591 |
+| Website | https://myracekitnorth.com/ |
 
 Our philosophy is that there is no “one size fits all” and our aim is to give you the best possible advice for your particular event, race and running ambitions.
 We'll have a chat about what you need, get a few choices out for you to try on the treadmill, look at how the shoes make you move ("gait analysis"), make sure the size and fit are right for you, and help you make an informed choice.
