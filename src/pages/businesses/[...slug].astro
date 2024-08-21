@@ -29,6 +29,7 @@ const {
 	description,
 	type,
 	bannerImage,
+	heroImage,
 	streetAddress,
 	additionalImages,
 	tags,
@@ -107,11 +108,16 @@ const additional_places = shuffleBusinesses(
 	<article class="my-5 mx-7">
 		<div class="h-[350px]" id="parallax-background">
 			<img
-				id="hero-image"
-				data-pagefind-meta="image[src], image_alt[alt]"
+				id="banner-image"
 				class="rounded-3xl w-full h-[500px] object-cover sticky"
 				src={bannerImage}
+				alt="banner image"
+			/>
+			<img
+				data-pagefind-meta="image[src], image_alt[alt]"
+				src={heroImage}
 				alt="hero image"
+				class="hidden"
 			/>
 		</div>
 		<div id="parallax-foreground">

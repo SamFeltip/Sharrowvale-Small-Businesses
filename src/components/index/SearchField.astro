@@ -28,6 +28,10 @@ const businessCategories: CollectionEntry<"business-category">[] =
         --pagefind-ui-font: Lato, sans-serif;
     }
 
+    .pagefind-ui__results-area {
+        min-width: auto !important;
+    }
+
     .pagefind-ui input:focus-visible {
         border-bottom-width: var(--tw-border-width, 2px);
         border-bottom-color: var(--tw-border-color, currentColor);
@@ -64,19 +68,34 @@ const businessCategories: CollectionEntry<"business-category">[] =
     .pagefind-ui__result:hover {
         scale: 1.02;
     }
+
+    @media screen and (max-width: 768px) {
+        .pagefind-ui__results {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media screen and (max-width: 991px) {
+        .pagefind-ui__drawer {
+            flex-direction: column !important;
+        }
+    }
 </style>
 
 <div
-    class="px-12 pb-5 flex font-merriweather text-sm flex-row items-center flex-wrap justify-center gap-2 w-[60%]"
+    class="px-12 pb-5 flex font-merriweather text-sm flex-row items-center flex-wrap justify-center gap-2"
 >
-    {
-        businessCategories &&
-            businessCategories.map((bc) => (
-                <button class="hover:scale-110 transition-all border border-black rounded-full py-1 px-2">
-                    {bc.data.name}
-                </button>
-            ))
-    }
+    <div
+        class="w-[60%] flex flex-row items-center flex-wrap justify-center gap-x-2 gap-y-1"
+    >
+        {
+            businessCategories &&
+                businessCategories.map((bc) => (
+                    <button class="hover:scale-110 transition-all border border-black rounded-full py-1 px-2">
+                        {bc.data.name}
+                    </button>
+                ))
+        }
+    </div>
     <Search
         id="search"
         className="pagefind-ui w-full"
@@ -86,7 +105,7 @@ const businessCategories: CollectionEntry<"business-category">[] =
             },
             showImages: true,
             showEmptyFilters: false,
-            openFilters: ["Tags", "Type"],
+            // openFilters: ["Tags", "Type"],
         }}
     />
 </div>
