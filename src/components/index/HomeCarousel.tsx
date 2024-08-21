@@ -11,12 +11,14 @@ import {
 
 import Autoplay from "embla-carousel-autoplay"
 
+
 // images is an array of image paths
 export function InteractiveCarousel({ promotions }: {
     promotions: {
         title: string,
         body: string,
         image: string,
+        textPosition?: string | undefined,
         location?: string | undefined,
         startDate?: string | undefined,
         endDate?: string | undefined,
@@ -34,6 +36,22 @@ export function InteractiveCarousel({ promotions }: {
         return currentDate >= startDate && currentDate <= endDate;
     })
 
+    let cardTextStyles: string[] = promotions.map((promotion) => {
+        if (promotion.textPosition === "top-left") {
+            return "bottom-0 left-0";
+        } else if (promotion.textPosition === "top-right") {
+            return "bottom-0 right-0 text-end";
+        } else if (promotion.textPosition === "bottom-left") {
+            return "top-0 left-0";
+        } else if (promotion.textPosition === "bottom-right") {
+            return "top-0 right-0  text-end";
+        } else if (promotion.textPosition === "center") {
+            return "mb-3 bottom-0 w-full text-center";
+        }
+    }).map(style => {
+        return style += " " + "absolute p-5 text-white w-3/4";
+    })
+
     return (
         <div className="w-full flex justify-center">
 
@@ -49,7 +67,7 @@ export function InteractiveCarousel({ promotions }: {
                                 <CardContent className="relative">
 
                                     <img className="object-cover h-[400px] w-full" src={promotion.image} alt="image" />
-                                    <div className="absolute bottom-0 right-0 p-5 text-white w-3/4 text-end">
+                                    <div id="card-text" className={cardTextStyles[index]}>
 
                                         <h3 className="capitalize flex-none w-full mt-0 mb-0 font-merriweather text-[5.5rem] font-bold leading-[1.02] no-underline">
                                             {promotion.title}
