@@ -49,17 +49,20 @@ tags:
 
 ## Open Hours
 
-| | |
-| - | - |
+|                    |               |
+| ------------------ | ------------- |
 | Tuesday - Saturday | 17:00 - 22:00 |
-|  |  |
+|                    |               |
+|                    |               |
+|                    |               |
+|                    |               |
 
 ## Business Contact
 
-| | |
-| - | - |
-| Email | Info@akentannos.co.uk |
-| Phone | 0114 268 0505 |
+|         |                          |
+| ------- | ------------------------ |
+| Email   | Info@akentannos.co.uk    |
+| Phone   | 0114 268 0505            |
 | Website | http://akentannos.co.uk/ |
 
 Akentannos is the only Restaurant in Sheffield specialising in Gluten Free Sardinian cuisine.
