@@ -6,9 +6,9 @@
     "start": "astro dev",
     "build:astro": "astro check && astro build ",
     "build:pagefind": "pagefind --source dist",
-    "build": "npm-run-all -s build:astro build:pagefind",
+    "build": "astro check && astro build && pagefind --source dist",
     "dev:astro": "astro dev",
-    "dev": "npm-run-all -s build:pagefind dev:astro",
+    "dev": "pagefind --source dist && astro dev",
     "preview": "astro preview",
     "astro": "astro"
   },
