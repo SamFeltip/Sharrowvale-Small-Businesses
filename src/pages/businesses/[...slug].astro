@@ -65,31 +65,16 @@ const additional_places = shuffleBusinesses(
 
 <Layout>
 	<style>
-		@keyframes parallax-background {
-			to {
-				transform: translateY(200px);
-			}
-		}
-
 		@keyframes parallax-foreground {
 			from {
-				transform: translateY(-100px);
+				transform: translateY(0px);
+			}
+			to {
+				transform: translateY(-500px);
 			}
 		}
 		@supports (animation-timeline: --parallax-background) {
 			@media (prefers-reduced-motion: no-preference) {
-				#parallax-background {
-					view-timeline-name: --parallax-background;
-				}
-
-				#hero-image {
-					animation: parallax-background both;
-					animation-timing-function: ease-in-out;
-
-					animation-timeline: --parallax-background;
-					animation-range: 40% 120%;
-				}
-
 				#parallax-foreground {
 					view-timeline-name: --parallax-foreground;
 				}
@@ -99,7 +84,7 @@ const additional_places = shuffleBusinesses(
 					animation-timing-function: ease-in-out;
 
 					animation-timeline: --parallax-foreground;
-					animation-range: 0% 120%;
+					animation-range: 0% 50%;
 				}
 			}
 		}
@@ -121,7 +106,10 @@ const additional_places = shuffleBusinesses(
 			/>
 		</div>
 		<div id="parallax-foreground">
-			<div id="business-content" class="flex flex-col gap-6 mx-8 mb-5">
+			<div
+				id="business-content"
+				class="flex flex-col items-center gap-6 mx-8 mb-5"
+			>
 				<section
 					class="gap-12
 							bg-white
@@ -358,7 +346,7 @@ const additional_places = shuffleBusinesses(
 						</div>
 					</div>
 				</section>
-				<section>
+				<section class="w-full">
 					<GoogleMap address={streetAddress} title={title} />
 				</section>
 				<section data-pagefind-ignore>
