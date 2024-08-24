@@ -14,6 +14,10 @@ export default {
       },
     },
     extend: {
+      aspectRatio: {
+        '3/2': "3 / 2",
+        '4/5': "4 / 5",
+      },
       colors: {
 
         coral: '#e86868',

@@ -1,111 +1,64 @@
 ---
-import Search from "astro-pagefind/components/Search";
+import "@/styles/pagefind.css";
 import { type CollectionEntry, getCollection } from "astro:content";
 
 const businessCategories: CollectionEntry<"business-category">[] =
     await getCollection("business-category");
+
+const businesses: CollectionEntry<"businesses">[] =
+    await getCollection("businesses");
+
+const tags = businesses
+    .map((b) => b.data.tags)
+    .flat()
+    .filter((t) => t !== undefined);
+
+let firstResult = "a";
+
+const randomIndex = Math.floor(Math.random() * tags.length) ?? 0;
+
+if (tags !== undefined) {
+    firstResult = tags[randomIndex];
+}
 ---
 
-<style is:global>
-    :root {
-        --pagefind-ui-scale: 1;
-        --pagefind-ui-primary: var(--menu-surface);
-        --pagefind-ui-message-text: #000;
-        --pagefind-ui-result-title-text: var(--brand);
-        --pagefind-ui-result-text: #000;
-        --pagefind-ui-background: var(--surface1) --pagefind-input-background:
-            var(--brand);
+<!-- <link href="/pagefind/pagefind-ui.css" rel="stylesheet" /> -->
+<script src="/pagefind/pagefind-ui.js" is:inline></script>
 
-        --pagefind-ui-border: var(--accent1);
-        --pagefind-ui-border-width: 0px;
-        --pagefind-ui-border-radius: 0px;
+<div id="search" class="mx-7" data-first-search={firstResult}></div>
 
-        --pagefind-ui-image-border-radius: 8px;
-        --pagefind-ui-image-box-ratio: 3 / 2;
-
-        --pagefind-button-background: var(--pagefind-input-background);
-        --pagefind-button-color: var(--pagefind-ui-message-text);
-        --pagefind-ui-font: Lato, sans-serif;
-    }
-
-    .pagefind-ui__results-area {
-        min-width: auto !important;
-    }
-
-    .pagefind-ui input:focus-visible {
-        border-bottom-width: var(--tw-border-width, 2px);
-        border-bottom-color: var(--tw-border-color, currentColor);
-        border-bottom-style: solid;
-    }
-
-    .pagefind-ui__results {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-column-gap: 24px;
-        grid-row-gap: 32px;
-    }
-    .pagefind-ui__result {
-        display: grid !important;
-        grid-template-columns: auto;
-        grid-template-rows: 1fr auto;
-        transition: all 0.2s ease-in-out;
-
-        img {
-            object-fit: cover;
-            border-radius: 8px;
-            width: 100% !important;
-            max-width: 100% !important;
-            aspect-ratio: 3 / 2;
-        }
-
-        .pagefind-ui__result-thumb {
-            width: 100% !important;
-            max-width: 100% !important;
-            /* height: 100% !important; */
-        }
-    }
-
-    .pagefind-ui__result:hover {
-        scale: 1.02;
-    }
-
-    @media screen and (max-width: 768px) {
-        .pagefind-ui__results {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    @media screen and (max-width: 991px) {
-        .pagefind-ui__drawer {
-            flex-direction: column !important;
-        }
-    }
-</style>
-
-<div
-    class="px-12 pb-5 flex font-merriweather text-sm flex-row items-center flex-wrap justify-center gap-2"
+<a
+    href="/businesses"
+    class="hover:scale-110 transition-all border border-black rounded-full py-1 px-2"
 >
-    <div
-        class="w-[60%] flex flex-row items-center flex-wrap justify-center gap-x-2 gap-y-1"
-    >
-        {
-            businessCategories &&
-                businessCategories.map((bc) => (
-                    <button class="search-category hover:scale-110 transition-all border border-black rounded-full py-1 px-2">
-                        {bc.data.name}
-                    </button>
-                ))
-        }
-    </div>
-    <Search
-        id="search"
-        className="pagefind-ui w-full"
-        uiOptions={{
-            translations: {
-                placeholder: "Search Sharrow Vale",
-            },
+    Visit the directory
+</a>
+
+<script type="module">
+    window.addEventListener("DOMContentLoaded", async (event) => {
+        let pagefindUI = new PagefindUI({
+            element: "#search",
+            showEmptyFilters: true,
+            openFilters: ["Type"],
             showImages: true,
-            showEmptyFilters: false,
-            // openFilters: ["Tags", "Type"],
-        }}
-    />
-</div>
+            excerptLength: 10,
+        });
+
+        // get first result
+        let firstSearch = document
+            .querySelector("#search")
+            .dataset.firstSearch.replace("-", " ");
+
+        await pagefindUI.triggerSearch(firstSearch);
+
+        let input = document.querySelector(".pagefind-ui__search-input");
+        let clearButton = document.querySelector(".pagefind-ui__search-clear");
+
+        let form = document.querySelector(".pagefind-ui__form");
+
+        let searchWrapper = document.createElement("div");
+        searchWrapper.classList.add("pagefind-ui__search-wrapper");
+
+        form.appendChildBefore(input, searchWrapper);
+    });
+</script>
