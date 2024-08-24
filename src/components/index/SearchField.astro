@@ -12,20 +12,16 @@ const tags = businesses
     .map((b) => b.data.tags)
     .flat()
     .filter((t) => t !== undefined);
-
-let firstResult = "a";
-
-const randomIndex = Math.floor(Math.random() * tags.length) ?? 0;
-
-if (tags !== undefined) {
-    firstResult = tags[randomIndex];
-}
 ---
 
 <!-- <link href="/pagefind/pagefind-ui.css" rel="stylesheet" /> -->
 <script src="/pagefind/pagefind-ui.js" is:inline></script>
 
-<div id="search" class="mx-7" data-first-search={firstResult}></div>
+<div id="tags" class="hidden">
+    {tags.map((tag, i) => <data>{tag}</data>)}
+</div>
+
+<div id="search" class="mx-7"></div>
 
 <a
     href="/businesses"
@@ -44,12 +40,20 @@ if (tags !== undefined) {
             excerptLength: 10,
         });
 
-        // get first result
-        let firstSearch = document
-            .querySelector("#search")
-            .dataset.firstSearch.replace("-", " ");
+        let tags = document.querySelector("div#tags").querySelectorAll("data");
+        let tagContent = Array.from(tags).map((tag) => tag.textContent);
 
-        await pagefindUI.triggerSearch(firstSearch);
+        console.log(tagContent);
+
+        const randomIndex = Math.floor(Math.random() * tagContent.length) ?? 0;
+
+        let firstResult = "a";
+
+        if (tags !== undefined) {
+            firstResult = tagContent[randomIndex].replace("-", " ");
+        }
+
+        await pagefindUI.triggerSearch(firstResult);
 
         let input = document.querySelector(".pagefind-ui__search-input");
         let clearButton = document.querySelector(".pagefind-ui__search-clear");
