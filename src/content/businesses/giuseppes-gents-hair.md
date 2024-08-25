@@ -38,20 +38,20 @@ tags:
 
 ## Open Hours
 
-| | |
-| - | - |
-| Saturday | 09:00 - 16:00 |
-| Sunday - Monday | Closed |
+|                  |               |
+| ---------------- | ------------- |
+| Saturday         | 09:00 - 16:00 |
+| Sunday - Monday  | Closed        |
 | Tuesday - Friday | 10:00 - 17:00 |
-| ‍ |  |
-|  | undefined |
+| ‍                |               |
+|                  | undefined     |
 
 ## Business Contact
 
-| | |
-| - | - |
-| Email | giuseppesgentshair@gmail.com |
-| Phone | 07415275048 |
+|         |                                         |
+| ------- | --------------------------------------- |
+| Email   | giuseppesgentshair@gmail.com            |
+| Phone   | 07415275048                             |
 | Website | https://giuseppesgentshair.nearcut.com/ |
 
 Giuseppe's is an easy, non nonsense mens barbers.

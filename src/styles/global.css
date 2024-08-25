@@ -50,38 +50,140 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0 0 0.5rem 0;
-    line-height: 1.2;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 h1 {
-    font-size: 3.052em;
+    color: var(--white);
+    text-transform: capitalize;
+    flex: 0 auto;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: Merriweather, serif;
+    font-size: 5.5rem;
+    font-weight: 700;
+    line-height: 102%;
+    text-decoration: none;
 }
 
 h2 {
-    font-size: 2.441em;
+    color: var(--black);
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: Merriweather, serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 124%;
+    text-decoration: none;
 }
 
 h3 {
-    color: var(--coral);
-    font-size: 2rem;
-    font-weight: 400;
-
+    color: var(--black);
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
     font-family: Merriweather, serif;
+    font-size: 2rem;
+    font-weight: 700;
     line-height: 112%;
     text-decoration: none;
 }
 
 h4 {
-    font-size: 1.563em;
+    color: var(--black);
+    text-align: left;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: Lato, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 100%;
+    text-decoration: none;
 }
 
 h5 {
-    font-size: 1.25em;
+    color: var(--black);
+    text-align: left;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 100%;
+    text-decoration: none;
+}
+
+h6 {
+    color: var(--black);
+    text-transform: capitalize;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: Merriweather, serif;
+    font-size: 1.5rem;
+    line-height: 124%;
+}
+
+@media screen and (max-width: 991px) {
+    h1 {
+        font-size: 4.25rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    h4 {
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    h4 {
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    h1 {
+        text-align: left;
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        line-height: 124%;
+    }
+
+    h3 {
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: anywhere;
+        font-size: 1.3rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+        line-height: 124%;
+    }
+
+    h5 {
+        font-size: 0.75rem;
+    }
 }
 
 strong,
@@ -101,6 +203,10 @@ label {
     margin-bottom: 0;
 }
 
+/* 
+    sections are floated into view.
+    this is paired with javascript in BaseHead.astro
+*/
 section {
     opacity: 0;
     transform: translateY(50px);
