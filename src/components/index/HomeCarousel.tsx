@@ -39,13 +39,13 @@ export function InteractiveCarousel({
     let cardTextStyles: string[] = promotions
         .map((promotion) => {
             if (promotion.textPosition === "top-left") {
-                return "bottom-0 left-0";
-            } else if (promotion.textPosition === "top-right") {
-                return "bottom-0 right-0 text-end";
-            } else if (promotion.textPosition === "bottom-left") {
                 return "top-0 left-0";
+            } else if (promotion.textPosition === "top-right") {
+                return "top-0 right-0 text-end";
+            } else if (promotion.textPosition === "bottom-left") {
+                return "bottom-0 left-0";
             } else if (promotion.textPosition === "bottom-right") {
-                return "top-0 right-0  text-end";
+                return "bottom-0 right-0  text-end";
             } else if (promotion.textPosition === "center") {
                 return "mb-3 bottom-0 w-full text-center";
             }
@@ -78,9 +78,7 @@ export function InteractiveCarousel({
                                         id="card-text"
                                         className={cardTextStyles[index]}
                                     >
-                                        <h2 className="capitalize flex-none w-full mt-0 mb-0 font-merriweather text-[5.5rem] font-bold leading-[1.02] no-underline">
-                                            {promotion.title}
-                                        </h2>
+                                        <h1>{promotion.title}</h1>
                                         <p>{promotion.body}</p>
                                     </div>
                                 </CardContent>

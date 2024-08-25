@@ -22,12 +22,20 @@ let promotionsData = await promotions.map((promotion) => ({
         class="text-center h-[80svh] mh-[600px] flex flex-col items-center justify-center"
     >
         <div class="mb-[120px] flex flex-col gap-4">
+
+            <div>
+                <a href="https://forms.gle/M7dq5bsXLuThKZkr8" class="bg-amber-100 border-black border-[1px] rounded-full px-4 py-2 text-center text-sm">
+                    Want to join our site? Fill out the content form <span class="text-blue-500 underline">here</span>
+                </a>
+            </div>
+
             <h4
                 class="text-center"
             >
                 Welcome to
             </h4>
             <h1
+                id="hero-title"
                 class="text-coral text-center"
             >
                 Sharrow Vale
@@ -44,7 +52,7 @@ let promotionsData = await promotions.map((promotion) => ({
             </p>
         </div>
         <div class="text-center">
-            <a href="#search" class="flex flex-col gap-2">
+            <a href="#directory" class="flex flex-col gap-2">
                 <span
                     class="text-black mt-0 mb-0 font-lato text-base font-light leading-[1.24] no-underline"
                 >
@@ -63,6 +71,7 @@ let promotionsData = await promotions.map((promotion) => ({
     </section>
 
     <section
+        id="directory"
         class="text-center flex flex-col items-center justify-center gap-y-5 py-[50px]"
     >
         <h4
@@ -70,11 +79,11 @@ let promotionsData = await promotions.map((promotion) => ({
         >
             sharrow vale directory
         </h4>
-        <h1
+        <h2
             class="text-coral"
         >
             Search For Local Restaurants,<br /> shops, Cafes And More
-        </h1>
+        </h2>
     </section>
 
     <section class="w-full flex flex-col items-center justify-center mb-[8rem]">
