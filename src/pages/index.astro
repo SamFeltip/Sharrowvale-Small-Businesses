@@ -19,13 +19,13 @@ let promotionsData = await promotions.map((promotion) => ({
 
 <Layout>
     <section
-        class="text-center h-[80svh] mh-[600px] flex flex-col items-center justify-center"
+        class="text-center h-[80svh] mh-[600px] pt-[80px] flex flex-col items-center justify-center"
     >
-        <div class="mb-[120px] flex flex-col gap-4">
+        <div class="mb-[120px] flex flex-col items-center gap-4">
 
-            <div>
-                <a href="https://forms.gle/M7dq5bsXLuThKZkr8" class="bg-amber-100 border-black border-[1px] rounded-full px-4 py-2 text-center text-sm">
-                    Want to join our site? Fill out the content form <span class="text-blue-500 underline">here</span>
+            <div class="bg-amber-100 border-black border-[1px] rounded-full text-center text-sm px-4 py-2 ">
+                <a href="https://forms.gle/M7dq5bslguThKZkr8" class="">
+                    Want to join our site? <wbr/> Fill out the content form <span class="text-blue-500 underline">here</span>
                 </a>
             </div>
 
@@ -91,17 +91,17 @@ let promotionsData = await promotions.map((promotion) => ({
     </section>
 
     <section
-        class="flex flex-row-reverse items-center justify-center px-7 mb-[8rem]"
+        class="flex flex-col lg:flex-row-reverse items-center justify-center px-7 mb-[8rem] w-full"
     >
         <img
-            class="h-[600px] object-cover rounded-mega aspect-[4/5] translate-x-[-50px]"
+            class="h-[600px] object-cover rounded-mega aspect-video lg:aspect-[4/5] lg:translate-x-[-50px]"
             src="https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666576a0c2d4c780054817d3_market%20.jpeg"
             alt="sharrow vale market"
         />
         <div
-            class="bg-white rounded-mega py-[56px] px-[40px] translate-x-[50px] flex flex-col gap-y-4 items-start"
+            class="bg-white rounded-mega py-[56px] px-[40px] mx-3 lg:mx-0 translate-y-[-100px] lg:translate-y-0 lg:translate-x-[50px] flex flex-col gap-y-4 items-start"
         >
-            <h3>Sharrow Vale Market</h3>
+            <h3 class="text-coral">Sharrow Vale Market</h3>
 
             <div>
                 <p class="mb-4">
@@ -131,16 +131,16 @@ let promotionsData = await promotions.map((promotion) => ({
         </div>
     </section>
 
-    <section class="flex flex-row items-center justify-center px-7 mb-[8rem]">
+    <section class="flex flex-col lg:flex-row items-center justify-center px-7 mb-[8rem] w-full">
         <img
-            class="w-[700px] object-cover rounded-mega aspect-[3/2] translate-x-[50px]"
+            class="w-[700px] object-cover rounded-mega aspect-[3/2] lg:translate-x-[50px]"
             src="https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6664b55aa0453a8fd5fdb539_442419404_984343870366225_8191179513756749300_n.jpg"
             alt=""
         />
         <div
-            class="bg-white rounded-mega px-[40px] py-[56px] flex flex-col gap-y-4 items-start translate-x-[-50px]"
+            class="bg-white rounded-mega px-[40px] py-[56px] flex flex-col gap-y-4 items-start mx-3 lg:mx-0 translate-y-[-100px] lg:translate-y-0 lg:translate-x-[-50px]"
         >
-            <h3>About</h3>
+            <h3 class="text-coral">About</h3>
             <p>
                 This directory is run by local Sharrow Vale residents aiming to
                 help locals and tourists find out more about the Vale,
