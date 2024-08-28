@@ -55,14 +55,14 @@ export function InteractiveCarousel({
         });
 
     return (
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center max-w-[1400px]">
             <Carousel
                 plugins={[
                     Autoplay({
                         delay: 5000,
                     }),
                 ]}
-                className="mt-3 w-5/6 rounded-xl overflow-hidden"
+                className="w-full mt-3 rounded-xl overflow-hidden"
             >
                 <CarouselContent>
                     {promotions.map((promotion, index) => (

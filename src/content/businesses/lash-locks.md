@@ -58,4 +58,3 @@ tags:
 
 Lash and Locks services include everything you need with: Lash extensions and liftsBrowsAcrylic, Gel and Biab nailsHair styling, cutting, colouring and all types of hair extensionsFacials and morePop in anytime to chat to our stylists.
 For prices and booking visit our website.
-

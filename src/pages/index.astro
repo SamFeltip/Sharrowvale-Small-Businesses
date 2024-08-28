@@ -18,142 +18,146 @@ let promotionsData = await promotions.map((promotion) => ({
 ---
 
 <Layout>
-    <section
-        class="text-center h-[80svh] mh-[600px] pt-[80px] flex flex-col items-center justify-center"
-    >
-        <div class="mb-[120px] flex flex-col items-center gap-4">
+    <div data-pagefind-ignore>
 
-            <div class="bg-amber-100 border-black border-[1px] rounded-full text-center text-sm px-4 py-2 ">
-                <a href="https://forms.gle/M7dq5bslguThKZkr8" class="">
-                    Want to join our site? <wbr/> Fill out the content form <span class="text-blue-500 underline">here</span>
+        <section
+            class="text-center h-[80svh] mh-[600px] pt-[80px] flex flex-col items-center justify-center"
+        >
+            <div class="mb-[120px] flex flex-col items-center gap-4">
+
+                <div class="bg-amber-100 border-black border-[1px] rounded-full text-center text-sm px-4 py-2 ">
+                    <a href="https://forms.gle/M7dq5bslguThKZkr8" class="">
+                        Want to join our site? <wbr/> Fill out the content form <span class="text-blue-500 underline">here</span>
+                    </a>
+                </div>
+
+                <h4
+                    class="text-center"
+                >
+                    Welcome to
+                </h4>
+                <h1
+                    id="hero-title"
+                    class="text-coral text-center"
+                >
+                    Sharrow Vale
+                </h1>
+                <h4
+                    class="text-center"
+                >
+                    small businesses
+            </h4>
+                <p>
+                    The home for exploring the unique community of businesses
+                    <br />
+                    and services in Sharrow Vale, Sheffield
+                </p>
+            </div>
+            <div class="text-center">
+                <a href="#directory" class="flex flex-col gap-2">
+                    <span
+                        class="text-black mt-0 mb-0 font-lato text-base font-light leading-[1.24] no-underline"
+                    >
+                        Search businesses
+                    </span>
+                    <FontAwesomeIcon
+                        className="text-black h-5"
+                        icon={faChevronDown}
+                    />
                 </a>
             </div>
+        </section>
 
+        <section class="flex justify-center p-8">
+            <InteractiveCarousel client:load promotions={promotionsData} />
+        </section>
+
+        <section
+            id="directory"
+            class="text-center flex flex-col items-center justify-center gap-y-5 py-[50px]"
+        >
             <h4
                 class="text-center"
             >
-                Welcome to
+                sharrow vale directory
             </h4>
-            <h1
-                id="hero-title"
-                class="text-coral text-center"
+            <h2
+                class="text-coral"
             >
-                Sharrow Vale
-            </h1>
-            <h4
-                class="text-center"
+                Search For Local Restaurants,<br /> shops, Cafes And More
+            </h2>
+        </section>
+
+        <section class="w-full flex flex-col items-center justify-center mb-[8rem]">
+            <SearchField />
+        </section>
+
+        <section
+            class="flex flex-col lg:flex-row-reverse items-center justify-center px-7 mb-[8rem] w-full"
+        >
+            <img
+                class="h-[600px] object-cover rounded-mega aspect-video lg:aspect-[4/5] lg:translate-x-[-50px]"
+                src="https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666576a0c2d4c780054817d3_market%20.jpeg"
+                alt="sharrow vale market"
+            />
+            <div
+                class="bg-white rounded-mega py-[56px] px-[40px] mx-3 lg:mx-0 translate-y-[-100px] lg:translate-y-0 lg:translate-x-[50px] flex flex-col gap-y-4 items-start"
             >
-                small businesses
-        </h4>
-            <p>
-                The home for exploring the unique community of businesses
-                <br />
-                and services in Sharrow Vale, Sheffield
-            </p>
-        </div>
-        <div class="text-center">
-            <a href="#directory" class="flex flex-col gap-2">
-                <span
-                    class="text-black mt-0 mb-0 font-lato text-base font-light leading-[1.24] no-underline"
+                <h3 class="text-coral">Sharrow Vale Market</h3>
+
+                <div>
+                    <p class="mb-4">
+                        Sharrow Vale Market is one of the Sharrows most beloved
+                        features, running three times a year from hunters bar
+                        roundabout all the way down stewart road.
+                    </p>
+                    <p class="mb-4">
+                        The market hosts around 100 stalls selling a wide variety of
+                        locally reared and home made produce as well as hot food,
+                        crafts, clothing and plants. In addition to the stalls, most
+                        of the shops, pubs and cafes are also open on market days.
+                    </p>
+                    <p class="mb-4">
+                        The market is managed by the Sharrow Vale Community
+                        Association. For more information you can visit their
+                        website below.
+                    </p>
+                </div>
+
+                <a
+                    href="http://sharrowvalemarket.co.uk/"
+                    class="font-merriweather hover:bg-black hover:text-cream text-sm border border-black rounded-full py-3 px-6"
                 >
-                    Search businesses
-                </span>
-                <FontAwesomeIcon
-                    className="text-black h-5"
-                    icon={faChevronDown}
-                />
-            </a>
-        </div>
-    </section>
-
-    <section>
-        <InteractiveCarousel client:load promotions={promotionsData} />
-    </section>
-
-    <section
-        id="directory"
-        class="text-center flex flex-col items-center justify-center gap-y-5 py-[50px]"
-    >
-        <h4
-            class="text-center"
-        >
-            sharrow vale directory
-        </h4>
-        <h2
-            class="text-coral"
-        >
-            Search For Local Restaurants,<br /> shops, Cafes And More
-        </h2>
-    </section>
-
-    <section class="w-full flex flex-col items-center justify-center mb-[8rem]">
-        <SearchField />
-    </section>
-
-    <section
-        class="flex flex-col lg:flex-row-reverse items-center justify-center px-7 mb-[8rem] w-full"
-    >
-        <img
-            class="h-[600px] object-cover rounded-mega aspect-video lg:aspect-[4/5] lg:translate-x-[-50px]"
-            src="https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666576a0c2d4c780054817d3_market%20.jpeg"
-            alt="sharrow vale market"
-        />
-        <div
-            class="bg-white rounded-mega py-[56px] px-[40px] mx-3 lg:mx-0 translate-y-[-100px] lg:translate-y-0 lg:translate-x-[50px] flex flex-col gap-y-4 items-start"
-        >
-            <h3 class="text-coral">Sharrow Vale Market</h3>
-
-            <div>
-                <p class="mb-4">
-                    Sharrow Vale Market is one of the Sharrows most beloved
-                    features, running three times a year from hunters bar
-                    roundabout all the way down stewart road.
-                </p>
-                <p class="mb-4">
-                    The market hosts around 100 stalls selling a wide variety of
-                    locally reared and home made produce as well as hot food,
-                    crafts, clothing and plants. In addition to the stalls, most
-                    of the shops, pubs and cafes are also open on market days.
-                </p>
-                <p class="mb-4">
-                    The market is managed by the Sharrow Vale Community
-                    Association. For more information you can visit their
-                    website below.
-                </p>
+                    Find out more
+                </a>
             </div>
+        </section>
 
-            <a
-                href="http://sharrowvalemarket.co.uk/"
-                class="font-merriweather hover:bg-black hover:text-cream text-sm border border-black rounded-full py-3 px-6"
+        <section class="flex flex-col lg:flex-row items-center justify-center px-7 mb-[8rem] w-full">
+            <img
+                class="w-[700px] object-cover rounded-mega aspect-[3/2] lg:translate-x-[50px]"
+                src="https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6664b55aa0453a8fd5fdb539_442419404_984343870366225_8191179513756749300_n.jpg"
+                alt=""
+            />
+            <div
+                class="bg-white rounded-mega px-[40px] py-[56px] flex flex-col gap-y-4 items-start mx-3 lg:mx-0 translate-y-[-100px] lg:translate-y-0 lg:translate-x-[-50px]"
             >
-                Find out more
-            </a>
-        </div>
-    </section>
+                <h3 class="text-coral">About</h3>
+                <p>
+                    This directory is run by local Sharrow Vale residents aiming to
+                    help locals and tourists find out more about the Vale,
+                    highlighting unique collection of many small businesses that
+                    live here. If you would like to find out more about how it works
+                    click below
+                </p>
+                <a
+                    href="/about"
+                    class="font-merriweather hover:bg-black hover:text-cream text-sm border border-black rounded-full py-3 px-6"
+                >
+                    Find out more
+                </a>
+            </div>
+        </section>
+    </div>
 
-    <section class="flex flex-col lg:flex-row items-center justify-center px-7 mb-[8rem] w-full">
-        <img
-            class="w-[700px] object-cover rounded-mega aspect-[3/2] lg:translate-x-[50px]"
-            src="https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6664b55aa0453a8fd5fdb539_442419404_984343870366225_8191179513756749300_n.jpg"
-            alt=""
-        />
-        <div
-            class="bg-white rounded-mega px-[40px] py-[56px] flex flex-col gap-y-4 items-start mx-3 lg:mx-0 translate-y-[-100px] lg:translate-y-0 lg:translate-x-[-50px]"
-        >
-            <h3 class="text-coral">About</h3>
-            <p>
-                This directory is run by local Sharrow Vale residents aiming to
-                help locals and tourists find out more about the Vale,
-                highlighting unique collection of many small businesses that
-                live here. If you would like to find out more about how it works
-                click below
-            </p>
-            <a
-                href="/about"
-                class="font-merriweather hover:bg-black hover:text-cream text-sm border border-black rounded-full py-3 px-6"
-            >
-                Find out more
-            </a>
-        </div>
-    </section>
 </Layout>
