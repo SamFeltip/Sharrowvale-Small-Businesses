@@ -1,0 +1,79 @@
+#article-content-grid {
+    display: grid;
+
+    grid-template-areas:
+        "open-hours-title"
+        "open-hours"
+        "business-contact-title"
+        "business-contact";
+
+    grid-template-columns: 1fr;
+
+    & p {
+        grid-column: 1/-1;
+        margin-top: 1rem;
+    }
+
+    & td {
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 124%;
+    }
+
+    & td {
+        padding-bottom: 10px;
+    }
+
+    & h2 {
+        font-family: "Merriweather", serif;
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 1.12;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        color: var(--coral);
+
+        + table tr :last-child {
+            text-align: right;
+        }
+    }
+
+    & h2#open-hours {
+        grid-area: open-hours-title;
+        text-align: center;
+    }
+
+    & h2#open-hours + table {
+        grid-area: open-hours;
+    }
+
+    & h2#business-contact {
+        grid-area: business-contact-title;
+    }
+
+    & h2#business-contact + table {
+        grid-area: business-contact;
+    }
+
+    & table {
+        table-layout: auto;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #article-content-grid {
+        grid-template-areas:
+            "open-hours-title . business-contact-title"
+            "open-hours spacer business-contact";
+
+        grid-template-columns: 1fr 0.5px 1fr;
+        column-gap: 2rem;
+    }
+}
+
+#article-content-grid::before {
+    grid-area: spacer;
+    content: "";
+    height: 100%;
+    background-color: black;
+}

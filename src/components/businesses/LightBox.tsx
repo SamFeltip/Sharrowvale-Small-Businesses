@@ -1,8 +1,10 @@
 import * as React from "react";
-import Lightbox, { type SlideImage, type ThumbnailsRef } from "yet-another-react-lightbox";
+import Lightbox, {
+    type SlideImage,
+    type ThumbnailsRef,
+} from "yet-another-react-lightbox";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-
 
 import "yet-another-react-lightbox/styles.css";
 
@@ -13,46 +15,48 @@ export default function LightBox({ slides }: { slides: SlideImage[] }) {
 
     const openOnIndex = (index: number) => () => {
         setIndex(index);
-        setOpen(true)
+        setOpen(true);
     };
 
     return (
         <>
-            <div id="lightbox-preview-grid" className="grid grid-cols-[1fr_150px] gap-4">
+            <div
+                id="lightbox-preview-grid"
+                className="w-full grid grid-cols-1 md:grid-cols-[1fr_150px] gap-4"
+            >
                 <img
                     className="cursor-pointer rounded-3xl w-full h-[400px] object-cover"
                     src={slides[0].src}
                     alt=""
                     onClick={openOnIndex(0)}
                 />
-                <div className="flex flex-col gap-4 h-[400px] overflow-y-scroll">
-                    {
-                        slides.slice(1).map((slide, index) =>
-                            <img
-                                className="cursor-pointer object-cover rounded-3xl h-[100px]"
-                                src={slide.src}
-                                alt=""
-                                key={index}
-                                onClick={openOnIndex(index + 1)}
-                            />
-                        )
-                    }
+                <div className="flex flex-row md:flex-col gap-4 md:h-[400px] overflow-y-scroll">
+                    {slides.slice(1).map((slide, index) => (
+                        <img
+                            className="cursor-pointer object-cover rounded-3xl h-[100px]"
+                            src={slide.src}
+                            alt=""
+                            key={index}
+                            onClick={openOnIndex(index + 1)}
+                        />
+                    ))}
                 </div>
             </div>
 
             <Lightbox
                 index={index}
-
                 on={{
                     click: () => {
                         (thumbnailsRef.current?.visible
                             ? thumbnailsRef.current?.hide
                             : thumbnailsRef.current?.show)?.();
                     },
-                    view: ({ index: currentIndex }) => setIndex(currentIndex)
+                    view: ({ index: currentIndex }) => setIndex(currentIndex),
                 }}
                 open={open}
-                close={() => { setOpen(false) }}
+                close={() => {
+                    setOpen(false);
+                }}
                 slides={slides}
                 carousel={{ preload: 2 }}
                 plugins={[Thumbnails]}

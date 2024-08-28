@@ -157,6 +157,12 @@
     }
 }
 
+@media screen and (max-width: 500px) {
+    .pagefind-ui__results {
+        grid-template-columns: 1fr;
+    }
+}
+
 .pagefind-ui__result {
     display: grid;
 
