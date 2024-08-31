@@ -40,19 +40,20 @@ export function InteractiveCarousel({
     let cardTextStyles: string[] = promotions
         .map((promotion) => {
             if (promotion.textPosition === "top-left") {
-                return "top-0 left-0";
+                return "top-0 justify-start items-start top-0 left-0";
             } else if (promotion.textPosition === "top-right") {
-                return "top-0 right-0 text-end";
+                return "top-0 justify-start items-end text-end";
             } else if (promotion.textPosition === "bottom-left") {
-                return "bottom-0 left-0";
+                return "top-0 justify-end items-start";
             } else if (promotion.textPosition === "bottom-right") {
-                return "bottom-0 right-0 text-end";
+                return "top-0 justify-end items-end text-end";
             } else if (promotion.textPosition === "center") {
-                return "pb-3 bottom-0 text-center";
+                return "top-0 justify-end align-center pb-3 text-center";
             }
         })
         .map((style) => {
-            return (style += " " + "absolute p-5 text-white h-full w-full");
+            return (style +=
+                " " + "absolute p-5 text-white h-full w-full flex flex-col");
         });
 
     return (
