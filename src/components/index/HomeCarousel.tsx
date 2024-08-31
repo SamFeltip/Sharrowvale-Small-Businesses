@@ -57,7 +57,7 @@ export function InteractiveCarousel({
         });
 
     return (
-        <div className="w-full flex justify-center max-w-[1400px]">
+        <div className="w-full flex justify-center max-w-[1400px] md:px-12">
             <Carousel
                 plugins={[
                     Autoplay({

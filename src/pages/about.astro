@@ -21,17 +21,17 @@ import Layout from "@/layouts/Layout.astro";
         }
     </style> -->
     <article data-pagefind-ignore="all">
-        <section>
-            <div class="grid md:grid-cols-2 md:items-center mb-[40px] p-[8vh_40px]">
+        <section class="">
+            <div class="grid md:grid-cols-2 md:items-center pt-[3vh] px-9 pb-[10vh]"> 
                 <img
-                    class="rounded-[40px] md:translate-x-[50px]"
+                    class="z-10 translate-y-[50px] md:translate-y-0  rounded-2xl md:translate-x-[50px]"
                     height="319px"
                     src="https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6664bc75f61256fa5208f91c_dyson%20place.jpeg"
                     alt="dyson place"
                 />
                 <!-- padding 64 px as tailwind unit -->
                 <div
-                    class="translate-y-[-50px] md:translate-y-0 md:translate-x-[-50px] flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10 p-64"
+                    class="z-20 md:translate-x-[-50px] flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10 p-64"
                 >
                     <h1
                         class="text-coral"
@@ -46,30 +46,31 @@ import Layout from "@/layouts/Layout.astro";
                 </div>
             </div>
         </section>
-        <div class="grid gap-[40px] py-14 px-9">
+        <div class="grid gap-[40px] px-9">
+
+        
             <section
-                class="flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10"
             >
-                <h2>Hey! 👋</h2>
-                <p>An introduction to the site from its founders Dan & Sam</p>
-                <div class="w-full h-full hidden md:block">
+                <div class="md:hidden block">
                     <YouTube
-                        class="max-w-full rounded-2xl m-auto"
+                        class="max-w-full rounded-t-2xl m-auto"
                         id="zZd_WL1HGBM"
                         posterQuality="max"
                         title="Welcome to the Sharrow Vale Directory!"
                     />
                 </div>
-            </section>
+                <div class="flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-b-2xl md:rounded-2xl py-12 px-10">
 
-            <section>
-                <div class="w-full h-full">
-                    <YouTube
-                        class="max-w-full rounded-2xl m-auto md:hidden block"
+                    <h2>Hey! 👋</h2>
+                    <p>An introduction to the site from its founders Dan & Sam</p>
+                    <div class="w-full h-full hidden md:block">
+                        <YouTube
+                        class="max-w-full rounded-2xl m-auto"
                         id="zZd_WL1HGBM"
                         posterQuality="max"
                         title="Welcome to the Sharrow Vale Directory!"
-                    />
+                        />
+                    </div>
                 </div>
             </section>
             <section
@@ -178,7 +179,7 @@ import Layout from "@/layouts/Layout.astro";
             </section>
 
             <section
-                class="w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10 grid grid-cols-2"
+                class="w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10 grid grid-cols-1 md:grid-cols-2"
             >
                 <div>
                     <h2>Interested?</h2>

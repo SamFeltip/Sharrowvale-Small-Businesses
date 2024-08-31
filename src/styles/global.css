@@ -176,7 +176,6 @@ h6 {
 
 @media screen and (max-width: 479px) {
     h1 {
-        text-align: left;
         font-size: 2.5rem;
     }
 

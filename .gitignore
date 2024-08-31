@@ -24,3 +24,5 @@ bun.lockb
 
 # jetbrains setting folder
 .idea/
+
+playground.*

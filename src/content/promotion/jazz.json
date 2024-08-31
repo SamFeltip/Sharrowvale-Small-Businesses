@@ -2,7 +2,7 @@
     "title": "Weekly Jazz Night",
     "image": "https://uploads-ssl.webflow.com/66637bfce5ac00faa1c7cbd8/666b8579fc23fb88222f0dd1_the-best-open-mic-nights-in-london.webp",
     "location": "303 Sharrow Vale Rd, Sharrow, Sheffield S11 8ZF",
-    "background": "linear-gradient(rgba(209, 149, 52, 0.2), rgba(209, 149, 52, 0.2))",  
+    "background": "rgba(209, 149, 52, 0.2)",  
     "business": "lescar",
     "textPosition": "center",
     "body": "live music every wednesday night at porter cottage pub"
