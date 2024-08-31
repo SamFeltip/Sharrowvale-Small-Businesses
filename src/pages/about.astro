@@ -7,7 +7,7 @@ import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout>
-    <style>
+    <!-- <style>
         h2 {
             color: var(--black);
             text-align: left;
@@ -19,22 +19,22 @@ import Layout from "@/layouts/Layout.astro";
             line-height: 124%;
             text-decoration: none;
         }
-    </style>
+    </style> -->
     <article data-pagefind-ignore="all">
         <section>
-            <div class="grid grid-cols-2 items-center mb-[40px] p-[8vh_40px]">
+            <div class="grid md:grid-cols-2 md:items-center mb-[40px] p-[8vh_40px]">
                 <img
-                    class="rounded-[40px] translate-x-[50px]"
+                    class="rounded-[40px] md:translate-x-[50px]"
                     height="319px"
                     src="https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6664bc75f61256fa5208f91c_dyson%20place.jpeg"
                     alt="dyson place"
                 />
                 <!-- padding 64 px as tailwind unit -->
                 <div
-                    class="translate-x-[-50px] flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10 p-64"
+                    class="translate-y-[-50px] md:translate-y-0 md:translate-x-[-50px] flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10 p-64"
                 >
                     <h1
-                        class="font-merriweather font-bold text-coral text-[5.5rem] capitalize text-balance"
+                        class="text-coral"
                     >
                         Joining the site
                     </h1>
@@ -102,7 +102,7 @@ import Layout from "@/layouts/Layout.astro";
             >
                 <h2>Why be on the site?</h2>
                 <h3 class="text-center">Benefits for you</h3>
-                <ol class="flex flex-cols gap-3 list-decimal">
+                <ol class="flex flex-col md:flex-row gap-3 list-decimal">
                     <li
                         class="border border-dashed border-black text-black text-center bg-yellow-300 bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
                     >
