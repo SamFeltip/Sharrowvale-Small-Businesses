@@ -157,11 +157,11 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
     .pagefind-ui__results {
         grid-template-columns: 1fr;
     }
-}
+} */
 
 .pagefind-ui__result {
     display: grid;
@@ -185,7 +185,6 @@
         width: 100% !important;
         aspect-ratio: 3 / 2;
         display: grid;
-        grid-template-rows: subgrid;
     }
 
     & img {
@@ -196,7 +195,6 @@
 
         aspect-ratio: 3 / 2;
         display: grid;
-        grid-template-rows: subgrid;
     }
 
     & .pagefind-ui__result-title {
