@@ -2,6 +2,7 @@
     "title": "Cornerstone",
     "image": "https://uploads-ssl.webflow.com/66637bfce5ac00faa1c7cbd8/66954e768f6042ce955cef5e_51201497.jpg",
     "location": "Cornerstone, Sheffield S11 8ZF",
+    "background": "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))",  
     "textPosition": "bottom-right",
     "body": "Adaptable Event space for hire in Dyson Place"
 }

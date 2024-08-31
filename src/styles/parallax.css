@@ -1,0 +1,45 @@
+@keyframes parallax-foreground {
+    from {
+        transform: translateY(10vh);
+    }
+    to {
+        transform: translateY(-500px);
+    }
+}
+
+@keyframes parallax-background {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(250px);
+    }
+}
+
+@supports (animation-timeline: --parallax-background) {
+    @media (prefers-reduced-motion: no-preference) {
+        #parallax-foreground {
+            view-timeline-name: --parallax-foreground;
+        }
+
+        #business-content {
+            animation: parallax-foreground both;
+            animation-timing-function: ease-in-out;
+
+            animation-timeline: --parallax-foreground;
+            animation-range: 0% 50%;
+        }
+
+        #parallax-background {
+            view-timeline-name: --parallax-background;
+        }
+
+        #banner-image {
+            animation: parallax-background both;
+            animation-timing-function: ease-in-out;
+
+            animation-timeline: --parallax-background;
+            animation-range: 60% 100%;
+        }
+    }
+}

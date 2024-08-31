@@ -3,6 +3,7 @@
     "image": "https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666576a0c2d4c780054817d3_market%20.jpeg",
     "startDate": "2023-07-01",
     "endDate": "2024-12-02",
+    "background": "linear-gradient(312deg, #46a28900 21%, #46a289 77%)",
     "textPosition": "top-left",
     "body": "Sunday 1st December 12 - 4pm"
 }

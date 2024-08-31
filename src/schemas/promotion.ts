@@ -6,6 +6,7 @@ export const promotionSchema = z.object({
     location: z.string().optional(),
     textPosition: z.enum(["top-left", "top-right", "bottom-left", "bottom-right", "center"]),
     image: z.string(),
+    background: z.string(),
     business: z.string(reference("businesses")).optional(),
     startDate: z.string().optional(),
     endDate: z.string().optional(),
