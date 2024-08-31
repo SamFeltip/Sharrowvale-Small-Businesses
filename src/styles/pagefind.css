@@ -85,18 +85,19 @@
             & > legend {
                 display: none;
             }
+            & > .pagefind-ui__filter-value:hover {
+                transform: scale(1.08);
+            }
 
             & > .pagefind-ui__filter-value {
+                transition: transform 0.2s ease;
+
                 & > label {
-                    /* transition: all 0.3s ease; */
+                    font-family: Merriweather, serif;
                     border: 1px solid black;
                     cursor: pointer;
                     border-radius: 9999px;
                     padding: 0.25rem 0.5rem;
-                }
-
-                & > label:hover {
-                    transform: translate(1.1);
                 }
 
                 & > input:checked + label {
