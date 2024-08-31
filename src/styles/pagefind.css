@@ -148,11 +148,11 @@
     /* grid-row-gap: 32px; */
 }
 
-/* @media screen and (max-width: 500px) {
+@media screen and (max-width: 767px) {
     .pagefind-ui__results {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-} */
+}
 
 .pagefind-ui__result {
     display: grid;
@@ -229,11 +229,5 @@
         font-weight: 300;
         line-height: 124%;
         text-decoration: none;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .pagefind-ui__results {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }

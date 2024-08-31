@@ -23,6 +23,7 @@ export function InteractiveCarousel({
         location?: string | undefined;
         startDate?: string | undefined;
         endDate?: string | undefined;
+        background?: string | undefined;
         business?: string | undefined;
     }[];
 }) {
@@ -45,13 +46,13 @@ export function InteractiveCarousel({
             } else if (promotion.textPosition === "bottom-left") {
                 return "bottom-0 left-0";
             } else if (promotion.textPosition === "bottom-right") {
-                return "bottom-0 right-0  text-end";
+                return "bottom-0 right-0 text-end";
             } else if (promotion.textPosition === "center") {
-                return "mb-3 bottom-0 w-full text-center";
+                return "pb-3 bottom-0 text-center";
             }
         })
         .map((style) => {
-            return (style += " " + "absolute p-5 text-white w-3/4");
+            return (style += " " + "absolute p-5 text-white h-full w-full");
         });
 
     return (
@@ -65,26 +66,32 @@ export function InteractiveCarousel({
                 className="w-full mt-3 rounded-xl overflow-hidden"
             >
                 <CarouselContent>
-                    {promotions.map((promotion, index) => (
-                        <CarouselItem key={index}>
-                            <Card className="border-none rounded-xl overflow-hidden">
-                                <CardContent className="relative">
-                                    <img
-                                        className="object-cover h-[400px] w-full"
-                                        src={promotion.image}
-                                        alt="image"
-                                    />
-                                    <div
-                                        id="card-text"
-                                        className={cardTextStyles[index]}
-                                    >
-                                        <h1>{promotion.title}</h1>
-                                        <p>{promotion.body}</p>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </CarouselItem>
-                    ))}
+                    {promotions.map((promotion, index) => {
+                        return (
+                            <CarouselItem key={index}>
+                                <Card className="border-none rounded-xl overflow-hidden">
+                                    <CardContent className="relative">
+                                        <img
+                                            className="object-cover h-[400px] w-full"
+                                            src={promotion.image}
+                                            alt="image"
+                                        />
+                                        <div
+                                            id="card-text"
+                                            className={cardTextStyles[index]}
+                                            style={{
+                                                background:
+                                                    promotion.background,
+                                            }}
+                                        >
+                                            <h1>{promotion.title}</h1>
+                                            <p>{promotion.body}</p>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </CarouselItem>
+                        );
+                    })}
                 </CarouselContent>
                 <CarouselPrevious />
                 <CarouselNext />
