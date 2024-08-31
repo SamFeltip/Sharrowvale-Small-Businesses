@@ -46,15 +46,26 @@ import Layout from "@/layouts/Layout.astro";
                 </div>
             </div>
         </section>
-        <div class="grid gap-[40px] p-[80px_40px]">
+        <div class="grid gap-[40px] py-14 px-9">
             <section
                 class="flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10"
             >
                 <h2>Hey! 👋</h2>
                 <p>An introduction to the site from its founders Dan & Sam</p>
-                <div class="w-full h-full">
+                <div class="w-full h-full hidden md:block">
                     <YouTube
                         class="max-w-full rounded-2xl m-auto"
+                        id="zZd_WL1HGBM"
+                        posterQuality="max"
+                        title="Welcome to the Sharrow Vale Directory!"
+                    />
+                </div>
+            </section>
+
+            <section>
+                <div class="w-full h-full">
+                    <YouTube
+                        class="max-w-full rounded-2xl m-auto md:hidden block"
                         id="zZd_WL1HGBM"
                         posterQuality="max"
                         title="Welcome to the Sharrow Vale Directory!"
