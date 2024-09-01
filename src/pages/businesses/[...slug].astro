@@ -42,9 +42,8 @@ const {
     websiteLink,
     facebookLink,
     instagramLink,
+    businessCategories
 } = entry.data;
-
-const businessCategories: CollectionEntry<"business-category">[] = await getCollection("business-category");
 
 const { Content } = await entry.render();
 
@@ -106,13 +105,13 @@ const additional_places = shuffleBusinesses(
                 >
                     <div class="prose w-full">
                         <div class="title grid gap-[24px]">
-                            <div class="flex flex-row gap-5 justify-center">
+                            <div class="flex flex-row flex-wrap gap-5 justify-center">
                                 {
                                     businessCategories &&
                                         businessCategories.map((bc) => (
                                             <p class="uppercase text-center">
                                                 <span data-pagefind-filter="type">
-                                                    {bc.data.name}
+                                                    {bc.id}
                                                 </span>
                                             </p>
                                         ))
@@ -127,7 +126,7 @@ const additional_places = shuffleBusinesses(
                                 <span>{openDaysStatement}</span> <span>Est. {yearEstablished}</span>
                             </p>
 
-                            <div class="flex flex-row gap-5 justify-center">
+                            <div class="flex flex-row flex-wrap gap-5 justify-center">
                                 {
                                     instagramLink && (
                                         <a

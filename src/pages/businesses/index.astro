@@ -6,14 +6,25 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection, type CollectionEntry } from "astro:content";
 import PlaceCard from "@/components/businesses/PlaceCard.astro";
 import Layout from "@/layouts/Layout.astro";
+import SearchField from "@/components/search/SearchField.astro";
 
 const businesses: CollectionEntry<"businesses">[] =
 	await getCollection("businesses");
 ---
 
 <Layout>
+	<h2
+		class="text-coral text-center pt-5"
+	>
+		Search For Local Restaurants,<br /> Shops, Cafes And More
+	</h2>
+	
+	<SearchField startResult="false"/>
+
+	<hr/>
+
 	<article class="pt-[3rem] px-10 pb-5" data-pagefind-ignore>
-		<ul class="grid grid-cols-3 gap-4">
+		<ul class="grid md:grid-cols-2 gap-4">
 			{
 				businesses.map((business) => (
 					<li>
