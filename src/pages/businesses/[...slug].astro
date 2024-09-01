@@ -17,7 +17,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
 import { getEntries } from "astro:content";
 
 export async function getStaticPaths() {
-    const businesses = await getCollection("businesses");
+    const businesses: CollectionEntry<"businesses">[]  = await getCollection("businesses");
     return businesses.map((business) => ({
         params: { slug: business.slug },
         props: business,
@@ -44,7 +44,7 @@ const {
     instagramLink,
 } = entry.data;
 
-const businessCategories = await getEntries(entry.data.businessCategories);
+const businessCategories: CollectionEntry<"business-category">[] = await getCollection("business-category");
 
 const { Content } = await entry.render();
 
@@ -52,8 +52,7 @@ const slides: SlideImage[] = additionalImages.map((slide: string) => ({
     src: slide,
 }));
 
-const businesses: CollectionEntry<"businesses">[] =
-    await getCollection("businesses");
+const businesses: CollectionEntry<"businesses">[] = await getCollection("businesses");
 
 function shuffleBusinesses(array: CollectionEntry<"businesses">[]) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -70,11 +69,10 @@ const additional_places = shuffleBusinesses(
 
 <Layout>
     <div class="hidden">
-        <div data-pagefind-meta="content">
-            {preview}
+        <div data-pagefind-meta="content[data-src]" data-src={preview}>
         </div>
     </div>
-    <article class="my-5 mx-0 sm:mx-3 md:mx-8">
+    <article class="my-5 mx-0 sm:mx-3 md:mx-8" data-pagefind-body>
         <div class="h-[350px]" id="parallax-background">
             <img
                 id="banner-image"
@@ -197,7 +195,7 @@ const additional_places = shuffleBusinesses(
                                 tags && (
                                     <div class="flex flex-col items-center">
                                         <div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
-                                            {tags.map((tag, i) => (
+                                            {tags.map((tag: string, i: number) => (
                                                 <span class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato">
                                                     {tag}
                                                 </span>
