@@ -3,7 +3,7 @@
 import { InteractiveCarousel } from "../components/index/HomeCarousel.tsx";
 
 import Layout from "@/layouts/Layout.astro";
-import SearchField from "@/components/index/SearchField.astro";
+import SearchField from "@/components/search/SearchField.astro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
 import { type CollectionEntry, getCollection } from "astro:content";
@@ -68,7 +68,7 @@ let promotionsData = await promotions.map((promotion) => ({
         </section>
 
         <section class="flex justify-center p-8 px-7 md:px-5">
-            <InteractiveCarousel client:load promotions={promotionsData} />
+            <InteractiveCarousel client:only="react" promotions={promotionsData} />
         </section>
 
         <section
@@ -87,8 +87,17 @@ let promotionsData = await promotions.map((promotion) => ({
             </h2>
         </section>
 
-        <section class="w-full flex flex-col items-center justify-center mb-[8rem] px-7 md:px-5 ">
-            <SearchField />
+        <section
+            class="mb-[8rem] px-7 md:px-5 w-full flex flex-col items-center"
+        >
+            <SearchField startResult="true"/>
+
+            <a
+            href="/businesses"
+            class="hover:scale-110 transition-all border border-black rounded-full py-1 px-2"
+            >
+            Visit the directory
+            </a>
         </section>
 
         <section

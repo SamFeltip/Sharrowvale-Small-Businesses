@@ -1,6 +1,6 @@
 ---
 title: "The Hummingbird Collective"
-preview: "A Collection of independent makers & creators"
+preview: "A Collection of independent makers and creators"
 description: "Whatever you're looking for our shop has a perfect range of Posters, jewellery, Candles, Cushions, Ceramics, Knitted toys, Home furnishings, Wall decorations and much more. "
 type: "business"
 
@@ -47,17 +47,17 @@ tags:
 
 ## Open Hours
 
-| | |
-| - | - |
+|               |           |
+| ------------- | --------- |
 | 10:00 - 16:00 | Every day |
-|  |  |
+|               |           |
 
 ## Business Contact
 
-| | |
-| - | - |
-| Email | nicola@littlehummingbirdevents.co.uk |
-| Phone | 07955 273923 |
+|         |                                          |
+| ------- | ---------------------------------------- |
+| Email   | nicola@littlehummingbirdevents.co.uk     |
+| Phone   | 07955 273923                             |
 | Website | http://www.littlehummingbirdevents.co.uk |
 
 Established in 2023 The Hummingbird Collective is a collaboration of small local independent makers, traders, artists and creators; bringing them together in under one roof and allowing them to better reach their audience whilst having more time to focus on their craft.

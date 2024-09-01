@@ -8,13 +8,13 @@
     "build:pagefind": "pagefind --source dist",
     "build": "astro check && astro build && pagefind --source dist",
     "dev:astro": "astro dev",
-    "dev": "pagefind --source dist && astro dev",
+    "dev": "astro build && pagefind --source dist && astro dev",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astro-community/astro-embed-youtube": "^0.5.2",
-    "@astrojs/check": "^0.7.0",
+    "@astrojs/check": "^0.9.3",
     "@astrojs/mdx": "^3.1.0",
     "@astrojs/react": "^3.5.0",
     "@astrojs/rss": "^4.0.6",
@@ -26,6 +26,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@hookform/resolvers": "^3.9.0",
+    "@pagefind/modular-ui": "^1.1.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
