@@ -29,6 +29,7 @@ type Props = CollectionEntry<"businesses">;
 const entry: Props = Astro.props;
 const {
     title,
+    preview,
     description,
     type,
     bannerImage,
@@ -68,6 +69,11 @@ const additional_places = shuffleBusinesses(
 ---
 
 <Layout>
+    <div class="hidden">
+        <div data-pagefind-meta="content">
+            {preview}
+        </div>
+    </div>
     <article class="my-5 mx-0 sm:mx-3 md:mx-8">
         <div class="h-[350px]" id="parallax-background">
             <img
