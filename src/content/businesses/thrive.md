@@ -36,27 +36,31 @@ tags:
 
 ## Open Hours
 
-| | |
-| - | - |
-| Tuesday | 9.30am - 5pm |
-| Wednesday | 9.30am - 5pm |
-| Thursday - Monday | Closed |
-| (More hours in September) |  |
-|  | undefined |
+|                           |              |
+| ------------------------- | ------------ |
+| Tuesday                   | 9.30am - 5pm |
+| Wednesday                 | 9.30am - 5pm |
+| Thursday - Monday         | Closed       |
+| (More hours in September) |              |
+|                           | undefined    |
 
 ## Business Contact
 
-| | |
-| - | - |
-| Email | hello@thrive-physiotherapy.co.uk |
-| Phone | 0114 405 5075 |
+|         |                                       |
+| ------- | ------------------------------------- |
+| Email   | hello@thrive-physiotherapy.co.uk      |
+| Phone   | 0114 405 5075                         |
 | Website | http://www.thrive-physiotherapy.co.uk |
 
 Welcome to Thrive Physiotherapy in Sheffield, where we specialise in women's health.
+
 Our expert team provides tailored physiotherapy treatments for pain, leakage/incontinence, prolapse, and menopausal symptoms.
-We offer:Pain Rehabilitation Physiotherapy: Get you moving pain free again.
-Pelvic Floor Rehabilitation: Restore strength and function with targeted exercises.
-Bladder Concern Management: Address incontinence and regain control.
-Lymphatic Drainage Massage: Reduce swelling and improve circulation.
-Pelvic Strength Class: Boost your pelvic floor strength, core strength, confidence, and overall health through a mix of breath work, body weight strength and high-intensity training.
-Experience compassionate, personalised physiotherapy care at Thrive Physiotherapy and start living fearlessly once more!
+
+We offer:
+
+- Pain Rehabilitation Physiotherapy: Get you moving pain free again.
+- Pelvic Floor Rehabilitation: Restore strength and function with targeted exercises.
+- Bladder Concern Management: Address incontinence and regain control.
+- Lymphatic Drainage Massage: Reduce swelling and improve circulation.
+- Pelvic Strength Class: Boost your pelvic floor strength, core strength, confidence, and overall health through a mix of breath work, body weight strength and high-intensity training.
+- Experience compassionate, personalised physiotherapy care at Thrive Physiotherapy and start living fearlessly once more!
