@@ -31,17 +31,16 @@ const businesses: CollectionEntry<"businesses">[] = await getCollection("busines
             
             document.querySelector("#results").innerHTML = "";
 
-            console.log(search.results);
 
             if(search.results.length === 0) {
                 document.querySelector("#results").innerHTML = "No results found";
                 return;
             }
 
+            console.log(search);
+
             search.results.forEach(async (result) => {
                 const data = await result.data();
-                
-                console.log(data);
 
                 const template = document.querySelector("#search-result");
                 const clone = template.content.cloneNode(true);
