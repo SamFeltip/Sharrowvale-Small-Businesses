@@ -69,4 +69,3 @@ Their menu boasts a tantalising selection of fresh chillies and salsas, designed
 In addition to their culinary delights, they offer an array of beverages including beers, wines, tequila, Mexican soft drinks, and margarita slush.
 Whether you visit their Burrito Escotilla in Sheffield city centre or their fully licensed Mexican Canteen, you're invited to indulge in their delicious offerings.
 And while Mexican waves are optional, bringing a poncho along might just add to the festive atmosphere!‍
-Here's an example bit of text
