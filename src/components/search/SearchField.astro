@@ -4,69 +4,76 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
 
 import { type CollectionEntry, getCollection } from "astro:content";
 
-const businesses: CollectionEntry<"businesses">[] = await getCollection("businesses");
+const businesses: CollectionEntry<"businesses">[] =
+    await getCollection("businesses");
 
 const tags = businesses
     .map((b) => b.data.tags)
     .flat()
     .filter((t) => t !== undefined);
 
-const {startResult} = Astro.props;
-
+const { startResult } = Astro.props;
 ---
 
 <style is:global>
-
-.pagefind-modular-filter-pill:has(span[aria-label="All"]){
+    .pagefind-modular-filter-pill:has(span[aria-label="All"]) {
         display: none;
     }
 
-#pagefind_modular_filter_pills_type{
-    display: none;
-}
+    #pagefind_modular_filter_pills_type {
+        display: none;
+    }
 
-.pagefind-modular-filter-pills {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 0.5rem;
-    justify-content: center;
+    .pagefind-modular-filter-pills-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-    max-width: 60%;
-    margin: auto;
+    .pagefind-modular-filter-pills {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: center;
 
-    padding-bottom: 32px;
-}
-.pagefind-modular-filter-pill {
-    font-family: Merriweather, serif;
-    font-weight: light;
-    text-transform: capitalize;
+        padding-bottom: 32px;
+    }
 
-    border: 1px solid black;
-    font-size: 1rem;
-    border-radius: 9999px;
-    padding: 0.25rem 0.5rem;
-    
-    transition: transform 0.2s ease;
-}
+    @media screen and (min-width: 768px) {
+        .pagefind-modular-filter-pills {
+            max-width: 60%;
+        }
+    }
 
-.pagefind-modular-filter-pill:hover{
-    transform: scale(1.08);
-}
-.pagefind-modular-filter-pill:active { 
-    background-color: #ffd77a;
-}
-.pagefind-modular-filter-pill[aria-pressed="true"] {
-    color: var(--coral);
+    .pagefind-modular-filter-pill {
+        font-family: Merriweather, serif;
+        font-weight: light;
+        text-transform: capitalize;
 
-}
+        border: 1px solid black;
+        font-size: 1rem;
+        border-radius: 9999px;
+        padding: 0.25rem 0.5rem;
+
+        transition: transform 0.2s ease;
+    }
+
+    .pagefind-modular-filter-pill:hover {
+        transform: scale(1.08);
+    }
+    .pagefind-modular-filter-pill:active {
+        background-color: #ffd77a;
+    }
+    .pagefind-modular-filter-pill[aria-pressed="true"] {
+        color: var(--coral);
+    }
 </style>
 
 <script is:inline src="/pagefind/pagefind-modular-ui.js"></script>
 
 <script is:inline>
     function initFirstResult(instance) {
-
         let tags = document.querySelector("div#tags").querySelectorAll("data");
         let tagContent = Array.from(tags).map((tag) => tag.textContent);
 
@@ -81,64 +88,87 @@ const {startResult} = Astro.props;
         instance.triggerSearch(firstResult);
     }
 
-    window.addEventListener('DOMContentLoaded', (event) => {
-
+    window.addEventListener("DOMContentLoaded", (event) => {
         const instance = new PagefindModularUI.Instance();
 
-        instance.add(new PagefindModularUI.Input({
-            inputElement: "#search"
-        }));
+        instance.add(
+            new PagefindModularUI.Input({
+                inputElement: "#search",
+            })
+        );
 
-        instance.add(new PagefindModularUI.ResultList({
-            containerElement: "#results",
-            resultTemplate: (result) => {
+        instance.add(
+            new PagefindModularUI.ResultList({
+                containerElement: "#results",
+                resultTemplate: (result) => {
+                    const template = document.querySelector("#search-result");
+                    const clone = template.content.cloneNode(true);
+                    clone.querySelector(".pagefind-ui__result-link").href =
+                        result.url;
 
-                const template = document.querySelector("#search-result");
-                const clone = template.content.cloneNode(true);
-                clone.querySelector(".pagefind-ui__result-link").href = result.url;
-                
+                    clone.querySelector(".pagefind-ui__result-thumb>a").href =
+                        result?.url ?? "";
 
-                clone.querySelector(".pagefind-ui__result-thumb>a").href = result?.url ?? "";
+                    clone.querySelector(
+                        ".pagefind-ui__result-body-link"
+                    ).textContent = result?.meta.title ?? "";
+                    clone.querySelector(
+                        ".pagefind-ui__result-excerpt"
+                    ).textContent = result?.meta.content ?? "";
 
-                clone.querySelector(".pagefind-ui__result-body-link").textContent = result?.meta.title ?? "";
-                clone.querySelector(".pagefind-ui__result-excerpt").textContent = result?.meta.content ?? "";
+                    clone.querySelector(".pagefind-ui__result-image").src =
+                        result?.meta?.image ?? "";
+                    clone.querySelector(".pagefind-ui__result-image").alt =
+                        result?.meta?.image_alt ?? "";
+                    const container = document.createElement("span");
+                    container.appendChild(clone);
 
-                clone.querySelector(".pagefind-ui__result-image").src = result?.meta?.image ?? "";
-                clone.querySelector(".pagefind-ui__result-image").alt = result?.meta?.image_alt ?? "";
-                const container = document.createElement('span');
-                container.appendChild(clone);
-                
-                return container;
-            }
-        }));
+                    return container;
+                },
+            })
+        );
 
-        instance.add(new PagefindModularUI.FilterPills({
-            containerElement: "#filter",
-            filter: "type",
-            alwaysShow: true,
-            selectMultiple: true
-        }));
+        instance.add(
+            new PagefindModularUI.FilterPills({
+                containerElement: "#filter",
+                filter: "type",
+                alwaysShow: true,
+                selectMultiple: true,
+            })
+        );
 
-        if(document.querySelector("#start-result") !== null){
+        if (document.querySelector("#start-result") !== null) {
             initFirstResult(instance);
         }
     });
 </script>
 
 <div class="w-full flex flex-col items-center justify-center">
-
     <form
         id="search-form"
-            class="pagefind-ui__form flex flex-col items-center gap-5 w-full max-w-[500px] lg:max-w-[960px] lg:px-6" 
-            role="search"
-            aria-label="Search this site"
-        >
+        class="pagefind-ui__form flex flex-col items-center gap-5 w-full max-w-[500px] lg:max-w-[960px] lg:px-6"
+        role="search"
+        aria-label="Search this site"
+    >
         <div class="flex flex-row items-center gap-2 text-black py-4 w-full">
             <button type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" class="ikonik-9adjq"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.3851 15.4457C11.7348 17.5684 7.85535 17.4013 5.39857 14.9445C2.76253 12.3085 2.76253 8.03464 5.39857 5.3986C8.03461 2.76256 12.3085 2.76256 14.9445 5.3986C17.4013 7.85538 17.5684 11.7348 15.4457 14.3851L20.6013 19.5407C20.8942 19.8336 20.8942 20.3085 20.6013 20.6014C20.3085 20.8943 19.8336 20.8943 19.5407 20.6014L14.3851 15.4457ZM6.45923 13.8839C4.40898 11.8336 4.40898 8.50951 6.45923 6.45926C8.50948 4.40901 11.8336 4.40901 13.8839 6.45926C15.9326 8.50801 15.9341 11.8287 13.8884 13.8794C13.8868 13.8809 13.8853 13.8823 13.8838 13.8839C13.8823 13.8854 13.8808 13.8869 13.8793 13.8884C11.8287 15.9341 8.50798 15.9326 6.45923 13.8839Z" fill="currentColor" class="path-1b5n5"></path></svg>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="35"
+                    height="35"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="ikonik-9adjq"
+                    ><path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M14.3851 15.4457C11.7348 17.5684 7.85535 17.4013 5.39857 14.9445C2.76253 12.3085 2.76253 8.03464 5.39857 5.3986C8.03461 2.76256 12.3085 2.76256 14.9445 5.3986C17.4013 7.85538 17.5684 11.7348 15.4457 14.3851L20.6013 19.5407C20.8942 19.8336 20.8942 20.3085 20.6013 20.6014C20.3085 20.8943 19.8336 20.8943 19.5407 20.6014L14.3851 15.4457ZM6.45923 13.8839C4.40898 11.8336 4.40898 8.50951 6.45923 6.45926C8.50948 4.40901 11.8336 4.40901 13.8839 6.45926C15.9326 8.50801 15.9341 11.8287 13.8884 13.8794C13.8868 13.8809 13.8853 13.8823 13.8838 13.8839C13.8823 13.8854 13.8808 13.8869 13.8793 13.8884C11.8287 15.9341 8.50798 15.9326 6.45923 13.8839Z"
+                        fill="currentColor"
+                        class="path-1b5n5"></path></svg
+                >
             </button>
             <input
-            id="search"
+                id="search"
                 class="pagefind-ui__search-input rounded-none w-full bg-transparent border-b border-solid border-black font-light text-current text-3xl py-3 placeholder-current tracking-wider"
                 type="text"
                 placeholder="Search sharrow vale"
@@ -153,13 +183,15 @@ const {startResult} = Astro.props;
     <!-- filter will be populated here -->
 </div>
 
-<ol id="results" class="pagefind-ui__results max-w-[1400px] grid grid-cols-2 lg:grid-cols-3 grid-rows-[1fr_auto_auto] gap-x-2 md:gap-x-6 px-5 md:px-7">
-<!-- results will be populated here -->
+<ol
+    id="results"
+    class="pagefind-ui__results max-w-[1400px] grid grid-cols-2 lg:grid-cols-3 grid-rows-[1fr_auto_auto] gap-x-2 md:gap-x-6 px-5 md:px-7"
+>
+    <!-- results will be populated here -->
 </ol>
 
 <div id="meta" class="hidden">
-    
-    {startResult === "true" && <data id="start-result"></data>}
+    {startResult === "true" && <data id="start-result" />}
 </div>
 
 <div id="tags" class="hidden">
@@ -168,13 +200,21 @@ const {startResult} = Astro.props;
 
 <!-- this template determines how each result is rendered in search -->
 <template id="search-result">
-    <li class="pagefind-ui__result grid grid-rows-[subgrid] row-span-3 transition-all duration-200 ease-in-out hover:scale-[102%]">
+    <li
+        class="pagefind-ui__result grid grid-rows-[subgrid] row-span-3 transition-all duration-200 ease-in-out hover:scale-[102%]"
+    >
         <div class="pagefind-ui__result-thumb">
             <a class="pagefind-ui__result-link" href="">
-                <img class="pagefind-ui__result-image object-cover rounded-lg min-w-0 aspect-[3/2]" src="" alt="hero image" />
+                <img
+                    class="pagefind-ui__result-image object-cover rounded-lg min-w-0 aspect-[3/2]"
+                    src=""
+                    alt="hero image"
+                />
             </a>
         </div>
-        <div class="pagefind-ui__result-inner grid grid-rows-[subgrid] row-span-2">
+        <div
+            class="pagefind-ui__result-inner grid grid-rows-[subgrid] row-span-2"
+        >
             <h3 class="pagefind-ui__result-title pt-4 pb-2">
                 <a class="pagefind-ui__result-body-link" href=""></a>
             </h3>
