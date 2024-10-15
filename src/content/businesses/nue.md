@@ -1,6 +1,6 @@
 ---
 title: "Nue"
-preview: "Gluten Free Cafe & Deli"
+preview: "Gluten Free Cafe and Deli"
 description: "Sheffield's first completely gluten-free cafe and deli selling a range of handmade baked goods along with sweet and savoury small bites. Perfect for a midday mediterranean bite to eat or coffee catch-up. "
 type: "business"
 
@@ -50,19 +50,19 @@ tags:
 
 ## Open Hours
 
-| | |
-| - | - |
-| Monday | Closed |
+|                    |               |
+| ------------------ | ------------- |
+| Monday             | Closed        |
 | Tuesday - Saturday | 10:00 - 16:00 |
-| Sunday | 10:00 - 15:00 |
-|  |  |
+| Sunday             | 10:00 - 15:00 |
+|                    |               |
 
 ## Business Contact
 
-| | |
-| - | - |
-| Email | Info@nuesheffield.com |
-| Phone | 0114 321 8141 |
+|         |                               |
+| ------- | ----------------------------- |
+| Email   | Info@nuesheffield.com         |
+| Phone   | 0114 321 8141                 |
 | Website | https://www.nuesheffield.com/ |
 
 At Nue, we believe that eating gluten-free doesn't have to mean sacrificing taste or nutrition.

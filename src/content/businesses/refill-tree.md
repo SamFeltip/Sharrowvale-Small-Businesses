@@ -1,6 +1,6 @@
 ---
 title: "Refill Tree"
-preview: "Zero Waste Food & Household Shop"
+preview: "Zero Waste Food and Household Shop"
 description: "At Refill Tree, our mission is to offer the very best range of household cleaning products, dried foods and oils with a sustainable, zero waste packaging approach. Simply bring your empty jars and containers, weigh them and fill them with a product (which are all marked with the price per gram), then weigh them again so you're only paying for what you get. "
 type: "business"
 
@@ -41,18 +41,18 @@ tags:
 
 ## Open Hours
 
-| | |
-| - | - |
+|                   |               |
+| ----------------- | ------------- |
 | Monday - Saturday | 08:30 - 17:00 |
-| Sunday | Closed |
-|  |  |
+| Sunday            | Closed        |
+|                   |               |
 
 ## Business Contact
 
-| | |
-| - | - |
-| Email | info@refilltree.co.uk |
-| Phone | 07462474874 |
+|         |                          |
+| ------- | ------------------------ |
+| Email   | info@refilltree.co.uk    |
+| Phone   | 07462474874              |
 | Website | https://refilltree.co.uk |
 
 Refill Tree is your go-to destination for sustainable living products.

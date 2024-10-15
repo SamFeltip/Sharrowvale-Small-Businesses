@@ -103,8 +103,12 @@ const { startResult } = Astro.props;
                 resultTemplate: (result) => {
                     const template = document.querySelector("#search-result");
                     const clone = template.content.cloneNode(true);
-                    clone.querySelector(".pagefind-ui__result-link").href =
-                        result.url;
+
+                    console.log(result.url);
+
+                    clone
+                        .querySelectorAll("a")
+                        .forEach((anchor) => (anchor.href = result.url ?? ""));
 
                     clone.querySelector(".pagefind-ui__result-thumb>a").href =
                         result?.url ?? "";
@@ -112,12 +116,16 @@ const { startResult } = Astro.props;
                     clone.querySelector(
                         ".pagefind-ui__result-body-link"
                     ).textContent = result?.meta.title ?? "";
+
+                    console.log(result?.meta);
+
                     clone.querySelector(
                         ".pagefind-ui__result-excerpt"
                     ).textContent = result?.meta.content ?? "";
 
                     clone.querySelector(".pagefind-ui__result-image").src =
                         result?.meta?.image ?? "";
+
                     clone.querySelector(".pagefind-ui__result-image").alt =
                         result?.meta?.image_alt ?? "";
                     const container = document.createElement("span");

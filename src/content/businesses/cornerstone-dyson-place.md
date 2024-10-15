@@ -1,6 +1,6 @@
 ---
 title: "Cornerstone Dyson Place"
-preview: "Locally sourced neighbourhood Restaurant & Bar"
+preview: "Locally sourced neighbourhood Restaurant and Bar"
 description: "Your local neighbourhood restaurant and bar offering quality plates all day, every day. Our life in hospitality has taught us that the best venues are a collection of simple things done well. At the cornerstone of any good venue is good food, sourced locally, made thoughtfully and served with a welcome to match the quality."
 type: "business"
 
@@ -57,7 +57,6 @@ tags:
 | ------------------ | ----------- |
 | Sunday - Monday    | 10am - 5pm  |
 | Tuesday - Saturday | 10am - 11pm |
-|                    | ‍           |
 
 ## Business Contact
 
@@ -70,4 +69,3 @@ tags:
 Cornerstone @ Dyson Place has quickly become one of Sheffield’s go-to contemporary restaurants and brunch spots since opening last year. This two-storey building, located just off Sharrow Vale Road, was formerly used by the church as a mission hall and has been transformed into a light, airy hangout that still proudly boasts many original features.
 
 Dyson Place delivers a relaxed dining option in Sheffield that reflects the informal warmth of the space, creating a cosy setting that’s open dawn to dusk with a casual evolution throughout the day. From coffee and pastries, light yet filling brunch options through to small plates and larger dishes in the evening perfect for sharing (including vegan and GF options), our menu prioritises locally sourced produce to create dishes that are well travelled, reflecting our experience, imagination and heritage. With local craft beers, classic cocktails and our artisan coffee available during the day, the award-winning Cornerstone @ Dyson Place is perfect for those seeking a cheeky brunch in Sheffield, a place to hot-desk over lunch or the ideal venue for unwinding with friends late into the evening.
-

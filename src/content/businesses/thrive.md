@@ -20,7 +20,7 @@ facebookLink: https://www.facebook.com/profile.php?id=61552022351803
 websiteLink: http://www.thrive-physiotherapy.co.uk
 yearEstablished: "2023"
 owner: "Roisin O'Bentley"
-openDaysStatement: "Open Tues & Weds"
+openDaysStatement: "Open Tues and Weds"
 
 # Listing types
 businessCategories:

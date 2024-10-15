@@ -66,5 +66,5 @@ tags:
 | Website | http://akentannos.co.uk/ |
 
 Akentannos is the only Restaurant in Sheffield specialising in Gluten Free Sardinian cuisine.
-We pride ourselves in using the finest and freshest ingredients, to cook authentic and innovative Sardinian food, we prepare them on the spot, &nbsp;respecting the right cooking times, in order to enhance the true aromas and flavours of Sardinia.
+We pride ourselves in using the finest and freshest ingredients, to cook authentic and innovative Sardinian food, we prepare them on the spot, respecting the right cooking times, in order to enhance the true aromas and flavours of Sardinia.
 

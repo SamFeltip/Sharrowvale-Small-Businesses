@@ -1,6 +1,6 @@
 ---
 title: "Giuseppes Gents Hair"
-preview: "Traditional Gents & Boys Barbers."
+preview: "Traditional Gents and Boys Barbers."
 description: "With over 34 years of hands-on experience and five successful years in business, Giuseppe's offers expert haircuts for all hair types in a friendly and professional atmosphere. 
    
 ‍"
@@ -22,7 +22,7 @@ facebookLink: https://www.facebook.com/p/Giuseppes-Gents-Hair-100070052318963/
 websiteLink: https://giuseppesgentshair.nearcut.com/
 yearEstablished: "2016"
 owner: "Nicky Sisman"
-openDaysStatement: "Closed Sun & Mon"
+openDaysStatement: "Closed Sun and Mon"
 
 # Listing types
 businessCategories:

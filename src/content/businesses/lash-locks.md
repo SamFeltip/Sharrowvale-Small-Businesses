@@ -1,5 +1,5 @@
 ---
-title: "Lash & Locks"
+title: "Lash and Locks"
 preview: "Stylish salon specialising in Hair, Nails and Brows"
 description: "At Lash and Locks we have been serving local customers for over 10yrs. We have the very best highly qualified technical professionals for all you hair and beauty needs. "
 type: "business"

@@ -1,6 +1,6 @@
 ---
 title: "Naked Ape"
-preview: "Premium outdoor clothing & equipment"
+preview: "Premium outdoor clothing and equipment"
 description: "Our customers share a passion for the outdoors and have high expectations of the products they use. Our aim is to stock the best products available, from the best manufacturers of outdoor and technical gear, who have earned their reputation for making exceptionally high quality and innovative products to meet these needs."
 type: "business"
 
@@ -42,22 +42,22 @@ tags:
 
 ## Open Hours
 
-| | |
-| - | - |
+|                    |               |
+| ------------------ | ------------- |
 | Mon, Wed, Fri, Sat | 10:00 - 17:00 |
-| Tues, Thurs | 10:00 - 16:30 |
-| Sunday | Closed |
-|  |  |
+| Tues, Thurs        | 10:00 - 16:30 |
+| Sunday             | Closed        |
+|                    |               |
 
 ## Business Contact
 
-| | |
-| - | - |
-| Email | waynebiney@nakedape.uk.com |
-| Phone | 0114 349 5934 |
+|         |                              |
+| ------- | ---------------------------- |
+| Email   | waynebiney@nakedape.uk.com   |
+| Phone   | 0114 349 5934                |
 | Website | https://www.nakedape.uk.com/ |
 
-We are official UK stockists of premium quality brands that include : Vibram Five Fingers and Vibram Furoshiki wrap-around shoes, Patagonia outdoor clothing, Carhartt workwear, Danner Boots, Teva Sandals, Keen Footwear, North Sea Clothing, Mephisto shoes &nbsp;and others.
+We are official UK stockists of premium quality brands that include : Vibram Five Fingers and Vibram Furoshiki wrap-around shoes, Patagonia outdoor clothing, Carhartt workwear, Danner Boots, Teva Sandals, Keen Footwear, North Sea Clothing, Mephisto shoes and others.
 Our mission is to inspire people to live active, healthy and environmentally responsible lives and promote the best equipment and other resources in support of those ends.
 We encourage people of all ages to adventure and find connection with the wild places of the natural environment and develop a deeper recognition that we humans are a part of nature and that our own and future generations welfare is inextricably linked to the stewardship of this planet that sustains us.
 More than at any other time in our history we live in a globalised world of economic, political, technological, social and environmental interdependence.

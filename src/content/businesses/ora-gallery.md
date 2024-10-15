@@ -44,24 +44,24 @@ tags:
 
 ## Open Hours
 
-| | |
-| - | - |
-| Sunday - Monday | Closed |
+|                    |               |
+| ------------------ | ------------- |
+| Sunday - Monday    | Closed        |
 | Tuesday - Saturday | 10:00 - 17:00 |
-|  |  |
+|                    |               |
 
 ## Business Contact
 
-| | |
-| - | - |
-| Email | info@oragallery.co.uk |
-| Phone | 011426614444 |
+|         |                             |
+| ------- | --------------------------- |
+| Email   | info@oragallery.co.uk       |
+| Phone   | 011426614444                |
 | Website | http://www.orasheffield.com |
 
 At Ora we specialise in the offer of beautiful Sterling Silver jewellery.
 We have a wide collection of jewellery from all over the world, which includes stylish Scandinavian jewellery, beautiful Mexican silver, colourful Venetian glass jewellery and sparkly Coer de Lion Chrystal and stainless still pieces.
-&nbsp;We also proudly stock very special jewellery from a number of carefully selected Sheffield artists.
+ We also proudly stock very special jewellery from a number of carefully selected Sheffield artists.
 However we also have a wide variety of gifts and giftware.
-From&nbsp;Roka bags, to Merry people wellies, knitted dinosaurs, beautiful scarves and accessories, SECRID card protectors and&nbsp;more; there is something for everyone.
-&nbsp;Combine that with the best selection of greeting cards and wrapping paper and you have everything you need for the perfect gift.
+From Roka bags, to Merry people wellies, knitted dinosaurs, beautiful scarves and accessories, SECRID card protectors and more; there is something for everyone.
+ Combine that with the best selection of greeting cards and wrapping paper and you have everything you need for the perfect gift.
 
