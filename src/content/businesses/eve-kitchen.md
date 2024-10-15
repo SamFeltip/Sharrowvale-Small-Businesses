@@ -44,22 +44,27 @@ tags:
 
 ## Open Hours
 
-| | |
-| - | - |
+|                  |               |
+| ---------------- | ------------- |
 | Tuesday - Sunday | 10:30 - 16:00 |
-|  |  |
+|                  |               |
 
 ## Business Contact
 
-| | |
-| - | - |
-| Email |  |
-| Phone |  |
+|         |                              |
+| ------- | ---------------------------- |
+| Email   |                              |
+| Phone   |                              |
 | Website | http://www.evekitchen.co.uk/ |
 
 Eve Kitchen represents the dedication and dream of opening a handmade doughnut shop and artisan cafe.
+
 Lauren Eve, the visionary behind this venture, is the creator, maker, and baker who ensures each doughnut is crafted to perfection.
+
 With a commitment to small batch production, they strive to make every doughnut the best it can be.
+
 Now open in Sheffield, Eve Kitchen invites you to visit and enjoy their delicious creations.
+
 Each morning, fresh doughnuts are made in small batches, featuring both timeless classics and innovative flavors inspired by seasonal ingredients and Lauren's own sweet tooth.
+
 Come and see what makes Eve Kitchen a special addition to the community!

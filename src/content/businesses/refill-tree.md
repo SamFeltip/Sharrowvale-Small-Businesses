@@ -56,7 +56,9 @@ tags:
 | Website | https://refilltree.co.uk |
 
 Refill Tree is your go-to destination for sustainable living products.
-We offer a wide range of refillable household products, that are available to collect in reusable packaging such as tubs, jars and paper bags; helping you reduce single-use plastic waste.
-Our refill stations allow you to refill your containers with eco-friendly cleaning supplies, shampoos, conditioners, and body washes as well as kitchen staples like Flour, Seeds, Nuts, Lentils, Beans, Pastas and more.
-All our products are sourced from trusted suppliers who prioritize environmental responsibility.
 
+We offer a wide range of refillable household products, that are available to collect in reusable packaging such as tubs, jars and paper bags; helping you reduce single-use plastic waste.
+
+Our refill stations allow you to refill your containers with eco-friendly cleaning supplies, shampoos, conditioners, and body washes as well as kitchen staples like Flour, Seeds, Nuts, Lentils, Beans, Pastas and more.
+
+All our products are sourced from trusted suppliers who prioritize environmental responsibility.

@@ -38,26 +38,35 @@ tags:
 
 ## Open Hours
 
-| | |
-| - | - |
-| Saturday - Sunday | Closed |
-| Monday | 8:30 - 18:00 |
-| Tuesday | 8:30 - 17:00 |
-| Wednesday | 8:30 - 18:00 |
-| Thursday | 8:30 - 17:00 |
-| Friday | 8:30 - 17:00 |
-| ‍ |  |
-|  | undefined |
+|                   |              |
+| ----------------- | ------------ |
+| Saturday - Sunday | Closed       |
+| Monday            | 8:30 - 18:00 |
+| Tuesday           | 8:30 - 17:00 |
+| Wednesday         | 8:30 - 18:00 |
+| Thursday          | 8:30 - 17:00 |
+| Friday            | 8:30 - 17:00 |
+| ‍                 |              |
+|                   | undefined    |
 
 ## Business Contact
 
-| | |
-| - | - |
-| Email | galer.farrer@live.co.uk |
-| Phone | 01142686076 |
+|         |                                        |
+| ------- | -------------------------------------- |
+| Email   | galer.farrer@live.co.uk                |
+| Phone   | 01142686076                            |
 | Website | http://www.sharrowvaledentalcare.co.uk |
 
 Our professional dentists and supporting team combine a modern approach to dentistry with fantastic customer service.
 The team are all highly experienced and you are greeted with a friendly, pleasant and sympathetic atmosphere.
-We offer a range of general and advanced services:Dental HygineChildrens DentistryFillingsDental ExtractionMouthguardsDenturesCrownsRoot Canal TreatmentAdvanced:ImplantsEndodonticsInman AlignerInvisalignSnoring SolutionsNHS and private patients welcome, more information on our website.
+We offer a range of general and advanced services, including but not limited to:
 
+- Dental Hygine
+- Childrens Dentistry
+- Fillings
+- Dental Extraction
+- Mouth guards
+- Dentures
+- Crowns
+
+NHS and private patients welcome, more information on our website.

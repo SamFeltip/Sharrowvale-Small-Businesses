@@ -61,5 +61,6 @@ tags:
 | Website | http://www.littlehummingbirdevents.co.uk |
 
 Established in 2023 The Hummingbird Collective is a collaboration of small local independent makers, traders, artists and creators; bringing them together in under one roof and allowing them to better reach their audience whilst having more time to focus on their craft.
+
 New to Sharrow Vale in 2024, they are the perfect fit for customers looking to support local artists at reasonable prices.
 

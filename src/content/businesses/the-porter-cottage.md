@@ -43,24 +43,27 @@ tags:
 
 ## Open Hours
 
-| | |
-| - | - |
+|                   |               |
+| ----------------- | ------------- |
 | Monday - Thursday | 16:00 - 00:00 |
-| Friday | 16:00 - 01:00 |
-| Saturday | 12:00 - 01:00 |
-| Sunday | 14:00 - 00:00 |
-|  |  |
+| Friday            | 16:00 - 01:00 |
+| Saturday          | 12:00 - 01:00 |
+| Sunday            | 14:00 - 00:00 |
+|                   |               |
 
 ## Business Contact
 
-| | |
-| - | - |
-| Email |  |
-| Phone | 01661822019 |
+|         |                                         |
+| ------- | --------------------------------------- |
+| Email   |                                         |
+| Phone   | 01661822019                             |
 | Website | https://www.portercottagesheffield.com/ |
 
 Situated centrally in Sheffield, The Porter Cottage is a beloved local pub renowned for its welcoming atmosphere and extensive drink options.
+
 Whether you fancy a pint of local ale, a glass of fine wine, or a crafted cocktail, they cater to all tastes.
+
 Their dog-friendly policy ensures furry friends are welcome to join in the fun.
+
 Open throughout the week, they invite you to relax, unwind, and enjoy the true essence of a traditional English pub experience.
 

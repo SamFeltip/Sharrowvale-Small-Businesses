@@ -55,7 +55,9 @@ tags:
 | Website |                      |
 
 All styles of tattooing are available with art designed just for you in a friendly, hygienic space.
-Perfect for your first tattoo or to add to your collection.
-We also offer a full range of piercing services and jewellery.
-Contact us or come in for bookings and any advice you may need.
 
+Perfect for your first tattoo or to add to your collection.
+
+We also offer a full range of piercing services and jewellery.
+
+Contact us or come in for bookings and any advice you may need.

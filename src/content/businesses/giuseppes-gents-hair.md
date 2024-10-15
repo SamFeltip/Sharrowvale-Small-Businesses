@@ -55,9 +55,13 @@ tags:
 | Website | https://giuseppesgentshair.nearcut.com/ |
 
 Giuseppe's is an easy, non nonsense mens barbers.
-Nicky has been cutting hair for over 34 years and is able to do whatever you need.
-Simply reserve a 15 minute slot through the booking platform and turn up for a quick and easy trim that doesn't disappoint.
-Children welcome too.
-Cash or card accepted.
-Prices start from £14 for a gents cut, check out the bookin platform for more.
 
+Nicky has been cutting hair for over 34 years and is able to do whatever you need.
+
+Simply reserve a 15 minute slot through the booking platform and turn up for a quick and easy trim that doesn't disappoint.
+
+Children welcome too.
+
+Cash or card accepted.
+
+Prices start from £14 for a gents cut, check out the bookin platform for more.

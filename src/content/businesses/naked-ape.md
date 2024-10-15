@@ -58,8 +58,12 @@ tags:
 | Website | https://www.nakedape.uk.com/ |
 
 We are official UK stockists of premium quality brands that include : Vibram Five Fingers and Vibram Furoshiki wrap-around shoes, Patagonia outdoor clothing, Carhartt workwear, Danner Boots, Teva Sandals, Keen Footwear, North Sea Clothing, Mephisto shoes and others.
+
 Our mission is to inspire people to live active, healthy and environmentally responsible lives and promote the best equipment and other resources in support of those ends.
+
 We encourage people of all ages to adventure and find connection with the wild places of the natural environment and develop a deeper recognition that we humans are a part of nature and that our own and future generations welfare is inextricably linked to the stewardship of this planet that sustains us.
+
 More than at any other time in our history we live in a globalised world of economic, political, technological, social and environmental interdependence.
+
 The adverse consequences inherent in many of the policies administered in any one part of the world by governments, big business, media, education bodies or religious institutions are felt globally.
 
