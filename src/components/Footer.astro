@@ -4,66 +4,41 @@ import { LOGO_URL_DARK } from "../consts";
 ---
 
 <div
-	class="w-full text-gray-50 bg-gray-800 flex justify-center pt-[64px] px-[40px] pb-[80px]"
+    class="w-full text-gray-50 bg-gray-800 flex justify-center pt-[64px] px-[40px] pb-[80px]"
 >
-	<footer class="flex flex-col gap-[64px]">
-		<div class="flex justify-between">
-			<div>
-				<a href="/">
-					<img
-						src={LOGO_URL_DARK}
-						alt="Sharrow Vale Logo"
-						width="160"
-						height="160"
-					/>
-				</a>
-				<p class="font-1">All rights reserved</p>
-			</div>
-			<div class="text-end gap-3">
-				<div>
-					<span><a href="/">HOME</a></span>
-					<span><a href="/about">JOIN</a></span>
-				</div>
-				<div>
-					<p>
-						<a href="mailto:info@sharrowvale.co.uk">
-							info@sharrowvale.co.uk
-						</a>
-					</p>
-					<p>Like this site? Check out D&n Facebook Instagram</p>
-				</div>
-			</div>
-		</div>
-		<div class="social-links text-center flex justify-center gap-3 w-full">
-			<p>Facebook</p>
-			<p>Instagram</p>
-		</div>
-	</footer>
+    <footer class="flex flex-col md:flex-row md:justify-between">
+        <div class="flex flex-col items-center text-center gap-2">
+            <a href="/" class="flex justify-center">
+                <img
+                    src={LOGO_URL_DARK}
+                    alt="Sharrow Vale Logo"
+                    width="160"
+                    height="160"
+                />
+            </a>
+            <p class="text-sm">All rights reserved</p>
+        </div>
+        <div class="flex flex-col items-center text-center gap-2 md:items-end">
+            <div class="flex gap-4 justify-center py-3">
+                <a class="text-sm" href="/">HOME</a>
+                <a class="text-sm" href="/about">JOIN</a>
+            </div>
+
+            <div
+                class="flex flex-col items-center md:items-end md:flex-row md:gap-3"
+            >
+                <p class="text-sm">
+                    <a href="mailto:info@sharrowvale.co.uk">
+                        info@sharrowvale.co.uk
+                    </a>
+                </p>
+                <p class="text-sm">Like this site? Check out D&n</p>
+            </div>
+
+            <div class="flex gap-3 justify-center pt-8">
+                <p class="text-sm"><a href="#">Facebook</a></p>
+                <p class="text-sm"><a href="#">Instagram</a></p>
+            </div>
+        </div>
+    </footer>
 </div>
-<script>
-	document.addEventListener("DOMContentLoaded", () => {
-		const sections = document.querySelectorAll("section");
-
-		const observerOptions = {
-			root: null,
-			rootMargin: "0px",
-			threshold: 0.1,
-		};
-
-		const sectionObserver = new IntersectionObserver(
-			(entries, observer) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add("visible");
-						observer.unobserve(entry.target);
-					}
-				});
-			},
-			observerOptions,
-		);
-
-		sections.forEach((section) => {
-			sectionObserver.observe(section);
-		});
-	});
-</script>
