@@ -5,8 +5,7 @@ content_dir = './src/content'
 images_dir = './src/images'
 
 # Regular expression to find Webflow URLs in text, allowing for various formatting
-url_pattern = re.compile(r'"?(https://uploads-ssl\.webflow\.com/[A-Za-z0-9\-]+/(.+?\.jpg|.+?\.jpeg|.+?\.webp))"?')
-
+url_pattern = re.compile(r'"?(https://uploads-ssl\.webflow\.com/[A-Za-z0-9\-]+/(.+?\.jpg|.+?\.jpeg|.+?\.webp|.+?\.png))"?')
 
 def get_local_image_path(content_file_path, image_filename):
     print("--get_local_image_path--")
