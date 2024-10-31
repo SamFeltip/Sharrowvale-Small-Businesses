@@ -1,0 +1,37 @@
+---
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
+
+import { Button } from "../ui/button";
+import { LOGO_URL } from "@/consts";
+---
+
+<div class="flex flex-col items-end gap-4 relative h-[80svh] mh-[600px]">
+    <div class="absolute top-0 left-0 h-full w-full">
+        <img
+            src="https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/666576a0c2d4c780054817d3_market%20.jpeg"
+            alt=""
+            class="h-full w-full object-cover"
+        />
+    </div>
+    <div
+        class="absolute top-0 bottom-0 right-0 left-0 px-7 grid grid-template-rows-[1fr_auto]"
+        style="background: rgba(0, 0, 0, 0.4);"
+    >
+        <section class="flex flex-col justify-center">
+            <h4 class="text-end text-white">Welcome to</h4>
+            <h1 id="hero-title" class="text-end text-white">Sharrow Vale</h1>
+            <h4 class="text-end text-white">small businesses</h4>
+            <div class="text-end pt-4">
+                <Button
+                    client:load
+                    variant="white"
+                    className="rounded-full gap-2"
+                >
+                    <FontAwesomeIcon icon={faSearch} />
+                    Search businesses
+                </Button>
+            </div>
+        </section>
+    </div>
+</div>

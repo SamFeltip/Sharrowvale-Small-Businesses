@@ -1,5 +1,4 @@
 ---
-
 import { InteractiveCarousel } from "../components/index/HomeCarousel.tsx";
 
 import Layout from "@/layouts/Layout.astro";
@@ -7,6 +6,9 @@ import SearchField from "@/components/search/SearchField.astro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
 import { type CollectionEntry, getCollection } from "astro:content";
+import BannerImage from "@/components/index/BannerImage.astro";
+import { Button } from "@/components/ui/button";
+import { LOGO_URL, LOGO_URL_DARK } from "@/consts";
 
 const promotions: CollectionEntry<"promotion">[] =
     await getCollection("promotion");
@@ -16,73 +18,67 @@ let promotionsData = await promotions.map((promotion) => ({
 }));
 ---
 
-<Layout>
+<Layout use-header="false">
     <div data-pagefind-ignore>
+        <BannerImage />
 
-        <section
-            class="text-center h-[80svh] mh-[600px] pt-[80px] px-7 md:px-5 md:flex flex-col items-center justify-center"
+        <div
+            class="sticky top-0 flex justify-end items-center bg-black text-white z-10"
         >
-            <div class="mb-[120px] flex flex-col items-center gap-4">
-
-                <div class="bg-amber-100 border-black border-[1px] rounded-full text-center text-sm px-4 py-2 ">
-                    <a href="https://forms.gle/M7dq5bslguThKZkr8" class="">
-                        Want to join our site? <wbr/> Fill out the content form <span class="text-blue-500 underline">here</span>
-                    </a>
-                </div>
-
-                <h4
-                    class="text-center"
-                >
-                    Welcome to
-                </h4>
-                <h1
-                    id="hero-title"
-                    class="text-coral text-center"
-                >
-                    Sharrow Vale
-                </h1>
-                <h4
-                    class="text-center"
-                >
-                    small businesses
-            </h4>
-                <p>
-                    The home for exploring the unique community of businesses
-                    <br />
-                    and services in Sharrow Vale, Sheffield
-                </p>
+            <div
+                class="p-4 flex justify-between items-center fixed text-white top-0 w-full"
+            >
+                <img
+                    src={LOGO_URL_DARK}
+                    alt="Sharrow Vale Logo"
+                    width="160"
+                    height="160"
+                />
             </div>
-            <div class="text-center">
-                <a href="#directory" class="flex flex-col gap-2">
-                    <span
-                        class="text-black mt-0 mb-0 font-lato text-base font-light leading-[1.24] no-underline"
-                    >
-                        Search businesses
-                    </span>
-                    <FontAwesomeIcon
-                        className="text-black h-5"
-                        icon={faChevronDown}
-                    />
-                </a>
+
+            <ul class="px-3 py-7 flex justify-end gap-4">
+                <li>About us</li>
+                <li>item 2</li>
+                <li>item 3</li>
+            </ul>
+        </div>
+
+        <section class="grid grid-rows-2 grid-cols-2 pt-9">
+            <div
+                class="bg-black text-white p-5 flex items-center justify-center"
+            >
+                <img src="" alt="" />
+            </div>
+            <div
+                class="bg-black text-white p-5 flex items-center justify-center"
+            >
+                <img src="" alt="" />
+            </div>
+            <div
+                class="bg-black text-white p-5 flex items-center justify-center"
+            >
+                <img src="" alt="" />
+            </div>
+            <div
+                class="bg-black text-white p-5 flex items-center justify-center"
+            >
+                <img src="" alt="" />
             </div>
         </section>
 
         <section class="flex justify-center p-8 px-7 md:px-5">
-            <InteractiveCarousel client:only="react" promotions={promotionsData} />
+            <InteractiveCarousel
+                client:only="react"
+                promotions={promotionsData}
+            />
         </section>
 
         <section
             id="directory"
             class="text-center flex flex-col items-center justify-center gap-y-5 py-[50px] px-7 md:px-5"
         >
-            <h4
-                class="text-center"
-            >
-                sharrow vale directory
-            </h4>
-            <h2
-                class="text-coral"
-            >
+            <h4 class="text-center">sharrow vale directory</h4>
+            <h2 class="text-coral">
                 Search For Local Restaurants,<br /> Shops, Cafes And More
             </h2>
         </section>
@@ -90,18 +86,18 @@ let promotionsData = await promotions.map((promotion) => ({
         <section
             class="mb-[8rem] px-7 md:px-5 w-full flex flex-col items-center"
         >
-            <SearchField startResult="true"/>
+            <SearchField startResult="true" />
 
             <a
-            href="/businesses"
-            class="hover:scale-110 transition-all border border-black rounded-full py-1 px-2"
+                href="/businesses"
+                class="hover:scale-110 transition-all border border-black rounded-full py-1 px-2"
             >
-            Visit the directory
+                Visit the directory
             </a>
         </section>
 
         <section
-            class="flex flex-col lg:flex-row-reverse items-center justify-center px-7 mb-[8rem] w-full px-7 md:px-5 "
+            class="flex flex-col lg:flex-row-reverse items-center justify-center px-7 mb-[8rem] w-full px-7 md:px-5"
         >
             <img
                 class="h-[600px] object-cover rounded-mega aspect-video lg:aspect-[4/5] lg:translate-x-[-50px]"
@@ -120,10 +116,11 @@ let promotionsData = await promotions.map((promotion) => ({
                         roundabout all the way down stewart road.
                     </p>
                     <p class="mb-4">
-                        The market hosts around 100 stalls selling a wide variety of
-                        locally reared and home made produce as well as hot food,
-                        crafts, clothing and plants. In addition to the stalls, most
-                        of the shops, pubs and cafes are also open on market days.
+                        The market hosts around 100 stalls selling a wide
+                        variety of locally reared and home made produce as well
+                        as hot food, crafts, clothing and plants. In addition to
+                        the stalls, most of the shops, pubs and cafes are also
+                        open on market days.
                     </p>
                     <p class="mb-4">
                         The market is managed by the Sharrow Vale Community
@@ -141,7 +138,9 @@ let promotionsData = await promotions.map((promotion) => ({
             </div>
         </section>
 
-        <section class="flex flex-col lg:flex-row items-center justify-center px-7 mb-[8rem] w-full">
+        <section
+            class="flex flex-col lg:flex-row items-center justify-center px-7 mb-[8rem] w-full"
+        >
             <img
                 class="w-[700px] object-cover rounded-mega aspect-[3/2] lg:translate-x-[50px]"
                 src="https://cdn.prod.website-files.com/66637bfce5ac00faa1c7cbd8/6664b55aa0453a8fd5fdb539_442419404_984343870366225_8191179513756749300_n.jpg"
@@ -152,11 +151,11 @@ let promotionsData = await promotions.map((promotion) => ({
             >
                 <h3 class="text-coral">About</h3>
                 <p>
-                    This directory is run by local Sharrow Vale residents aiming to
-                    help locals and tourists find out more about the Vale,
+                    This directory is run by local Sharrow Vale residents aiming
+                    to help locals and tourists find out more about the Vale,
                     highlighting unique collection of many small businesses that
-                    live here. If you would like to find out more about how it works
-                    click below
+                    live here. If you would like to find out more about how it
+                    works click below
                 </p>
                 <a
                     href="/about"
@@ -167,5 +166,4 @@ let promotionsData = await promotions.map((promotion) => ({
             </div>
         </section>
     </div>
-
 </Layout>
