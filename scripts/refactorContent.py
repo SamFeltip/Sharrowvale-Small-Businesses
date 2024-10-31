@@ -4,21 +4,29 @@ import re
 content_dir = './src/content'
 images_dir = './src/images'
 
-# Regular expression to find Webflow URLs in text
-url_pattern = re.compile(r"https://uploads-ssl\.webflow\.com/[A-Za-z0-9\-]+/(.+?\.jpg)")
-
+# Regular expression to find Webflow URLs in text, allowing for various formatting
+url_pattern = re.compile(r'"?(https://uploads-ssl\.webflow\.com/[A-Za-z0-9\-]+/(.+?\.jpg|.+?\.jpeg|.+?\.webp))"?')
 
 def get_local_image_path(content_file_path, image_filename):
     # Determine the relative path from the content directory
     relative_path = os.path.relpath(content_file_path, content_dir)
-    # Replace '.md' or '.json' extension with the folder name in the images directory
-    image_dir = os.path.join(images_dir, os.path.dirname(relative_path), image_filename)
-    if os.path.exists(image_dir):
-        print(f"Found local image for {image_filename}: {image_dir}")
-        return image_dir
+    print(f"Relative path for {content_file_path}: {relative_path}")
+
+    # Split the relative path to construct the local image path
+    path_segments = os.path.dirname(relative_path).split('/', 1)
+    print(f"Path segments after split: {path_segments}")
+
+    # Remove the first segment of the path to create the correct local image path
+    local_image_dir = os.path.join(images_dir, path_segments[-1], image_filename)
+    print(f"Constructed local image path: {local_image_dir}")
+
+    if os.path.exists(local_image_dir):
+        print(f"Found local image for {image_filename}: {local_image_dir}")
+        return local_image_dir
     else:
-        print(f"Local image not found for {image_filename}")
+        print(f"Local image not found for {image_filename} at {local_image_dir}")
         return None
+
 
 def replace_webflow_urls(file_path):
     print(f"Processing file: {file_path}")
@@ -30,13 +38,14 @@ def replace_webflow_urls(file_path):
     updated_content = content
     changes_made = False
     for match in url_pattern.finditer(content):
-        image_filename = match.group(1)
-        print(f"Found Webflow URL: {match.group(0)}")
+        webflow_url = match.group(1)
+        image_filename = match.group(2)
+        print(f"Found Webflow URL: {webflow_url}")
         local_image_path = get_local_image_path(file_path, image_filename)
         if local_image_path:
             # Replace the Webflow URL with the local image path
             local_image_relative = os.path.relpath(local_image_path, start=os.path.dirname(file_path))
-            updated_content = updated_content.replace(match.group(0), local_image_relative)
+            updated_content = updated_content.replace(webflow_url, local_image_relative)
             print(f"Replaced with local path: {local_image_relative}")
             changes_made = True
     
