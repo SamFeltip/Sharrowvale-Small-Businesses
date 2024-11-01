@@ -4,17 +4,17 @@ preview: "Sardinian Gluten Free Culinary Experience "
 description: "At Akentannos we serve a wide choice of unique Sardinian culinary dishes, capable of satisfying even the most demanding palates."
 type: "business"
 
-heroImage: "../../images/businesses/akentannos/66979b7952df54e1c048a622_Akentannos%20Thumb.jpg"
-bannerImage: "../../images/businesses/akentannos/66979beb01992d31e257f5d0_laura-lugaresi-4o2gxfuD5BU-unsplash.jpg"
+heroImage: "/images/businesses/akentannos/66979b7952df54e1c048a622_Akentannos%20Thumb.jpg"
+bannerImage: "/images/businesses/akentannos/66979beb01992d31e257f5d0_laura-lugaresi-4o2gxfuD5BU-unsplash.jpg"
 # used for lightbox
 additionalImages: [
-    "../../images/businesses/akentannos/66979bfddf3b42c27461ee04_IMG_4257%20-%20Akentannos%20Restaurant.jpeg",
-    "../../images/businesses/akentannos/66979bfd8b7be4d995890a8b_IMG_4258%20-%20Akentannos%20Restaurant.jpeg",
-    "../../images/businesses/akentannos/66979bfe125afc720c9fa80d_IMG_4259%20-%20Akentannos%20Restaurant.jpeg",
-    "../../images/businesses/akentannos/66979bfe335f49346dcf47e0_IMG_4260%20-%20Akentannos%20Restaurant.jpeg",
-    "../../images/businesses/akentannos/66979bfdcb713133c0faeedf_IMG_4261%20-%20Akentannos%20Restaurant.jpeg",
-    "../../images/businesses/akentannos/66979bff5d4617438b05aa31_Screenshot%202024-07-17%20at%2011.19.57.png",
-    "../../images/businesses/akentannos/66979c1da972b47410accd54_Screenshot%202024-07-17%20at%2011.19.11.png"
+    "/images/businesses/akentannos/66979bfddf3b42c27461ee04_IMG_4257%20-%20Akentannos%20Restaurant.jpeg",
+    "/images/businesses/akentannos/66979bfd8b7be4d995890a8b_IMG_4258%20-%20Akentannos%20Restaurant.jpeg",
+    "/images/businesses/akentannos/66979bfe125afc720c9fa80d_IMG_4259%20-%20Akentannos%20Restaurant.jpeg",
+    "/images/businesses/akentannos/66979bfe335f49346dcf47e0_IMG_4260%20-%20Akentannos%20Restaurant.jpeg",
+    "/images/businesses/akentannos/66979bfdcb713133c0faeedf_IMG_4261%20-%20Akentannos%20Restaurant.jpeg",
+    "/images/businesses/akentannos/66979bff5d4617438b05aa31_Screenshot%202024-07-17%20at%2011.19.57.png",
+    "/images/businesses/akentannos/66979c1da972b47410accd54_Screenshot%202024-07-17%20at%2011.19.11.png"
 ]
 
 # Other metadata

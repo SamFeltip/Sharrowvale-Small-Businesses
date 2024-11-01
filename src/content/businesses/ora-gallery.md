@@ -4,11 +4,11 @@ preview: "Boutique Jewellery and Gift Shop Est 1990"
 description: "Since 1990 Ora Gallery has been operating on Sharrow Vale, selling a wide selection of gifts, accessories, and sterling silver Jewelry. Ora Gallery is the perfect cosy shop to find gifts, greetings cards and wrapping paper. "
 type: "business"
 
-heroImage: "../../images/businesses/ora-gallery/6690101562d13096be5c4fe2_ora-thumbnail.png"
-bannerImage: "../../images/businesses/ora-gallery/6685da9d0fb96ace447a6692_IMG_1824%20Large.jpeg"
+heroImage: "/images/businesses/ora-gallery/6690101562d13096be5c4fe2_ora-thumbnail.png"
+bannerImage: "/images/businesses/ora-gallery/6685da9d0fb96ace447a6692_IMG_1824%20Large.jpeg"
 # used for lightbox
 additionalImages: [
-    "../../images/businesses/ora-gallery/6685d92890e1cd98fceb48a1_IMG_1822%20Large.jpeg"
+    "/images/businesses/ora-gallery/6685d92890e1cd98fceb48a1_IMG_1822%20Large.jpeg"
 ]
 
 # Other metadata

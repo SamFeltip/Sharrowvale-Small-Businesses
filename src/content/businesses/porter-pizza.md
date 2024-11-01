@@ -4,14 +4,14 @@ preview: "An authentic sourdough pizzeria restaurant"
 description: "Porter Pizza, a vibrant Neapolitan pizzeria and gelateria in Sheffield's heart, offers handmade pizzas crafted with locally sourced ingredients and baked to perfection in their Scugnizzo oven. Whether dining in their cozy restaurant or ordering online for takeaway, they promise a delightful experience with fresh flavors and a warm, friendly atmosphere."
 type: "business"
 
-heroImage: "../../images/businesses/porter-pizza/6667067a1c216860096fac2f_porter%20pizza%202.jpeg"
-bannerImage: "../../images/businesses/porter-pizza/666726437c132b6df6ce5758_porter%20pizza%20banner.jpeg"
+heroImage: "/images/businesses/porter-pizza/6667067a1c216860096fac2f_porter%20pizza%202.jpeg"
+bannerImage: "/images/businesses/porter-pizza/666726437c132b6df6ce5758_porter%20pizza%20banner.jpeg"
 # used for lightbox
 additionalImages: [
-    "../../images/businesses/porter-pizza/6667067a3fc51aa36bd0849f_porter%20pizza%20.jpeg",
-    "../../images/businesses/porter-pizza/6667067a8f81b44f9f32afdb_porter%20pizza%203.jpeg",
-    "../../images/businesses/porter-pizza/6667067a79bc3aa0875ee774_porter%20pizza%204.jpeg",
-    "../../images/businesses/porter-pizza/666706e4255e07b737e7a573_porter%20pizza%205.jpeg"
+    "/images/businesses/porter-pizza/6667067a3fc51aa36bd0849f_porter%20pizza%20.jpeg",
+    "/images/businesses/porter-pizza/6667067a8f81b44f9f32afdb_porter%20pizza%203.jpeg",
+    "/images/businesses/porter-pizza/6667067a79bc3aa0875ee774_porter%20pizza%204.jpeg",
+    "/images/businesses/porter-pizza/666706e4255e07b737e7a573_porter%20pizza%205.jpeg"
 ]
 
 # Other metadata

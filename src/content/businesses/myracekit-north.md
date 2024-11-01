@@ -4,13 +4,13 @@ preview: "Independent specialist running shop"
 description: "Here at myRaceKit North we are experienced runners providing honest advice to our customers. We provide everything you need for your day-to-day running, whether that's Couch to 5K, 10K, half marathon, marathon, ultra, training, or anything in between."
 type: "business"
 
-heroImage: "../../images/businesses/myracekit-north/6697975a2b564776ebea09aa_myRacekit%20thumb.jpg"
-bannerImage: "../../images/businesses/myracekit-north/6697976278adb68d940c09bf_1000006180%20-%20myRaceKit%20North.jpg"
+heroImage: "/images/businesses/myracekit-north/6697975a2b564776ebea09aa_myRacekit%20thumb.jpg"
+bannerImage: "/images/businesses/myracekit-north/6697976278adb68d940c09bf_1000006180%20-%20myRaceKit%20North.jpg"
 # used for lightbox
 additionalImages: [
-    "../../images/businesses/myracekit-north/6697976ea50c6b926e11c1d0_IMG_20230213_101114_422%20-%20myRaceKit%20North.jpg",
-    "../../images/businesses/myracekit-north/6697976e01992d31e2550a66_IMG_20240524_082821_346%20-%20myRaceKit%20North.webp",
-    "../../images/businesses/myracekit-north/669797907622ab92a1bb18f5_20240301_095405%20-%20myRaceKit%20North.jpg"
+    "/images/businesses/myracekit-north/6697976ea50c6b926e11c1d0_IMG_20230213_101114_422%20-%20myRaceKit%20North.jpg",
+    "/images/businesses/myracekit-north/6697976e01992d31e2550a66_IMG_20240524_082821_346%20-%20myRaceKit%20North.webp",
+    "/images/businesses/myracekit-north/669797907622ab92a1bb18f5_20240301_095405%20-%20myRaceKit%20North.jpg"
 ]
 
 # Other metadata
@@ -43,19 +43,19 @@ tags:
 
 ## Open Hours
 
-| | |
-| - | - |
+|                 |               |
+| --------------- | ------------- |
 | Monday - Friday | 10:00 - 17:30 |
-| Saturday | 10:00 - 17:00 |
-| Sunday | 10:00 - 16:00 |
-|  |  |
+| Saturday        | 10:00 - 17:00 |
+| Sunday          | 10:00 - 16:00 |
+|                 |               |
 
 ## Business Contact
 
-| | |
-| - | - |
-| Email | matt@myracekit.com |
-| Phone | 01142669591 |
+|         |                             |
+| ------- | --------------------------- |
+| Email   | matt@myracekit.com          |
+| Phone   | 01142669591                 |
 | Website | https://myracekitnorth.com/ |
 
 Our philosophy is that there is no “one size fits all” and our aim is to give you the best possible advice for your particular event, race and running ambitions.

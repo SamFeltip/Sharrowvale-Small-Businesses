@@ -4,15 +4,15 @@ preview: "Gluten Free Cafe and Deli"
 description: "Sheffield's first completely gluten-free cafe and deli selling a range of handmade baked goods along with sweet and savoury small bites. Perfect for a midday mediterranean bite to eat or coffee catch-up. "
 type: "business"
 
-heroImage: "../../images/businesses/nue/6697d94b146e4bfa69066da5_Nue%20Thumb.jpg"
-bannerImage: "../../images/businesses/nue/66979ef4ff41529e4d88909b_IMG_4264%20-%20Nue%20Sheffield.jpeg"
+heroImage: "/images/businesses/nue/6697d94b146e4bfa69066da5_Nue%20Thumb.jpg"
+bannerImage: "/images/businesses/nue/66979ef4ff41529e4d88909b_IMG_4264%20-%20Nue%20Sheffield.jpeg"
 # used for lightbox
 additionalImages: [
-    "../../images/businesses/nue/66979f060ae067a9f529a72f_IMG_4270%20-%20Nue%20Sheffield.jpeg",
-    "../../images/businesses/nue/66979f0444e2a083d1d0f0b1_IMG_4269%20-%20Nue%20Sheffield.jpeg",
-    "../../images/businesses/nue/66979f04ca4bc241fb7dc6cd_IMG_4268%20-%20Nue%20Sheffield.jpeg",
-    "../../images/businesses/nue/66979f041631beb4556035f7_IMG_4272%20-%20Nue%20Sheffield.jpeg",
-    "../../images/businesses/nue/66979ed9a947ab39e19d0d52_IMG_4273%20-%20Nue%20Sheffield.jpeg"
+    "/images/businesses/nue/66979f060ae067a9f529a72f_IMG_4270%20-%20Nue%20Sheffield.jpeg",
+    "/images/businesses/nue/66979f0444e2a083d1d0f0b1_IMG_4269%20-%20Nue%20Sheffield.jpeg",
+    "/images/businesses/nue/66979f04ca4bc241fb7dc6cd_IMG_4268%20-%20Nue%20Sheffield.jpeg",
+    "/images/businesses/nue/66979f041631beb4556035f7_IMG_4272%20-%20Nue%20Sheffield.jpeg",
+    "/images/businesses/nue/66979ed9a947ab39e19d0d52_IMG_4273%20-%20Nue%20Sheffield.jpeg"
 ]
 
 # Other metadata
