@@ -4,14 +4,14 @@ preview: "A Collection of independent makers and creators"
 description: "Whatever you're looking for our shop has a perfect range of Posters, jewellery, Candles, Cushions, Ceramics, Knitted toys, Home furnishings, Wall decorations and much more. "
 type: "business"
 
-heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66953b2f522baad460a3fa5c_hummingbird%20thumbnail.png"
-bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669531951276beed4e15c108_8a88aa36-e966-4645-b288-5ea174b3a7a8%20-%20Mark%20Smith.JPG"
+heroImage: "/images/businesses/the-hummingbird-collective/66953b2f522baad460a3fa5c_hummingbird-thumbnail.png"
+bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/669531951276beed4e15c108_8a88aa36-e966-4645-b288-5ea174b3a7a8---Mark-Smith.JPG"
 # used for lightbox
 additionalImages: [
-    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66952f15ab02c4fcd9c0fd72_38c3a6c4-6ab8-4d0c-98ba-d39d09f1d020%20-%20Mark%20Smith.JPG",
-    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66952f141228627af33ef0a3_925cf2f6-fb31-4a00-b3c4-6671037563f7%20-%20Mark%20Smith.JPG",
-    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66952f1402367032bbc16257_05496e04-d82b-4e6d-9ee0-77456547cd71%20-%20Mark%20Smith.JPG",
-    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66952f14a0b78e01eb250aa7_cafbf1ef-b409-4319-88e9-9b6bfbdb351f%20-%20Mark%20Smith.JPG"
+    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66952f15ab02c4fcd9c0fd72_38c3a6c4-6ab8-4d0c-98ba-d39d09f1d020---Mark-Smith.JPG",
+    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66952f141228627af33ef0a3_925cf2f6-fb31-4a00-b3c4-6671037563f7---Mark-Smith.JPG",
+    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66952f1402367032bbc16257_05496e04-d82b-4e6d-9ee0-77456547cd71---Mark-Smith.JPG",
+    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/66952f14a0b78e01eb250aa7_cafbf1ef-b409-4319-88e9-9b6bfbdb351f---Mark-Smith.JPG"
 ]
 
 # Other metadata
