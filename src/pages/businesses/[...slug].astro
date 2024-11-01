@@ -2,6 +2,7 @@
 import "@/styles/business-content.css";
 import "@/styles/parallax.css";
 
+import { getImage, Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import GoogleMap from "@/components/businesses/GoogleMap.astro";
@@ -17,7 +18,8 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
 import { getEntries } from "astro:content";
 
 export async function getStaticPaths() {
-    const businesses: CollectionEntry<"businesses">[]  = await getCollection("businesses");
+    const businesses: CollectionEntry<"businesses">[] =
+        await getCollection("businesses");
     return businesses.map((business) => ({
         params: { slug: business.slug },
         props: business,
@@ -42,8 +44,10 @@ const {
     websiteLink,
     facebookLink,
     instagramLink,
-    businessCategories
+    businessCategories,
 } = entry.data;
+
+// const heroImageObj = await getImage(heroImage);
 
 const { Content } = await entry.render();
 
@@ -51,7 +55,8 @@ const slides: SlideImage[] = additionalImages.map((slide: string) => ({
     src: slide,
 }));
 
-const businesses: CollectionEntry<"businesses">[] = await getCollection("businesses");
+const businesses: CollectionEntry<"businesses">[] =
+    await getCollection("businesses");
 
 function shuffleBusinesses(array: CollectionEntry<"businesses">[]) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -68,8 +73,7 @@ const additional_places = shuffleBusinesses(
 
 <Layout>
     <div class="hidden">
-        <div data-pagefind-meta="content[data-src]" data-src={preview}>
-        </div>
+        <div data-pagefind-meta="content[data-src]" data-src={preview}></div>
     </div>
     <article class="my-5 mx-0 sm:mx-3 md:mx-8" data-pagefind-body>
         <div class="h-[350px]" id="parallax-background">
@@ -105,10 +109,12 @@ const additional_places = shuffleBusinesses(
                 >
                     <div class="prose w-full">
                         <div class="title grid gap-[24px]">
-                            <div class="flex flex-row flex-wrap gap-5 justify-center">
+                            <div
+                                class="flex flex-row flex-wrap gap-5 justify-center"
+                            >
                                 {
                                     businessCategories &&
-                                        businessCategories.map((bc) => (
+                                        businessCategories.map((bc: any) => (
                                             <p class="uppercase text-center">
                                                 <span data-pagefind-filter="type">
                                                     {bc.id}
@@ -117,16 +123,19 @@ const additional_places = shuffleBusinesses(
                                         ))
                                 }
                             </div>
-                            <h1
-                                class="text-coral text-center"
-                            >
+                            <h1 class="text-coral text-center">
                                 {title}
                             </h1>
-                            <p class="text-gray-dark text-center flex flex-row gap-4 justify-center">
-                                <span>{openDaysStatement}</span> <span>Est. {yearEstablished}</span>
+                            <p
+                                class="text-gray-dark text-center flex flex-row gap-4 justify-center"
+                            >
+                                <span>{openDaysStatement}</span>
+                                <span>Est. {yearEstablished}</span>
                             </p>
 
-                            <div class="flex flex-row flex-wrap gap-5 justify-center">
+                            <div
+                                class="flex flex-row flex-wrap gap-5 justify-center"
+                            >
                                 {
                                     instagramLink && (
                                         <a
@@ -194,11 +203,13 @@ const additional_places = shuffleBusinesses(
                                 tags && (
                                     <div class="flex flex-col items-center">
                                         <div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
-                                            {tags.map((tag: string, i: number) => (
-                                                <span class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato">
-                                                    {tag}
-                                                </span>
-                                            ))}
+                                            {tags.map(
+                                                (tag: string, i: number) => (
+                                                    <span class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato">
+                                                        {tag}
+                                                    </span>
+                                                )
+                                            )}
                                         </div>
                                     </div>
                                 )

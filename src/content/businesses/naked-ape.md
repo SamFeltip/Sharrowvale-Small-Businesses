@@ -4,15 +4,15 @@ preview: "Premium outdoor clothing and equipment"
 description: "Our customers share a passion for the outdoors and have high expectations of the products they use. Our aim is to stock the best products available, from the best manufacturers of outdoor and technical gear, who have earned their reputation for making exceptionally high quality and innovative products to meet these needs."
 type: "business"
 
-heroImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6669c42b47e5475076969d3c_Screenshot%202024-06-12%20at%2016.49.57.png"
-bannerImage: "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6669cd673f2e17e13cb3f228_1397295_612422528818543_1928828729_o.jpg"
+heroImage: "/images/businesses/naked-ape/6669c42b47e5475076969d3c_Screenshot-2024-06-12-at-16.49.57.png"
+bannerImage: "/images/businesses/naked-ape/6669cd673f2e17e13cb3f228_1397295_612422528818543_1928828729_o.jpg"
 # used for lightbox
 additionalImages: [
-    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6669cd81889599739364fe01_345421466_767541018379498_6800038526407601469_n.jpg",
-    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6669cd8145c82cdb6dd0a0c1_176234588_4176876862373074_5164729837240294833_n.jpg",
-    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6669cd81bbfcea71ee962878_287320553_5486947234699357_2085005367017078092_n.jpg",
-    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6669cd810bddddba4a72ffce_314418936_5906069442787132_4394912458988775576_n.jpg",
-    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6669cd81c1e4a5d98279b5f3_335076354_218949473982432_9195683061107331775_n.jpg"
+    "/images/businesses/naked-ape/6669cd81889599739364fe01_345421466_767541018379498_6800038526407601469_n.jpg",
+    "/images/businesses/naked-ape/6669cd8145c82cdb6dd0a0c1_176234588_4176876862373074_5164729837240294833_n.jpg",
+    "/images/businesses/naked-ape/6669cd81bbfcea71ee962878_287320553_5486947234699357_2085005367017078092_n.jpg",
+    "/images/businesses/naked-ape/6669cd810bddddba4a72ffce_314418936_5906069442787132_4394912458988775576_n.jpg",
+    "/images/businesses/naked-ape/6669cd81c1e4a5d98279b5f3_335076354_218949473982432_9195683061107331775_n.jpg"
 ]
 
 # Other metadata

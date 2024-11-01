@@ -7,6 +7,7 @@ export const businessSchema = z.object({
     preview: z.string(),
 
     type: z.string(),
+    
     heroImage: z.string(),
     bannerImage: z.string(),
     additionalImages: z.array(z.string()),
