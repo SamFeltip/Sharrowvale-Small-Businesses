@@ -4,14 +4,14 @@ preview: "Locally sourced neighbourhood Restaurant and Bar"
 description: "Your local neighbourhood restaurant and bar offering quality plates all day, every day. Our life in hospitality has taught us that the best venues are a collection of simple things done well. At the cornerstone of any good venue is good food, sourced locally, made thoughtfully and served with a welcome to match the quality."
 type: "business"
 
-heroImage: "/images/businesses/cornerstone-dyson-place/66953f8aadc2d5cf6630bc87_Cornerstone-1%20-%20Richard%20Massarella.jpg"
-bannerImage: "/images/businesses/cornerstone-dyson-place/669542287cd5605f6114b791_Cornerstone-80%20-%20Richard%20Massarella.jpg"
+heroImage: "/images/businesses/cornerstone-dyson-place/66953f8aadc2d5cf6630bc87_Cornerstone-1---Richard-Massarella.jpg"
+bannerImage: "/images/businesses/cornerstone-dyson-place/669542287cd5605f6114b791_Cornerstone-80---Richard-Massarella.jpg"
 # used for lightbox
 additionalImages: [
-    "/images/businesses/cornerstone-dyson-place/66953f94b171f8b767f7fc89_Cornerstone-18%20-%20Richard%20Massarella.jpg",
-    "/images/businesses/cornerstone-dyson-place/66953f945ca5d9b7bd147bd1_Cornerstone-35%20-%20Richard%20Massarella.jpg",
-    "/images/businesses/cornerstone-dyson-place/66953f9406a42b90cd8925e3_Cornerstone-80%20-%20Richard%20Massarella.jpg",
-    "/images/businesses/cornerstone-dyson-place/66953f951b9d8939ece5bf23_DSC08564%20-%20Richard%20Massarella.jpg"
+    "/images/businesses/cornerstone-dyson-place/66953f94b171f8b767f7fc89_Cornerstone-18---Richard-Massarella.jpg",
+    "/images/businesses/cornerstone-dyson-place/66953f945ca5d9b7bd147bd1_Cornerstone-35---Richard-Massarella.jpg",
+    "/images/businesses/cornerstone-dyson-place/66953f9406a42b90cd8925e3_Cornerstone-80---Richard-Massarella.jpg",
+    "/images/businesses/cornerstone-dyson-place/66953f951b9d8939ece5bf23_DSC08564---Richard-Massarella.jpg"
 ]
 
 # Other metadata

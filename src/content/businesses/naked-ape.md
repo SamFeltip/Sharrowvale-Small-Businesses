@@ -4,7 +4,7 @@ preview: "Premium outdoor clothing and equipment"
 description: "Our customers share a passion for the outdoors and have high expectations of the products they use. Our aim is to stock the best products available, from the best manufacturers of outdoor and technical gear, who have earned their reputation for making exceptionally high quality and innovative products to meet these needs."
 type: "business"
 
-heroImage: "/images/businesses/naked-ape/6669c42b47e5475076969d3c_Screenshot%202024-06-12%20at%2016.49.57.png"
+heroImage: "/images/businesses/naked-ape/6669c42b47e5475076969d3c_Screenshot-2024-06-12-at-16.49.57.png"
 bannerImage: "/images/businesses/naked-ape/6669cd673f2e17e13cb3f228_1397295_612422528818543_1928828729_o.jpg"
 # used for lightbox
 additionalImages: [

@@ -5,10 +5,10 @@ description: "Since 1990 Ora Gallery has been operating on Sharrow Vale, selling
 type: "business"
 
 heroImage: "/images/businesses/ora-gallery/6690101562d13096be5c4fe2_ora-thumbnail.png"
-bannerImage: "/images/businesses/ora-gallery/6685da9d0fb96ace447a6692_IMG_1824%20Large.jpeg"
+bannerImage: "/images/businesses/ora-gallery/6685da9d0fb96ace447a6692_IMG_1824-Large.jpeg"
 # used for lightbox
 additionalImages: [
-    "/images/businesses/ora-gallery/6685d92890e1cd98fceb48a1_IMG_1822%20Large.jpeg"
+    "/images/businesses/ora-gallery/6685d92890e1cd98fceb48a1_IMG_1822-Large.jpeg"
 ]
 
 # Other metadata
