@@ -8,7 +8,7 @@ heroImage: "/images/businesses/refill-tree/6697c04227d6cf6be78e2281_Refill-Tree-
 bannerImage: "/images/businesses/refill-tree/6697bff599f6ca32cc2edcd6_refill-tree-thumb.jpg"
 # used for lightbox
 additionalImages: [
-    "https://uploads-ssl.webflow.com/66637ca2fcf1b32b5acc349c/6697c0495448d92d5c10b4f9_image_67516161---Tyler-Savage.JPG",
+    "/images/businesses/refill-tree/6697c0495448d92d5c10b4f9_image_67516161---Tyler-Savage.JPG",
     "/images/businesses/refill-tree/6697c0481c94ccfaf2b140e5_IMG-4370---Tyler-Savage.jpg"
 ]
 
