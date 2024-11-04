@@ -16,6 +16,7 @@ export function InteractiveCarousel({
     promotions,
 }: {
     promotions: {
+        href: string | undefined;
         title: string;
         body: string;
         image: string;
@@ -70,26 +71,32 @@ export function InteractiveCarousel({
                     {promotions.map((promotion, index) => {
                         return (
                             <CarouselItem key={index}>
-                                <Card className="border-none rounded-xl overflow-hidden">
-                                    <CardContent className="relative">
-                                        <img
-                                            className="object-cover h-[400px] w-full"
-                                            src={promotion.image}
-                                            alt="image"
-                                        />
-                                        <div
-                                            id="card-text"
-                                            className={cardTextStyles[index]}
-                                            style={{
-                                                background:
-                                                    promotion.background,
-                                            }}
-                                        >
-                                            <h1>{promotion.title}</h1>
-                                            <p>{promotion.body}</p>
-                                        </div>
-                                    </CardContent>
-                                </Card>
+                                <a href={promotion.href}>
+                                    <Card className="border-none rounded-xl overflow-hidden">
+                                        <CardContent className="relative">
+                                            <img
+                                                className="object-cover h-[400px] w-full"
+                                                src={promotion.image}
+                                                alt="image"
+                                            />
+                                            <div
+                                                id="card-text"
+                                                className={
+                                                    cardTextStyles[index]
+                                                }
+                                                style={{
+                                                    background:
+                                                        promotion.background,
+                                                }}
+                                            >
+                                                <h1 className="pb-4">
+                                                    {promotion.title}
+                                                </h1>
+                                                <p>{promotion.body}</p>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </a>
                             </CarouselItem>
                         );
                     })}

@@ -1,0 +1,10 @@
+{
+    "title": "Cask & Keg",
+    "image": "/images/businesses/cask-and-keg/hero.webp", 
+    "startDate": "2023-07-01",
+    "endDate": "2024-11-14",
+    "background": "linear-gradient(145deg, rgba(45,45,162,0.5) 35%, rgba(46,212,255,0.5) 70%)",
+    "textPosition": "bottom-right",
+    "body": "New bar coming soon to Sharrow Vale",
+    "href": "/businesses/cask-and-keg"
+}

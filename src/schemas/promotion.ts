@@ -10,4 +10,5 @@ export const promotionSchema = z.object({
     business: z.string(reference("businesses")).optional(),
     startDate: z.string().optional(),
     endDate: z.string().optional(),
+    href: z.string().optional(),
 });
