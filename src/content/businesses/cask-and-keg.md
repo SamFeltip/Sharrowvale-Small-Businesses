@@ -9,6 +9,8 @@ bannerImage: "/images/businesses/cask-and-keg/banner.webp"
 additionalImages: [
     "/images/businesses/cask-and-keg/coming-soon.webp",
     "/images/businesses/cask-and-keg/storefront.webp"
+    "/images/businesses/cask-and-keg/hero.webp"
+    "/images/businesses/cask-and-keg/banner.webp"
 ]
 
 # Other metadata
