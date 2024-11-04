@@ -2,7 +2,7 @@
 title: "The Hummingbird Collective"
 preview: "A Collection of independent makers and creators"
 description: "Whatever you're looking for our shop has a perfect range of Posters, jewellery, Candles, Cushions, Ceramics, Knitted toys, Home furnishings, Wall decorations and much more. "
-type: "business"
+type: "fashion"
 
 heroImage: "/images/businesses/the-hummingbird-collective/66953b2f522baad460a3fa5c_hummingbird-thumbnail.png"
 bannerImage: "/images/businesses/the-hummingbird-collective/669531951276beed4e15c108_8a88aa36-e966-4645-b288-5ea174b3a7a8---Mark-Smith.JPG"

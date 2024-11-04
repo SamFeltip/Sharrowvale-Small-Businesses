@@ -4,7 +4,7 @@ preview: "Multi-award winning local dental practice."
 description: "Sharrow Vale Dental Care provides high quality, comprehensive dental care for all the family.
    
 We welcome both NHS and private patients as well as offering our own Dental Plan."
-type: "business"
+type: "healthcare"
 
 heroImage: "/images/businesses/sharrow-vale-dental-care/669aedac6680cb4396cf4468_IMG_6369---Galer-Farrer.jpeg"
 bannerImage: "/images/businesses/sharrow-vale-dental-care/669aedefc885ef7ffb6cd166_IMG_6370---Galer-Farrer.jpeg"

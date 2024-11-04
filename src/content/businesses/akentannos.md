@@ -2,7 +2,7 @@
 title: "Akentannos"
 preview: "Sardinian Gluten Free Culinary Experience "
 description: "At Akentannos we serve a wide choice of unique Sardinian culinary dishes, capable of satisfying even the most demanding palates."
-type: "business"
+type: "restaurant"
 
 heroImage: "/images/businesses/akentannos/66979b7952df54e1c048a622_Akentannos-Thumb.jpg"
 bannerImage: "/images/businesses/akentannos/66979beb01992d31e257f5d0_laura-lugaresi-4o2gxfuD5BU-unsplash.jpg"
