@@ -16,7 +16,6 @@ export function InteractiveCarousel({
     promotions,
 }: {
     promotions: {
-        href: string | undefined;
         title: string;
         body: string;
         image: string;
@@ -26,6 +25,7 @@ export function InteractiveCarousel({
         endDate?: string | undefined;
         background?: string | undefined;
         business?: string | undefined;
+        href?: string | undefined;
     }[];
 }) {
     promotions = promotions.filter((promotion) => {
