@@ -8,8 +8,8 @@ bannerImage: "/images/businesses/cask-and-keg/banner.webp"
 # used for lightbox
 additionalImages: [
     "/images/businesses/cask-and-keg/coming-soon.webp",
-    "/images/businesses/cask-and-keg/storefront.webp"
-    "/images/businesses/cask-and-keg/hero.webp"
+    "/images/businesses/cask-and-keg/storefront.webp",
+    "/images/businesses/cask-and-keg/hero.webp",
     "/images/businesses/cask-and-keg/banner.webp"
 ]
 
