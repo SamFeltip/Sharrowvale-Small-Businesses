@@ -4,7 +4,7 @@ preview: "Traditional Gents and Boys Barbers."
 description: "With over 34 years of hands-on experience and five successful years in business, Giuseppe's offers expert haircuts for all hair types in a friendly and professional atmosphere. 
    
 ‍"
-type: "business"
+type: "beauty"
 
 heroImage: "/images/businesses/giuseppes-gents-hair/669b74447124073bea79d35b_thumb.jpg"
 bannerImage: "/images/businesses/giuseppes-gents-hair/669af05dc320e52124c7185d_guiseppes3.jpg"

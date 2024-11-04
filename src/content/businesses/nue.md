@@ -2,7 +2,7 @@
 title: "Nue"
 preview: "Gluten Free Cafe and Deli"
 description: "Sheffield's first completely gluten-free cafe and deli selling a range of handmade baked goods along with sweet and savoury small bites. Perfect for a midday mediterranean bite to eat or coffee catch-up. "
-type: "business"
+type: "cafe"
 
 heroImage: "/images/businesses/nue/6697d94b146e4bfa69066da5_Nue-Thumb.jpg"
 bannerImage: "/images/businesses/nue/66979ef4ff41529e4d88909b_IMG_4264---Nue-Sheffield.jpeg"

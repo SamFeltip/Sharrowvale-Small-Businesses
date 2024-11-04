@@ -5,10 +5,10 @@
   "scripts": {
     "start": "astro dev",
     "build:astro": "astro check && astro build ",
-    "build:pagefind": "pagefind --source dist",
-    "build": "astro check && astro build && pagefind --source dist",
+    "build:pagefind": "pagefind --site dist",
+    "build": "astro check && astro build && pagefind --site dist",
     "dev:astro": "astro dev",
-    "dev": "astro build && pagefind --source dist && astro dev",
+    "dev": "astro build && pagefind --site dist && astro dev",
     "preview": "astro preview",
     "astro": "astro"
   },

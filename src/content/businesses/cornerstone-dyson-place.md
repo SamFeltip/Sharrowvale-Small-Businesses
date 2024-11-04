@@ -2,7 +2,7 @@
 title: "Cornerstone Dyson Place"
 preview: "Locally sourced neighbourhood Restaurant and Bar"
 description: "Your local neighbourhood restaurant and bar offering quality plates all day, every day. Our life in hospitality has taught us that the best venues are a collection of simple things done well. At the cornerstone of any good venue is good food, sourced locally, made thoughtfully and served with a welcome to match the quality."
-type: "business"
+type: "restaurant"
 
 heroImage: "/images/businesses/cornerstone-dyson-place/66953f8aadc2d5cf6630bc87_Cornerstone-1---Richard-Massarella.jpg"
 bannerImage: "/images/businesses/cornerstone-dyson-place/669542287cd5605f6114b791_Cornerstone-80---Richard-Massarella.jpg"

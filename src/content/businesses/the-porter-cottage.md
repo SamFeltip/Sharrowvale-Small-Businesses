@@ -2,7 +2,7 @@
 title: "The Porter Cottage"
 preview: "Cosy modernised pub serving independent ales"
 description: "Porter cottage is a great place to see local musicians play live music, and try a fantastic collection of drinks. Friendly staff and fun events throughout the evening make this a place you must visit!"
-type: "business"
+type: "bar"
 
 heroImage: "/images/businesses/the-porter-cottage/6669bf52faa21441b24d471a_Screenshot-2024-06-12-at-16.31.21.png"
 bannerImage: "/images/businesses/the-porter-cottage/6669bce18891743c49cf0d46_lr-04-Dirty-Habit-Porter-Cottage.jpg"
