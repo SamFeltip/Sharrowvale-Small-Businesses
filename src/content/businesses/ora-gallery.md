@@ -2,7 +2,7 @@
 title: "Ora Gallery"
 preview: "Boutique Jewellery and Gift Shop Est 1990"
 description: "Since 1990 Ora Gallery has been operating on Sharrow Vale, selling a wide selection of gifts, accessories, and sterling silver Jewelry. Ora Gallery is the perfect cosy shop to find gifts, greetings cards and wrapping paper. "
-type: "business"
+type: "fashion"
 
 heroImage: "/images/businesses/ora-gallery/6690101562d13096be5c4fe2_ora-thumbnail.png"
 bannerImage: "/images/businesses/ora-gallery/6685da9d0fb96ace447a6692_IMG_1824-Large.jpeg"
@@ -12,7 +12,7 @@ additionalImages: [
 ]
 
 # Other metadata
-streetAddress: "14 hickmott Road, S11 8 QF"
+streetAddress: "14 hickmott Road, S11 8QF"
 email: "info@oragallery.co.uk"
 phoneNumber: "011426614444"
 instagramLink: https://www.instagram.com/orasheffield/?hl=en
@@ -58,10 +58,11 @@ tags:
 | Phone   | 011426614444                |
 | Website | http://www.orasheffield.com |
 
-At Ora we specialise in the offer of beautiful Sterling Silver jewellery.
-We have a wide collection of jewellery from all over the world, which includes stylish Scandinavian jewellery, beautiful Mexican silver, colourful Venetian glass jewellery and sparkly Coer de Lion Chrystal and stainless still pieces.
- We also proudly stock very special jewellery from a number of carefully selected Sheffield artists.
-However we also have a wide variety of gifts and giftware.
-From Roka bags, to Merry people wellies, knitted dinosaurs, beautiful scarves and accessories, SECRID card protectors and more; there is something for everyone.
- Combine that with the best selection of greeting cards and wrapping paper and you have everything you need for the perfect gift.
 
+At Ora we specialise in the offer of beautiful Sterling Silver jewellery.
+
+We have a wide collection of jewellery from all over the world, which includes stylish Scandinavian jewellery, beautiful Mexican silver, colourful Venetian glass jewellery and sparkly Coer de Lion Chrystal and stainless s
+
+We also proudly stock very special jewellery from a number of carefully selected Sheffield artists, and we also have a wide variety of gifts and giftware.
+
+From Roka bags, to Merry people wellies, knitted dinosaurs, beautiful scarves and accessories, SECRID card protectors and more; there is something for everyone. Combine that with the best selection of greeting cards and wrapping paper and you have everything you need for the perfect gift.
