@@ -47,7 +47,7 @@ tags:
 
 |                   |               |
 | ----------------- | ------------- |
-| Monday - Saturday | 12:00 - 23:00 |
+| Monday - Sunday   | 12:00 - 23:00 |
 |                   |               |
 
 ## Business Contact
