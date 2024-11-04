@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.sharrowvale.co.uk/sitemap-index.xml
