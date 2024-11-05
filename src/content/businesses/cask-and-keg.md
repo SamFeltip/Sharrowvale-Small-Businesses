@@ -45,10 +45,10 @@ tags:
 
 ## Open Hours
 
-|                   |               |
-| ----------------- | ------------- |
-| Monday - Sunday   | 12:00 - 23:00 |
-|                   |               |
+|                 |               |
+| --------------- | ------------- |
+| Monday - Sunday | 12:00 - 23:00 |
+|                 |               |
 
 ## Business Contact
 
@@ -58,4 +58,4 @@ tags:
 
 Cask and Keg No. 3 is the new kid on the block at Sharrow Vale. Openning on Thursday, 7th of November at 3pm, we can't wait to see what this new bar has to offer!
 
-Cask and Keg aren't afraid to make an impression. With their bright blue storefront, we're sure they will be a fantastic addition to Sharrow Vale's already vibrant bar scene.
+Cask and Keg aren't afraid to make an impression. With their bright blue storefront, we're sure they will be a fantastic addition to Sharrow Vale's already vibrant pub and bar scene.
