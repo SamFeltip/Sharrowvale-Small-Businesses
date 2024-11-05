@@ -1,5 +1,5 @@
 ---
-title: "Cask and Keg"
+title: "Cask and Keg No. 3"
 preview: "New bar coming soon to Sharrow Vale"
 description: "Cask and Keg is a newcommer to Sharrow Vale. We can't wait to see more from them soon!" 
 type: "bar"
@@ -14,11 +14,11 @@ additionalImages: [
 ]
 
 # Other metadata
-streetAddress: "Cask and Keg, 356 Sharrow Vale Rd" 
-email: null
+streetAddress: "Cask and Keg, 354 Sharrow Vale Rd" 
+email: "No3sharrow@gmail.com"
 phoneNumber: null
 instagramLink: null
-facebookLink: null
+facebookLink: "https://www.facebook.com/profile.php?id=61567857140730"
 websiteLink: null
 
 yearEstablished: "2024"
@@ -52,10 +52,10 @@ tags:
 
 ## Business Contact
 
-|     |     |
-| --- | --- |
+|       |                                                     |
+| ----- | --------------------------------------------------- |
+| email | [No3sharrow@gmail.com](mailto:No3sharrow@gmail.com) |
 
-
-Cask and Keg is the new kid on the block at Sharrow Vale. Openning on Thursday, 7th of November at 3pm, we can't wait to see what this new bar has to offer!
+Cask and Keg No. 3 is the new kid on the block at Sharrow Vale. Openning on Thursday, 7th of November at 3pm, we can't wait to see what this new bar has to offer!
 
 Cask and Keg aren't afraid to make an impression. With their bright blue storefront, we're sure they will be a fantastic addition to Sharrow Vale's already vibrant bar scene.
