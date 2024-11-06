@@ -54,7 +54,8 @@ export function InteractiveCarousel({
         })
         .map((style) => {
             return (style +=
-                " " + "absolute p-5 text-white h-full w-full flex flex-col");
+                " " +
+                "absolute py-8 px-16 text-white h-full w-full flex flex-col");
         });
 
     return (
@@ -65,14 +66,14 @@ export function InteractiveCarousel({
                         delay: 5000,
                     }),
                 ]}
-                className="w-full mt-3 rounded-xl overflow-hidden"
+                className="w-full mt-3 rounded-mega overflow-hidden"
             >
                 <CarouselContent>
                     {promotions.map((promotion, index) => {
                         return (
                             <CarouselItem key={index}>
                                 <a href={promotion.href}>
-                                    <Card className="border-none rounded-xl overflow-hidden">
+                                    <Card className="border-none rounded-mega overflow-hidden">
                                         <CardContent className="relative">
                                             <img
                                                 className="object-cover h-[400px] w-full"
