@@ -3,8 +3,10 @@ import HeaderLink from "./HeaderLink.astro";
 import { LOGO_URL } from "../consts";
 ---
 
-<header class="w-full">
-    <nav class="w-full pt-8 px-10 flex justify-between items-center">
+<header class="w-full flex justify-center">
+    <nav
+        class="max-w-screen-xl w-full pt-8 px-10 flex justify-between items-center"
+    >
         <a href="/">
             <img
                 src={LOGO_URL}
