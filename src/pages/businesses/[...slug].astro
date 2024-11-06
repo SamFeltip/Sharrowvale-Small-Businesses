@@ -96,7 +96,7 @@ const additional_places = shuffleBusinesses(
         <div id="parallax-foreground">
             <div
                 id="business-content"
-                class="flex flex-col items-center gap-6 mx-2 md:mx-6 mb-5"
+                class="flex flex-col items-center gap-6 mx-2 mx-2 md:mx-6 mb-5"
             >
                 <section
                     class="w-full gap-12
@@ -274,10 +274,13 @@ const additional_places = shuffleBusinesses(
                         </div>
                     </div>
                 </section>
-                <section class="w-full max-w-[1200px]">
+                <section class="w-full max-w-[1200px] mx-8">
                     <GoogleMap address={streetAddress} title={title} />
                 </section>
-                <section data-pagefind-ignore class="w-full max-w-[1200px]">
+                <section
+                    data-pagefind-ignore
+                    class="w-full max-w-[1200px] mx-8"
+                >
                     <h2
                         class="mb-5 color-coral text-center font-merriweather text-coral text-2xl line-height-relaxed"
                     >
