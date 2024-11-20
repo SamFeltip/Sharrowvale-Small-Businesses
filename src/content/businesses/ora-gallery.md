@@ -23,7 +23,7 @@ owner: "Marika"
 openDaysStatement: "Open Tues - Sat"
 
 # Listing types
-businessCategories:
+categories:
     - gift-shop
     - jewellery
 

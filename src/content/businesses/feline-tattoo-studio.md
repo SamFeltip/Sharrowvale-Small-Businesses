@@ -26,7 +26,7 @@ owner: "Fiona Long"
 openDaysStatement: "Open Tues - Sun"
 
 # Listing types
-businessCategories:
+categories:
     - tattoo-piercing
 
 # Tags

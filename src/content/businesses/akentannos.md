@@ -29,7 +29,7 @@ owner: "Mario"
 openDaysStatement: "Open Tues - Sat"
 
 # Listing types
-businessCategories:
+categories:
     - resturant
 
 # Tags

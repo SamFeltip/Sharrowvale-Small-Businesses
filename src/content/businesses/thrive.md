@@ -23,7 +23,7 @@ owner: "Roisin O'Bentley"
 openDaysStatement: "Open Tues and Weds"
 
 # Listing types
-businessCategories:
+categories:
     - medical-centre
 
 # Tags

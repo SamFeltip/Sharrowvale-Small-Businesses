@@ -25,7 +25,7 @@ owner: "Galer Farrer"
 openDaysStatement: "Open Mon - Fri"
 
 # Listing types
-businessCategories:
+categories:
     - medical-centre
 
 # Tags

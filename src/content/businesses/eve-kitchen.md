@@ -26,7 +26,7 @@ owner: "Lauren"
 openDaysStatement: "Tue-Sun 10:30 -16:00"
 
 # Listing types
-businessCategories:
+categories:
     - bakery
     - cafe
 

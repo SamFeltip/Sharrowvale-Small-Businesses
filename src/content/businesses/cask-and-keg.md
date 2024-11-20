@@ -26,7 +26,7 @@ owner: null
 openDaysStatement: "Open Monday to Sunday, 12:00 - 23:00"
 
 # Listing types
-businessCategories:
+categories:
     - bar
     - pub
 

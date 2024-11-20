@@ -25,7 +25,7 @@ owner: "Richard Golland"
 openDaysStatement: "Open every day"
 
 # Listing types
-businessCategories:
+categories:
     - resturant
 
 # Tags

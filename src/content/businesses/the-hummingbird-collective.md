@@ -26,7 +26,7 @@ owner: "Nicola"
 openDaysStatement: "Open every day"
 
 # Listing types
-businessCategories:
+categories:
     - gift-shop
     - jewellery
 

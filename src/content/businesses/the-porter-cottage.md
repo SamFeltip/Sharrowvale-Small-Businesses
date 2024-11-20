@@ -24,7 +24,7 @@ owner: ""
 openDaysStatement: "Open every day"
 
 # Listing types
-businessCategories:
+categories:
     - pub
     - bar
 

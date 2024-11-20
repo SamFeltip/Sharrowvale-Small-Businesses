@@ -1,5 +1,5 @@
-
 import { reference, z, type ImageFunction } from 'astro:content';
+import { boolean } from 'astro:schema';
 
 export const categorySchema = ({image}: { image: ImageFunction }) => z.object({
 	name: z.string(),
@@ -8,4 +8,5 @@ export const categorySchema = ({image}: { image: ImageFunction }) => z.object({
 	promotedBusinesses: z.array(reference("businesses")),
 	bannerImage: image(),
 	heroImage: image(),
+	isPage: boolean().default(false),
 })

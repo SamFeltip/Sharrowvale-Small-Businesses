@@ -26,7 +26,7 @@ owner: ""
 openDaysStatement: "Open everyday"
 
 # Listing types
-businessCategories:
+categories:
     - cafe
     - resturant
     - bar

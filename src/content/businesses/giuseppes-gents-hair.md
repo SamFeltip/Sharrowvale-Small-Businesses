@@ -25,7 +25,7 @@ owner: "Nicky Sisman"
 openDaysStatement: "Closed Sun and Mon"
 
 # Listing types
-businessCategories:
+categories:
     - hair-beauty
 
 # Tags
