@@ -8,5 +8,5 @@ export const categorySchema = ({image}: { image: ImageFunction }) => z.object({
 	promotedBusinesses: z.array(reference("businesses")),
 	bannerImage: image(),
 	heroImage: image(),
-	isPage: boolean().default(false),
+	isPage: z.boolean().default(false),
 })
