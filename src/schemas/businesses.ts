@@ -12,7 +12,7 @@ export const businessSchema = z.object({
     bannerImage: z.string(),
     additionalImages: z.array(z.string()),
 
-    businessCategories: z.array(reference("business-category")),
+    businessCategories: z.array(reference("category")),
 
     // Remaining fields
     streetAddress: z.string().nullable(),   // Street address
