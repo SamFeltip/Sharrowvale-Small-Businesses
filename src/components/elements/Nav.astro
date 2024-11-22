@@ -1,12 +1,12 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
-import { LOGO_URL } from "../consts";
-import ScreenWidth from "./elements/ScreenWidth.astro";
+import HeaderLink from "@/components/HeaderLink.astro";
+import { LOGO_URL } from "@/consts";
+import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 ---
 
-<header>
+<nav>
     <ScreenWidth>
-        <nav class="w-full pt-8 px-10 flex justify-between items-center">
+        <div class="w-full pt-8 flex justify-between items-center">
             <a href="/">
                 <img
                     src={LOGO_URL}
@@ -28,6 +28,6 @@ import ScreenWidth from "./elements/ScreenWidth.astro";
                     >Join</HeaderLink
                 >
             </div>
-        </nav>
+        </div>
     </ScreenWidth>
-</header>
+</nav>

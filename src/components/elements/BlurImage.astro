@@ -1,0 +1,105 @@
+---
+interface Props {
+    src: string;
+    alt?: string;
+    fit?: string;
+    style?: string;
+    text?: string;
+    h?: number;
+    w?: number;
+    XLh?: number;
+    XLw?: number;
+    LGh?: number;
+    LGw?: number;
+    MDh?: number;
+    MDw?: number;
+    SMh?: number;
+    SMw?: number;
+}
+
+const defaults = {
+    h: 650,
+    w: 1090,
+    XLh: 650,
+    XLw: 1120,
+    LGh: 650,
+    LGw: 1140,
+    MDh: 600,
+    MDw: 945,
+    SMh: 450,
+    SMw: 700,
+};
+
+const {
+    src,
+    alt = "Default alt text",
+    fit = "crop",
+    style = "shadow-lg border border-white my-5 rounded lg:rounded-md mx-auto",
+    h,
+    w,
+    XLh,
+    XLw,
+    LGh,
+    LGw,
+    MDh,
+    MDw,
+    SMh,
+    SMw,
+} = Astro.props;
+
+const thumb = {
+    h: 40,
+    w: 60,
+};
+
+const CDN = "";
+const format = "?auto=format&fm=avif&lossless=0";
+---
+
+<picture itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+    <source
+        srcset=`${CDN}${src}${format}&fit=${fit}&h=${h || defaults.h}&w=${w || defaults.w}&txt=2XL-h${h || defaults.h}w${w || defaults.w}&txt-size=30&txt-color=ffffff&txt-align=middle,center 1x,
+          ${CDN}${src}${format}&fit=${fit}&dpr=2&h=${h || defaults.h}&w=${w || defaults.w}&txt=2XL-h${h || defaults.h}w${w || defaults.w}&txt-size=30&txt-color=ffffff&txt-align=middle,center 2x`
+        height={h || defaults.h}
+        width={w || defaults.w}
+        media="(min-width: 1536px)"
+    />
+    <source
+        srcset=`${CDN}${src}${format}&fit=${fit}&h=${XLh || h || defaults.XLh}&w=${XLw || w || defaults.XLw}&txt=XL-h${XLh || h || defaults.XLh}w${XLw || w || defaults.XLw}&txt-size=30&txt-color=ffffff&txt-align=middle,center 1x,
+            ${CDN}${src}${format}&fit=${fit}&dpr=2&h=${XLh || h || defaults.XLh}&w=${XLw || w || defaults.XLw}&txt=XL-h${XLh || h || defaults.XLh}w${XLw || w || defaults.XLw}&txt-size=30&txt-color=ffffff&txt-align=middle,center 2x`
+        height={XLh || h || defaults.XLh}
+        width={XLw || w || defaults.XLw}
+        media="(min-width: 1280px)"
+    />
+    <source
+        srcset=`${CDN}${src}${format}&fit=${fit}&h=${LGh || h || defaults.LGh}&w=${LGw || w || defaults.LGw}&txt=LG-h${LGh || h || defaults.LGh}w${LGw || w || defaults.LGw}&txt-size=30&txt-color=ffffff&txt-align=middle,center 1x,
+            ${CDN}${src}${format}&fit=${fit}&dpr=2&h=${LGh || h || defaults.LGh}&w=${LGw || w || defaults.LGw}&txt=LG-h${LGh || h || defaults.LGh}w${LGw || w || defaults.LGw}&txt-size=30&txt-color=ffffff&txt-align=middle,center 2x`
+        height={LGh || h || defaults.LGh}
+        width={LGw || w || defaults.LGw}
+        media="(min-width: 1024px)"
+    />
+    <source
+        srcset=`${CDN}${src}${format}&fit=${fit}&h=${MDh || h || defaults.MDh}&w=${MDw || w || defaults.MDw}&txt=MD-h${MDh || h || defaults.MDh}w${MDw || w || defaults.MDw}&txt-size=30&txt-color=ffffff&txt-align=middle,center 1x,
+            ${CDN}${src}${format}&fit=${fit}&dpr=2&h=${MDh || h || defaults.MDh}&w=${MDw || w || defaults.MDw}&txt=MD-h${MDh || h || defaults.MDh}w${MDw || w || defaults.MDw}&txt-size=30&txt-color=ffffff&txt-align=middle,center 2x`
+        height={MDh || h || defaults.MDh}
+        width={MDw || w || defaults.MDw}
+        media="(min-width: 769px)"
+    />
+    <source
+        srcset=`${CDN}${src}${format}&fit=${fit}&h=${SMh || h || defaults.SMh}&w=${SMw || w || defaults.SMw}&txt=SM-h${SMh || h || defaults.SMh}w${SMw || w || defaults.SMw}&txt-size=30&txt-color=ffffff&txt-align=middle,center 1x,
+            ${CDN}${src}${format}&fit=${fit}&dpr=2&h=${SMh || h || defaults.SMh}&w=${SMw || w || defaults.SMw}&txt=SM-h${SMh || h || defaults.SMh}w${SMw || w || defaults.SMw}&txt-size=30&txt-color=ffffff&txt-align=middle,center 2x`
+        height={SMh || h || defaults.SMh}
+        width={SMw || w || defaults.SMw}
+        media="(min-width: 30px)"
+    />
+    <img
+        itemprop="contentUrl"
+        loading="lazy"
+        src=`${CDN}${src}${format}&fit=${fit}&h=${h || defaults.h}&w=${w || defaults.w}`
+        height={h || defaults.h}
+        width={w || defaults.w}
+        style=`background-image: url("${CDN}${src}?auto=compress&q=10&h=${thumb.h}&w=${thumb.w}&fit=${fit}&blur=10"); background-size: cover;`
+        alt={alt}
+        class=`lazyload bg-slate-200 ${style}`
+    />
+</picture>

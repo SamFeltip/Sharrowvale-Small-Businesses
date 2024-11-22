@@ -1,6 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
+import Header from "../components/content/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import ScreenWidth from "@/components/elements/ScreenWidth.astro";
@@ -19,7 +19,7 @@ const { image, description, title }: Props = Astro.props;
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body class="font-lato bg-cream">
-        <Header image, description, title />
+        <Header image={image} , description={description} , title={title} />
 
         <main>
             <ScreenWidth>
