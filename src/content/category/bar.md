@@ -1,6 +1,8 @@
 ---
-bannerImage: /content/images/category/bar/bar.jpg
-heroImage: /content/images/category/bar/bar.jpg
+bannerImage: ../../assets/images/category/bar/bar.jpg
+heroImage: ../../assets/images/category/bar/bar.jpg
 isPage: false
+relatedCategories: []
+promotedBusinesses: []
 name: Bar
 ---

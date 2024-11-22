@@ -28,7 +28,7 @@ openDaysStatement: "Open every day"
 
 # Listing types
 categories:
-    - resturant
+    - restaurant
 
 # Tags
 specialTag: "Popular"

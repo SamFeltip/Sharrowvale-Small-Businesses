@@ -30,7 +30,7 @@ openDaysStatement: "Open Tues - Sat"
 
 # Listing types
 categories:
-    - resturant
+    - restaurant
 
 # Tags
 specialTag: "Allergen Friendly"

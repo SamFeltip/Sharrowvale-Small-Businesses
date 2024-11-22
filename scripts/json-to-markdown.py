@@ -48,8 +48,8 @@ def json_to_markdown(input_dir, output_dir):
 
             # Extract the base name (without extension) for dynamic image paths
             base_name = os.path.splitext(filename)[0]
-            hero_image_path = f"/content/images/category/{base_name}/{base_name}.jpg"
-            banner_image_path = f"/content/images/category/{base_name}/{base_name}.jpg"
+            hero_image_path = f"../assets/images/category/{base_name}/{base_name}.jpg"
+            banner_image_path = f"../assets/images/category/{base_name}/{base_name}.jpg"
             data["heroImage"] = hero_image_path
             data["bannerImage"] = banner_image_path
             data["isPage"] = False  # Add the "isPage" property

@@ -28,7 +28,7 @@ openDaysStatement: "Open everyday"
 # Listing types
 categories:
     - cafe
-    - resturant
+    - restaurant
     - bar
 
 # Tags

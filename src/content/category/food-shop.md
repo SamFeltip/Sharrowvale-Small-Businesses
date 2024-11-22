@@ -1,6 +1,8 @@
 ---
-bannerImage: /content/images/category/food-shop/food-shop.jpg
-heroImage: /content/images/category/food-shop/food-shop.jpg
+bannerImage: ../../assets/images/category/food-shop/food-shop.jpg
+heroImage: ../../assets/images/category/food-shop/food-shop.jpg
 isPage: false
+relatedCategories: []
+promotedBusinesses: []
 name: Food shop
 ---
