@@ -1,41 +1,44 @@
 ---
 const today = new Date();
 import { LOGO_URL_DARK } from "../consts";
+import ScreenWidth from "./elements/ScreenWidth.astro";
 ---
 
-<footer
-    class="w-full text-gray-50 bg-gray-800 flex justify-center pt-[64px] px-[40px] pb-[80px]"
->
-    <div
-        class="w-full max-w-screen-xl flex flex-col md:flex-row md:justify-between"
-    >
-        <div class="flex flex-col items-center text-center gap-2">
-            <a href="/" class="flex justify-center">
-                <img src={LOGO_URL_DARK} alt="Sharrow Vale Logo" />
-            </a>
-            <p class="text-sm">All rights reserved</p>
-        </div>
-        <div class="flex flex-col items-center text-center gap-2 md:items-end">
-            <div class="flex gap-4 justify-center py-3">
-                <a class="text-sm" href="/">HOME</a>
-                <a class="text-sm" href="/about">JOIN</a>
+<footer class="text-gray-50 bg-gray-800">
+    <ScreenWidth>
+        <div
+            class="flex flex-col md:flex-row md:justify-between pt-[64px] px-[40px] pb-[80px]"
+        >
+            <div class="flex flex-col items-center text-center gap-2">
+                <a href="/" class="flex justify-center">
+                    <img src={LOGO_URL_DARK} alt="Sharrow Vale Logo" />
+                </a>
+                <p class="text-sm">All rights reserved</p>
             </div>
-
             <div
-                class="flex flex-col items-center md:items-end md:flex-row md:gap-3"
+                class="flex flex-col items-center text-center gap-2 md:items-end"
             >
-                <p class="text-sm">
-                    <a href="mailto:info@sharrowvale.co.uk">
-                        info@sharrowvale.co.uk
-                    </a>
-                </p>
-                <p class="text-sm">Like this site? Check out D&n</p>
-            </div>
+                <div class="flex gap-4 justify-center py-3">
+                    <a class="text-sm" href="/">HOME</a>
+                    <a class="text-sm" href="/about">JOIN</a>
+                </div>
 
-            <div class="flex gap-3 justify-center pt-8">
-                <p class="text-sm"><a href="#">Facebook</a></p>
-                <p class="text-sm"><a href="#">Instagram</a></p>
+                <div
+                    class="flex flex-col items-center md:items-end md:flex-row md:gap-3"
+                >
+                    <p class="text-sm">
+                        <a href="mailto:info@sharrowvale.co.uk">
+                            info@sharrowvale.co.uk
+                        </a>
+                    </p>
+                    <p class="text-sm">Like this site? Check out D&n</p>
+                </div>
+
+                <div class="flex gap-3 justify-center pt-8">
+                    <p class="text-sm"><a href="#">Facebook</a></p>
+                    <p class="text-sm"><a href="#">Instagram</a></p>
+                </div>
             </div>
         </div>
-    </div>
+    </ScreenWidth>
 </footer>

@@ -1,0 +1,25 @@
+---
+type Props = {
+    classList?: string;
+    color?: "white" | "coral" | "black";
+    id?: string;
+};
+
+const props: Props = Astro.props;
+
+// Assign default value for props
+export const defaultProps: Props = {
+    color: "black",
+};
+---
+
+<p
+    id={props.id}
+    class:list={[
+        "text-base font-lato font-light leading-[1.24] no-underline",
+        `text-${props.color}`,
+        props.classList,
+    ]}
+>
+    <slot />
+</p>

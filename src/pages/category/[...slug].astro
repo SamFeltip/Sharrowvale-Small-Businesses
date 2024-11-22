@@ -1,5 +1,23 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import Header from "@/components/content/Header.astro";
+import Layout from "@/layouts/ContentLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+    const category: CollectionEntry<"category">[] =
+        await getCollection("category");
+    return category.map((business) => ({
+        params: { slug: business.slug },
+        props: business,
+    }));
+}
 
 type Props = CollectionEntry<"category">;
+
+const entry: Props = Astro.props;
+const { name, description, bannerImage, heroImage } = entry.data;
 ---
+
+<Layout image={bannerImage} description={description} title={name}>
+    <p>{description}</p>
+</Layout>

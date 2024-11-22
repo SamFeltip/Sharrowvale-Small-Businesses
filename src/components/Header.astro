@@ -1,32 +1,33 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { LOGO_URL } from "../consts";
+import ScreenWidth from "./elements/ScreenWidth.astro";
 ---
 
-<header class="w-full flex justify-center">
-    <nav
-        class="max-w-screen-xl w-full pt-8 px-10 flex justify-between items-center"
-    >
-        <a href="/">
-            <img
-                src={LOGO_URL}
-                alt="Sharrow Vale Logo"
-                width="160"
-                height="160"
-            />
-        </a>
+<header>
+    <ScreenWidth>
+        <nav class="w-full pt-8 px-10 flex justify-between items-center">
+            <a href="/">
+                <img
+                    src={LOGO_URL}
+                    alt="Sharrow Vale Logo"
+                    width="160"
+                    height="160"
+                />
+            </a>
 
-        <div class="internal-links flex gap-6">
-            <HeaderLink
-                href="/"
-                class="font-lato font-light text-xl leading-[1.32] tracking-[.04em] mt-0 mb-0"
-                >Home</HeaderLink
-            >
-            <HeaderLink
-                href="/join"
-                class="font-lato font-light text-xl leading-[1.32] tracking-[.04em] mt-0 mb-0"
-                >Join</HeaderLink
-            >
-        </div>
-    </nav>
+            <div class="internal-links flex gap-6">
+                <HeaderLink
+                    href="/"
+                    class="font-lato font-light text-xl leading-[1.32] tracking-[.04em] mt-0 mb-0"
+                    >Home</HeaderLink
+                >
+                <HeaderLink
+                    href="/join"
+                    class="font-lato font-light text-xl leading-[1.32] tracking-[.04em] mt-0 mb-0"
+                    >Join</HeaderLink
+                >
+            </div>
+        </nav>
+    </ScreenWidth>
 </header>

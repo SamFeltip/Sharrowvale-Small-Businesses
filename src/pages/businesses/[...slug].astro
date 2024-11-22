@@ -44,7 +44,6 @@ const {
     websiteLink,
     facebookLink,
     instagramLink,
-    businessCategories,
 } = entry.data;
 
 // const heroImageObj = await getImage(heroImage);
@@ -112,20 +111,6 @@ const additional_places = shuffleBusinesses(
                 >
                     <div class="prose w-full">
                         <div class="title grid gap-[24px]">
-                            <div
-                                class="flex flex-row flex-wrap gap-5 justify-center"
-                            >
-                                {
-                                    businessCategories &&
-                                        businessCategories.map((bc: any) => (
-                                            <p class="uppercase text-center">
-                                                <span data-pagefind-filter="type">
-                                                    {bc.id}
-                                                </span>
-                                            </p>
-                                        ))
-                                }
-                            </div>
                             <h1 class="text-coral text-center">
                                 {title}
                             </h1>

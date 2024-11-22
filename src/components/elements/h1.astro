@@ -1,0 +1,69 @@
+---
+type Props = {
+    classList?: string;
+    color?: "white" | "coral" | "black";
+    id?: string;
+    position?: "start" | "center" | "end";
+};
+
+const props: Props = Astro.props;
+
+// Assign default value for props
+export const defaultProps: Props = {
+    color: "white",
+    position: "start",
+};
+---
+
+<h1
+    id={props.id}
+    class:list={[
+        "capitalize w-full mt-0 mb-0 font-merriweather font-bold leading-[1.02] underline-none text-[5.5rem] md:text-[3.5rem] sm:text-[2.5rem]",
+        `text-${props.color}`,
+        `text-${props.position}`,
+        props.classList,
+    ]}
+>
+    <slot />
+</h1>
+
+<!-- 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+h1 {
+    color: var(--white);
+    text-transform: capitalize;
+    flex: 0 auto;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: Merriweather, serif;
+    font-size: 5.5rem;
+    font-weight: 700;
+    line-height: 102%;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
+
+@media screen and (max-width: 479px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+
+
+-->

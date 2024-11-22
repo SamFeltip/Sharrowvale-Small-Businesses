@@ -1,0 +1,22 @@
+---
+import H1 from "../elements/h1.astro";
+import MonoBody from "../elements/MonoBody.astro";
+
+import Nav from "../Header.astro";
+
+type Props = {
+    image: ImageMetadata;
+    title: string;
+    description?: string;
+};
+
+const { image, title, description }: Props = Astro.props;
+---
+
+<header class="w-[500px]">
+    <Nav />
+    <div class="flex flex-col items-center justify-center">
+        <H1 position="center">{title}</H1>
+        {description && <MonoBody>{description}</MonoBody>}
+    </div>
+</header>
