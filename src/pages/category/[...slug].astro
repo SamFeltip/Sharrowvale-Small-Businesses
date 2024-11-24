@@ -1,6 +1,9 @@
 ---
 import ContentPromotions from "@/components/content/ContentPromotions.astro";
 import P from "@/components/elements/P.astro";
+import SearchBox from "@/components/search/SearchBox.vue";
+import SearchResults from "@/components/search/SearchResults.vue";
+import SearchWrapper from "@/components/search/SearchWrapper.vue";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 
@@ -27,4 +30,9 @@ const businesses = await getEntries(promotedBusinesses);
     </P>
 
     {businesses.length >= 4 && <ContentPromotions businesses={businesses} />}
+
+    <SearchWrapper client:only="vue">
+        <SearchBox defaultTag="'blog'" client:only="vue" />
+        <SearchResults client:only="vue" />
+    </SearchWrapper>
 </ContentLayout>
