@@ -1,5 +1,4 @@
 import { reference, z, type ImageFunction } from 'astro:content';
-import { boolean } from 'astro:schema';
 
 export const categorySchema = ({image}: { image: ImageFunction }) => z.object({
 	name: z.string(),

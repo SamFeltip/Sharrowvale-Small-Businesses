@@ -1,0 +1,28 @@
+---
+type Props = {
+    classList?: string;
+    color?: "white" | "coral" | "black";
+    id?: string;
+    position?: "start" | "center" | "end";
+};
+
+const props: Props = Astro.props;
+
+// Assign default value for props
+export const defaultProps: Props = {
+    color: "white",
+    position: "start",
+};
+---
+
+<h2
+    id={props.id}
+    class:list={[
+        "text-xl md:text-2xl font-bold mb-2",
+        `text-${props.color}`,
+        `text-${props.position}`,
+        props.classList,
+    ]}
+>
+    <slot />
+</h2>

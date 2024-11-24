@@ -1,0 +1,58 @@
+---
+import { Picture } from "astro:assets";
+import H2 from "../elements/headers/H2.astro";
+
+interface Props {
+    heroImage?: ImageMetadata;
+    heroImageSrc?: string;
+    title: string;
+    description: string;
+    class?: string;
+}
+
+const {
+    heroImage,
+    heroImageSrc,
+    title,
+    description,
+    class: className = "",
+} = Astro.props;
+
+// Validate that at least one image source is provided
+if (!heroImage && !heroImageSrc) {
+    throw new Error("Either heroImage or heroImageSrc must be provided");
+}
+---
+
+<article
+    class={`relative w-full aspect-[3/2] overflow-hidden group hover:scale-[1.02] transition-transform duration-300 ${className}`}
+>
+    {
+        heroImage ? (
+            <Picture
+                src={heroImage}
+                alt={title}
+                formats={["avif", "webp"]}
+                class="absolute inset-0 w-full h-full object-cover"
+            />
+        ) : (
+            <img
+                src={heroImageSrc}
+                alt={title}
+                class="absolute inset-0 w-full h-full object-cover"
+            />
+        )
+    }
+
+    <div
+        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+    >
+    </div>
+
+    <div class="absolute bottom-0 right-0 p-6 text-right">
+        <H2 color="white" position="end">{title}</H2>
+        <p class="text-sm md:text-base text-white/90">
+            {description}
+        </p>
+    </div>
+</article>

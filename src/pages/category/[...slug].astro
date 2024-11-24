@@ -1,6 +1,8 @@
 ---
-import Layout from "@/layouts/ContentLayout.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
+import ContentPromotions from "@/components/content/ContentPromotions.astro";
+import P from "@/components/elements/P.astro";
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
     const category: CollectionEntry<"category">[] =
@@ -14,9 +16,12 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"category">;
 
 const entry: Props = Astro.props;
-const { name, description, bannerImage, heroImage } = entry.data;
+const { name, description, bannerImage, promotedBusinesses } = entry.data;
+
+const businesses = await getEntries(promotedBusinesses);
 ---
 
-<Layout image={bannerImage} description={description} title={name}>
-    <p>{description}</p>
-</Layout>
+<ContentLayout image={bannerImage} description={description} title={name}>
+    {description && <P>{description}</P>}
+    <ContentPromotions businesses={businesses} />
+</ContentLayout>

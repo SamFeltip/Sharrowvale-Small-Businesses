@@ -1,0 +1,51 @@
+---
+import PromotionalItem from "../businesses/PromotionalItem.astro";
+
+interface PromotionalItemData {
+    heroImage?: ImageMetadata;
+    heroImageSrc?: string;
+    title: string;
+    description: string;
+}
+
+interface Props {
+    items: PromotionalItemData[];
+    class?: string;
+}
+
+const { items, class: className = "" } = Astro.props;
+
+// Validate we have exactly 4 items
+if (items.length !== 4) {
+    throw new Error("Exactly 4 items must be provided");
+}
+
+const [primaryItem, ...secondaryItems] = items;
+---
+
+<section class={`grid grid-cols-2 gap-4 ${className}`}>
+    {/* Primary promotional item - spans full height */}
+    <div class="h-full">
+        <PromotionalItem
+            heroImage={primaryItem.heroImage}
+            heroImageSrc={primaryItem.heroImageSrc}
+            title={primaryItem.title}
+            description={primaryItem.description}
+            class="h-full"
+        />
+    </div>
+
+    {/* Secondary promotional items column */}
+    <div class="grid grid-rows-3 gap-4">
+        {
+            secondaryItems.map((item) => (
+                <PromotionalItem
+                    heroImage={item.heroImage}
+                    heroImageSrc={item.heroImageSrc}
+                    title={item.title}
+                    description={item.description}
+                />
+            ))
+        }
+    </div>
+</section>
