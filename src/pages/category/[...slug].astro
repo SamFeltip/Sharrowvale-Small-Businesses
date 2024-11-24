@@ -23,5 +23,6 @@ const businesses = await getEntries(promotedBusinesses);
 
 <ContentLayout image={bannerImage} description={description} title={name}>
     {description && <P>{description}</P>}
-    <ContentPromotions businesses={businesses} />
+
+    {businesses.length >= 4 && <ContentPromotions businesses={businesses} />}
 </ContentLayout>

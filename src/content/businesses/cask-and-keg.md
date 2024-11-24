@@ -1,5 +1,5 @@
 ---
-title: "Cask and Keg No. 3"
+name: "Cask and Keg No. 3"
 preview: "New bar coming soon to Sharrow Vale"
 description: "Cask and Keg is a newcommer to Sharrow Vale. We can't wait to see more from them soon!" 
 type: "bar"

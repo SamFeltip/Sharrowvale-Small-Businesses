@@ -1,5 +1,5 @@
 ---
-title: "Ora Gallery"
+name: "Ora Gallery"
 preview: "Boutique Jewellery and Gift Shop Est 1990"
 description: "Since 1990 Ora Gallery has been operating on Sharrow Vale, selling a wide selection of gifts, accessories, and sterling silver Jewelry. Ora Gallery is the perfect cosy shop to find gifts, greetings cards and wrapping paper. "
 type: "fashion"

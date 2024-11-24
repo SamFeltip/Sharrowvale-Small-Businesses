@@ -1,5 +1,5 @@
 ---
-title: "The Hummingbird Collective"
+name: "The Hummingbird Collective"
 preview: "A Collection of independent makers and creators"
 description: "Whatever you're looking for our shop has a perfect range of Posters, jewellery, Candles, Cushions, Ceramics, Knitted toys, Home furnishings, Wall decorations and much more. "
 type: "fashion"

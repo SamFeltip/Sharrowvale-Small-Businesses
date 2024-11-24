@@ -1,5 +1,5 @@
 ---
-title: "Eve Kitchen"
+name: "Eve Kitchen"
 preview: "Small batch handmade doughnuts and cafe"
 description: "Eve Kitchen, founded by Lauren Eve, is a newly opened handmade doughnut shop and artisan cafe in Sheffield. They specialize in small batch, handmade doughnuts crafted with seasonal ingredients and classic flavors. Come experience their fresh, daily-made treats at their inviting new location."
 type: "cafe"

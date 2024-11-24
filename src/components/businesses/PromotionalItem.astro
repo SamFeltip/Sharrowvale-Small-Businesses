@@ -5,7 +5,7 @@ import H2 from "../elements/headers/H2.astro";
 interface Props {
     heroImage?: ImageMetadata;
     heroImageSrc?: string;
-    title: string;
+    name: string;
     description: string;
     class?: string;
 }
@@ -13,7 +13,7 @@ interface Props {
 const {
     heroImage,
     heroImageSrc,
-    title,
+    name,
     description,
     class: className = "",
 } = Astro.props;
@@ -31,14 +31,14 @@ if (!heroImage && !heroImageSrc) {
         heroImage ? (
             <Picture
                 src={heroImage}
-                alt={title}
+                alt={name}
                 formats={["avif", "webp"]}
                 class="absolute inset-0 w-full h-full object-cover"
             />
         ) : (
             <img
                 src={heroImageSrc}
-                alt={title}
+                alt={name}
                 class="absolute inset-0 w-full h-full object-cover"
             />
         )
@@ -50,7 +50,7 @@ if (!heroImage && !heroImageSrc) {
     </div>
 
     <div class="absolute bottom-0 right-0 p-6 text-right">
-        <H2 color="white" position="end">{title}</H2>
+        <H2 color="white" position="end">{name}</H2>
         <p class="text-sm md:text-base text-white/90">
             {description}
         </p>

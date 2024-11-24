@@ -1,36 +1,29 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import PromotionalItem from "../businesses/PromotionalItem.astro";
 
-interface PromotionalItemData {
-    heroImage?: ImageMetadata;
-    heroImageSrc?: string;
-    title: string;
-    description: string;
-}
-
 interface Props {
-    items: PromotionalItemData[];
-    class?: string;
+    businesses: CollectionEntry<"businesses">[];
 }
 
-const { items, class: className = "" } = Astro.props;
+const { businesses } = Astro.props;
 
-// Validate we have exactly 4 items
-if (items.length !== 4) {
-    throw new Error("Exactly 4 items must be provided");
+if (businesses.length < 4) {
+    throw new Error("At least 4 businesses must be provided");
 }
 
-const [primaryItem, ...secondaryItems] = items;
+// Take the first item for primary and next 3 for secondary
+const primaryItem = businesses[0];
+const secondaryItems = businesses.slice(1, 4);
 ---
 
-<section class={`grid grid-cols-2 gap-4 ${className}`}>
+<section class="gap-4">
     {/* Primary promotional item - spans full height */}
     <div class="h-full">
         <PromotionalItem
-            heroImage={primaryItem.heroImage}
-            heroImageSrc={primaryItem.heroImageSrc}
-            title={primaryItem.title}
-            description={primaryItem.description}
+            heroImageSrc={primaryItem.data.heroImage}
+            name={primaryItem.data.name}
+            description={primaryItem.data.description}
             class="h-full"
         />
     </div>
@@ -40,12 +33,18 @@ const [primaryItem, ...secondaryItems] = items;
         {
             secondaryItems.map((item) => (
                 <PromotionalItem
-                    heroImage={item.heroImage}
-                    heroImageSrc={item.heroImageSrc}
-                    title={item.title}
-                    description={item.description}
+                    heroImageSrc={item.data.heroImage}
+                    name={item.data.name}
+                    description={item.data.description}
                 />
             ))
         }
     </div>
 </section>
+
+<style>
+    section {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+</style>

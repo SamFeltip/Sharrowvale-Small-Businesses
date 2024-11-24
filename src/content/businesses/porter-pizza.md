@@ -1,5 +1,5 @@
 ---
-title: "Porter Pizza"
+name: "Porter Pizza"
 preview: "An authentic sourdough pizzeria restaurant"
 description: "Porter Pizza, a vibrant Neapolitan pizzeria and gelateria in Sheffield's heart, offers handmade pizzas crafted with locally sourced ingredients and baked to perfection in their Scugnizzo oven. Whether dining in their cozy restaurant or ordering online for takeaway, they promise a delightful experience with fresh flavors and a warm, friendly atmosphere."
 type: "restaurant

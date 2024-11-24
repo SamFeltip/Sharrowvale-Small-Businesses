@@ -1,5 +1,5 @@
 ---
-title: "Giuseppes Gents Hair"
+name: "Giuseppes Gents Hair"
 preview: "Traditional Gents and Boys Barbers."
 description: "With over 34 years of hands-on experience and five successful years in business, Giuseppe's offers expert haircuts for all hair types in a friendly and professional atmosphere. 
    

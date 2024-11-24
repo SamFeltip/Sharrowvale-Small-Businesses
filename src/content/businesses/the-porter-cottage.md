@@ -1,5 +1,5 @@
 ---
-title: "The Porter Cottage"
+name: "The Porter Cottage"
 preview: "Cosy modernised pub serving independent ales"
 description: "Porter cottage is a great place to see local musicians play live music, and try a fantastic collection of drinks. Friendly staff and fun events throughout the evening make this a place you must visit!"
 type: "bar"

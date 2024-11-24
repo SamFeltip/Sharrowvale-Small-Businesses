@@ -1,5 +1,5 @@
 ---
-title: "Feline Tattoo Studio"
+name: "Feline Tattoo Studio"
 preview: "Sheffield's oldest Tattoo and Piercing Studio"
 description: "Feline is Sheffield's oldest Tattoo and piercing Studio open in 1995 by Fiona Long, an international award winning tattoo artist. Feline offers all styles of tattooing alongside head and body piercings."
 type: "beauty"

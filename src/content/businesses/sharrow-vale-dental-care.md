@@ -1,5 +1,5 @@
 ---
-title: "Sharrow Vale Dental Care"
+name: "Sharrow Vale Dental Care"
 preview: "Multi-award winning local dental practice."
 description: "Sharrow Vale Dental Care provides high quality, comprehensive dental care for all the family.
    

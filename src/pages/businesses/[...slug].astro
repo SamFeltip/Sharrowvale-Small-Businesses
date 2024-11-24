@@ -30,7 +30,7 @@ type Props = CollectionEntry<"businesses">;
 
 const entry: Props = Astro.props;
 const {
-    title,
+    name,
     preview,
     description,
     type,
@@ -66,7 +66,7 @@ function shuffleBusinesses(array: CollectionEntry<"businesses">[]) {
 }
 
 const additional_places = shuffleBusinesses(
-    businesses.filter((x) => x.data.type === type && x.data.title != title)
+    businesses.filter((x) => x.data.type === type && x.data.name != name)
 ).slice(0, 3);
 ---
 
@@ -112,7 +112,7 @@ const additional_places = shuffleBusinesses(
                     <div class="prose w-full">
                         <div class="title grid gap-[24px]">
                             <h1 class="text-coral text-center">
-                                {title}
+                                {name}
                             </h1>
                             <p
                                 class="text-gray-dark text-center flex flex-row gap-4 justify-center"
@@ -260,7 +260,7 @@ const additional_places = shuffleBusinesses(
                     </div>
                 </section>
                 <section class="w-full max-w-[1200px] px-8">
-                    <GoogleMap address={streetAddress} title={title} />
+                    <GoogleMap address={streetAddress} title={name} />
                 </section>
                 <section
                     data-pagefind-ignore

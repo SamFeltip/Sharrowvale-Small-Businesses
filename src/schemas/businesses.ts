@@ -2,7 +2,7 @@
 import { reference, z } from 'astro:content';
 
 export const businessSchema = z.object({
-    title: z.string(),
+    name: z.string(),
     description: z.string(),
     preview: z.string(),
 

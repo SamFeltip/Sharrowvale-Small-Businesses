@@ -1,5 +1,5 @@
 ---
-title: "Naked Ape"
+name: "Naked Ape"
 preview: "Premium outdoor clothing and equipment"
 description: "Our customers share a passion for the outdoors and have high expectations of the products they use. Our aim is to stock the best products available, from the best manufacturers of outdoor and technical gear, who have earned their reputation for making exceptionally high quality and innovative products to meet these needs."
 type: "lifestyle"
