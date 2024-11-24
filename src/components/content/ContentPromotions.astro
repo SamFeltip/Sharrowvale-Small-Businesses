@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import PromotionalItem from "../businesses/PromotionalItem.astro";
+import LargePromotionalItem from "../businesses/LargePromotionalItem.astro";
+import SmallPromotionalItem from "../businesses/SmallPromotionalItem.astro";
 
 interface Props {
     businesses: CollectionEntry<"businesses">[];
@@ -20,7 +21,7 @@ const secondaryItems = businesses.slice(1, 4);
 <section class="gap-4">
     {/* Primary promotional item - spans full height */}
     <div class="h-full">
-        <PromotionalItem
+        <LargePromotionalItem
             heroImageSrc={primaryItem.data.heroImage}
             name={primaryItem.data.name}
             description={primaryItem.data.description}
@@ -32,7 +33,7 @@ const secondaryItems = businesses.slice(1, 4);
     <div class="grid grid-rows-3 gap-4">
         {
             secondaryItems.map((item) => (
-                <PromotionalItem
+                <SmallPromotionalItem
                     heroImageSrc={item.data.heroImage}
                     name={item.data.name}
                     description={item.data.description}
@@ -45,6 +46,18 @@ const secondaryItems = businesses.slice(1, 4);
 <style>
     section {
         display: grid;
-        grid-template-columns: 3fr 1fr;
+        grid-template-columns: 1fr 180px;
+    }
+
+    @media screen and (min-width: 768px) {
+        section {
+            grid-template-columns: 1fr 250px;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        section {
+            grid-template-columns: 1fr 280px;
+        }
     }
 </style>

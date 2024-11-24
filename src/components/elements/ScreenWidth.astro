@@ -15,10 +15,7 @@ export const defaultProps: Props = {
 <div class="w-full flex justify-center">
     <div
         id={props.id}
-        class:list={[
-            "w-full max-w-screen-xl xl:max-w-screen-2xl px-8 md:px-12 lg:px-16",
-            props.classList,
-        ]}
+        class:list={["w-full max-w-screen-lg mx-12 md:mx-16", props.classList]}
     >
         <slot />
     </div>
