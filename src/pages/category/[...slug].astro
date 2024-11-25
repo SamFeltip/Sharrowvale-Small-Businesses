@@ -38,10 +38,6 @@ const categories = await getEntries(relatedCategories);
     title={name}
     classList="gap-12 py-12"
 >
-    <P position="center">
-        {description}
-    </P>
-
     {
         businesses.length >= 4 && (
             <ContentPromotions businesses={businesses} classList="" />
