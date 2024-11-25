@@ -1,6 +1,10 @@
 <!-- SearchWrapper.vue -->
 <template>
-    <div id="search-wrapper" class="w-full gap-6">
+    <div
+        id="search-wrapper"
+        class="w-full gap-6"
+        :class="{ gridLayout: isGridLayout }"
+    >
         <SearchBox :requiredCategory="requiredCategory" />
         <SearchResults
             :category="requiredCategory"
@@ -22,7 +26,6 @@ defineProps({
     },
     isGridLayout: {
         type: Boolean,
-        required: false,
         default: false,
     },
 });
@@ -39,6 +42,11 @@ provide("availableTags", availableTags);
 </script>
 
 <style>
+#search-wrapper.gridLayout {
+    display: flex;
+    flex-direction: column;
+}
+
 #search-wrapper {
     display: grid;
     grid-template-columns: 1fr;

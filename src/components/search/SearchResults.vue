@@ -14,7 +14,18 @@
             :class="{ gridLayout: isGridLayout }"
             id="search-results"
         >
-            <SearchResult
+            <PlaceCardGrid
+                v-if="isGridLayout"
+                v-for="result in searchResults"
+                :key="`gridLayout-${result.url}`"
+                :categories="getDisplayTags(result)"
+                :image="result.meta.image"
+                :content="result.meta.content"
+                :title="result.meta.title"
+                :href="result.url"
+            />
+            <PlaceCardWide
+                v-else
                 v-for="result in searchResults"
                 :key="result.url"
                 :categories="getDisplayTags(result)"
@@ -30,7 +41,8 @@
 <script setup lang="ts">
 import { inject, ref } from "vue";
 import type { CustomRecord } from "pagefind";
-import SearchResult from "./SearchResult.vue";
+import PlaceCardWide from "../placeCards/PlaceCardWide.vue";
+import PlaceCardGrid from "../placeCards/PlaceCardGrid.vue";
 
 const props = defineProps({
     category: {
@@ -39,7 +51,6 @@ const props = defineProps({
     },
     isGridLayout: {
         type: Boolean,
-        required: false,
         default: false,
     },
 });
