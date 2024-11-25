@@ -9,7 +9,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
-    <body class="font-lato bg-cream flex flex-col items-center">
+    <body
+        class="font-lato bg-cream flex flex-col items-center"
+        transition:animate="slide"
+    >
         <Nav />
 
         <main class="w-full flex flex-col items-center justify-center">

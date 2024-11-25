@@ -12,6 +12,8 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
+
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <!-- Global Metadata -->
@@ -62,7 +64,9 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <!-- pagefind -->
 <link rel="modulepreload" href="/pagefind/pagefind.js" />
 
-<script>
+<ViewTransitions />
+
+<!-- <script>
     document.addEventListener("DOMContentLoaded", () => {
         const sections = document.querySelectorAll("section");
 
@@ -86,4 +90,4 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
             sectionObserver.observe(section);
         });
     });
-</script>
+</script> -->
