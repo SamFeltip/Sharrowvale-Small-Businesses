@@ -6,6 +6,7 @@ import SearchBox from "@/components/search/SearchBox.vue";
 import SearchResults from "@/components/search/SearchResults.vue";
 import SearchWrapper from "@/components/search/SearchWrapper.vue";
 import ContentLayout from "@/layouts/ContentLayout.astro";
+import { propsToFilename } from "astro/assets/utils";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
@@ -26,6 +27,7 @@ const {
     bannerImage,
     promotedBusinesses,
     relatedCategories,
+    isGridLayout,
 } = entry.data;
 
 const businesses = await getEntries(promotedBusinesses);
@@ -44,7 +46,11 @@ const categories = await getEntries(relatedCategories);
         )
     }
 
-    <SearchWrapper client:only="vue" requiredCategory={name} />
+    <SearchWrapper
+        client:only="vue"
+        requiredCategory={name}
+        isGridLayout={isGridLayout}
+    />
 
     {
         categories.length > 0 && (

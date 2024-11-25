@@ -37,6 +37,7 @@ const props = defineProps<{
     content: string;
     categories: { slug: string; name: string }[];
     href?: string;
+    isGridLayout?: boolean;
 }>();
 </script>
 

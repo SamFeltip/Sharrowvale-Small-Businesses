@@ -2,7 +2,10 @@
 <template>
     <div id="search-wrapper" class="w-full gap-6">
         <SearchBox :requiredCategory="requiredCategory" />
-        <SearchResults :category="requiredCategory" />
+        <SearchResults
+            :category="requiredCategory"
+            :isGridLayout="isGridLayout"
+        />
     </div>
 </template>
 
@@ -16,6 +19,11 @@ defineProps({
     requiredCategory: {
         type: String,
         required: true,
+    },
+    isGridLayout: {
+        type: Boolean,
+        required: false,
+        default: false,
     },
 });
 

@@ -5,4 +5,5 @@ isPage: false
 relatedCategories: []
 promotedBusinesses: []
 name: Restaurant
+isGridLayout: true
 ---

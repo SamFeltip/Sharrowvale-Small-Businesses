@@ -8,7 +8,12 @@
             No results found
         </div>
 
-        <div v-else class="grid grid-cols-1 gap-6" id="search-results">
+        <div
+            v-else
+            class="gap-6"
+            :class="{ gridLayout: isGridLayout }"
+            id="search-results"
+        >
             <SearchResult
                 v-for="result in searchResults"
                 :key="result.url"
@@ -32,6 +37,11 @@ const props = defineProps({
         type: String,
         required: false,
     },
+    isGridLayout: {
+        type: Boolean,
+        required: false,
+        default: false,
+    },
 });
 
 const searchResults = inject("searchResults", ref([] as CustomRecord[]));
@@ -52,5 +62,13 @@ function getDisplayTags(result): { slug: string; name: string }[] {
 #search-results {
     container-name: search-results;
     container-type: inline-size;
+
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#search-results.gridLayout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 </style>
