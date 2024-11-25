@@ -6,20 +6,20 @@
                 v-model="localSearchQuery"
                 type="text"
                 placeholder="Search..."
-                class="flex-1 px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="flex-1 px-3 py-2 bg-transparent border-2 border-b-gray-500"
                 @input="handleSearch"
             />
 
             <div class="flex gap-2">
                 <button
                     @click="toggleSort"
-                    class="w-full px-4 py-2 border border-gray-200 rounded-md bg-white hover:bg-gray-50 transition-colors"
+                    class="w-full px-4 py-2 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
                 >
                     Sort {{ sortAscending ? "↑" : "↓" }}
                 </button>
                 <button
                     @click="toggleFilters"
-                    class="w-full px-4 py-2 border border-gray-200 rounded-md bg-white hover:bg-gray-50 transition-colors"
+                    class="w-full px-4 py-2 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
                 >
                     Filters {{ showFilters ? "−" : "+" }}
                 </button>
