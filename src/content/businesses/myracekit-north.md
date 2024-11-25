@@ -26,6 +26,7 @@ openDaysStatement: "Open everyday"
 
 # Listing types
 categories:
+    - directory
     - sport
 
 # Tags

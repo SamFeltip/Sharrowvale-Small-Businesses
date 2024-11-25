@@ -28,6 +28,7 @@ openDaysStatement: "Open Mon - Sat"
 
 # Listing types
 categories:
+    - directory
     - clothing
 
 # Tags

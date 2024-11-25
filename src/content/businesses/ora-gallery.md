@@ -24,6 +24,7 @@ openDaysStatement: "Open Tues - Sat"
 
 # Listing types
 categories:
+    - directory
     - gift-shop
     - jewellery
 

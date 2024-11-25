@@ -24,6 +24,7 @@ openDaysStatement: "Open Tues and Weds"
 
 # Listing types
 categories:
+    - directory
     - medical-centre
 
 # Tags

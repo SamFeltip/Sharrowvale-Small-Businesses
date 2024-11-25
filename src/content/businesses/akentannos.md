@@ -30,6 +30,7 @@ openDaysStatement: "Open Tues - Sat"
 
 # Listing types
 categories:
+    - directory
     - restaurant
     - dinner 
 

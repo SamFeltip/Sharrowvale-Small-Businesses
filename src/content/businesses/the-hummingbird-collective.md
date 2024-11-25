@@ -27,6 +27,7 @@ openDaysStatement: "Open every day"
 
 # Listing types
 categories:
+    - directory
     - gift-shop
     - jewellery
 

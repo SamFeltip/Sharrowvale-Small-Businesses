@@ -27,6 +27,7 @@ openDaysStatement: "Tue-Sun 10:30 -16:00"
 
 # Listing types
 categories:
+    - directory
     - bakery
     - cafe
 

@@ -26,6 +26,7 @@ openDaysStatement: "Closed Sun and Mon"
 
 # Listing types
 categories:
+    - directory
     - hair-beauty
 
 # Tags

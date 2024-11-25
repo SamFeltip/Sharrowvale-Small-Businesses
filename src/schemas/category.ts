@@ -8,5 +8,4 @@ export const categorySchema = ({image}: { image: ImageFunction }) => z.object({
 	bannerImage: image(),
 	heroImage: image(),
 	isPage: z.boolean().default(false),
-	isGridLayout: z.boolean().default(false),
 })

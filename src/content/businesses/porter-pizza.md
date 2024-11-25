@@ -28,6 +28,7 @@ openDaysStatement: "Open every day"
 
 # Listing types
 categories:
+    - directory
     - restaurant
 
 # Tags

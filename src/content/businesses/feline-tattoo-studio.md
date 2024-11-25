@@ -27,6 +27,7 @@ openDaysStatement: "Open Tues - Sun"
 
 # Listing types
 categories:
+    - directory
     - beauty-and-care
 
 # Tags

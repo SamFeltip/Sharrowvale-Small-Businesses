@@ -25,6 +25,7 @@ openDaysStatement: "Closed Sundays"
 
 # Listing types
 categories:
+    - directory
     - food-shop
     - home-hardware
 

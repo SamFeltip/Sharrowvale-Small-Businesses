@@ -27,11 +27,20 @@ const {
     bannerImage,
     promotedBusinesses,
     relatedCategories,
-    isGridLayout,
 } = entry.data;
 
-const businesses = await getEntries(promotedBusinesses);
-const categories = await getEntries(relatedCategories);
+const { Content } = await entry.render();
+
+const promoBusinesses = await getEntries(promotedBusinesses);
+const promoCategories = await getEntries(relatedCategories);
+
+const businesses = await getCollection("businesses", ({ data }) =>
+    data.categories.some((category) => category.slug === entry.slug)
+);
+
+const isGridLayout = businesses.length >= 6;
+
+console.log(businesses.length);
 ---
 
 <ContentLayout
@@ -40,9 +49,13 @@ const categories = await getEntries(relatedCategories);
     title={name}
     classList="gap-12 py-12"
 >
+    <section class="text-center">
+        <Content />
+    </section>
+
     {
-        businesses.length >= 4 && (
-            <ContentPromotions businesses={businesses} classList="" />
+        promoBusinesses.length >= 4 && (
+            <ContentPromotions businesses={promoBusinesses} classList="" />
         )
     }
 
@@ -53,12 +66,12 @@ const categories = await getEntries(relatedCategories);
     />
 
     {
-        categories.length > 0 && (
+        promoCategories.length > 0 && (
             <section class="text-center">
                 <H1 color="coral">Export more Categories</H1>
                 <div>
                     <ul>
-                        {categories.map((category) => (
+                        {promoCategories.map((category) => (
                             <li>
                                 <a href={`/category/${category.slug}`}>
                                     {category.data.name}

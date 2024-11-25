@@ -25,6 +25,7 @@ openDaysStatement: "Open every day"
 
 # Listing types
 categories:
+    - directory
     - pubs-and-bars
     - food-and-drink
 

@@ -28,6 +28,7 @@ openDaysStatement: "Closed Mondays"
 
 # Listing types
 categories:
+    - directory
     - cafe
     - deli
     - food-and-drink
