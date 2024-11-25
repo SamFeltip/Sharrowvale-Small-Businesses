@@ -30,20 +30,20 @@ openDaysStatement: "Closed Mondays"
 categories:
     - cafe
     - deli
+    - food-and-drink
+    - bakery
+    - breakfast
+    - lunch
 
 # Tags
 specialTag: "Allergen Friendly"
 tags:
-    - "bakery"
-    - "breakfast"
-    - "cafe"
     - "coffee"
     - "sit in"
+    - "take out"
     - "free wifi"
     - "gluten free"
     - "healthy"
-    - "lunch"
-    - "take out"
 
 
 ---

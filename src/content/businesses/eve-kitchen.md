@@ -36,8 +36,6 @@ tags:
     - "take out"
     - "coffee"
     - "romantic"
-    - "bakery"
-    - "cafe"
 
 
 ---

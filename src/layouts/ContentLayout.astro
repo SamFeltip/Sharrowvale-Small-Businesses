@@ -9,9 +9,10 @@ type Props = {
     image: ImageMetadata;
     description?: string;
     title: string;
+    classList?: string;
 };
 
-const { image, description, title }: Props = Astro.props;
+const { image, description, title, classList }: Props = Astro.props;
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -22,7 +23,7 @@ const { image, description, title }: Props = Astro.props;
         <Header image={image} , description={description} , title={title} />
 
         <main>
-            <ScreenWidth>
+            <ScreenWidth classList={classList}>
                 <slot />
             </ScreenWidth>
         </main>

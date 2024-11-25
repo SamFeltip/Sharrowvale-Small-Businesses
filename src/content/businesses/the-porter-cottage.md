@@ -25,8 +25,8 @@ openDaysStatement: "Open every day"
 
 # Listing types
 categories:
-    - pub
-    - bar
+    - pubs-and-bars
+    - food-and-drink
 
 # Tags
 specialTag: ""

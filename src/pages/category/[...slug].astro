@@ -1,5 +1,6 @@
 ---
 import ContentPromotions from "@/components/content/ContentPromotions.astro";
+import H1 from "@/components/elements/headers/H1.astro";
 import P from "@/components/elements/P.astro";
 import SearchBox from "@/components/search/SearchBox.vue";
 import SearchResults from "@/components/search/SearchResults.vue";
@@ -19,17 +20,52 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"category">;
 
 const entry: Props = Astro.props;
-const { name, description, bannerImage, promotedBusinesses } = entry.data;
+const {
+    name,
+    description,
+    bannerImage,
+    promotedBusinesses,
+    relatedCategories,
+} = entry.data;
 
 const businesses = await getEntries(promotedBusinesses);
+const categories = await getEntries(relatedCategories);
 ---
 
-<ContentLayout image={bannerImage} description={description} title={name}>
-    <P position="center" classList="p-12">
+<ContentLayout
+    image={bannerImage}
+    description={description}
+    title={name}
+    classList="gap-12 py-12"
+>
+    <P position="center">
         {description}
     </P>
 
-    {businesses.length >= 4 && <ContentPromotions businesses={businesses} />}
+    {
+        businesses.length >= 4 && (
+            <ContentPromotions businesses={businesses} classList="" />
+        )
+    }
 
     <SearchWrapper client:only="vue" requiredCategory={name} />
+
+    {
+        categories.length > 0 && (
+            <section class="text-center">
+                <H1 color="coral">Export more Categories</H1>
+                <div>
+                    <ul>
+                        {categories.map((category) => (
+                            <li>
+                                <a href={`/category/${category.slug}`}>
+                                    {category.data.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+        )
+    }
 </ContentLayout>

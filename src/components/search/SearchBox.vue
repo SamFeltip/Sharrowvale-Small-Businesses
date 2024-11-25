@@ -1,6 +1,6 @@
 <!-- SearchBox.vue -->
 <template>
-    <div class="mx-auto px-4">
+    <div class="mx-auto px-4 w-full">
         <div class="flex flex-col gap-4 mb-4">
             <input
                 v-model="localSearchQuery"
@@ -155,8 +155,10 @@ async function processResults(pagefindResults: {
 
     let tags = pagefindResults.filters?.tags ?? {};
 
-    console.log(tags);
     availableTags.value = Object.keys(tags)
+        .filter(
+            (tag) => tag.toLowerCase() !== props.requiredCategory?.toLowerCase()
+        )
         .sort((a, b) => tags[b] - tags[a])
         .slice(0, 10);
 

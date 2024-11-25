@@ -5,9 +5,10 @@ import SmallPromotionalItem from "../businesses/SmallPromotionalItem.astro";
 
 interface Props {
     businesses: CollectionEntry<"businesses">[];
+    classList?: string;
 }
 
-const { businesses } = Astro.props;
+const { businesses, classList } = Astro.props;
 
 if (businesses.length < 4) {
     throw new Error("At least 4 businesses must be provided");
@@ -18,14 +19,15 @@ const primaryItem = businesses[0];
 const secondaryItems = businesses.slice(1, 4);
 ---
 
-<section class="gap-4">
+<section class:list={["gap-4", classList]}>
     {/* Primary promotional item - spans full height */}
     <div class="h-full">
         <LargePromotionalItem
             heroImageSrc={primaryItem.data.heroImage}
             name={primaryItem.data.name}
             description={primaryItem.data.description}
-            class="h-full"
+            href={`/businesses/${primaryItem.slug}`}
+            className="h-full"
         />
     </div>
 
@@ -36,7 +38,7 @@ const secondaryItems = businesses.slice(1, 4);
                 <SmallPromotionalItem
                     heroImageSrc={item.data.heroImage}
                     name={item.data.name}
-                    description={item.data.description}
+                    href={`/businesses/${item.slug}`}
                 />
             ))
         }

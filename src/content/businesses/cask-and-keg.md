@@ -27,8 +27,8 @@ openDaysStatement: "Open Monday to Sunday, 12:00 - 23:00"
 
 # Listing types
 categories:
-    - bar
-    - pub
+    - pubs-and-bars
+    - food-and-drink
 
 # Tags
 specialTag: "Allergen Friendly"

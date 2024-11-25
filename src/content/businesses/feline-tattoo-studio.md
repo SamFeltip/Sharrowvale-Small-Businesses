@@ -27,13 +27,14 @@ openDaysStatement: "Open Tues - Sun"
 
 # Listing types
 categories:
-    - tattoo-piercing
+    - beauty-and-care
 
 # Tags
 specialTag: ""
 tags:
     - "beauty services"
     - "free wifi"
+    - "tattoo piercing"
 
 
 ---

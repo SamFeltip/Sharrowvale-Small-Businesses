@@ -31,17 +31,16 @@ openDaysStatement: "Open Tues - Sat"
 # Listing types
 categories:
     - restaurant
+    - dinner 
 
 # Tags
 specialTag: "Allergen Friendly"
 tags:
     - "sit in"
-    - "dinner"
     - "dog friendly"
     - "free wifi"
     - "gluten free"
     - "mediterranean"
-    - "restaurant"
     - "romantic"
 
 

@@ -2,7 +2,7 @@
 <template>
     <div id="search-wrapper" class="w-full gap-6">
         <SearchBox :requiredCategory="requiredCategory" />
-        <SearchResults />
+        <SearchResults :category="requiredCategory" />
     </div>
 </template>
 
@@ -36,7 +36,7 @@ provide("availableTags", availableTags);
     grid-template-columns: 1fr;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
     #search-wrapper {
         grid-template-columns: 370px 1fr;
     }

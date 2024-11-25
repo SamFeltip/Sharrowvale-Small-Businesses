@@ -202,7 +202,7 @@ const additional_places = shuffleBusinesses(
                                                 (tag: string, i: number) => (
                                                     <span
                                                         data-pagefind-filter="tags"
-                                                        class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato"
+                                                        class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-gray-400 font-lato"
                                                     >
                                                         {tag}
                                                     </span>
@@ -218,12 +218,13 @@ const additional_places = shuffleBusinesses(
                                     <div class="flex flex-col items-center">
                                         <div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
                                             {categoryItems.map((category) => (
-                                                <span
+                                                <a
+                                                    href={`/category/${category.slug}`}
                                                     data-pagefind-filter="category"
                                                     class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato"
                                                 >
                                                     {category.data.name}
-                                                </span>
+                                                </a>
                                             ))}
                                         </div>
                                     </div>

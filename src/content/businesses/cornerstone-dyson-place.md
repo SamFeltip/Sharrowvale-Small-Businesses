@@ -29,23 +29,22 @@ openDaysStatement: "Open everyday"
 categories:
     - cafe
     - restaurant
-    - bar
+    - pubs-and-bars
+    - food-and-drink
+    - breakfast
+    - lunch
+    - dinner
 
 # Tags
 specialTag: ""
 tags:
     - "accessible entrance"
     - "bar"
-    - "breakfast"
-    - "cafe"
     - "coffee"
     - "sit in"
-    - "dinner"
     - "event catering"
     - "free wifi"
-    - "lunch"
     - "outdoor seating"
-    - "restaurant"
     - "romantic"
 
 
