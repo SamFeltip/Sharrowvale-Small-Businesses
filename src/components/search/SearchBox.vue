@@ -33,13 +33,13 @@
             <div class="flex gap-2">
                 <button
                     @click="toggleSort"
-                    class="w-full px-2 flex flex-row justify-center items-center gap-2 border border-gray-400 rounded-xl"
+                    class="w-full px-4 flex flex-row justify-center items-center gap-2 border border-gray-400 rounded-2xl"
                 >
                     Sort <span>{{ sortAscending ? "↑" : "↓" }}</span>
                 </button>
                 <button
                     @click="toggleFilters"
-                    class="w-full px-2 flex flex-row justify-center items-center gap-2 border border-gray-400 rounded-xl"
+                    class="w-full px-4 flex flex-row justify-center items-center gap-2 border border-gray-400 rounded-2xl"
                 >
                     Filters <span>{{ showFilters ? "−" : "+" }}</span>
                 </button>
