@@ -4,7 +4,7 @@ import type { CollectionEntry } from "astro:content";
 type Props = CollectionEntry<"businesses">;
 
 const entry: Props = Astro.props;
-const { title, preview, heroImage } = entry.data;
+const { name, preview, heroImage } = entry.data;
 
 const slug = entry.slug;
 ---
@@ -13,13 +13,13 @@ const slug = entry.slug;
     <img
         class="rounded-xl aspect-video object-cover"
         src={heroImage}
-        alt={title}
+        alt={name}
     />
 
     <h2
         class="text-gray mt-0 mb-0 pt-3 pb-1 font-serif text-3xl font-bold no-underline"
     >
-        {title}
+        {name}
     </h2>
 
     <p
