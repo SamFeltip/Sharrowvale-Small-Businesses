@@ -8,7 +8,9 @@
             No results found
         </div>
 
-        <div
+        <TransitionGroup
+            name="list"
+            tag="div"
             v-else
             class="gap-6"
             :class="{ gridLayout: isGridLayout }"
@@ -34,7 +36,7 @@
                 :title="result.meta.title"
                 :href="result.url"
             />
-        </div>
+        </TransitionGroup>
     </div>
 </template>
 
@@ -81,5 +83,22 @@ function getDisplayTags(result): { slug: string; name: string }[] {
 #search-results.gridLayout {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+    transition: transform 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+    position: absolute;
 }
 </style>
