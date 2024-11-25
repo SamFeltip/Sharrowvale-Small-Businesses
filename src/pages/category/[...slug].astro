@@ -31,8 +31,5 @@ const businesses = await getEntries(promotedBusinesses);
 
     {businesses.length >= 4 && <ContentPromotions businesses={businesses} />}
 
-    <SearchWrapper client:only="vue">
-        <SearchBox defaultTag="'blog'" client:only="vue" />
-        <SearchResults client:only="vue" />
-    </SearchWrapper>
+    <SearchWrapper client:only="vue" requiredCategory={name} />
 </ContentLayout>

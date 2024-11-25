@@ -38,6 +38,7 @@ const {
     heroImage,
     streetAddress,
     additionalImages,
+    categories,
     tags,
     openDaysStatement,
     yearEstablished,
@@ -56,6 +57,9 @@ const slides: SlideImage[] = additionalImages.map((slide: string) => ({
 
 const businesses: CollectionEntry<"businesses">[] =
     await getCollection("businesses");
+
+const categoryItems: CollectionEntry<"category">[] =
+    await getEntries(categories);
 
 function shuffleBusinesses(array: CollectionEntry<"businesses">[]) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -111,7 +115,10 @@ const additional_places = shuffleBusinesses(
                 >
                     <div class="prose w-full">
                         <div class="title grid gap-[24px]">
-                            <h1 class="text-coral text-center">
+                            <h1
+                                class="text-coral text-center"
+                                data-pagefind-sort="title"
+                            >
                                 {name}
                             </h1>
                             <p
@@ -193,7 +200,10 @@ const additional_places = shuffleBusinesses(
                                         <div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
                                             {tags.map(
                                                 (tag: string, i: number) => (
-                                                    <span class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato">
+                                                    <span
+                                                        data-pagefind-filter="tags"
+                                                        class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato"
+                                                    >
                                                         {tag}
                                                     </span>
                                                 )
@@ -202,6 +212,24 @@ const additional_places = shuffleBusinesses(
                                     </div>
                                 )
                             }
+
+                            {
+                                categoryItems && (
+                                    <div class="flex flex-col items-center">
+                                        <div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
+                                            {categoryItems.map((category) => (
+                                                <span
+                                                    data-pagefind-filter="category"
+                                                    class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato"
+                                                >
+                                                    {category.data.name}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )
+                            }
+
                             <div class="flex flex-row gap-5 justify-center">
                                 {
                                     instagramLink && (

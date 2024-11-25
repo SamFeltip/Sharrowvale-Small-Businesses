@@ -41,7 +41,7 @@
                         type="checkbox"
                         :value="tag"
                         v-model="localSelectedTags"
-                        @change="updateSearch"
+                        @change="handleSearch"
                         class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                     />
                     <span class="text-sm">{{ tag }}</span>
@@ -51,97 +51,145 @@
     </div>
 </template>
 
-<script setup>
-// SearchBox.vue script remains unchanged
+<script setup lang="ts">
+import type { CustomRecord } from "pagefind";
 import { ref, inject, onMounted, watch } from "vue";
 
 const props = defineProps({
-    defaultTag: {
+    requiredCategory: {
         type: String,
         required: false,
     },
 });
 
-
-const searchResults = inject("searchResults", ref([]));
+const searchResults = inject("searchResults", ref([] as CustomRecord[]));
 const searchQuery = inject("searchQuery", ref(""));
-const selectedTags = inject("selectedTags", ref([]));
-const availableTags = inject("availableTags", ref([]));
+const selectedTags = inject("selectedTags", ref([] as string[]));
+const availableTags = inject("availableTags", ref([] as string[]));
+const pagefind = ref(null); //inject('pagefind', ref(null));
 
 const localSearchQuery = ref("");
-const localSelectedTags = ref([]);
-const showFilters = ref(false);
+let localSelectedTags: string[] = [];
+const showFilters = ref(true);
 const sortAscending = ref(true);
 
-let pagefind;
+type PagefindSearchOptions = {
+    filters: {
+        category?: Record<string, any>;
+        tags?: Record<string, any>;
+    };
+    sort?: {
+        title: "asc" | "desc";
+    };
+};
 
 onMounted(async () => {
-    
-    //@ts-ignore
-    pagefind = await import("/pagefind/pagefind.js");
+    pagefind.value = await import(
+        /* @vite-ignore */ window.location.origin + "/pagefind/pagefind.js"
+    );
 
-    if (props.defaultTag) {
-        localSelectedTags.value = [props.defaultTag];
-        await updateSearch();
-    } else {
-        await loadAllResults();
-    }
+    await handleSearch();
 });
-
-async function loadAllResults() {
-    const allResults = await pagefind.search("all");
-    processResults(allResults);
-}
 
 async function handleSearch() {
     searchQuery.value = localSearchQuery.value;
-    await updateSearch();
+
+    let searchOptions = getSearchOptions();
+
+    if (searchQuery.value == "") {
+        await loadAllResults(searchOptions);
+    } else {
+        await updateSearch(searchOptions);
+    }
 }
 
-async function updateSearch() {
-    if (!pagefind) return;
+function getSearchOptions(): PagefindSearchOptions {
+    let searchOptions: PagefindSearchOptions = {
+        filters: {
+            category: [],
+            tags: [],
+        },
+        sort: { title: sortAscending ? "asc" : "desc" },
+    };
 
-    let searchOptions = {};
-
-    if (localSelectedTags.value.length > 0) {
-        searchOptions.filters = {
-            tag: localSelectedTags.value,
-        };
+    if (props.requiredCategory !== undefined) {
+        searchOptions.filters.category = [props.requiredCategory];
     }
 
-    const results = await pagefind.search(
-        localSearchQuery.value,
-        searchOptions
-    );
+    if (localSelectedTags.length > 0) {
+        searchOptions.filters.tags = localSelectedTags;
+    }
+
+    return searchOptions;
+}
+
+async function loadAllResults(searchOptions: PagefindSearchOptions) {
+    //@ts-ignore
+    const allResults = await pagefind.value.search(null, searchOptions);
+
+    processResults(allResults);
+}
+
+async function updateSearch(searchOptions: PagefindSearchOptions) {
+    if (pagefind.value === null) return;
+
+    let searchQuery: string | null = null;
+
+    if (localSearchQuery.value !== "") {
+        searchQuery = localSearchQuery.value;
+    }
+
+    //@ts-ignore
+    const results = await pagefind.value.search(searchQuery, searchOptions);
+
     processResults(results);
 }
 
-function processResults(results) {
-    const tags = new Set();
-    results.results.forEach((result) => {
-        if (result.filters?.tag) {
-            if (Array.isArray(result.filters.tag)) {
-                result.filters.tag.forEach((tag) => tags.add(tag));
-            } else {
-                tags.add(result.filters.tag);
-            }
+async function processResults(pagefindResults: {
+    results: { data: () => CustomRecord }[];
+    filters: PagefindSearchOptions["filters"];
+}) {
+    const data = await Promise.all(
+        pagefindResults.results.map((result) => result.data())
+    );
+
+    let tags = pagefindResults.filters?.tags ?? {};
+
+    console.log(tags);
+    availableTags.value = Object.keys(tags)
+        .sort((a, b) => tags[b] - tags[a])
+        .slice(0, 10);
+
+    searchResults.value = data;
+}
+
+function getSortedResults(data: CustomRecord[]): CustomRecord[] {
+    console.log("sorting", data);
+
+    return [...data].sort((a, b) => {
+        console.log(a, b);
+
+        if (b === undefined || a === undefined) {
+            return sortAscending.value ? 1 : -1;
+        }
+
+        const bTitle = b.meta?.title ?? "";
+        const aTitle = a.meta?.title ?? "";
+
+        if (sortAscending.value) {
+            return aTitle > bTitle ? 1 : -1;
+        } else {
+            return bTitle > aTitle ? -1 : 1;
         }
     });
-
-    availableTags.value = Array.from(tags);
-
-    const sortedResults = [...results.results].sort((a, b) => {
-        return sortAscending.value
-            ? a.meta.title.localeCompare(b.meta.title)
-            : b.meta.title.localeCompare(a.meta.title);
-    });
-
-    searchResults.value = sortedResults;
 }
 
 function toggleSort() {
     sortAscending.value = !sortAscending.value;
-    updateSearch();
+
+    let searchOptions = getSearchOptions();
+
+    updateSearch(searchOptions);
 }
 
 function toggleFilters() {
@@ -149,7 +197,10 @@ function toggleFilters() {
 }
 
 watch(localSelectedTags, async () => {
-    selectedTags.value = localSelectedTags.value;
-    await updateSearch();
+    selectedTags.value = localSelectedTags;
+
+    let searchOptions = getSearchOptions();
+
+    await updateSearch(searchOptions);
 });
 </script>

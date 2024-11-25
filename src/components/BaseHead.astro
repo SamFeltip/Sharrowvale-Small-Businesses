@@ -59,6 +59,9 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
+<!-- pagefind -->
+<link rel="modulepreload" href="/pagefind/pagefind.js" />
+
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const sections = document.querySelectorAll("section");

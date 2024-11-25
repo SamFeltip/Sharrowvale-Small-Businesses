@@ -27,7 +27,7 @@
                     <h3 class="text-lg font-semibold mb-2">
                         {{ result.meta.title }}
                     </h3>
-                    <p class="mb-4">{{ result.excerpt }}</p>
+                    <p class="mb-4">{{ result.meta.content }}</p>
                     <div class="flex gap-2">
                         <span
                             v-for="(tag, index) in getDisplayTags(result)"
@@ -49,7 +49,7 @@ import { inject, ref } from "vue";
 const searchResults = inject("searchResults", ref([]));
 
 function getDisplayTags(result) {
-    const tags = result.filters?.tag || [];
+    const tags = result.filters?.category || [];
     return Array.isArray(tags) ? tags.slice(0, 2) : [tags];
 }
 </script>

@@ -1,12 +1,23 @@
 <!-- SearchWrapper.vue -->
 <template>
     <div class="w-full">
-        <slot></slot>
+        <SearchBox :requiredCategory="requiredCategory" />
+        <SearchResults />
     </div>
 </template>
 
 <script setup>
+import SearchBox from "./SearchBox.vue";
+import SearchResults from "./SearchResults.vue";
+
 import { provide, ref } from "vue";
+
+defineProps({
+    requiredCategory: {
+        type: String,
+        required: true,
+    },
+});
 
 const searchResults = ref([]);
 const searchQuery = ref("");
