@@ -1,6 +1,6 @@
 <!-- SearchWrapper.vue -->
 <template>
-    <div class="w-full">
+    <div id="search-wrapper" class="w-full gap-6">
         <SearchBox :requiredCategory="requiredCategory" />
         <SearchResults />
     </div>
@@ -29,3 +29,16 @@ provide("searchQuery", searchQuery);
 provide("selectedTags", selectedTags);
 provide("availableTags", availableTags);
 </script>
+
+<style>
+#search-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 768px) {
+    #search-wrapper {
+        grid-template-columns: 370px 1fr;
+    }
+}
+</style>

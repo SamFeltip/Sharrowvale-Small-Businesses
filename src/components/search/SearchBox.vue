@@ -1,7 +1,7 @@
 <!-- SearchBox.vue -->
 <template>
-    <div class="max-w-3xl mx-auto px-4">
-        <div class="flex gap-4 mb-4">
+    <div class="mx-auto px-4">
+        <div class="flex flex-col gap-4 mb-4">
             <input
                 v-model="localSearchQuery"
                 type="text"
@@ -13,13 +13,13 @@
             <div class="flex gap-2">
                 <button
                     @click="toggleSort"
-                    class="px-4 py-2 border border-gray-200 rounded-md bg-white hover:bg-gray-50 transition-colors"
+                    class="w-full px-4 py-2 border border-gray-200 rounded-md bg-white hover:bg-gray-50 transition-colors"
                 >
                     Sort {{ sortAscending ? "↑" : "↓" }}
                 </button>
                 <button
                     @click="toggleFilters"
-                    class="px-4 py-2 border border-gray-200 rounded-md bg-white hover:bg-gray-50 transition-colors"
+                    class="w-full px-4 py-2 border border-gray-200 rounded-md bg-white hover:bg-gray-50 transition-colors"
                 >
                     Filters {{ showFilters ? "−" : "+" }}
                 </button>
