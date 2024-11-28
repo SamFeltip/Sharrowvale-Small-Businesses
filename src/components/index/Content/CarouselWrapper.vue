@@ -7,7 +7,15 @@
     }"   
 >
     <CarouselContent>
-        <slot></slot>
+      <CarouselItem v-for="item in items" class="basis-1/3">
+        <PlaceCardGrid 
+            :key="item.title" 
+            :content="item.content"
+            :href="item.href"
+            :image="item.image"
+            :title="item.title"
+        />
+      </CarouselItem>
     </CarouselContent>
 
     <!-- Carousel Navigation Buttons below -->
@@ -34,8 +42,12 @@ import { ref } from "vue";
 import PlaceCardGrid from '@/components/placeCards/PlaceCardGrid.vue';
 import type { PlaceCard } from "../../placeCards/PlaceCard.d.ts";
 
+const props = defineProps<{items: PlaceCard[]}>();
+
+const { items } = props;
+
 // Managing carousel navigation
-const carouselRef = ref(null as any)
+const carouselRef = ref(null)
 
 const goToPrevious = () => {
   carouselRef.value?.scrollPrev()
