@@ -1,6 +1,6 @@
 <template>
     <HoverArticle>
-        <a :href="props.href">
+        <a :href="href">
             <div class="flex flex-col rounded-lg overflow-hidden">
                 <img
                     v-if="image"
@@ -19,14 +19,14 @@
     </HoverArticle>
 </template>
 
+
 <script setup lang="ts">
+
+import type { PlaceCard } from "./PlaceCard.d.ts";
+
 import HoverArticle from "../elements/articles/HoverArticle.vue";
 
-const props = defineProps<{
-    image: string;
-    title: string;
-    content: string;
-    categories: { slug: string; name: string }[];
-    href?: string;
-}>();
+const props = defineProps<PlaceCard>();
+
+const {image, title, content, href} = props;
 </script>

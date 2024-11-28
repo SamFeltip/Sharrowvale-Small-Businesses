@@ -1,13 +1,53 @@
 ---
 import H2 from "@/components/elements/headers/H2.astro";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import CarouselWrapper from "./CarouselWrapper.vue";
+import { getCollection } from "astro:content";
+import SmallPromotionalItem from "@/components/businesses/SmallPromotionalItem.astro";
+import { CarouselItem } from "@/components/ui/carousel";
+
+const categories = await getCollection("category");
+
+const carouselItems = categories.map((category) => 
+{
+    return {
+        title: category.data.name,
+        content: category.data.description,
+        image: category.data.heroImage,
+        href: `/category/${category.slug}`
+    }
+}).slice(0, 5)
 
 ---
 <section>
     <H2 color="coral" position="center" >
         Independent Businesses
     </H2>
-    <CarouselWrapper client:load/>
+
+    <p>{carouselItems.length}</p>
+
+
+
+    <CarouselWrapper client:load>
+        
+        {carouselItems.map((carouselItem) => 
+            <CarouselItem class="basis-1/3">
+                <SmallPromotionalItem  
+                    heroImage={carouselItem.image}
+                    name={carouselItem.title}
+                    href={carouselItem.href}
+                />
+            </CarouselItem>
+        )}
+
+        <!-- {carouselItems.map((carouselItem) => {
+            <CarouselItem class="basis-1/3">
+                <SmallPromotionalItem  
+                    heroImage={carouselItem.image}
+                    name={carouselItem.title}
+                    href={carouselItem.href}
+                />
+            </CarouselItem>
+        })} -->
+    </CarouselWrapper>
 
 </section>
