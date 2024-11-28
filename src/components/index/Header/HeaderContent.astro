@@ -1,0 +1,36 @@
+---
+
+import H1 from "@/components/elements/headers/H1.astro";
+import MonoBody from "@/components/elements/Body/MonoBody.astro";
+
+import { faCalendarDays } from "@fortawesome/free-solid-svg-icons/faCalendarDays";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons/faCircleInfo";
+import { faGem } from "@fortawesome/free-solid-svg-icons/faGem";
+import { faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons/faScrewdriverWrench";
+import { faNewspaper } from "@fortawesome/free-solid-svg-icons/faNewspaper";
+
+import BannerBox from "./BannerBox.astro";
+
+type Props = {
+    title: string;
+    description?: string;
+};
+
+const { title, description } = Astro.props;
+
+---
+<div class="flex flex-col justify-center items-center text-center bg-black/40 h-full">
+    <div>
+        <MonoBody color="white" position="center">DISCOVER</MonoBody>
+        <H1 color="coral">Sharrow Vale</H1>
+        <MonoBody color="white" position="center">SHEFFIELD'S HOME FOR INDEPENDENT BUSINESSES</MonoBody>
+        <input type="text"/>
+    </div>
+    <div class="absolute bottom-0 flex flex-row gap-6 pb-12 items-center">
+        <BannerBox icon={faCalendarDays} text="Attend local events"/>
+        <BannerBox icon={faGem} text="Discover a hidden gem"/>
+        <BannerBox icon={faCircleInfo} text="Search for details"/>
+        <BannerBox icon={faScrewdriverWrench} text="Find local tradespeople"/>
+        <BannerBox icon={faNewspaper} text="News & Updates"/>
+    </div>
+</div>

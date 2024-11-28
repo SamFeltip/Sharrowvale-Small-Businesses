@@ -2,12 +2,8 @@
 import HeaderContent from "@/components/category/HeaderContent.astro";
 import ContentPromotions from "@/components/content/ContentPromotions.astro";
 import H1 from "@/components/elements/headers/H1.astro";
-import P from "@/components/elements/P.astro";
-import SearchBox from "@/components/search/SearchBox.vue";
-import SearchResults from "@/components/search/SearchResults.vue";
 import SearchWrapper from "@/components/search/SearchWrapper.vue";
 import ContentLayout from "@/layouts/ContentLayout.astro";
-import { propsToFilename } from "astro/assets/utils";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
