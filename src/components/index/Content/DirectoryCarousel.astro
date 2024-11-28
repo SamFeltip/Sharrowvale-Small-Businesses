@@ -1,18 +1,13 @@
 ---
 import H2 from "@/components/elements/headers/H2.astro";
-import { CarouselContent, CarouselItem, Carousel } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import CarouselWrapper from "./CarouselWrapper.vue";
 
 ---
 <section>
     <H2 color="coral" position="center" >
         Independent Businesses
     </H2>
-    <Carousel>
-        <CarouselContent>
-          <CarouselItem className="basis-1/3">somjethin</CarouselItem>
-          <CarouselItem className="basis-1/3">somjethin</CarouselItem>
-          <CarouselItem className="basis-1/3">somjethin</CarouselItem>
-        </CarouselContent>
-      </Carousel>
+    <CarouselWrapper client:load/>
 
 </section>
