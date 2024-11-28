@@ -1,4 +1,5 @@
 ---
+import HeaderContent from "@/components/category/HeaderContent.astro";
 import ContentPromotions from "@/components/content/ContentPromotions.astro";
 import H1 from "@/components/elements/headers/H1.astro";
 import P from "@/components/elements/P.astro";
@@ -45,9 +46,10 @@ console.log(businesses.length);
 
 <ContentLayout
     image={bannerImage}
-    description={description}
     title={name}
+    description={description}
     classList="gap-12 py-12"
+    HeaderContent={HeaderContent}
 >
     <section class="text-center">
         <Content />

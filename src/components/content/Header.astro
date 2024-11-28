@@ -4,14 +4,16 @@ import MonoBody from "@/components/elements/MonoBody.astro";
 import Nav from "@/components/elements/Nav.astro";
 import { Picture } from "astro:assets";
 import H1 from "../elements/headers/H1.astro";
+import type { AstroComponentInstance } from "astro/runtime/server/index.js";
 
 type Props = {
     image: ImageMetadata;
     title: string;
     description?: string;
+    Content: (_props: any) => JSX.Element;
 };
 
-const { image, title, description }: Props = Astro.props;
+const { image, title, description, Content }: Props = Astro.props;
 
 // console.log(image.src);
 ---
@@ -28,15 +30,8 @@ const { image, title, description }: Props = Astro.props;
         class="absolute inset-0 w-full h-full object-cover z-0"
     />
     <div
-        class="absolute inset-0 flex flex-col justify-center items-center text-center bg-black/40 z-[5] p-4"
+        class="absolute inset-0 z-[5]"
     >
-        <H1 color="white" position="center">{title}</H1>
-        {
-            description && (
-                <MonoBody color="white" position="center">
-                    {description}
-                </MonoBody>
-            )
-        }
+        <Content title={title} description={description} />
     </div>
 </header>
