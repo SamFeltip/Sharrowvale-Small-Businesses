@@ -27,10 +27,10 @@ const { title, description } = Astro.props;
         <input type="text"/>
     </div>
     <div class="absolute bottom-0 flex flex-row gap-6 pb-12 items-center">
-        <BannerBox icon={faCalendarDays} text="Attend local events"/>
-        <BannerBox icon={faGem} text="Discover a hidden gem"/>
-        <BannerBox icon={faCircleInfo} text="Search for details"/>
-        <BannerBox icon={faScrewdriverWrench} text="Find local tradespeople"/>
-        <BannerBox icon={faNewspaper} text="News & Updates"/>
+        <BannerBox href="/category/events" icon={faCalendarDays} text="Attend local events"/>
+        <BannerBox href="/category/cafe" icon={faGem} text="Discover a hidden gem"/>
+        <BannerBox href="/category/directory" icon={faCircleInfo} text="Search for details"/>
+        <BannerBox href="/category/tradespeople" icon={faScrewdriverWrench} text="Find local tradespeople"/>
+        <BannerBox href="/category/news" icon={faNewspaper} text="News & Updates"/>
     </div>
 </div>

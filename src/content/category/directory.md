@@ -6,5 +6,6 @@ relatedCategories: []
 promotedBusinesses: []
 name: Directory
 description: Independent small businesses
+isVisible: false
 ---
 ### Find local Restaurants, Shops, Cafes and more 

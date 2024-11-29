@@ -1,4 +1,5 @@
 ---
+import HoverArticle from "@/components/elements/articles/HoverArticle.vue";
 import SerifBody from "@/components/elements/body/SerifBody.astro";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,13 +7,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 type Props = {
     icon: IconDefinition;
     text: string;
+    href: string;
 };
 
-const { icon, text } = Astro.props;
+const { icon, text, href } = Astro.props;
 ---
-<div class="flex flex-col items-center justify-center text-white">
-    <div class="flex flex-col items-center justify-center gap-5">
-        <FontAwesomeIcon icon={icon} height={40} width={40} />
-        <SerifBody color="white" position="center">{text}</SerifBody>
+<HoverArticle href={href}>
+    <div class="flex flex-col items-center justify-center text-white">
+        <div class="flex flex-col items-center justify-center gap-5">
+            <FontAwesomeIcon icon={icon} height={40} width={40} />
+            <SerifBody color="white" position="center">{text}</SerifBody>
+        </div>
     </div>
-</div>
+</HoverArticle>

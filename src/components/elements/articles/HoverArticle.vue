@@ -1,7 +1,7 @@
 <template>
     <a :href="href">
         <article
-            :class="`${classList} hover:scale-[1.02] transition-transform duration-300`"
+            :class="`${classList} hover:scale-[1.02] transition-transform duration-300 cursor-pointer`"
             >
             <slot />
         </article>

@@ -8,4 +8,5 @@ export const categorySchema = ({image}: { image: ImageFunction }) => z.object({
 	bannerImage: image(),
 	heroImage: image(),
 	isPage: z.boolean().default(false),
+	isVisible: z.boolean().default(true) // used to hide category from appearing in lists
 })

@@ -21,9 +21,9 @@
                 v-for="result in searchResults"
                 :key="`gridLayout-${result.url}`"
                 :categories="getDisplayTags(result)"
-                :image="result.meta.image"
-                :content="result.meta.content"
-                :title="result.meta.title"
+                :image="result.meta?.image"
+                :content="result.meta?.content"
+                :title="result.meta?.title"
                 :href="result.url"
             />
             <PlaceCardWide
@@ -31,9 +31,9 @@
                 v-for="result in searchResults"
                 :key="result.url"
                 :categories="getDisplayTags(result)"
-                :image="result.meta.image"
-                :content="result.meta.content"
-                :title="result.meta.title"
+                :image="result.meta?.image"
+                :content="result.meta?.content"
+                :title="result.meta?.title"
                 :href="result.url"
             />
         </TransitionGroup>
@@ -64,9 +64,9 @@ console.log(searchResults.value);
 function getDisplayTags(result): { slug: string; name: string }[] {
     let tags = result.filters?.category || [];
 
-    tags = tags.filter((tag) => tag !== props.category).slice(0, 3);
+    tags = tags.filter((tag: string) => tag !== props.category).slice(0, 3);
 
-    return tags.map((tag) => ({ slug: tag, name: tag }));
+    return tags.map((tag: string) => ({ slug: tag, name: tag }));
 }
 </script>
 

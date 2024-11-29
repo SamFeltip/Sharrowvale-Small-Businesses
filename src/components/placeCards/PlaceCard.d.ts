@@ -3,4 +3,5 @@ export type PlaceCard = {
     title: string;
     content?: string;
     href?: string;
+    categories?: { slug: string; name: string }[];
 };

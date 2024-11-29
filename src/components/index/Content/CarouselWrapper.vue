@@ -19,12 +19,12 @@
 
     <!-- Carousel Navigation Buttons below -->
     <div class="carousel-buttons flex justify-center gap-4 mt-4">
-      <button @click="goToPrevious" class="rounded-full border border-gray-800 text-gray-800 p-3">
+      <Button @click="goToPrevious" class="rounded-full border border-gray-800 text-gray-800 p-3">
         <ArrowLeft/>
-      </button>
-      <button @click="goToNext" class="rounded-full border border-gray-800 text-gray-800 p-3">
+      </Button>
+      <Button @click="goToNext" class="rounded-full border border-gray-800 text-gray-800 p-3">
         <ArrowRight/>
-      </button>
+      </Button>
       <a class="bg-coral rounded-full text-white py-3 px-5" href="/category/directory">
          See the full directory
       </a>
@@ -37,8 +37,8 @@ import { ArrowRight, ArrowLeft } from 'lucide-vue-next'
 
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { ref, type Ref } from "vue";
-import PlaceCardGrid from '@/components/placeCards/PlaceCardGrid.vue';
 import type { PlaceCard } from "../../placeCards/PlaceCard.d.ts";
+import Button from "@/components/elements/Button.vue";
 import type {EmblaCarouselType} from 'embla-carousel';
 import SmallPromotionalCard from '@/components/placeCards/SmallPromotionalCard.vue';
 

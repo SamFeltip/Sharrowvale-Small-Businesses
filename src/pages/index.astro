@@ -2,14 +2,12 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 
-const promotions: CollectionEntry<"promotion">[] =
-    await getCollection("promotion");
-
 import bannerImage from "../assets/images/index/heroImage.jpg";
 import HeaderContent from "@/components/index/Header/HeaderContent.astro";
 import DirectoryCarousel from "@/components/index/Content/DirectoryCarousel.astro";
 import InfoForLocals from "@/components/index/Content/InfoForLocals.astro";
 import WhatsOn from "@/components/index/Content/WhatsOn.astro";
+import LatestNews from "@/components/index/LatestNews.astro";
 
 ---
 
@@ -20,5 +18,6 @@ title="Promotions" description="Promotions" HeaderContent={HeaderContent}>
         <DirectoryCarousel/>
         <InfoForLocals/>
         <WhatsOn/>
+        <LatestNews/>
     </div>
 </Layout>
