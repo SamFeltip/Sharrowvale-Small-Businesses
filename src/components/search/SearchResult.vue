@@ -1,6 +1,5 @@
 <template>
-    <HoverArticle>
-        <a :href="props.href">
+    <HoverArticle :href="props.href">
             <div id="search-result" class="rounded-lg overflow-hidden">
                 <img
                     v-if="image"
@@ -24,7 +23,6 @@
                     <p class="mb-4">{{ content }}</p>
                 </div>
             </div>
-        </a>
     </HoverArticle>
 </template>
 

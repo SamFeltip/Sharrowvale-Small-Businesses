@@ -36,18 +36,18 @@
 <script setup lang="ts">
 import { ArrowRight, ArrowLeft } from 'lucide-vue-next'
 
-import {Card, CardContent} from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { ref } from "vue";
+import { ref, type Ref } from "vue";
 import PlaceCardGrid from '@/components/placeCards/PlaceCardGrid.vue';
 import type { PlaceCard } from "../../placeCards/PlaceCard.d.ts";
+import type {EmblaCarouselType} from 'embla-carousel';
 
 const props = defineProps<{items: PlaceCard[]}>();
 
 const { items } = props;
 
 // Managing carousel navigation
-const carouselRef = ref(null)
+const carouselRef: Ref<EmblaCarouselType | null> = ref(null);
 
 const goToPrevious = () => {
   carouselRef.value?.scrollPrev()

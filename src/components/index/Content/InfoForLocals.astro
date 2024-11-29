@@ -1,0 +1,44 @@
+---
+import H2 from "@/components/elements/headers/H2.astro"
+import type { PlaceCard } from "@/components/placeCards/PlaceCard"
+import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue"
+import { getImage } from "astro:assets";
+
+
+import image from "@/assets/images/category/bakery/bakery.jpg";
+
+const imageSrc = image.src;
+const info: PlaceCard[] = [
+    {
+        image: imageSrc,
+        title: "something",
+        href: "/category/bakery"
+    },
+    {
+        image: imageSrc,
+        title: "something",
+        href: "/category/bakery"
+    },
+    {
+        image: imageSrc,
+        title: "something",
+        href: "/category/bakery"
+    },
+    {
+        image: imageSrc,
+        title: "something",
+        href: "/category/bakery"
+    },
+];
+
+console.log(info)
+
+---
+<section>
+    <H2 position="center" color="coral">Info for Locals</H2>
+    <div class="grid grid-cols-2 max-w-screen-lg">
+        {info.map(item => 
+            <PlaceCardGrid {...item}/>
+        )}
+    </div>
+</section>

@@ -1,21 +1,19 @@
 <template>
-    <HoverArticle>
-        <a :href="href">
-            <div class="flex flex-col rounded-lg overflow-hidden">
-                <img
-                    v-if="image"
-                    :src="image"
-                    :alt="title"
-                    class="w-full max-w-[300px] h-48 object-cover rounded-lg"
-                />
-                <div class="w-full py-4">
-                    <h3 class="text-lg font-semibold mb-2">
-                        {{ title }}
-                    </h3>
-                    <p>{{ content }}</p>
-                </div>
+    <HoverArticle :href="href">
+        <div class="flex flex-col rounded-lg overflow-hidden">
+            <img
+                v-if="image"
+                :src="image"
+                :alt="title"
+                class="w-full h-48 object-cover rounded-lg"
+            />
+            <div class="w-full py-4">
+                <h3 class="text-lg font-semibold mb-2">
+                    {{ title }}
+                </h3>
+                <p>{{ content }}</p>
             </div>
-        </a>
+        </div>
     </HoverArticle>
 </template>
 

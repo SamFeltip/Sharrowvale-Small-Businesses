@@ -1,6 +1,6 @@
 export type PlaceCard = {
     image: string;
     title: string;
-    content: string;
+    content?: string;
     href?: string;
 };

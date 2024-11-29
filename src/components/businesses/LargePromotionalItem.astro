@@ -29,37 +29,37 @@ if (!heroImage && !heroImageSrc) {
 }
 ---
 
-<a href={href}>
-    <HoverArticle
-        classList={`relative w-full overflow-hidden group ${className}`}
+<HoverArticle
+    classList={`relative w-full overflow-hidden group ${className}`}
+    href={href}
+>
+    {
+        heroImage ? (
+            <Picture
+                src={heroImage}
+                alt={name}
+                formats={["avif", "webp"]}
+                class="absolute inset-0 w-full h-full object-cover"
+            />
+        ) : (
+            <img
+                src={heroImageSrc}
+                alt={name}
+                class="absolute inset-0 w-full h-full object-cover  rounded-2xl"
+            />
+        )
+    }
+
+    <div
+        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 rounded-2xl to-transparent"
     >
-        {
-            heroImage ? (
-                <Picture
-                    src={heroImage}
-                    alt={name}
-                    formats={["avif", "webp"]}
-                    class="absolute inset-0 w-full h-full object-cover"
-                />
-            ) : (
-                <img
-                    src={heroImageSrc}
-                    alt={name}
-                    class="absolute inset-0 w-full h-full object-cover  rounded-2xl"
-                />
-            )
-        }
+    </div>
 
-        <div
-            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 rounded-2xl to-transparent"
-        >
-        </div>
+    <div class="absolute bottom-0 right-0 p-6 text-right">
+        <H1 color="white" position="end">{name}</H1>
+        <p class="text-sm md:text-base text-white/90">
+            {description}
+        </p>
+    </div>
+</HoverArticle>
 
-        <div class="absolute bottom-0 right-0 p-6 text-right">
-            <H1 color="white" position="end">{name}</H1>
-            <p class="text-sm md:text-base text-white/90">
-                {description}
-            </p>
-        </div>
-    </HoverArticle>
-</a>
