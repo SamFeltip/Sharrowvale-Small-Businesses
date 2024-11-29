@@ -4,12 +4,13 @@ preview: "Boutique Jewellery and Gift Shop Est 1990"
 description: "Since 1990 Ora Gallery has been operating on Sharrow Vale, selling a wide selection of gifts, accessories, and sterling silver Jewelry. Ora Gallery is the perfect cosy shop to find gifts, greetings cards and wrapping paper. "
 type: "fashion"
 
-heroImage: "/images/businesses/ora-gallery/6690101562d13096be5c4fe2_ora-thumbnail.png"
-bannerImage: "/images/businesses/ora-gallery/6685da9d0fb96ace447a6692_IMG_1824-Large.jpeg"
+heroImage: "../../assets/images/businesses/ora-gallery/6690101562d13096be5c4fe2_ora-thumbnail.png"
+bannerImage: "../../assets/images/businesses/ora-gallery/6685da9d0fb96ace447a6692_IMG_1824-Large.jpeg"
 # used for lightbox
-additionalImages: [
-    "/images/businesses/ora-gallery/6685d92890e1cd98fceb48a1_IMG_1822-Large.jpeg"
-]
+additionalImages:
+    [
+        "../../assets/images/businesses/ora-gallery/6685d92890e1cd98fceb48a1_IMG_1822-Large.jpeg",
+    ]
 
 # Other metadata
 streetAddress: "14 hickmott Road, S11 8QF"
@@ -39,8 +40,6 @@ tags:
     - "gift cards"
     - "gift shop"
     - "jewelry"
-
-
 ---
 
 ## Open Hours
@@ -58,7 +57,6 @@ tags:
 | Email   | info@oragallery.co.uk       |
 | Phone   | 011426614444                |
 | Website | http://www.orasheffield.com |
-
 
 At Ora we specialise in the offer of beautiful Sterling Silver jewellery.
 

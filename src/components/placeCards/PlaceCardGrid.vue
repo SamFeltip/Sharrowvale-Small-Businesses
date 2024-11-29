@@ -29,5 +29,4 @@ const props = defineProps<PlaceCard>();
 
 const {image, title, content, href} = props;
 
-console.log(props)
 </script>

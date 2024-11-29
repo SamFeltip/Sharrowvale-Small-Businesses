@@ -4,13 +4,14 @@ preview: "Zero Waste Food and Household Shop"
 description: "At Refill Tree, our mission is to offer the very best range of household cleaning products, dried foods and oils with a sustainable, zero waste packaging approach. Simply bring your empty jars and containers, weigh them and fill them with a product (which are all marked with the price per gram), then weigh them again so you're only paying for what you get. "
 type: "groceries"
 
-heroImage: "/images/businesses/refill-tree/6697c04227d6cf6be78e2281_Refill-Tree-Thumbnail.jpg"
-bannerImage: "/images/businesses/refill-tree/6697bff599f6ca32cc2edcd6_refill-tree-thumb.jpg"
+heroImage: "../../assets/images/businesses/refill-tree/6697c04227d6cf6be78e2281_Refill-Tree-Thumbnail.jpg"
+bannerImage: "../../assets/images/businesses/refill-tree/6697bff599f6ca32cc2edcd6_refill-tree-thumb.jpg"
 # used for lightbox
-additionalImages: [
-    "/images/businesses/refill-tree/6697c0495448d92d5c10b4f9_image_67516161---Tyler-Savage.JPG",
-    "/images/businesses/refill-tree/6697c0481c94ccfaf2b140e5_IMG-4370---Tyler-Savage.jpg"
-]
+additionalImages:
+    [
+        "../../assets/images/businesses/refill-tree/6697c0495448d92d5c10b4f9_image_67516161---Tyler-Savage.JPG",
+        "../../assets/images/businesses/refill-tree/6697c0481c94ccfaf2b140e5_IMG-4370---Tyler-Savage.jpg",
+    ]
 
 # Other metadata
 streetAddress: "Refill Tree, 392 Sharrow Vale Road"
@@ -36,8 +37,6 @@ tags:
     - "eco aware"
     - "groceries"
     - "home household"
-
-
 ---
 
 ## Open Hours

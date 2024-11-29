@@ -3,37 +3,48 @@ import H2 from "@/components/elements/headers/H2.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 import PlaceCardWide from "../placeCards/PlaceCardWide.vue";
 import Button from "../elements/Button.vue";
+import { getImage } from "astro:assets";
 
 const promotions: CollectionEntry<"businesses">[] =
     await getCollection("businesses");
 
 const categories = await getCollection("category");
 
-const bussinessItems = promotions.slice(0, 4).map((business) => {
-    const businessCategories = categories
-        .filter(
-            (category) =>
-                category.data.isVisible &&
-                business.data.categories.some((c) => c.slug === category.slug)
-        )
-        .slice(0, 2);
+const bussinessItems = await Promise.all(
+    promotions.slice(0, 4).map(async (business) => {
+        const businessCategories = categories
+            .filter(
+                (category) =>
+                    category.data.isVisible &&
+                    business.data.categories.some(
+                        (c) => c.slug === category.slug
+                    )
+            )
+            .slice(0, 2);
 
-    const placeCardCategories = businessCategories.map((category) => {
+        const placeCardCategories = businessCategories.map((category) => {
+            return {
+                name: category.data.name,
+                slug: category.slug,
+            };
+        });
+
+        const heroImageResult = await getImage({
+            src: business.data.heroImage,
+        });
+
+        const heroImageSrc = heroImageResult.src;
+
         return {
-            name: category.data.name,
-            slug: category.slug,
+            image: heroImageSrc,
+            title: business.data.name,
+            content: business.data.description,
+            href: `/businesses/${business.slug}`,
+
+            categories: placeCardCategories,
         };
-    });
-
-    return {
-        image: business.data.heroImage,
-        title: business.data.name,
-        content: business.data.description,
-        href: `/businesses/${business.slug}`,
-
-        categories: placeCardCategories,
-    };
-});
+    })
+);
 ---
 
 <section class="grid md:grid-cols-[300px_1fr] gap-12">

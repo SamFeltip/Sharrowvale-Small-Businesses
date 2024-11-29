@@ -4,12 +4,13 @@ preview: "Specialist women's health physiotherapy clinic"
 description: "At Thrive Physiotherapy in Sheffield, we're all about empowering women! We specialise in providing tailored treatment, support and care for common (but NOT normal) female health concerns, in particular pain, incontinence, prolapse, and menopausal symptoms, allowing you to get back to doing what you love, leak and pain free!"
 type: "healthcare"
 
-heroImage: "/images/businesses/thrive/669b72d7df3fdd3eba47d23d_roisin_23---Roisin-at-Thrive.jpg"
-bannerImage: "/images/businesses/thrive/669af4f930fc864516bcb401_fitness-friends-and-senior-women-with-exercise-an-2023-11-27-05-16-17-utc.webp"
+heroImage: "../../assets/images/businesses/thrive/669b72d7df3fdd3eba47d23d_roisin_23---Roisin-at-Thrive.jpg"
+bannerImage: "../../assets/images/businesses/thrive/669af4f930fc864516bcb401_fitness-friends-and-senior-women-with-exercise-an-2023-11-27-05-16-17-utc.webp"
 # used for lightbox
-additionalImages: [
-    "/images/businesses/thrive/669af1553c537e70d64d7a7a_roisin_9---Roisin-at-Thrive.jpg"
-]
+additionalImages:
+    [
+        "../../assets/images/businesses/thrive/669af1553c537e70d64d7a7a_roisin_9---Roisin-at-Thrive.jpg",
+    ]
 
 # Other metadata
 streetAddress: "Thrive Physiotherapy, 416B Sharrow Vale Rd"
@@ -31,8 +32,6 @@ categories:
 specialTag: "New"
 tags:
     - "healthcare"
-
-
 ---
 
 ## Open Hours
@@ -59,9 +58,9 @@ Our expert team provides tailored physiotherapy treatments for pain, leakage/inc
 
 We offer:
 
-- Pain Rehabilitation Physiotherapy: Get you moving pain free again.
-- Pelvic Floor Rehabilitation: Restore strength and function with targeted exercises.
-- Bladder Concern Management: Address incontinence and regain control.
-- Lymphatic Drainage Massage: Reduce swelling and improve circulation.
-- Pelvic Strength Class: Boost your pelvic floor strength, core strength, confidence, and overall health through a mix of breath work, body weight strength and high-intensity training.
-- Experience compassionate, personalised physiotherapy care at Thrive Physiotherapy and start living fearlessly once more!
+-   Pain Rehabilitation Physiotherapy: Get you moving pain free again.
+-   Pelvic Floor Rehabilitation: Restore strength and function with targeted exercises.
+-   Bladder Concern Management: Address incontinence and regain control.
+-   Lymphatic Drainage Massage: Reduce swelling and improve circulation.
+-   Pelvic Strength Class: Boost your pelvic floor strength, core strength, confidence, and overall health through a mix of breath work, body weight strength and high-intensity training.
+-   Experience compassionate, personalised physiotherapy care at Thrive Physiotherapy and start living fearlessly once more!

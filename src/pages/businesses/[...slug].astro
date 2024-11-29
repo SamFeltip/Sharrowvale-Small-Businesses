@@ -1,14 +1,11 @@
 ---
 import "@/styles/business-content.css";
-import "@/styles/parallax.css";
 
-import { getImage, Image } from "astro:assets";
+import { getImage } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
-import Layout from "@/layouts/Layout.astro";
 import GoogleMap from "@/components/businesses/GoogleMap.astro";
 import LightBox from "@/components/businesses/LightBox.tsx";
 import type { SlideImage } from "yet-another-react-lightbox";
-import PlaceCard from "@/components/businesses/PlaceCard.astro";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -16,6 +13,12 @@ import { faLink } from "@fortawesome/free-solid-svg-icons/faLink";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
 import { getEntries } from "astro:content";
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import HeaderContent from "@/components/category/HeaderContent.astro";
+import Button from "@/components/elements/Button.vue";
+import H2 from "@/components/elements/headers/H2.astro";
+import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
+import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
@@ -33,291 +36,187 @@ const {
     name,
     preview,
     description,
-    type,
     bannerImage,
     heroImage,
     streetAddress,
     additionalImages,
     categories,
-    tags,
-    openDaysStatement,
-    yearEstablished,
     websiteLink,
     facebookLink,
     instagramLink,
 } = entry.data;
 
-// const heroImageObj = await getImage(heroImage);
-
 const { Content } = await entry.render();
 
-const slides: SlideImage[] = additionalImages.map((slide: string) => ({
-    src: slide,
-}));
+const slides: SlideImage[] = await Promise.all(
+    additionalImages.map(async (slide: ImageMetadata) => {
+        const image = await getImage({ src: slide });
+
+        return {
+            src: image.src,
+        };
+    })
+);
 
 const businesses: CollectionEntry<"businesses">[] =
     await getCollection("businesses");
 
-const categoryItems: CollectionEntry<"category">[] =
-    await getEntries(categories);
+function similarTags(a: CollectionEntry<"businesses">) {
+    const categorySlugs = new Set(categories.map((category) => category.slug));
 
-function shuffleBusinesses(array: CollectionEntry<"businesses">[]) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+    return a.data.categories.filter((item) => categorySlugs.has(item.slug))
+        .length;
 }
 
-const additional_places = shuffleBusinesses(
-    businesses.filter((x) => x.data.type === type && x.data.name != name)
-).slice(0, 3);
+function similarCategories(
+    a: CollectionEntry<"businesses">,
+    b: CollectionEntry<"businesses">
+) {
+    return similarTags(a) - similarTags(b);
+}
+
+const similarListings = businesses.sort(similarCategories).slice(0, 3);
+
+const similarPlaceCards: PlaceCard[] = await Promise.all(
+    similarListings.map(async (item) => {
+        const image = await getImage({
+            src: item.data.heroImage,
+            width: 400,
+            height: 400,
+        });
+
+        return {
+            title: item.data.name,
+            image: image.src,
+            href: `/businesses/${item.slug}`,
+        };
+    })
+);
+
+const heroImageResult = await getImage({
+    src: heroImage,
+});
+
+const heroImageSrc = heroImageResult.src;
+
+const categoryItems = await getEntries(categories);
 ---
 
-<Layout>
-    <div class="hidden">
+<ContentLayout
+    image={bannerImage}
+    title={name}
+    description={preview}
+    HeaderContent={HeaderContent}
+>
+    <div>
         <div data-pagefind-meta="content[data-src]" data-src={preview}></div>
     </div>
-    <article
-        class="my-5 mx-0 sm:mx-3 md:mx-8 max-w-screen-xl"
-        data-pagefind-body
-    >
-        <div class="h-[50vh]" id="parallax-background">
-            <img
-                id="banner-image"
-                class="sm:rounded-3xl w-full h-[80vh] object-cover sticky"
-                src={bannerImage}
-                alt="banner image"
-            />
-            <img
-                data-pagefind-meta="image[src], image_alt[alt]"
-                src={heroImage}
-                alt="hero image"
-                class="hidden"
-            />
+
+    <article data-pagefind-body>
+        <div data-pagefind-sort="name">
+            {name}
         </div>
-        <div id="parallax-foreground">
-            <div
-                id="business-content"
-                class="flex flex-col items-center gap-6 mx-2 md:mx-6 mb-5"
-            >
-                <section
-                    class="w-full gap-12
-							bg-white
-							rounded-[40px]
-							flex
-							flex-col
-							justify-center
-							items-center
-							max-w-[1200px]
-							mt-0
-							p-3 md:p-14 py-12 pb-18 static"
-                >
-                    <div class="prose w-full">
-                        <div class="title grid gap-[24px]">
-                            <h1
-                                class="text-coral text-center"
-                                data-pagefind-sort="title"
-                            >
-                                {name}
-                            </h1>
-                            <p
-                                class="text-gray-dark text-center flex flex-row gap-4 justify-center"
-                            >
-                                <span>{openDaysStatement}</span>
-                                <span>Est. {yearEstablished}</span>
-                            </p>
+        <img
+            data-pagefind-meta="image[src], image_alt[alt]"
+            src={heroImageSrc}
+            alt="hero image"
+        />
 
-                            <div
-                                class="flex flex-row flex-wrap gap-5 justify-center"
-                            >
-                                {
-                                    instagramLink && (
-                                        <a
-                                            href={instagramLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
-                                        >
-                                            <span>
-                                                <FontAwesomeIcon
-                                                    className="h-5 w-5"
-                                                    icon={faInstagram}
-                                                />
-                                            </span>
-                                        </a>
-                                    )
-                                }
+        <section>
+            {description}
+        </section>
 
-                                {
-                                    websiteLink && (
-                                        <a
-                                            href={websiteLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
-                                        >
-                                            <span>
-                                                <FontAwesomeIcon
-                                                    className="h-5 w-5"
-                                                    icon={faLink}
-                                                />
-                                            </span>
-                                        </a>
-                                    )
-                                }
-                                {
-                                    facebookLink && (
-                                        <a
-                                            href={facebookLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
-                                        >
-                                            <span>
-                                                <FontAwesomeIcon
-                                                    className="h-5 w-5"
-                                                    icon={faFacebook}
-                                                />
-                                            </span>
-                                        </a>
-                                    )
-                                }
-                            </div>
-                            <p class="text-gray-dark">
-                                {description}
-                            </p>
-                            <div>
-                                <LightBox slides={slides} client:load />
-                            </div>
+        <section>
+            <LightBox slides={slides} client:load />
+        </section>
 
-                            <div id="article-content-grid">
-                                <Content />
-                            </div>
-                            {
-                                tags && (
-                                    <div class="flex flex-col items-center">
-                                        <div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
-                                            {tags.map(
-                                                (tag: string, i: number) => (
-                                                    <span
-                                                        data-pagefind-filter="tags"
-                                                        class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-gray-400 font-lato"
-                                                    >
-                                                        {tag}
-                                                    </span>
-                                                )
-                                            )}
-                                        </div>
-                                    </div>
-                                )
-                            }
+        <section id="article-content-grid">
+            <Content />
+        </section>
 
-                            {
-                                categoryItems && (
-                                    <div class="flex flex-col items-center">
-                                        <div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
-                                            {categoryItems.map((category) => (
-                                                <a
-                                                    href={`/category/${category.slug}`}
-                                                    data-pagefind-filter="category"
-                                                    class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato"
-                                                >
-                                                    {category.data.name}
-                                                </a>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )
-                            }
+        <section>
+            <GoogleMap address={streetAddress} title={name} />
+        </section>
 
-                            <div class="flex flex-row gap-5 justify-center">
-                                {
-                                    instagramLink && (
-                                        <a
-                                            href={instagramLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
-                                        >
-                                            <span>
-                                                <FontAwesomeIcon
-                                                    className="h-5 w-5"
-                                                    icon={faInstagram}
-                                                />
-                                            </span>
-                                        </a>
-                                    )
-                                }
+        <section>
+            <div class="flex flex-row flex-wrap gap-5 justify-center">
+                {
+                    instagramLink && (
+                        <Button href={instagramLink}>
+                            <span>
+                                <FontAwesomeIcon
+                                    className="h-5 w-5"
+                                    icon={faInstagram}
+                                />
+                            </span>
+                        </Button>
+                    )
+                }
 
-                                {
-                                    websiteLink && (
-                                        <a
-                                            href={websiteLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
-                                        >
-                                            <span>
-                                                <FontAwesomeIcon
-                                                    className="h-5 w-5"
-                                                    icon={faLink}
-                                                />
-                                            </span>
-                                        </a>
-                                    )
-                                }
-                                {
-                                    facebookLink && (
-                                        <a
-                                            href={facebookLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
-                                        >
-                                            <span>
-                                                <FontAwesomeIcon
-                                                    className="h-5 w-5"
-                                                    icon={faFacebook}
-                                                />
-                                            </span>
-                                        </a>
-                                    )
-                                }
-                            </div>
+                {
+                    websiteLink && (
+                        <Button href={websiteLink}>
+                            <span>
+                                <FontAwesomeIcon
+                                    className="h-5 w-5"
+                                    icon={faLink}
+                                />
+                            </span>
+                        </Button>
+                    )
+                }
+                {
+                    facebookLink && (
+                        <Button href={facebookLink}>
+                            <span>
+                                <FontAwesomeIcon
+                                    className="h-5 w-5"
+                                    icon={faFacebook}
+                                />
+                            </span>
+                        </Button>
+                    )
+                }
+            </div>
+        </section>
+
+        <section>
+            {
+                categoryItems && (
+                    <div class="flex flex-col items-center">
+                        <div
+                            data-pagefind-filter="category"
+                            class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]"
+                        >
+                            {categoryItems.map((category) => (
+                                <Button
+                                    href={`/category/${category.slug}`}
+                                    data-pagefind-filter="category"
+                                >
+                                    {category.data.name}
+                                </Button>
+                            ))}
                         </div>
                     </div>
-                </section>
-                <section class="w-full max-w-[1200px] px-8">
-                    <GoogleMap address={streetAddress} title={name} />
-                </section>
-                <section
-                    data-pagefind-ignore
-                    class="w-full max-w-[1200px] px-8"
-                >
-                    <h2
-                        class="mb-5 color-coral text-center font-merriweather text-coral text-2xl line-height-relaxed"
-                    >
-                        Similar listings
-                    </h2>
+                )
+            }
+        </section>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {additional_places.map((ap) => <PlaceCard {...ap} />)}
-                    </div>
-                </section>
+        <section>
+            <a
+                class="underline text-center flex justify-center"
+                href="/category/directory"
+            >
+                Back to results
+            </a>
+        </section>
 
-                <div
-                    class="w-full max-w-[1200px] flex justify-center align-center"
-                >
-                    <a
-                        href="/businesses"
-                        role="button"
-                        class="border border-black text-gray bg-transparent rounded-full justify-center items-center px-4 py-2 font-serif text-base no-underline flex hover:bg-black hover:text-cream"
-                    >
-                        Back to results
-                    </a>
-                </div>
+        <section>
+            <H2 color="coral" position="center">Similar listings</H2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {similarPlaceCards.map((ap) => <PlaceCardGrid {...ap} />)}
             </div>
-        </div>
+        </section>
     </article>
-</Layout>
+</ContentLayout>

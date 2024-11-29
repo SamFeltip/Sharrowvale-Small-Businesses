@@ -4,15 +4,16 @@ preview: "Small batch handmade doughnuts and cafe"
 description: "Eve Kitchen, founded by Lauren Eve, is a newly opened handmade doughnut shop and artisan cafe in Sheffield. They specialize in small batch, handmade doughnuts crafted with seasonal ingredients and classic flavors. Come experience their fresh, daily-made treats at their inviting new location."
 type: "cafe"
 
-heroImage: "/images/businesses/eve-kitchen/666736260bf51361d01ae730_Screenshot-2024-06-10-at-18.21.29.png"
-bannerImage: "/images/businesses/eve-kitchen/666735f3583a5c9282e0d8af_eve-2.jpeg"
+heroImage: "../../assets/images/businesses/eve-kitchen/666736260bf51361d01ae730_Screenshot-2024-06-10-at-18.21.29.png"
+bannerImage: "../../assets/images/businesses/eve-kitchen/666735f3583a5c9282e0d8af_eve-2.jpeg"
 # used for lightbox
-additionalImages: [
-    "/images/businesses/eve-kitchen/6667357b8a5d9038a1b8acb7_Screenshot-2024-06-10-at-18.18.07.png",
-    "/images/businesses/eve-kitchen/666735af609e3859d7ba6c00_Screenshot-2024-06-10-at-18.19.25.png",
-    "/images/businesses/eve-kitchen/666735f386780e6036f384f7_eve-1.jpeg",
-    "/images/businesses/eve-kitchen/666735f3f988c016332514dd_eve-3.jpeg"
-]
+additionalImages:
+    [
+        "../../assets/images/businesses/eve-kitchen/6667357b8a5d9038a1b8acb7_Screenshot-2024-06-10-at-18.18.07.png",
+        "../../assets/images/businesses/eve-kitchen/666735af609e3859d7ba6c00_Screenshot-2024-06-10-at-18.19.25.png",
+        "../../assets/images/businesses/eve-kitchen/666735f386780e6036f384f7_eve-1.jpeg",
+        "../../assets/images/businesses/eve-kitchen/666735f3f988c016332514dd_eve-3.jpeg",
+    ]
 
 # Other metadata
 streetAddress: "380 Sharrow Vale Rd, Sharrow, Sheffield S11 8ZP"
@@ -37,8 +38,6 @@ tags:
     - "take out"
     - "coffee"
     - "romantic"
-
-
 ---
 
 ## Open Hours

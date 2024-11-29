@@ -188,10 +188,8 @@ async function processResults(pagefindResults: {
 }
 
 function getSortedResults(data: CustomRecord[]): CustomRecord[] {
-    console.log("sorting", data);
 
     return [...data].sort((a, b) => {
-        console.log(a, b);
 
         if (b === undefined || a === undefined) {
             return sortAscending.value ? 1 : -1;

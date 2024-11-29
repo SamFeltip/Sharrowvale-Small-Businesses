@@ -6,11 +6,11 @@ description: "With over 34 years of hands-on experience and five successful year
 ‍"
 type: "beauty"
 
-heroImage: "/images/businesses/giuseppes-gents-hair/669b74447124073bea79d35b_thumb.jpg"
-bannerImage: "/images/businesses/giuseppes-gents-hair/669af05dc320e52124c7185d_guiseppes3.jpg"
+heroImage: "../../assets/images/businesses/giuseppes-gents-hair/669b74447124073bea79d35b_thumb.jpg"
+bannerImage: "../../assets/images/businesses/giuseppes-gents-hair/669af05dc320e52124c7185d_guiseppes3.jpg"
 # used for lightbox
 additionalImages: [
-    "/images/businesses/giuseppes-gents-hair/669af05dc320e52124c7185d_guiseppes3.jpg"
+    "../../assets/images/businesses/giuseppes-gents-hair/669af05dc320e52124c7185d_guiseppes3.jpg"
 ]
 
 # Other metadata

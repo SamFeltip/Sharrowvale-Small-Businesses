@@ -4,20 +4,21 @@ preview: "Cosy modernised pub serving independent ales"
 description: "Porter cottage is a great place to see local musicians play live music, and try a fantastic collection of drinks. Friendly staff and fun events throughout the evening make this a place you must visit!"
 type: "bar"
 
-heroImage: "/images/businesses/the-porter-cottage/6669bf52faa21441b24d471a_Screenshot-2024-06-12-at-16.31.21.png"
-bannerImage: "/images/businesses/the-porter-cottage/6669bce18891743c49cf0d46_lr-04-Dirty-Habit-Porter-Cottage.jpg"
+heroImage: "../../assets/images/businesses/the-porter-cottage/6669bf52faa21441b24d471a_Screenshot-2024-06-12-at-16.31.21.png"
+bannerImage: "../../assets/images/businesses/the-porter-cottage/6669bce18891743c49cf0d46_lr-04-Dirty-Habit-Porter-Cottage.jpg"
 # used for lightbox
-additionalImages: [
-    "/images/businesses/the-porter-cottage/6669be4c6b73dcf3665bf384_porter-cottage-2022.jpg",
-    "/images/businesses/the-porter-cottage/6669be6af03b02842eccefbb_pic-2.jpg"
-]
+additionalImages:
+    [
+        "../../assets/images/businesses/the-porter-cottage/6669be4c6b73dcf3665bf384_porter-cottage-2022.jpg",
+        "../../assets/images/businesses/the-porter-cottage/6669be6af03b02842eccefbb_pic-2.jpg",
+    ]
 
 # Other metadata
 streetAddress: "Porter Cottage, 286 Sharrow Vale Rd Sharrow Sheffield S11 8ZL United Kingdom"
 email: ""
 phoneNumber: "01661822019"
-instagramLink: 
-facebookLink: 
+instagramLink:
+facebookLink:
 websiteLink: https://www.portercottagesheffield.com/
 yearEstablished: "2022"
 owner: ""
@@ -38,8 +39,6 @@ tags:
     - "live music"
     - "pub"
     - "bar"
-
-
 ---
 
 ## Open Hours
@@ -67,4 +66,3 @@ Whether you fancy a pint of local ale, a glass of fine wine, or a crafted cockta
 Their dog-friendly policy ensures furry friends are welcome to join in the fun.
 
 Open throughout the week, they invite you to relax, unwind, and enjoy the true essence of a traditional English pub experience.
-

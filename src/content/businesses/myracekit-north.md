@@ -4,14 +4,15 @@ preview: "Independent specialist running shop"
 description: "Here at myRaceKit North we are experienced runners providing honest advice to our customers. We provide everything you need for your day-to-day running, whether that's Couch to 5K, 10K, half marathon, marathon, ultra, training, or anything in between."
 type: "lifestyle"
 
-heroImage: "/images/businesses/myracekit-north/6697975a2b564776ebea09aa_myRacekit-thumb.jpg"
-bannerImage: "/images/businesses/myracekit-north/6697976278adb68d940c09bf_1000006180---myRaceKit-North.jpg"
+heroImage: "../../assets/images/businesses/myracekit-north/6697975a2b564776ebea09aa_myRacekit-thumb.jpg"
+bannerImage: "../../assets/images/businesses/myracekit-north/6697976278adb68d940c09bf_1000006180---myRaceKit-North.jpg"
 # used for lightbox
-additionalImages: [
-    "/images/businesses/myracekit-north/6697976ea50c6b926e11c1d0_IMG_20230213_101114_422---myRaceKit-North.jpg",
-    "/images/businesses/myracekit-north/6697976e01992d31e2550a66_IMG_20240524_082821_346---myRaceKit-North.webp",
-    "/images/businesses/myracekit-north/669797907622ab92a1bb18f5_20240301_095405---myRaceKit-North.jpg"
-]
+additionalImages:
+    [
+        "../../assets/images/businesses/myracekit-north/6697976ea50c6b926e11c1d0_IMG_20230213_101114_422---myRaceKit-North.jpg",
+        "../../assets/images/businesses/myracekit-north/6697976e01992d31e2550a66_IMG_20240524_082821_346---myRaceKit-North.webp",
+        "../../assets/images/businesses/myracekit-north/669797907622ab92a1bb18f5_20240301_095405---myRaceKit-North.jpg",
+    ]
 
 # Other metadata
 streetAddress: "myRaceKit, 296 Sharrow Vale Road, Sheffield, S11 8ZL"
@@ -38,8 +39,6 @@ tags:
     - "shoes"
     - "accessories"
     - "dog friendly"
-
-
 ---
 
 ## Open Hours
@@ -64,4 +63,3 @@ We'll have a chat about what you need, get a few choices out for you to try on t
 We provide you with the gear to enjoy your adventure!We are official stockist of major brands in running, including: Hoka, Brooks, Adidas, Saucony, Altra, La Sportiva, NNormal, VJ.
 As an independent Sheffield store, we do what we can to support local events, such as the Round Sheffield Run, Sheffield 101010, Dig Deep and others.
 We also help local running clubs with their events by providing race numbers or helping with prizes and sponsorship.
-

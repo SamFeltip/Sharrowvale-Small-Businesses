@@ -1,20 +1,21 @@
 ---
 name: "Cask and Keg No. 3"
 preview: "New bar coming soon to Sharrow Vale"
-description: "Cask and Keg is a newcommer to Sharrow Vale. We can't wait to see more from them soon!" 
+description: "Cask and Keg is a newcommer to Sharrow Vale. We can't wait to see more from them soon!"
 type: "bar"
-heroImage: "/images/businesses/cask-and-keg/hero.webp"
-bannerImage: "/images/businesses/cask-and-keg/banner.webp"
+heroImage: "../../assets/images/businesses/cask-and-keg/hero.webp"
+bannerImage: "../../assets/images/businesses/cask-and-keg/banner.webp"
 # used for lightbox
-additionalImages: [
-    "/images/businesses/cask-and-keg/coming-soon.webp",
-    "/images/businesses/cask-and-keg/storefront.webp",
-    "/images/businesses/cask-and-keg/hero.webp",
-    "/images/businesses/cask-and-keg/banner.webp"
-]
+additionalImages:
+    [
+        "../../assets/images/businesses/cask-and-keg/coming-soon.webp",
+        "../../assets/images/businesses/cask-and-keg/storefront.webp",
+        "../../assets/images/businesses/cask-and-keg/hero.webp",
+        "../../assets/images/businesses/cask-and-keg/banner.webp",
+    ]
 
 # Other metadata
-streetAddress: "Cask and Keg, 354 Sharrow Vale Rd" 
+streetAddress: "Cask and Keg, 354 Sharrow Vale Rd"
 email: "No3sharrow@gmail.com"
 phoneNumber: null
 instagramLink: null
@@ -40,8 +41,6 @@ tags:
     - "bar"
     - "beer"
     - "cider"
-
-
 ---
 
 ## Open Hours

@@ -5,14 +5,14 @@ description: "Porter Pizza, a vibrant Neapolitan pizzeria and gelateria in Sheff
 type: "restaurant
 "
 
-heroImage: "/images/businesses/porter-pizza/6667067a1c216860096fac2f_porter-pizza-2.jpeg"
-bannerImage: "/images/businesses/porter-pizza/666726437c132b6df6ce5758_porter-pizza-banner.jpeg"
+heroImage: "../../assets/images/businesses/porter-pizza/6667067a1c216860096fac2f_porter-pizza-2.jpeg"
+bannerImage: "../../assets/images/businesses/porter-pizza/666726437c132b6df6ce5758_porter-pizza-banner.jpeg"
 # used for lightbox
 additionalImages: [
-    "/images/businesses/porter-pizza/6667067a3fc51aa36bd0849f_porter-pizza-.jpeg",
-    "/images/businesses/porter-pizza/6667067a8f81b44f9f32afdb_porter-pizza-3.jpeg",
-    "/images/businesses/porter-pizza/6667067a79bc3aa0875ee774_porter-pizza-4.jpeg",
-    "/images/businesses/porter-pizza/666706e4255e07b737e7a573_porter-pizza-5.jpeg"
+    "../../assets/images/businesses/porter-pizza/6667067a3fc51aa36bd0849f_porter-pizza-.jpeg",
+    "../../assets/images/businesses/porter-pizza/6667067a8f81b44f9f32afdb_porter-pizza-3.jpeg",
+    "../../assets/images/businesses/porter-pizza/6667067a79bc3aa0875ee774_porter-pizza-4.jpeg",
+    "../../assets/images/businesses/porter-pizza/666706e4255e07b737e7a573_porter-pizza-5.jpeg"
 ]
 
 # Other metadata

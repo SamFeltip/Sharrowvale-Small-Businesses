@@ -6,11 +6,11 @@ description: "Sharrow Vale Dental Care provides high quality, comprehensive dent
 We welcome both NHS and private patients as well as offering our own Dental Plan."
 type: "healthcare"
 
-heroImage: "/images/businesses/sharrow-vale-dental-care/669aedac6680cb4396cf4468_IMG_6369---Galer-Farrer.jpeg"
-bannerImage: "/images/businesses/sharrow-vale-dental-care/669aedefc885ef7ffb6cd166_IMG_6370---Galer-Farrer.jpeg"
+heroImage: "../../assets/images/businesses/sharrow-vale-dental-care/669aedac6680cb4396cf4468_IMG_6369---Galer-Farrer.jpeg"
+bannerImage: "../../assets/images/businesses/sharrow-vale-dental-care/669aedefc885ef7ffb6cd166_IMG_6370---Galer-Farrer.jpeg"
 # used for lightbox
 additionalImages: [
-    "/images/businesses/sharrow-vale-dental-care/669aedac6680cb4396cf4468_IMG_6369---Galer-Farrer.jpeg"
+    "../../assets/images/businesses/sharrow-vale-dental-care/669aedac6680cb4396cf4468_IMG_6369---Galer-Farrer.jpeg"
 ]
 
 # Other metadata
@@ -62,12 +62,12 @@ Our professional dentists and supporting team combine a modern approach to denti
 The team are all highly experienced and you are greeted with a friendly, pleasant and sympathetic atmosphere.
 We offer a range of general and advanced services, including but not limited to:
 
-- Dental Hygine
-- Childrens Dentistry
-- Fillings
-- Dental Extraction
-- Mouth guards
-- Dentures
-- Crowns
+-   Dental Hygine
+-   Childrens Dentistry
+-   Fillings
+-   Dental Extraction
+-   Mouth guards
+-   Dentures
+-   Crowns
 
 NHS and private patients welcome, more information on our website.

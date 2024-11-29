@@ -1,16 +1,16 @@
 
-import { reference, z } from 'astro:content';
+import { reference, z, type ImageFunction } from 'astro:content';
 
-export const businessSchema = z.object({
+export const businessSchema =  ({image}: { image: ImageFunction }) => z.object({
     name: z.string(),
     description: z.string(),
     preview: z.string(),
 
     type: z.string(),
     
-    heroImage: z.string(),
-    bannerImage: z.string(),
-    additionalImages: z.array(z.string()),
+    heroImage: image(),
+    bannerImage: image(),
+    additionalImages: z.array(image()),
 
     categories: z.array(reference("category")),
 

@@ -101,8 +101,6 @@ const { startResult } = Astro.props;
                     const template = document.querySelector("#search-result");
                     const clone = template.content.cloneNode(true);
 
-                    console.log(result.url);
-
                     clone
                         .querySelectorAll("a")
                         .forEach((anchor) => (anchor.href = result.url ?? ""));
@@ -113,8 +111,6 @@ const { startResult } = Astro.props;
                     clone.querySelector(
                         ".pagefind-ui__result-body-link"
                     ).textContent = result?.meta.title ?? "";
-
-                    console.log(result?.meta);
 
                     clone.querySelector(
                         ".pagefind-ui__result-excerpt"

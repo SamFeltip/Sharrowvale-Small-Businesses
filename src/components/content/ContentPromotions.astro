@@ -8,7 +8,7 @@ import type { PlaceCard } from "../placeCards/PlaceCard";
 type Props = {
     businesses: CollectionEntry<"businesses">[];
     classList?: string;
-}
+};
 
 const { businesses, classList } = Astro.props;
 
@@ -17,31 +17,47 @@ if (businesses.length < 4) {
 }
 
 // Take the first item for primary and next 3 for secondary
-const primaryItem = businesses[0];
+const primaryBusiness = businesses[0];
+
+const primaryBusinessImage = await getImage({
+    src: primaryBusiness.data.heroImage,
+});
+
+const primaryItem: PlaceCard = {
+    image: primaryBusinessImage.src,
+    title: primaryBusiness.data.name,
+    content: primaryBusiness.data.description,
+    href: `/businesses/${primaryBusiness.slug}`,
+};
+
 const secondaryBusinesses = businesses.slice(1, 4);
 
-const secondaryItems: PlaceCard[] = await Promise.all(secondaryBusinesses.map(async (item) => {
-    
-    let image = await getImage({src: item.data.heroImage,height: 400, width: 400});
-    let imageUrl = image.src;
+const secondaryItems: PlaceCard[] = await Promise.all(
+    secondaryBusinesses.map(async (item) => {
+        let image = await getImage({
+            src: item.data.heroImage,
+            height: 400,
+            width: 400,
+        });
+        let imageUrl = image.src;
 
-    return {
-        title: item.data.name,
-        image: imageUrl,
-        href: `/businesses/${item.slug}`,
-    }
-}));
-
+        return {
+            title: item.data.name,
+            image: imageUrl,
+            href: `/businesses/${item.slug}`,
+        };
+    })
+);
 ---
 
 <section class:list={[`gap-4 h-[400px] lg:h-[600px]`, classList]}>
     {/* Primary promotional item - spans full height */}
     <div class="h-full">
         <LargePromotionalItem
-            heroImageSrc={primaryItem.data.heroImage}
-            name={primaryItem.data.name}
-            description={primaryItem.data.description}
-            href={`/businesses/${primaryItem.slug}`}
+            heroImageSrc={primaryItem.image}
+            name={primaryItem.title}
+            description={primaryBusiness.data.description}
+            href={`/businesses/${primaryBusiness.slug}`}
             className="h-full"
         />
     </div>
@@ -50,10 +66,7 @@ const secondaryItems: PlaceCard[] = await Promise.all(secondaryBusinesses.map(as
     <div class="grid grid-rows-3 gap-4 h-full">
         {
             secondaryItems.map((item) => (
-                <SmallPromotionalCard
-                    position="end"
-                    card={item}
-                />
+                <SmallPromotionalCard position="end" card={item} />
             ))
         }
     </div>
