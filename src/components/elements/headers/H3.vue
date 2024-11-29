@@ -2,7 +2,7 @@
     <h3
       :id="id"
       :class="computedClasses"
-      class="font-merriweather text-lg font-semibold mb-2"
+      class="font-merriweather text-lg font-semibold"
     >
       <slot />
     </h3>

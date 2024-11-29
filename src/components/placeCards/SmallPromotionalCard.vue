@@ -1,8 +1,8 @@
 <template>
-    <HoverArticle :href="href" classList="relative w-full aspec-[3/2] h-full">
+    <HoverArticle :href="card.href" classList="relative w-full aspec-[3/2] h-full">
         <img
-            :src="image"
-            :alt="title"
+            :src="card.image"
+            :alt="card.title"
             class="absolute inset-0 w-full h-full object-cover rounded-2xl"
         />
         <div
@@ -10,8 +10,8 @@
         >
         </div>
 
-        <div class="absolute bottom-0 right-0 p-6 text-right">
-            <H3 color="white" position="end">{{title}}</H3>
+        <div class="absolute bottom-0 w-full p-3">
+            <H3 color="white" :position>{{card.title}}</H3>
         </div>
     </HoverArticle>
 </template>
@@ -22,8 +22,10 @@ import type { PlaceCard } from './PlaceCard';
 import H3 from '../elements/headers/H3.vue';
 
 
-const props = defineProps<PlaceCard>();
+const props = withDefaults(defineProps<{position: "start" | "end", card: PlaceCard}>(), {
+    position: "start"
+});
 
-const {image, title, href} = props;
+const {position, card} = props;
 
 </script>
