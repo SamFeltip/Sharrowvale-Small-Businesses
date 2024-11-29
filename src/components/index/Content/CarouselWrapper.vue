@@ -6,7 +6,8 @@
         loop: true,
     }"   
 >
-    <CarouselContent>
+    <CarouselContent
+    >
       <CarouselItem v-for="item in items" class="basis-1/3 lg:basis-1/5 h-[250px] xl:h-[380px]">
         <SmallPromotionalCard 
             :key="item.title" 

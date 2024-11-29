@@ -21,7 +21,6 @@ import HoverArticle from '../elements/articles/HoverArticle.vue';
 import type { PlaceCard } from './PlaceCard';
 import H3 from '../elements/headers/H3.vue';
 
-
 const props = withDefaults(defineProps<{position: "start" | "end", card: PlaceCard}>(), {
     position: "start"
 });

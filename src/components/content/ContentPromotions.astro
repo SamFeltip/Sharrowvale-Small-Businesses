@@ -1,9 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import LargePromotionalItem from "../businesses/LargePromotionalItem.astro";
-import SmallPromotionalItem from "../businesses/SmallPromotionalItem.astro";
+import SmallPromotionalCard from "../placeCards/SmallPromotionalCard.vue";
+import { getImage } from "astro:assets";
+import type { PlaceCard } from "../placeCards/PlaceCard";
 
-interface Props {
+type Props = {
     businesses: CollectionEntry<"businesses">[];
     classList?: string;
 }
@@ -16,10 +18,23 @@ if (businesses.length < 4) {
 
 // Take the first item for primary and next 3 for secondary
 const primaryItem = businesses[0];
-const secondaryItems = businesses.slice(1, 4);
+const secondaryBusinesses = businesses.slice(1, 4);
+
+const secondaryItems: PlaceCard[] = await Promise.all(secondaryBusinesses.map(async (item) => {
+    
+    let image = await getImage({src: item.data.heroImage,height: 400, width: 400});
+    let imageUrl = image.src;
+
+    return {
+        title: item.data.name,
+        image: imageUrl,
+        href: `/businesses/${item.slug}`,
+    }
+}));
+
 ---
 
-<section class:list={["gap-4", classList]}>
+<section class:list={[`gap-4 h-[400px] lg:h-[600px]`, classList]}>
     {/* Primary promotional item - spans full height */}
     <div class="h-full">
         <LargePromotionalItem
@@ -32,13 +47,12 @@ const secondaryItems = businesses.slice(1, 4);
     </div>
 
     {/* Secondary promotional items column */}
-    <div class="grid grid-rows-3 gap-4">
+    <div class="grid grid-rows-3 gap-4 h-full">
         {
             secondaryItems.map((item) => (
-                <SmallPromotionalItem
-                    heroImageSrc={item.data.heroImage}
-                    name={item.data.name}
-                    href={`/businesses/${item.slug}`}
+                <SmallPromotionalCard
+                    position="end"
+                    card={item}
                 />
             ))
         }
