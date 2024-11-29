@@ -7,10 +7,9 @@
     }"   
 >
     <CarouselContent>
-      <CarouselItem v-for="item in items" class="basis-1/3">
-        <PlaceCardGrid 
+      <CarouselItem v-for="item in items" class="basis-1/3 lg:basis-1/5 h-[250px] xl:h-[380px]">
+        <SmallPromotionalCard 
             :key="item.title" 
-            :content="item.content"
             :href="item.href"
             :image="item.image"
             :title="item.title"
@@ -41,6 +40,7 @@ import { ref, type Ref } from "vue";
 import PlaceCardGrid from '@/components/placeCards/PlaceCardGrid.vue';
 import type { PlaceCard } from "../../placeCards/PlaceCard.d.ts";
 import type {EmblaCarouselType} from 'embla-carousel';
+import SmallPromotionalCard from '@/components/placeCards/SmallPromotionalCard.vue';
 
 const props = defineProps<{items: PlaceCard[]}>();
 
