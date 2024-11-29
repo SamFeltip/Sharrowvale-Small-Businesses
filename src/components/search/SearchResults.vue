@@ -21,9 +21,9 @@
                 v-for="result in searchResults"
                 :key="`gridLayout-${result.url}`"
                 :categories="getDisplayTags(result)"
-                :image="result.meta?.image"
+                :image="result.meta?.image || ''"
                 :content="result.meta?.content"
-                :title="result.meta?.title"
+                :title="result.meta?.title  || ''"
                 :href="result.url"
             />
             <PlaceCardWide
@@ -31,9 +31,9 @@
                 v-for="result in searchResults"
                 :key="result.url"
                 :categories="getDisplayTags(result)"
-                :image="result.meta?.image"
+                :image="result.meta?.image || ''"
                 :content="result.meta?.content"
-                :title="result.meta?.title"
+                :title="result.meta?.title || ''"
                 :href="result.url"
             />
         </TransitionGroup>
@@ -46,25 +46,20 @@ import type { CustomRecord } from "pagefind";
 import PlaceCardWide from "../placeCards/PlaceCardWide.vue";
 import PlaceCardGrid from "../placeCards/PlaceCardGrid.vue";
 
-const props = defineProps({
-    category: {
-        type: String,
-        required: false,
-    },
-    isGridLayout: {
-        type: Boolean,
-        default: false,
-    },
-});
+const props = defineProps<{
+    category?: string,
+    isGridLayout: boolean,
+    hiddenCategories: string[]
+}>();
 
 const searchResults = inject("searchResults", ref([] as CustomRecord[]));
 
 console.log(searchResults.value);
 
-function getDisplayTags(result): { slug: string; name: string }[] {
+function getDisplayTags(result: CustomRecord): { slug: string; name: string }[] {
     let tags = result.filters?.category || [];
 
-    tags = tags.filter((tag: string) => tag !== props.category).slice(0, 3);
+    tags = tags.filter((tag: string) => tag !== props.category && !props.hiddenCategories?.includes(tag)).slice(0, 3);
 
     return tags.map((tag: string) => ({ slug: tag, name: tag }));
 }

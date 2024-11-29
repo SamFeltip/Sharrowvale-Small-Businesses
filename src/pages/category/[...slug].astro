@@ -31,12 +31,18 @@ const { Content } = await entry.render();
 const promoBusinesses = await getEntries(promotedBusinesses);
 const promoCategories = await getEntries(relatedCategories);
 
+const categories = await getCollection(
+    "category",
+    (category) => !category.data.isVisible
+);
+
+const hiddenCategories = categories.map((category) => category.data.name);
+
 const businesses = await getCollection("businesses", ({ data }) =>
     data.categories.some((category) => category.slug === entry.slug)
 );
 
 const isGridLayout = businesses.length >= 6;
-
 ---
 
 <ContentLayout
@@ -60,6 +66,7 @@ const isGridLayout = businesses.length >= 6;
         client:only="vue"
         requiredCategory={name}
         isGridLayout={isGridLayout}
+        hiddenCategories={hiddenCategories}
     />
 
     {

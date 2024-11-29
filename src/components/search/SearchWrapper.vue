@@ -9,26 +9,24 @@
         <SearchResults
             :category="requiredCategory"
             :isGridLayout="isGridLayout"
+            :hidden-categories="hiddenCategories"
         />
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import SearchBox from "./SearchBox.vue";
 import SearchResults from "./SearchResults.vue";
 
 import { provide, ref } from "vue";
 
-defineProps({
-    requiredCategory: {
-        type: String,
-        required: true,
-    },
-    isGridLayout: {
-        type: Boolean,
-        default: false,
-    },
-});
+const props = defineProps<{
+    requiredCategory: string,
+    isGridLayout: boolean,
+    hiddenCategories: string[]
+}>();
+
+const {requiredCategory, isGridLayout, hiddenCategories} = props;
 
 const searchResults = ref([]);
 const searchQuery = ref("");
