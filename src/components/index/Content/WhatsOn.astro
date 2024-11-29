@@ -7,7 +7,9 @@ const businesses: CollectionEntry<"businesses">[] =
     await getCollection("businesses");
 
 const businessItems = businesses.slice(0, 4);
-
 ---
-<H2 position="center" color="coral">What's on</H2>
-<ContentPromotions businesses={businessItems}/>
+
+<section>
+    <H2 position="center" color="coral">What's on</H2>
+    <ContentPromotions businesses={businessItems} />
+</section>

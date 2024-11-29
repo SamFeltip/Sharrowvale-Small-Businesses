@@ -9,17 +9,19 @@ import InfoForLocals from "@/components/index/Content/InfoForLocals.astro";
 import WhatsOn from "@/components/index/Content/WhatsOn.astro";
 import LatestNews from "@/components/index/LatestNews.astro";
 import SharrowValeMarket from "@/components/index/Content/SharrowValeMarket.astro";
-
 ---
 
 <ContentLayout
-image={bannerImage}
-title="Promotions" description="Promotions" HeaderContent={HeaderContent}>
-    <div data-pagefind-ignore>
-        <DirectoryCarousel/>
-        <InfoForLocals/>
-        <WhatsOn/>
-        <LatestNews/>
-        <SharrowValeMarket/>
+    image={bannerImage}
+    title="Promotions"
+    description="Promotions"
+    HeaderContent={HeaderContent}
+>
+    <div data-pagefind-ignore class="flex flex-col py-20 gap-40">
+        <DirectoryCarousel />
+        <InfoForLocals />
+        <WhatsOn />
+        <LatestNews />
+        <SharrowValeMarket />
     </div>
-</Layout>
+</ContentLayout>
