@@ -113,13 +113,14 @@ const categoryItems = await getEntries(categories);
     </div>
 
     <article data-pagefind-body>
-        <div data-pagefind-sort="name">
+        <div data-pagefind-sort="name" class="hidden">
             {name}
         </div>
         <img
             data-pagefind-meta="image[src], image_alt[alt]"
             src={heroImageSrc}
             alt="hero image"
+            class="hidden"
         />
 
         <section>
