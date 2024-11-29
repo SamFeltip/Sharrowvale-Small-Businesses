@@ -2,31 +2,39 @@
 import H2 from "@/components/elements/headers/H2.astro"
 import type { PlaceCard } from "@/components/placeCards/PlaceCard"
 import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue"
-import { getImage } from "astro:assets";
+
+import newsImage from "@/assets/images/index/home/guest-road.jpg";
+const newsImageSrc = newsImage.src;
+
+import tradeImage from "@/assets/images/category/bakery/bakery.jpg";
+const tradeImageSrc = tradeImage.src;
+
+import marketImage from "@/assets/images/index/sharrow-vale-market/666576a0c2d4c780054817d3_market-.jpeg";
+const marketImageSrc = marketImage.src;
+
+import aboutImage from "@/assets/images/index/home/dyson-place.jpeg";
+const aboutImageSrc = aboutImage.src;
 
 
-import image from "@/assets/images/category/bakery/bakery.jpg";
-
-const imageSrc = image.src;
 const info: PlaceCard[] = [
     {
-        image: imageSrc,
-        title: "something",
+        image: newsImageSrc,
+        title: "News & Updates",
         href: "/category/bakery"
     },
     {
-        image: imageSrc,
-        title: "something",
+        image: tradeImageSrc,
+        title: "Find a local tradesperson",
         href: "/category/bakery"
     },
     {
-        image: imageSrc,
-        title: "something",
+        image: marketImageSrc,
+        title: "Sharrow Vale Market",
         href: "/category/bakery"
     },
     {
-        image: imageSrc,
-        title: "something",
+        image: aboutImageSrc,
+        title: "About this site",
         href: "/category/bakery"
     },
 ];
@@ -36,9 +44,10 @@ console.log(info)
 ---
 <section>
     <H2 position="center" color="coral">Info for Locals</H2>
-    <div class="grid grid-cols-2 max-w-screen-lg">
-        {info.map(item => 
-            <PlaceCardGrid {...item}/>
-        )}
+    <div class="justify-center flex">
+        <div class="grid grid-cols-2 max-w-screen-md gap-6">
+            {info.map(item => <PlaceCardGrid {...item}/>
+            )}
+        </div>
     </div>
 </section>

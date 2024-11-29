@@ -8,9 +8,9 @@
                 class="w-full h-48 object-cover rounded-lg"
             />
             <div class="w-full py-4">
-                <h3 class="text-lg font-semibold mb-2">
+                <H3>
                     {{ title }}
-                </h3>
+                </H3>
                 <p>{{ content }}</p>
             </div>
         </div>
@@ -22,9 +22,12 @@
 
 import type { PlaceCard } from "./PlaceCard.d.ts";
 
+import H3 from "../elements/headers/H3.vue";
 import HoverArticle from "../elements/articles/HoverArticle.vue";
 
 const props = defineProps<PlaceCard>();
 
 const {image, title, content, href} = props;
+
+console.log(props)
 </script>
