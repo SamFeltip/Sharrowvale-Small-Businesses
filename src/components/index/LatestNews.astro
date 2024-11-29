@@ -10,16 +10,19 @@ const promotions: CollectionEntry<"businesses">[] =
 const categories = await getCollection("category");
 
 const bussinessItems = promotions.slice(0, 4).map((business) => {
-
-    const businessCategories = categories.filter((category) => 
-        category.data.isVisible && business.data.categories.some((c) => c.slug === category.slug)
-    ).slice(0,2);
+    const businessCategories = categories
+        .filter(
+            (category) =>
+                category.data.isVisible &&
+                business.data.categories.some((c) => c.slug === category.slug)
+        )
+        .slice(0, 2);
 
     const placeCardCategories = businessCategories.map((category) => {
         return {
             name: category.data.name,
-            slug: category.slug
-        }
+            slug: category.slug,
+        };
     });
 
     return {
@@ -29,23 +32,27 @@ const bussinessItems = promotions.slice(0, 4).map((business) => {
         href: `/businesses/${business.slug}`,
 
         categories: placeCardCategories,
-    }
+    };
 });
 ---
 
-<section class="grid grid-cols-[300px_1fr] gap-12">
-    <div>
-        <H2 position="start" color="coral">The latest news <wbr/> & updates</H2>
-        <Button :href="/category/news">See all posts</Button>
+<section class="grid md:grid-cols-[300px_1fr] gap-12">
+    <div class="flex flex-col items-start gap-3">
+        <H2 position="start" color="coral">The latest news <wbr /> & updates</H2
+        >
+        <Button href="/category/news">See all posts</Button>
     </div>
     <div class="flex flex-col gap-3">
-        {bussinessItems.map((item) => (
-            <PlaceCardWide
-            image={item.image}
-            title={item.title}
-            content={item.content}
-            categories={item.categories}
-            href={item.href}/>
-        ))}
+        {
+            bussinessItems.map((item) => (
+                <PlaceCardWide
+                    image={item.image}
+                    title={item.title}
+                    content={item.content}
+                    categories={item.categories}
+                    href={item.href}
+                />
+            ))
+        }
     </div>
 </section>

@@ -1,0 +1,26 @@
+---
+import LargeCard from "@/components/placeCards/LargeCard.astro";
+import type { PlaceCard } from "@/components/placeCards/PlaceCard";
+
+const item: PlaceCard = {
+    image: "/images/promotion/sharrow-vale-market/666576a0c2d4c780054817d3_market-.jpeg",
+    title: "Sharrow Vale Market",
+    href: "/category/market",
+};
+---
+
+<section>
+    <LargeCard item={item} callToAction="Find out more">
+        <p>
+            Sharrow Vale Market is one of the Sharrows most beloved features,
+            running three times a year from Hunters Bar roundabout all the way
+            down Stewart road.
+        </p>
+        <p>
+            The market hosts around 100 stalls selling a wide variety of locally
+            reared and home made produce as well as hot food, crafts, clothing
+            and plants. In addition to the stalls, most of the shops, pubs and
+            cafes are also open on market days.
+        </p>
+    </LargeCard>
+</section>

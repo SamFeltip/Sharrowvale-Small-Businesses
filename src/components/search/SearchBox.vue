@@ -31,18 +31,18 @@
             </div>
 
             <div class="flex gap-2">
-                <button
+                <Button
                     @click="toggleSort"
                     class="w-full px-4 flex flex-row justify-center items-center gap-2 border border-gray-400 rounded-2xl"
                 >
                     Sort <span>{{ sortAscending ? "↑" : "↓" }}</span>
-                </button>
-                <button
+                </Button>
+                <Button
                     @click="toggleFilters"
                     class="w-full px-4 flex flex-row justify-center items-center gap-2 border border-gray-400 rounded-2xl"
                 >
                     Filters <span>{{ showFilters ? "−" : "+" }}</span>
-                </button>
+                </Button>
             </div>
         </div>
 
@@ -52,7 +52,7 @@
                 <label
                     v-for="tag in availableTags"
                     :key="tag"
-                    class="font-merriweather cursor-pointer inline-block px-2 py-1 m-1 border border-gray-400 rounded-full text-sm transition-all duration-200 hover:scale-105 group relative"
+                    class="font-merriweather cursor-pointer inline-block px-2 py-1 m-1 border border-black rounded-full text-sm transition-all duration-200 hover:scale-105 group relative"
                     :class="{
                         'bg-coral border-coral text-white':
                             localSelectedTags.includes(tag),
@@ -75,6 +75,7 @@
 <script setup lang="ts">
 import type { CustomRecord } from "pagefind";
 import { ref, inject, onMounted, watch } from "vue";
+import Button from "../elements/Button.vue";
 
 const props = defineProps({
     requiredCategory: {
