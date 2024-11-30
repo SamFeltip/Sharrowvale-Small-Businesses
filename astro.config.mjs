@@ -18,6 +18,7 @@ export default defineConfig({
     image: {
         service: imageService({
             placeholder: "blurhash",
+            breakpoints: [2000, 1024, 600, 430],
         }),
     },
     site: "https://www.sharrowvale.co.uk",
