@@ -5,7 +5,7 @@ description: "Feline is Sheffield's oldest Tattoo and piercing Studio open in 19
 type: "beauty"
 
 heroImage: "../../assets/images/businesses/feline-tattoo-studio/66953956c4085d768a65fb4e_IMG_4789---Fiona-Long.jpeg"
-bannerImage: "../../assets/images/businesses/feline-tattoo-studio/6695395ecf5d436c2f3a2aa4_IMG_3769---Fiona-Long.jpeg"
+bannerImage: "../../assets/images/businesses/feline-tattoo-studio/outside.jpeg"
 # used for lightbox
 additionalImages:
     [
