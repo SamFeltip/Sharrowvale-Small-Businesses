@@ -77,7 +77,13 @@ function getDisplayTags(result: CustomRecord): { slug: string; name: string }[] 
 
 #search-results.gridLayout {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 768px) {
+    #search-results.gridLayout {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 .list-move, /* apply transition to moving elements */

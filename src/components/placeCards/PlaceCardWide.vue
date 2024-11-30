@@ -8,7 +8,7 @@
                 class="w-full max-w-[300px] h-48 object-cover rounded-lg"
             />
             <div class="w-full p-4">
-                <div class="flex gap-2">
+                <div class="flex gap-2 category-list">
                     <a
                         v-for="(category, index) in categories"
                         :key="index"
@@ -39,12 +39,21 @@ const { image, title, content, categories, href } = props;
 <style>
 .search-result-wide {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    /* grid-template-columns: 200px 1fr; */
+    grid-template-columns: 1fr;
+
+    & .category-list {
+        display: none;
+    }
 }
 
 @container (min-width: 550px) {
     .search-result-wide {
         grid-template-columns: 300px 1fr;
+
+        & .category-list {
+            display: block;
+        }
     }
 }
 </style>

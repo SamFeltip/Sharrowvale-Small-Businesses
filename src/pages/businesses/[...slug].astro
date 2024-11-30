@@ -95,6 +95,7 @@ const similarPlaceCards: PlaceCard[] = await Promise.all(
 
 const heroImageResult = await getImage({
     src: heroImage,
+    format: "webp",
 });
 
 const heroImageSrc = heroImageResult.src;
@@ -122,6 +123,10 @@ const categoryItems = await getEntries(categories);
             alt="hero image"
             class="hidden"
         />
+
+        <!--pagefind: /_astro/hero.BDRIXm_V_2rU2u7.webp -->
+
+        <!-- correct: /_image?href=%2F%40fs%2FUsers%2Fsamfelton%2FDocuments%2FCode%2FPersonal%2FSharrowvale-Small-Businesses%2Fsrc%2Fassets%2Fimages%2Fbusinesses%2Fcask-and-keg%2Fhero.webp%3ForigWidth%3D3024%26origHeight%3D4032%26origFormat%3Dwebp&f=webp -->
 
         <section>
             {description}
@@ -212,7 +217,7 @@ const categoryItems = await getEntries(categories);
             </a>
         </section>
 
-        <section>
+        <section data-pagefind-ignore>
             <H2 color="coral" position="center">Similar listings</H2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
