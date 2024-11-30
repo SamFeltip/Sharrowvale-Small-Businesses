@@ -13,7 +13,7 @@ const { image, title, description, Content }: Props = Astro.props;
 ---
 
 <header
-    class="relative w-full h-[700px] md:h-[500px] lg:h-[600px] overflow-hidden"
+    class="relative w-full h-[600px] md:h-[500px] lg:h-[600px] overflow-hidden"
 >
     <div class="absolute top-0 left-0 right-0 z-10">
         <Nav />
@@ -21,6 +21,7 @@ const { image, title, description, Content }: Props = Astro.props;
     <Image
         src={image}
         alt={title}
+        layout="constrained"
         loading="eager"
         placeholder="blurhash"
         class="absolute inset-0 h-full object-cover"

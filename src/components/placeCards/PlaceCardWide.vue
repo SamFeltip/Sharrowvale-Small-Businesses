@@ -1,6 +1,6 @@
 <template>
     <HoverArticle :href="href">
-        <div class="search-result-wide rounded-lg overflow-hidden">
+        <div class="search-result-wide grid rounded-lg overflow-hidden">
             <img
                 v-if="image"
                 :src="image"
@@ -38,8 +38,6 @@ const { image, title, content, categories, href } = props;
 
 <style>
 .search-result-wide {
-    display: grid;
-    /* grid-template-columns: 200px 1fr; */
     grid-template-columns: 1fr;
 
     & .category-list {
