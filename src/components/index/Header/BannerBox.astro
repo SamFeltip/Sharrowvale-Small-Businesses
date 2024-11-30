@@ -8,11 +8,13 @@ type Props = {
     icon: IconDefinition;
     text: string;
     href: string;
+    classList?: string;
 };
 
-const { icon, text, href } = Astro.props;
+const { icon, text, href, classList } = Astro.props;
 ---
-<HoverArticle href={href}>
+
+<HoverArticle href={href} classList={classList}>
     <div class="flex flex-col items-center justify-center text-white">
         <div class="flex flex-col items-center justify-center gap-5">
             <FontAwesomeIcon icon={icon} height={40} width={40} />

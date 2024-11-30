@@ -1,7 +1,7 @@
 ---
 import Nav from "@/components/elements/Nav.astro";
-import { Picture } from "astro:assets";
-
+import { Image } from "@unpic/astro";
+import ScreenWidth from "../elements/ScreenWidth.astro";
 type Props = {
     image: ImageMetadata;
     title: string;
@@ -12,18 +12,29 @@ type Props = {
 const { image, title, description, Content }: Props = Astro.props;
 ---
 
-<header class="relative w-full h-[400px] lg:h-[600px] overflow-hidden">
+<header
+    class="relative w-full h-[700px] md:h-[500px] lg:h-[600px] overflow-hidden"
+>
     <div class="absolute top-0 left-0 right-0 z-10">
         <Nav />
     </div>
-    <Picture
+    <Image
         src={image}
         alt={title}
-        formats={["avif", "webp"]}
         loading="eager"
-        class="absolute inset-0 w-full h-full object-cover z-0"
+        placeholder="blurhash"
+        class="absolute inset-0 h-full object-cover"
+        priority
     />
-    <div class="absolute inset-0 z-[5]">
-        <Content title={title} description={description} />
+    <div
+        class="bg-black/40
+        absolute
+        inset-0
+        z-[5]
+        40"
+    >
+        <ScreenWidth>
+            <Content title={title} description={description} />
+        </ScreenWidth>
     </div>
 </header>

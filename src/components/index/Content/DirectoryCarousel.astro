@@ -6,32 +6,31 @@ import { getCollection } from "astro:content";
 import { getImage } from "astro:assets";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 
-
 const categories = await getCollection("category");
 
-const specialItems = await Promise.all(categories.map(async (category) => {
+const specialItems = await Promise.all(
+    categories.map(async (category) => {
+        let image = await getImage({
+            src: category.data.heroImage,
+            format: "webp",
+        });
 
-    let image = await getImage({src: category.data.heroImage});
-    
-    let imageUrl = image.src;
+        let imageUrl = image.src;
 
-    return {
-        title: category.data.name,
-        content: category.data.description ,
-        image: imageUrl,
-        href: `/category/${category.slug}`
-    } as PlaceCard
-}))
+        return {
+            title: category.data.name,
+            content: category.data.description,
+            image: imageUrl,
+            href: `/category/${category.slug}`,
+        } as PlaceCard;
+    })
+);
 
-const carouselItems = specialItems.slice(0, 7)
-
+const carouselItems = specialItems.slice(0, 7);
 ---
+
 <section>
-    <H2 color="coral" position="center" >
-        Independent Businesses
-    </H2>
+    <H2 color="coral" position="center"> Independent Businesses </H2>
 
-    <CarouselWrapper client:load items={carouselItems}/>
-    </CarouselWrapper>
-
+    <CarouselWrapper client:load items={carouselItems} />
 </section>

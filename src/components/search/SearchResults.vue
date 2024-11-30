@@ -77,7 +77,7 @@ function getDisplayTags(result: CustomRecord): { slug: string; name: string }[] 
 
 #search-results.gridLayout {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 @media screen and (min-width: 768px) {

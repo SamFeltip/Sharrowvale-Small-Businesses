@@ -10,14 +10,10 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 
-const props = defineProps({
-    classList: {
-        type: String,
-        required: false,
-    },
-    href: {
-        type: String,
-        required: false
-    }
-});
+const props = defineProps<{
+    classList?: string;
+    href?: string;
+}>();
+
+const {classList, href} = props;
 </script>
