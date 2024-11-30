@@ -1,6 +1,6 @@
 ---
 import Nav from "@/components/elements/Nav.astro";
-import { Image } from "@unpic/astro";
+import { Image } from "astro:assets";
 import ScreenWidth from "../elements/ScreenWidth.astro";
 type Props = {
     image: ImageMetadata;
@@ -21,12 +21,7 @@ const { image, title, description, Content }: Props = Astro.props;
     <Image
         src={image}
         alt={title}
-        layout="constrained"
-        loading="eager"
-        placeholder="blurhash"
         class="absolute inset-0 h-full object-cover"
-        priority
-        breakpoints={[2000, 1024, 600, 430]}
     />
     <div
         class="bg-black/40
