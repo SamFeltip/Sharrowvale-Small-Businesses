@@ -1,6 +1,6 @@
 ---
-bannerImage: ../../assets/images/category/bakery/bakery.jpg
-heroImage: ../../assets/images/category/bakery/bakery.jpg
+bannerImage: ../../assets/images/category/bakery/banner.jpg
+heroImage: ../../assets/images/category/bakery/hero.avif
 isPage: false
 relatedCategories: []
 promotedBusinesses: []

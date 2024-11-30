@@ -1,7 +1,7 @@
 ---
-bannerImage: ../../assets/images/category/clothing/clothing.jpg
-heroImage: ../../assets/images/category/clothing/clothing.jpg
-isPage: false
+bannerImage: ../../assets/images/category/clothing/banner.jpg
+heroImage: ../../assets/images/category/clothing/hero.jpg
+isPage: true
 relatedCategories: []
 promotedBusinesses: []
 name: Clothing

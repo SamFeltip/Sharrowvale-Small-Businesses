@@ -54,7 +54,7 @@ const bussinessItems = await Promise.all(
         >
         <Button href="/category/news">See all posts</Button>
     </div>
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-3" id="news-items">
         {
             bussinessItems.map((item) => (
                 <PlaceCardWide
@@ -68,3 +68,10 @@ const bussinessItems = await Promise.all(
         }
     </div>
 </section>
+
+<style>
+    #news-items {
+        container-name: search-results;
+        container-type: inline-size;
+    }
+</style>

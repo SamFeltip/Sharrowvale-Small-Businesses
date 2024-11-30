@@ -1,7 +1,7 @@
 ---
 bannerImage: ../../assets/images/category/restaurant/restaurant.jpg
 heroImage: ../../assets/images/category/restaurant/restaurant.jpg
-isPage: false
+isPage: true
 relatedCategories: []
 promotedBusinesses: []
 name: Restaurant

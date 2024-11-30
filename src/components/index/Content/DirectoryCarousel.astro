@@ -5,11 +5,25 @@ import { getCollection } from "astro:content";
 
 import { getImage } from "astro:assets";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
+import { categorySchema } from "@/schemas/category";
 
 const categories = await getCollection("category");
 
+const promotedCategories = [
+    "food-and-drink",
+    "clothing",
+    "cafe",
+    "lunch",
+    "restaurant",
+    "pubs-and-bars",
+];
+
+const selectedCategories = categories.filter((category) =>
+    promotedCategories.includes(category.slug)
+);
+
 const specialItems = await Promise.all(
-    categories.map(async (category) => {
+    selectedCategories.map(async (category) => {
         let image = await getImage({
             src: category.data.heroImage,
             format: "webp",
