@@ -42,7 +42,7 @@ const specialItems = await Promise.all(
     })
 );
 
-const carouselItems = specialItems.slice(0, 7);
+const carouselItems = specialItems.filter((item) => item !== null).slice(0, 7);
 ---
 
 <Section direction="column">
