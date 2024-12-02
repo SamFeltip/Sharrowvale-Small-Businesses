@@ -193,26 +193,17 @@ tagItems = tagItems.filter((tag) => tag.data.isVisible);
                     <div class="flex flex-col items-center">
                         <div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
                             {tagItems.map((tag) => (
-                                <>
-                                    <data
-                                        class="hidden"
-                                        data-pagefind-filter="tags"
-                                    >
-                                        {tag.data.name}
-                                    </data>
-                                    <Button
-                                        href={
-                                            tag.data.isPage &&
-                                            tag.data.isVisible
-                                                ? `/tags/${tag.slug}`
-                                                : undefined
-                                        }
-                                        disabled={tag.data.isPage == false}
-                                        data-pagefind-filter="tags"
-                                    >
-                                        {tag.data.name}
-                                    </Button>
-                                </>
+                                <Button
+                                    href={
+                                        tag.data.isPage && tag.data.isVisible
+                                            ? `/tags/${tag.slug}`
+                                            : undefined
+                                    }
+                                    disabled={tag.data.isPage == false}
+                                    data-pagefind-filter="tags"
+                                >
+                                    {tag.data.name}
+                                </Button>
                             ))}
                         </div>
                     </div>
