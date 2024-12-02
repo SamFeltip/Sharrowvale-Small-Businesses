@@ -6,10 +6,10 @@ import H2 from "../elements/headers/H2.astro";
 interface Props {
     card: PlaceCard;
     className?: string;
-    position: "start" | "end";
+    position?: "start" | "end";
 }
 
-const { card, position, className = "" } = Astro.props;
+const { card, position = "start", className = "" } = Astro.props;
 ---
 
 <HoverArticle

@@ -3,6 +3,22 @@ import HeaderContent from "@/components/HeaderContent.astro";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
+import Button from "@/components/elements/Button.vue";
+import SerifBody from "@/components/elements/body/SerifBody.astro";
+import H3 from "@/components/elements/headers/H3.vue";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
+import { faLink } from "@fortawesome/free-solid-svg-icons/faLink";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
+import LargePromotionalItem from "@/components/businesses/LargePromotionalItem.astro";
+import { getEntry } from "astro:content";
+import type { ContentCollectionKey } from "astro:content";
+import type { PlaceCard } from "@/components/placeCards/PlaceCard";
+import {
+    getPlaceCardsFromArticles,
+    getPlaceCardsFromBusinesses,
+} from "@/scripts/placeCard/handler";
+import PlaceCardWide from "@/components/placeCards/PlaceCardWide.vue";
 
 export async function getStaticPaths() {
     const article: CollectionEntry<"articles">[] =
@@ -16,8 +32,16 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"articles">;
 
 const entry: Props = Astro.props;
-const { name, description, categories, tags, bannerImage, heroImage } =
-    entry.data;
+const {
+    name,
+    description,
+    categories,
+    tags,
+    bannerImage,
+    heroImage,
+    author,
+    promotedBusiness,
+} = entry.data;
 
 const { Content } = await entry.render();
 
@@ -25,46 +49,193 @@ const categoryItems = await getEntries(categories);
 
 const tagItems = await getEntries(tags);
 
-console.log(categories);
-console.log("article");
-console.log(categoryItems);
+let promotedCard: PlaceCard | undefined = undefined;
+
+if (promotedBusiness !== undefined) {
+    const promoBusinessEntry = await getEntry(
+        "businesses",
+        promotedBusiness.slug
+    );
+
+    let promotedCards = await getPlaceCardsFromBusinesses(
+        [promoBusinessEntry],
+        900
+    );
+    promotedCard = promotedCards[0];
+}
+
+const moreArticles = await getCollection(
+    "articles",
+    (article) => article.slug !== entry.slug
+);
+
+const articlePages = await getPlaceCardsFromArticles(moreArticles);
 ---
 
 <ContentLayout
     title={name}
-    description="article"
+    description="Sharrow Vale Blog"
     image={bannerImage}
     HeaderContent={HeaderContent}
 >
-    <div data-pagefind-body>
-        <h1 data-pagefind-sort="name">{name}</h1>
-
-        <p data-pagefind-meta="content[data-src]" data-src={description}></p>
-
+    <div id="pagefind-metadata">
+        <h1 class="hidden" data-pagefind-sort="name">{name}</h1>
+        <p
+            class="hidden"
+            data-pagefind-meta="content[data-src]"
+            data-src={description}
+        >
+        </p>
         <Image
+            class="hidden"
             data-pagefind-meta="image[src], image_alt[alt]"
             src={heroImage}
             alt={name}
         />
 
-        <br />
-
-        <h2>categories</h2>
         {
             categoryItems.map((category) => (
-                <p data-pagefind-filter="category">{category.data.name}</p>
+                <p class="hidden" data-pagefind-filter="category">
+                    {category.data.name}
+                </p>
             ))
         }
+    </div>
 
-        <h2>tags</h2>
-        {
-            tagItems.map((tag) => (
-                <p data-pagefind-filter="tags">{tag.data.name}</p>
-            ))
-        }
+    <div data-pagefind-body id="article">
+        <section id="article-content">
+            <Content />
+        </section>
 
-        <br />
+        <section id="article-tags" class="pb-6 flex flex-col gap-2">
+            <H3 position="center" color="coral">Article Tags</H3>
+            <div class="flex flex-wrap justify-center">
+                {
+                    tagItems.map((tag) => (
+                        <Button
+                            disabled={tag.data.isPage}
+                            data-pagefind-filter="tags"
+                        >
+                            {tag.data.name}
+                        </Button>
+                    ))
+                }
+            </div>
+        </section>
 
-        <Content />
+        <section id="article-author" class="pb-6 flex flex-col gap-2">
+            <H3 position="center" color="coral">Author</H3>
+            <SerifBody position="center">{author}</SerifBody>
+        </section>
+
+        <section class="article-share">
+            <H3 position="center" color="coral">Share</H3>
+
+            <div class="flex flex-row flex-wrap gap-5 justify-center">
+                {
+                    (
+                        <Button size="lg" href={"#instagramLink"}>
+                            <span>
+                                <FontAwesomeIcon
+                                    className="h-5 w-5"
+                                    icon={faInstagram}
+                                />
+                            </span>
+                        </Button>
+                    )
+                }
+                {
+                    (
+                        <Button size="lg" href={"#websiteLink"}>
+                            <span>
+                                <FontAwesomeIcon
+                                    className="h-5 w-5"
+                                    icon={faLink}
+                                />
+                            </span>
+                        </Button>
+                    )
+                }
+                {
+                    (
+                        <Button size="lg" href={"#facebookLink"}>
+                            <span>
+                                <FontAwesomeIcon
+                                    className="h-5 w-5"
+                                    icon={faFacebook}
+                                />
+                            </span>
+                        </Button>
+                    )
+                }
+            </div>
+        </section>
+
+        <section id="article-promotion" class="h-[400px]" class="">
+            {
+                promotedCard !== undefined && (
+                    <LargePromotionalItem card={promotedCard} />
+                )
+            }
+        </section>
+
+        <section id="article-more">
+            <H3 position="center" color="coral"> More Articles</H3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    articlePages &&
+                        articlePages.map((article) => (
+                            <PlaceCardWide {...article} />
+                        ))
+                }
+            </div>
+        </section>
     </div>
 </ContentLayout>
+
+<style>
+    #article {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    #article-content {
+        grid-area: content;
+    }
+
+    #article-tags {
+        grid-area: tags;
+    }
+
+    #article-author {
+        grid-area: author;
+    }
+
+    #article-promotion {
+        grid-area: promotion;
+    }
+
+    #article-more {
+        grid-area: more;
+    }
+
+    #article-share {
+        grid-area: share;
+    }
+
+    @media screen and (min-width: 1024px) {
+        #article {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 2fr 1fr;
+
+            grid-template-areas:
+                "content promotion"
+                "content tags"
+                "content author"
+                "content share"
+                "more more";
+        }
+    }
+</style>

@@ -11,6 +11,8 @@ categories:
 tags:
     - new-to-the-area
 websiteLink: "http://www.sharrowvalemarket.co.uk/"
+
+promotedBusiness: "the-porter-cottage"
 ---
 
 ## Cask and Keg arrives in Sharrowvale

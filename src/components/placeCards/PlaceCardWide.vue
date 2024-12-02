@@ -1,19 +1,10 @@
 <template>
     <HoverArticle :href="href">
-        <div class="search-result-wide grid rounded-lg overflow-hidden">
-            <img
-                v-if="image"
-                :src="image"
-                :alt="title"
-                class="w-full max-w-[300px] h-48 object-cover rounded-lg"
-            />
+        <div class="search-result-wide w-full grid rounded-lg overflow-hidden">
+            <img v-if="image" :src="image" :alt="title" class="w-full h-48 object-cover rounded-lg" />
             <div class="w-full p-4">
                 <div class="flex gap-2 tag-list">
-                    <a
-                        v-for="(tag, index) in tags"
-                        :key="index"
-                        class="text-coral px-2 py-1 text-sm"
-                    >
+                    <a v-for="(tag, index) in tags" :key="index" class="text-coral px-2 py-1 text-sm">
                         {{ tag.name }}
                     </a>
                 </div>

@@ -16,5 +16,5 @@ const props = defineProps<{
     href?: string;
 }>();
 
-const {classList, outerClassList, href} = props;
+const {classList="", outerClassList="", href} = props;
 </script>
