@@ -4,5 +4,5 @@ heroImage: ../../assets/images/tag/clothing/hero.jpg
 isPage: false
 relatedCategories: []
 promotedBusinesses: []
-name: Clothing
+name: Outdoors
 ---

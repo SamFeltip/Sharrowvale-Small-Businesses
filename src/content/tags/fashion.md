@@ -1,8 +1,8 @@
 ---
 bannerImage: ../../assets/images/tag/clothing/banner.jpg
 heroImage: ../../assets/images/tag/clothing/hero.jpg
-isPage: false
+isPage: true
 relatedCategories: []
 promotedBusinesses: []
-name: Clothing
+name: Fashion
 ---

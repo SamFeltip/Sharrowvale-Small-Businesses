@@ -29,6 +29,7 @@ openDaysStatement: "Open everyday"
 # Listing types
 tags:
     - directory
+    - dyson-place
     - cafe
     - restaurant
     - pubs-and-bars
@@ -43,7 +44,6 @@ tags:
     - event-catering
     - free-wifi
     - outdoor-seating
-    - romantic
 ---
 
 ## Open Hours

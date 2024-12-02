@@ -32,7 +32,7 @@ tags:
     - directory
     - hair-beauty
     - hairdressers
-    - beauty-services
+    - beauty-and-care
 ---
 
 ## Open Hours

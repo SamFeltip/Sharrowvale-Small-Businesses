@@ -28,10 +28,10 @@ openDaysStatement: "Closed Sundays"
 tags:
     - directory
     - food-shop
-    - healthy
+    - health
     - eco-aware
     - groceries
-    - home-household
+    - home
 ---
 
 ## Open Hours

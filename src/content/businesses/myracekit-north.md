@@ -30,9 +30,8 @@ tags:
     - directory
     - sport
     - clothing
-    - healthy
+    - healthcare
     - shoes
-    - accessories
 ---
 
 ## Open Hours

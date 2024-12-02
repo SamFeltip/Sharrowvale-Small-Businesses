@@ -33,8 +33,6 @@ tags:
     - breakfast
     - dinner
     - event-catering
-    - fast-food
-    - healthy
     - lunch
     - mexican
     - restaurant

@@ -32,7 +32,7 @@ tags:
     - directory
     - clothing
     - fashion
-    - travel
+    - outdoors
 ---
 
 ## Open Hours

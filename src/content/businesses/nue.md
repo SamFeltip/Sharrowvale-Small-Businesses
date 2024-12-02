@@ -41,7 +41,7 @@ tags:
     - take-out
     - free-wifi
     - gluten-free
-    - healthy
+    - health
 ---
 
 ## Open Hours

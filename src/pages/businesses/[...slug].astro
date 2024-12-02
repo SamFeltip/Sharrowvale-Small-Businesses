@@ -99,7 +99,11 @@ const heroImageResult = await getImage({
 
 const heroImageSrc = heroImageResult.src;
 
+console.log(tags);
+
 const categoryItems = await getEntries(tags);
+
+console.log(categoryItems);
 ---
 
 <ContentLayout
@@ -190,13 +194,13 @@ const categoryItems = await getEntries(tags);
                 categoryItems && (
                     <div class="flex flex-col items-center">
                         <div
-                            data-pagefind-filter="tag"
+                            data-pagefind-filter="tags"
                             class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]"
                         >
                             {categoryItems.map((tag) => (
                                 <Button
-                                    href={`/tag/${tag.slug}`}
-                                    data-pagefind-filter="tag"
+                                    href={`/tags/${tag.slug}`}
+                                    data-pagefind-filter="tags"
                                 >
                                     {tag.data.name}
                                 </Button>
@@ -210,7 +214,7 @@ const categoryItems = await getEntries(tags);
         <section>
             <a
                 class="underline text-center flex justify-center"
-                href="/tag/directory"
+                href="/tags/directory"
             >
                 Back to results
             </a>

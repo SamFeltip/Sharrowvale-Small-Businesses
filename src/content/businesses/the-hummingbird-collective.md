@@ -29,15 +29,10 @@ openDaysStatement: "Open every day"
 # Listing types
 tags:
     - directory
-    - gift-shop
     - jewellery
-    - accessories
     - art-design
     - clothing
-    - gift-cards
     - gift-shop
-    - gifts-for-men
-    - jewellery
     - made-in-sheffield
 ---
 

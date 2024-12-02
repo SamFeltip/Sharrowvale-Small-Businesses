@@ -38,7 +38,6 @@ tags:
     - free-wifi
     - gluten-free
     - mediterranean
-    - romantic
 ---
 
 ## Open Hours

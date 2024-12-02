@@ -4,5 +4,7 @@ heroImage: ../../assets/images/tag/clothing/hero.jpg
 isPage: false
 relatedCategories: []
 promotedBusinesses: []
-name: Clothing
+name: Made in Sheffield
 ---
+
+## Shop local at Sharrow Vale

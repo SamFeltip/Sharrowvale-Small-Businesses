@@ -27,7 +27,6 @@ openDaysStatement: "Open Mon - Fri"
 # Listing types
 tags:
     - directory
-    - medical-centre
     - healthcare
 ---
 
