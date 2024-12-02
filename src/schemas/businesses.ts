@@ -25,5 +25,4 @@ export const businessSchema =  ({image}: { image: ImageFunction }) => z.object({
     owner: z.string().nullable(),           // Owner
     openDaysStatement: z.string().nullable(), // Open days statement
     specialTag: z.string().nullable(),      // Special Tag
-    tags: z.array(z.string()).optional(),  // Updated to an array of strings
 });

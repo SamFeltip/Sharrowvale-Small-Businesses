@@ -2,7 +2,7 @@ import { defineCollection, reference, z } from 'astro:content';
 
 import { businessSchema } from '@/schemas/businesses';
 import { articleSchema } from '@/schemas/articles';
-import { categorySchema } from '@/schemas/tag';
+import { tagSchema } from '@/schemas/tag';
 import { articleCategorySchema } from '@/schemas/articleCategory';
 import { promotionSchema } from '@/schemas/promotion';
 
@@ -22,10 +22,10 @@ const articleCategories = defineCollection({
 	schema: articleCategorySchema,
 });
 
-const catCollection = defineCollection({
+const tagCollection = defineCollection({
 	type: 'content',
 	// Type-check frontmatter using a schema
-	schema: categorySchema,
+	schema: tagSchema,
 });
 
 const promotionCollection = defineCollection({
@@ -35,7 +35,7 @@ const promotionCollection = defineCollection({
 
 export const collections = {
 	"businesses": businesses,
-	"tag": catCollection,
+	"tag": tagCollection,
 	"promotion": promotionCollection,
 	"articles": articles,
 	"articleCategories": articleCategories,

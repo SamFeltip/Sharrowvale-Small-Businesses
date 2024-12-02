@@ -30,13 +30,6 @@ openDaysStatement: "Open Tues - Sun"
 tags:
     - directory
     - beauty-and-care
-
-# Tags
-specialTag: ""
-tags:
-    - "beauty services"
-    - "free wifi"
-    - "tattoo piercing"
 ---
 
 ## Open Hours
