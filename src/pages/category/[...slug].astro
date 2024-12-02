@@ -17,18 +17,13 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"tag">;
 
 const entry: Props = Astro.props;
-const {
-    name,
-    description,
-    bannerImage,
-    promotedBusinesses,
-    relatedCategories,
-} = entry.data;
+const { name, description, bannerImage, promotedBusinesses, relatedTags } =
+    entry.data;
 
 const { Content } = await entry.render();
 
 const promoBusinesses = await getEntries(promotedBusinesses);
-const promoCategories = await getEntries(relatedCategories);
+const promoCategories = await getEntries(relatedTags);
 
 const tags = await getCollection("tag", (tag) => !tag.data.isVisible);
 
