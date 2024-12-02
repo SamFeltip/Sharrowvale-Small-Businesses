@@ -23,12 +23,16 @@ const entry: Props = Astro.props;
 const { name, description, bannerImage, promotedBusinesses, relatedTags } =
     entry.data;
 
+if (bannerImage == null) {
+    throw new Error("isPage tags must have banner images");
+}
+
 const { Content } = await entry.render();
 
 const promoBusinesses = await getEntries(promotedBusinesses);
 const promoCategories = await getEntries(relatedTags);
 
-const tags = await getCollection("tag", (tag) => !tag.data.isVisible);
+const tags = await getCollection("tags", (tag) => !tag.data.isVisible);
 
 const hiddenCategories = tags.map((tag) => tag.data.name);
 

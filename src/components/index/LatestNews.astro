@@ -8,7 +8,7 @@ import { getImage } from "astro:assets";
 const promotions: CollectionEntry<"businesses">[] =
     await getCollection("businesses");
 
-const tags = await getCollection("tag");
+const tags = await getCollection("tags");
 
 const bussinessItems = await Promise.all(
     promotions.slice(0, 4).map(async (business) => {

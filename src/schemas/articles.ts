@@ -11,7 +11,7 @@ export const articleSchema =  ({image}: { image: ImageFunction }) => z.object({
     dateTime: z.string().datetime().optional(),
     publishDate: z.string().date().optional(),
 
-    tags: z.array(reference("tag")),
+    tags: z.array(reference("tags")),
     articleCategories: z.array(reference("articleCategory")),  
 
     websiteLink: z.string().url().nullable(),
