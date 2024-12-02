@@ -4,6 +4,7 @@ import ContentPromotions from "@/components/content/ContentPromotions.astro";
 import H1 from "@/components/elements/headers/H1.astro";
 import SearchWrapper from "@/components/search/SearchWrapper.vue";
 import ContentLayout from "@/layouts/ContentLayout.astro";
+import { getEntry } from "astro:content";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
@@ -41,6 +42,12 @@ const businesses = await getCollection("businesses", ({ data }) =>
 );
 
 const isGridLayout = businesses.length >= 6;
+
+const directoryCategory = await getEntry("categories", "Directory");
+
+if (directoryCategory == null) {
+    throw new Error("Directory category not found");
+}
 ---
 
 <ContentLayout
@@ -62,7 +69,7 @@ const isGridLayout = businesses.length >= 6;
 
     <SearchWrapper
         client:only="vue"
-        requiredCategories={["Directory"]}
+        requiredCategories={[directoryCategory.data.name]}
         requiredTag={name}
         isGridLayout={isGridLayout}
         hiddenTags={hiddenTags}
