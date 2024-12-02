@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/bakery/banner.jpg
-heroImage: ../../assets/images/tag/bakery/hero.avif
+bannerImage: ../../assets/images/tags/bakery/banner.jpg
+heroImage: ../../assets/images/tags/bakery/hero.avif
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Groceries
 ---

@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/beauty-and-care/banner.jpg
-heroImage: ../../assets/images/tag/beauty-and-care/hero.jpg
+bannerImage: ../../assets/images/tags/beauty-and-care/banner.jpg
+heroImage: ../../assets/images/tags/beauty-and-care/hero.jpg
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Beauty and Care
 ---

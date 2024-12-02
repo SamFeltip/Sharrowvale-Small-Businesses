@@ -101,7 +101,9 @@ const heroImageSrc = heroImageResult.src;
 
 console.log(tags);
 
-const categoryItems = await getEntries(tags);
+let categoryItems = await getEntries(tags);
+
+categoryItems = categoryItems.filter((tag) => tag.data.isVisible);
 
 console.log(categoryItems);
 ---
@@ -199,7 +201,12 @@ console.log(categoryItems);
                         >
                             {categoryItems.map((tag) => (
                                 <Button
-                                    href={`/tags/${tag.slug}`}
+                                    href={
+                                        tag.data.isPage && tag.data.isVisible
+                                            ? `/tags/${tag.slug}`
+                                            : undefined
+                                    }
+                                    disabled={tag.data.isPage == false}
                                     data-pagefind-filter="tags"
                                 >
                                     {tag.data.name}

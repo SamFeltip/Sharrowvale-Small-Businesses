@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/bar/banner.jpg
-heroImage: ../../assets/images/tag/bar/hero.avif
+bannerImage: ../../assets/images/tags/bar/banner.jpg
+heroImage: ../../assets/images/tags/bar/hero.avif
 isPage: true
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Pubs & Bars
 ---

@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/tattoo-piercing/tattoo-piercing.jpg
-heroImage: ../../assets/images/tag/tattoo-piercing/tattoo-piercing.jpg
+bannerImage: ../../assets/images/tags/tattoo-piercing/tattoo-piercing.jpg
+heroImage: ../../assets/images/tags/tattoo-piercing/tattoo-piercing.jpg
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Tattoo & Piercing
 ---

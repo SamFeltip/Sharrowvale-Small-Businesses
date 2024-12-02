@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/dinner/banner.jpg
-heroImage: ../../assets/images/tag/dinner/hero.jpg
+bannerImage: ../../assets/images/tags/dinner/banner.jpg
+heroImage: ../../assets/images/tags/dinner/hero.jpg
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Dinner
 ---

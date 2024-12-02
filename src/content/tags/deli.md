@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/deli/deli.jpg
-heroImage: ../../assets/images/tag/deli/deli.jpg
+bannerImage: ../../assets/images/tags/deli/deli.jpg
+heroImage: ../../assets/images/tags/deli/deli.jpg
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Deli
 ---

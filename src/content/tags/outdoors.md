@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/clothing/banner.jpg
-heroImage: ../../assets/images/tag/clothing/hero.jpg
+bannerImage: ../../assets/images/tags/clothing/banner.jpg
+heroImage: ../../assets/images/tags/clothing/hero.jpg
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Outdoors
 ---

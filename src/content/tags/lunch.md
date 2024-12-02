@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/lunch/banner.webp
-heroImage: ../../assets/images/tag/lunch/hero.png
+bannerImage: ../../assets/images/tags/lunch/banner.webp
+heroImage: ../../assets/images/tags/lunch/hero.png
 isPage: true
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Lunch
 ---

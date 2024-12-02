@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/directory/sunset.jpeg
-heroImage: ../../assets/images/tag/directory/sunset.jpeg
+bannerImage: ../../assets/images/tags/directory/sunset.jpeg
+heroImage: ../../assets/images/tags/directory/sunset.jpeg
 isPage: true
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Directory
 description: Independent small businesses

@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/restaurant/restaurant.jpg
-heroImage: ../../assets/images/tag/restaurant/restaurant.jpg
+bannerImage: ../../assets/images/tags/restaurant/restaurant.jpg
+heroImage: ../../assets/images/tags/restaurant/restaurant.jpg
 isPage: true
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Restaurant
 ---

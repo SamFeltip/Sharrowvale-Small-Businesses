@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/jewellery/jewellery.jpg
-heroImage: ../../assets/images/tag/jewellery/jewellery.jpg
+bannerImage: ../../assets/images/tags/jewellery/jewellery.jpg
+heroImage: ../../assets/images/tags/jewellery/jewellery.jpg
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Jewellery
 ---

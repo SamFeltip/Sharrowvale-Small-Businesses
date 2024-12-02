@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/gift-shop/gift-shop.jpg
-heroImage: ../../assets/images/tag/gift-shop/gift-shop.jpg
+bannerImage: ../../assets/images/tags/gift-shop/gift-shop.jpg
+heroImage: ../../assets/images/tags/gift-shop/gift-shop.jpg
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Gift shop
 ---

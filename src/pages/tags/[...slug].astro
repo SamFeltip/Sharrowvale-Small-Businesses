@@ -7,14 +7,17 @@ import ContentLayout from "@/layouts/ContentLayout.astro";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-    const tag: CollectionEntry<"tag">[] = await getCollection("tag");
+    const tag: CollectionEntry<"tags">[] = await getCollection(
+        "tags",
+        (tag) => tag.data.isPage
+    );
     return tag.map((business) => ({
         params: { slug: business.slug },
         props: business,
     }));
 }
 
-type Props = CollectionEntry<"tag">;
+type Props = CollectionEntry<"tags">;
 
 const entry: Props = Astro.props;
 const { name, description, bannerImage, promotedBusinesses, relatedTags } =

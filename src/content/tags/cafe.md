@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/cafe/banner.jpg
-heroImage: ../../assets/images/tag/cafe/heroImage.jpeg
+bannerImage: ../../assets/images/tags/cafe/banner.jpg
+heroImage: ../../assets/images/tags/cafe/heroImage.jpeg
 isPage: true
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Cafe
 ---

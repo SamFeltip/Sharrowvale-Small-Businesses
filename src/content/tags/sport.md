@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/sport/sport.jpg
-heroImage: ../../assets/images/tag/sport/sport.jpg
+bannerImage: ../../assets/images/tags/sport/sport.jpg
+heroImage: ../../assets/images/tags/sport/sport.jpg
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Sport
 ---

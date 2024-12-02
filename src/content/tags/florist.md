@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/florist/florist.jpg
-heroImage: ../../assets/images/tag/florist/florist.jpg
+bannerImage: ../../assets/images/tags/florist/florist.jpg
+heroImage: ../../assets/images/tags/florist/florist.jpg
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Florist
 ---

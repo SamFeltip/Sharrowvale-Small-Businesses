@@ -1,6 +1,6 @@
 ---
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Accessible Entrance
 ---

@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/home-hardware/home-hardware.jpg
-heroImage: ../../assets/images/tag/home-hardware/home-hardware.jpg
+bannerImage: ../../assets/images/tags/home-hardware/home-hardware.jpg
+heroImage: ../../assets/images/tags/home-hardware/home-hardware.jpg
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Home
 ---

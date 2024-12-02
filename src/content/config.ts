@@ -35,7 +35,7 @@ const promotionCollection = defineCollection({
 
 export const collections = {
 	"businesses": businesses,
-	"tag": tagCollection,
+	"tags": tagCollection,
 	"promotion": promotionCollection,
 	"articles": articles,
 	"articleCategories": articleCategories,

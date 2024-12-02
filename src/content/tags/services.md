@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/services/services.jpg
-heroImage: ../../assets/images/tag/services/services.jpg
+bannerImage: ../../assets/images/tags/services/services.jpg
+heroImage: ../../assets/images/tags/services/services.jpg
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Services
 ---

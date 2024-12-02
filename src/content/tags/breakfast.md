@@ -1,8 +1,8 @@
 ---
-bannerImage: ../../assets/images/tag/breakfast/banner.jpg
-heroImage: ../../assets/images/tag/breakfast/hero.jpg
+bannerImage: ../../assets/images/tags/breakfast/banner.jpg
+heroImage: ../../assets/images/tags/breakfast/hero.jpg
 isPage: false
-relatedCategories: []
+relatedTags: []
 promotedBusinesses: []
 name: Breakfast
 ---
