@@ -28,18 +28,14 @@ tags:
     - directory
     - gift-shop
     - jewellery
-
-# Tags
-specialTag: ""
-tags:
-    - "fashion"
-    - "accessories"
-    - "made in-sheffield"
-    - "art design"
-    - "gifts for-men"
-    - "gift cards"
-    - "gift shop"
-    - "jewelry"
+    - fashion
+    - accessories
+    - made-in-sheffield
+    - art-design
+    - gifts-for-men
+    - gift-cards
+    - gift-shop
+    - jewellery
 ---
 
 ## Open Hours

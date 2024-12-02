@@ -29,19 +29,15 @@ openDaysStatement: "Open every day"
 tags:
     - directory
     - restaurant
-
-# Tags
-specialTag: "Allergen Friendly"
-tags:
-    - "take out"
-    - "breakfast"
-    - "dinner"
-    - "event catering"
-    - "fast food"
-    - "healthy"
-    - "lunch"
-    - "mexican"
-    - "restaurant"
+    - take-out
+    - breakfast
+    - dinner
+    - event-catering
+    - fast-food
+    - healthy
+    - lunch
+    - mexican
+    - restaurant
 ---
 
 ## Open Hours

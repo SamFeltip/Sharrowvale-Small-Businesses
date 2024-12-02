@@ -36,16 +36,12 @@ tags:
     - bakery
     - breakfast
     - lunch
-
-# Tags
-specialTag: "Allergen Friendly"
-tags:
-    - "coffee"
-    - "sit in"
-    - "take out"
-    - "free wifi"
-    - "gluten free"
-    - "healthy"
+    - coffee
+    - sit-in
+    - take-out
+    - free-wifi
+    - gluten-free
+    - healthy
 ---
 
 ## Open Hours

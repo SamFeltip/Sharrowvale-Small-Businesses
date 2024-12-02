@@ -31,13 +31,8 @@ tags:
     - directory
     - bakery
     - cafe
-
-# Tags
-specialTag: ""
-tags:
-    - "take out"
-    - "coffee"
-    - "romantic"
+    - take-out
+    - coffee
 ---
 
 ## Open Hours

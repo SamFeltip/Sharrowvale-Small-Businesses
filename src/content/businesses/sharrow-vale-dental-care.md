@@ -28,13 +28,7 @@ openDaysStatement: "Open Mon - Fri"
 tags:
     - directory
     - medical-centre
-
-# Tags
-specialTag: ""
-tags:
-    - "healthcare"
-
-
+    - healthcare
 ---
 
 ## Open Hours

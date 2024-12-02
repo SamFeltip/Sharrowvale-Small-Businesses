@@ -29,11 +29,6 @@ tags:
     - directory
     - hair-beauty
 
-# Tags
-specialTag: ""
-tags:
-    - "hair beauty"
-
 
 ---
 

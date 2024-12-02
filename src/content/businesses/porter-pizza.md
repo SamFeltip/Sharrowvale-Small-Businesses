@@ -30,18 +30,14 @@ openDaysStatement: "Open every day"
 tags:
     - directory
     - restaurant
-
-# Tags
-specialTag: "Popular"
-tags:
-    - "sit in"
-    - "take out"
-    - "dinner"
-    - "event catering"
-    - "lunch"
-    - "outdoor seating"
-    - "romantic"
-    - "restaurant"
+    - sit-in
+    - take-out
+    - dinner
+    - event-catering
+    - lunch
+    - outdoor-seating
+    - romantic
+    - restaurant
 
 
 ---

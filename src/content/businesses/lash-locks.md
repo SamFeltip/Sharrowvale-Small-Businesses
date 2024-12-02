@@ -31,13 +31,8 @@ openDaysStatement: "Open Mon - Sat"
 tags:
     - directory
     - hair-beauty
-
-# Tags
-specialTag: ""
-tags:
-    - "hairdressers"
-    - "beauty services"
-    - "hair beauty"
+    - hairdressers
+    - beauty-services
 ---
 
 ## Open Hours

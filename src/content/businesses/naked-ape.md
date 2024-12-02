@@ -31,13 +31,8 @@ openDaysStatement: "Open Mon - Sat"
 tags:
     - directory
     - clothing
-
-# Tags
-specialTag: ""
-tags:
-    - "clothing"
-    - "fashion"
-    - "travel"
+    - fashion
+    - travel
 ---
 
 ## Open Hours

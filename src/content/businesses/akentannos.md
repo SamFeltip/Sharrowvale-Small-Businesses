@@ -34,16 +34,11 @@ tags:
     - directory
     - restaurant
     - dinner
-
-# Tags
-specialTag: "Allergen Friendly"
-tags:
-    - "sit in"
-    - "dog friendly"
-    - "free wifi"
-    - "gluten free"
-    - "mediterranean"
-    - "romantic"
+    - sit-in
+    - free-wifi
+    - gluten-free
+    - mediterranean
+    - romantic
 ---
 
 ## Open Hours

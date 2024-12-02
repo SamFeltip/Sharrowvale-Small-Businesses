@@ -29,16 +29,12 @@ tags:
     - directory
     - pubs-and-bars
     - food-and-drink
-
-# Tags
-specialTag: ""
-tags:
-    - "free wifi"
-    - "outdoor seating"
-    - "dog friendly"
-    - "live music"
-    - "pub"
-    - "bar"
+    - free-wifi
+    - outdoor-seating
+    - dog-friendly
+    - live-music
+    - pub
+    - bar
 ---
 
 ## Open Hours

@@ -31,16 +31,12 @@ tags:
     - directory
     - pubs-and-bars
     - food-and-drink
-
-# Tags
-specialTag: "Allergen Friendly"
-tags:
-    - "sit in"
-    - "drinks"
-    - "pub"
-    - "bar"
-    - "beer"
-    - "cider"
+    - sit-in
+    - drinks
+    - pub
+    - bar
+    - beer
+    - cider
 ---
 
 ## Open Hours

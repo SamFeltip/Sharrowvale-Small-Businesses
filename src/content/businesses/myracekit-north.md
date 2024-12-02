@@ -29,16 +29,10 @@ openDaysStatement: "Open everyday"
 tags:
     - directory
     - sport
-
-# Tags
-specialTag: ""
-tags:
-    - "clothing"
-    - "healthy"
-    - "sport"
-    - "shoes"
-    - "accessories"
-    - "dog friendly"
+    - clothing
+    - healthy
+    - shoes
+    - accessories
 ---
 
 ## Open Hours

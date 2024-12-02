@@ -27,11 +27,7 @@ openDaysStatement: "Open Tues and Weds"
 tags:
     - directory
     - medical-centre
-
-# Tags
-specialTag: "New"
-tags:
-    - "healthcare"
+    - healthcare
 ---
 
 ## Open Hours

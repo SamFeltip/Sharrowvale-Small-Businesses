@@ -36,18 +36,14 @@ tags:
     - breakfast
     - lunch
     - dinner
-
-# Tags
-specialTag: ""
-tags:
-    - "accessible entrance"
-    - "bar"
-    - "coffee"
-    - "sit in"
-    - "event catering"
-    - "free wifi"
-    - "outdoor seating"
-    - "romantic"
+    - accessible-entrance
+    - bar
+    - coffee
+    - sit-in
+    - event-catering
+    - free-wifi
+    - outdoor-seating
+    - romantic
 ---
 
 ## Open Hours
