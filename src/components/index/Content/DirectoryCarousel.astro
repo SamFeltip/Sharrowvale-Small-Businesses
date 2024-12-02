@@ -6,6 +6,7 @@ import { getCollection } from "astro:content";
 import { getImage } from "astro:assets";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import { categorySchema } from "@/schemas/category";
+import Section from "@/components/elements/section.astro";
 
 const categories = await getCollection("category");
 
@@ -43,8 +44,8 @@ const specialItems = await Promise.all(
 const carouselItems = specialItems.slice(0, 7);
 ---
 
-<section>
+<Section direction="column">
     <H2 color="coral" position="center"> Independent Businesses </H2>
 
     <CarouselWrapper client:load items={carouselItems} />
-</section>
+</Section>

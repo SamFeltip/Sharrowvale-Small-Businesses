@@ -1,6 +1,7 @@
 ---
 import ContentPromotions from "@/components/content/ContentPromotions.astro";
 import H2 from "@/components/elements/headers/H2.astro";
+import Section from "@/components/elements/section.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 
 const businesses: CollectionEntry<"businesses">[] =
@@ -9,7 +10,7 @@ const businesses: CollectionEntry<"businesses">[] =
 const businessItems = businesses.slice(0, 4);
 ---
 
-<section>
+<Section>
     <H2 position="center" color="coral">What's on</H2>
     <ContentPromotions businesses={businessItems} />
-</section>
+</Section>
