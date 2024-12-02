@@ -37,10 +37,10 @@ const secondaryItems: PlaceCard[] = await Promise.all(
     secondaryBusinesses.map(async (item) => {
         let image = await getImage({
             src: item.data.heroImage,
-            height: 400,
             width: 400,
             format: "webp",
         });
+
         let imageUrl = image.src;
 
         return {
