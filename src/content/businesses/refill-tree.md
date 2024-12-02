@@ -25,8 +25,10 @@ owner: "Tyler Savage"
 openDaysStatement: "Closed Sundays"
 
 # Listing types
+categories:
+    - Directory
+
 tags:
-    - directory
     - food-shop
     - health
     - eco-aware

@@ -28,7 +28,6 @@ openDaysStatement: "Open every day"
 
 # Listing types
 tags:
-    - directory
     - restaurant
     - sit-in
     - take-out

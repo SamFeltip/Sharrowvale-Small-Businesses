@@ -5,28 +5,32 @@
         class="w-full gap-6"
         :class="{ gridLayout: isGridLayout }"
     >
-        <SearchBox :requiredCategory="requiredCategory" />
+        <SearchBox :requiredTag="requiredTag" :requiredCategories="requiredCategories" />
         <SearchResults
-            :tag="requiredCategory"
+            :tag="requiredTag"
             :isGridLayout="isGridLayout"
-            :hidden-tags="hiddenCategories"
+            :hiddenTags="hiddenTags"
         />
     </div>
 </template>
 
 <script setup lang="ts">
+
+console.log("hello wrapper");
+
 import SearchBox from "./SearchBox.vue";
 import SearchResults from "./SearchResults.vue";
 
 import { provide, ref } from "vue";
 
 const props = defineProps<{
-    requiredCategory: string,
+    requiredTag?: string,
+    requiredCategories: string[],
     isGridLayout: boolean,
-    hiddenCategories: string[]
+    hiddenTags?: string[]
 }>();
 
-const {requiredCategory, isGridLayout, hiddenCategories} = props;
+const {requiredTag, isGridLayout, hiddenTags} = props;
 
 const searchResults = ref([]);
 const searchQuery = ref("");

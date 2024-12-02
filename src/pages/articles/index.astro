@@ -15,7 +15,7 @@ import { getImage } from "astro:assets";
 
 const events: CollectionEntry<"articles">[] = await getCollection(
     "articles",
-    ({ data }) => data.articleCategories.some((tag) => tag.slug === "events")
+    ({ data }) => data.categories.some((tag) => tag.slug === "events")
 );
 
 const eventPlaceCards: PlaceCard[] = await Promise.all(
@@ -30,7 +30,14 @@ const eventPlaceCards: PlaceCard[] = await Promise.all(
     })
 );
 
-console.log(eventPlaceCards);
+const searchCategoryCollection = await getCollection(
+    "categories",
+    (category) => ["directory", "events"].includes(category.slug) == false
+);
+
+const searchCategories = searchCategoryCollection.map(
+    (category) => category.data.name
+);
 ---
 
 <ContentLayout
@@ -39,17 +46,25 @@ console.log(eventPlaceCards);
     image={bannerImage}
     HeaderContent={HeaderContent}
 >
-    <H2 color="coral" position="center"
-        >Find out what's happening in The Vale</H2
-    >
+    <div data-pagefind-ignore class="flex flex-col py-20 gap-40">
+        <Section>
+            <H2 color="coral" position="center"
+                >Find out what's happening in The Vale</H2
+            >
 
-    <!-- <SearchWrapper requiredcategory="article" , isGridLayout={false} /> -->
+            <SearchWrapper
+                client:only="vue"
+                requiredCategories={searchCategories}
+                isGridLayout={false}
+            />
+        </Section>
 
-    <Section>
-        <H2 position="center" color="coral">Upcoming events</H2>
+        <Section>
+            <H2 position="center" color="coral">Upcoming events</H2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {eventPlaceCards.map((event) => <PlaceCardGrid {...event} />)}
-        </div>
-    </Section>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {eventPlaceCards.map((event) => <PlaceCardGrid {...event} />)}
+            </div>
+        </Section>
+    </div>
 </ContentLayout>

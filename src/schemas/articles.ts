@@ -12,7 +12,7 @@ export const articleSchema =  ({image}: { image: ImageFunction }) => z.object({
     publishDate: z.string().date().optional(),
 
     tags: z.array(reference("tags")),
-    articleCategories: z.array(reference("category")),  
+    categories: z.array(reference("categories")),  
 
     websiteLink: z.string().url().nullable(),
 });

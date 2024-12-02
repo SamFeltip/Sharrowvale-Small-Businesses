@@ -12,12 +12,12 @@ const businesses = defineCollection({
 	schema: businessSchema,
 });
 
-const articles = defineCollection({
+const articleCollection = defineCollection({
 	type: 'content',
 	schema: articleSchema,
 });
 
-const articleCategories = defineCollection({
+const categoryCollection = defineCollection({
 	type: 'content',
 	schema: categorySchema,
 });
@@ -34,9 +34,9 @@ const promotionCollection = defineCollection({
 });
 
 export const collections = {
-	"businesses": businesses,
-	"tags": tagCollection,
-	"promotion": promotionCollection,
-	"articles": articles,
-	"articleCategories": articleCategories,
+	businesses: businesses,
+	tags: tagCollection,
+	promotion: promotionCollection,
+	articles: articleCollection,
+	categories: categoryCollection,
 };

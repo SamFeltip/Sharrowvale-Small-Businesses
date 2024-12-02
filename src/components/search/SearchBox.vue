@@ -77,12 +77,10 @@ import type { CustomRecord } from "pagefind";
 import { ref, inject, onMounted, watch } from "vue";
 import Button from "../elements/Button.vue";
 
-const props = defineProps({
-    requiredCategory: {
-        type: String,
-        required: false,
-    },
-});
+const props = defineProps<{
+    requiredTag?: string,
+    requiredCategories: string[],
+}>();
 
 const searchResults = inject("searchResults", ref([] as CustomRecord[]));
 const searchQuery = inject("searchQuery", ref(""));
@@ -97,7 +95,9 @@ const sortAscending = ref(true);
 
 type PagefindSearchOptions = {
     filters: {
-        tag?: Record<string, any>;
+        category?: {
+            any: Record<string, any>
+        };
         tags?: Record<string, any>;
     };
     sort?: {
@@ -106,6 +106,7 @@ type PagefindSearchOptions = {
 };
 
 onMounted(async () => {
+
     pagefind.value = await import(
         /* @vite-ignore */ window.location.origin + "/pagefind/pagefind.js"
     );
@@ -128,14 +129,18 @@ async function handleSearch() {
 function getSearchOptions(): PagefindSearchOptions {
     let searchOptions: PagefindSearchOptions = {
         filters: {
-            tag: [],
             tags: [],
+            category: {any: []},
         },
         sort: { title: sortAscending ? "asc" : "desc" },
     };
 
-    if (props.requiredCategory !== undefined) {
-        searchOptions.filters.tag = [props.requiredCategory];
+    if (props.requiredTag !== undefined) {
+        searchOptions.filters.tags = [props.requiredTag];
+    }
+
+    if (props.requiredCategories !== undefined && searchOptions.filters.category !== undefined) {
+        searchOptions.filters.category.any = props.requiredCategories;
     }
 
     if (localSelectedTags.length > 0) {
@@ -179,7 +184,7 @@ async function processResults(pagefindResults: {
 
     availableTags.value = Object.keys(tags)
         .filter(
-            (tag) => tag.toLowerCase() !== props.requiredCategory?.toLowerCase()
+            (tag) => tag.toLowerCase() !== props.requiredTag?.toLowerCase()
         )
         .sort((a, b) => tags[b] - tags[a])
         .slice(0, 10);

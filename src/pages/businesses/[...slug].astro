@@ -99,13 +99,9 @@ const heroImageResult = await getImage({
 
 const heroImageSrc = heroImageResult.src;
 
-console.log(tags);
+let tagItems = await getEntries(tags);
 
-let categoryItems = await getEntries(tags);
-
-categoryItems = categoryItems.filter((tag) => tag.data.isVisible);
-
-console.log(categoryItems);
+tagItems = tagItems.filter((tag) => tag.data.isVisible);
 ---
 
 <ContentLayout
@@ -193,29 +189,36 @@ console.log(categoryItems);
 
         <section>
             {
-                categoryItems && (
+                tagItems && (
                     <div class="flex flex-col items-center">
-                        <div
-                            data-pagefind-filter="tags"
-                            class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]"
-                        >
-                            {categoryItems.map((tag) => (
-                                <Button
-                                    href={
-                                        tag.data.isPage && tag.data.isVisible
-                                            ? `/tags/${tag.slug}`
-                                            : undefined
-                                    }
-                                    disabled={tag.data.isPage == false}
-                                    data-pagefind-filter="tags"
-                                >
-                                    {tag.data.name}
-                                </Button>
+                        <div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
+                            {tagItems.map((tag) => (
+                                <>
+                                    <data
+                                        class="hidden"
+                                        data-pagefind-filter="tags"
+                                    >
+                                        {tag.data.name}
+                                    </data>
+                                    <Button
+                                        href={
+                                            tag.data.isPage &&
+                                            tag.data.isVisible
+                                                ? `/tags/${tag.slug}`
+                                                : undefined
+                                        }
+                                        disabled={tag.data.isPage == false}
+                                        data-pagefind-filter="tags"
+                                    >
+                                        {tag.data.name}
+                                    </Button>
+                                </>
                             ))}
                         </div>
                     </div>
                 )
             }
+            <div class="hidden" data-pagefind-filter="category:directory"></div>
         </section>
 
         <section>

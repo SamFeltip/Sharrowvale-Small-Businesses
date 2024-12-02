@@ -1,5 +1,5 @@
 ---
-name: "Cornerstone Dyson Place"
+name: "Cornerstone"
 preview: "Locally sourced neighbourhood Restaurant and Bar"
 description: "Your local neighbourhood restaurant and bar offering quality plates all day, every day. Our life in hospitality has taught us that the best venues are a collection of simple things done well. At the cornerstone of any good venue is good food, sourced locally, made thoughtfully and served with a welcome to match the quality."
 type: "restaurant"
@@ -28,7 +28,6 @@ openDaysStatement: "Open everyday"
 
 # Listing types
 tags:
-    - directory
     - dyson-place
     - cafe
     - restaurant

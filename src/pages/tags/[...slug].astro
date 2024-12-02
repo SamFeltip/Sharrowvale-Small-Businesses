@@ -34,7 +34,7 @@ const promoCategories = await getEntries(relatedTags);
 
 const tags = await getCollection("tags", (tag) => !tag.data.isVisible);
 
-const hiddenCategories = tags.map((tag) => tag.data.name);
+const hiddenTags = tags.map((tag) => tag.data.name);
 
 const businesses = await getCollection("businesses", ({ data }) =>
     data.tags.some((tag) => tag.slug === entry.slug)
@@ -62,9 +62,10 @@ const isGridLayout = businesses.length >= 6;
 
     <SearchWrapper
         client:only="vue"
-        requiredCategory={name}
+        requiredCategories={["directory"]}
+        requiredTag={name}
         isGridLayout={isGridLayout}
-        hiddenCategories={hiddenCategories}
+        hiddenTags={hiddenTags}
     />
 
     {
@@ -75,7 +76,9 @@ const isGridLayout = businesses.length >= 6;
                     <ul>
                         {promoCategories.map((tag) => (
                             <li>
-                                <a href={`/tag/${tag.slug}`}>{tag.data.name}</a>
+                                <a href={`/tags/${tag.slug}`}>
+                                    {tag.data.name}
+                                </a>
                             </li>
                         ))}
                     </ul>

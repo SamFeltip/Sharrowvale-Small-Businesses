@@ -1,0 +1,68 @@
+---
+import HeaderContent from "@/components/HeaderContent.astro";
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import { getCollection, getEntries, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+    const article: CollectionEntry<"articles">[] =
+        await getCollection("articles");
+    return article.map((articles) => ({
+        params: { slug: articles.slug },
+        props: articles,
+    }));
+}
+
+type Props = CollectionEntry<"articles">;
+
+const entry: Props = Astro.props;
+const { name, categories, tags, bannerImage, heroImage } = entry.data;
+
+const { Content } = await entry.render();
+
+const categoryItems = await getEntries(categories);
+
+const tagItems = await getEntries(tags);
+
+console.log(categories);
+console.log("article");
+console.log(categoryItems);
+---
+
+<ContentLayout
+    title={name}
+    description="article"
+    image={bannerImage}
+    HeaderContent={HeaderContent}
+>
+    <div data-pagefind-body>
+        <h1 data-pagefind-sort="name">{name}</h1>
+
+        <Image
+            data-pagefind-meta="image[src], image_alt[alt]"
+            src={heroImage}
+            alt={name}
+            width={450}
+        />
+
+        <br />
+
+        <h2>categories</h2>
+        {
+            categoryItems.map((category) => (
+                <p data-pagefind-filter="category">{category.data.name}</p>
+            ))
+        }
+
+        <h2>tags</h2>
+        {
+            tagItems.map((tag) => (
+                <p data-pagefind-filter="tags">{tag.data.name}</p>
+            ))
+        }
+
+        <br />
+
+        <Content />
+    </div>
+</ContentLayout>

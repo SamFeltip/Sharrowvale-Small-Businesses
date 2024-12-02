@@ -24,8 +24,10 @@ owner: "Roisin O'Bentley"
 openDaysStatement: "Open Tues and Weds"
 
 # Listing types
+categories:
+    - Directory
+
 tags:
-    - directory
     - healthcare
 ---
 

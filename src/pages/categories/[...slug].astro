@@ -1,0 +1,52 @@
+---
+import H2 from "@/components/elements/headers/H2.astro";
+import SearchWrapper from "@/components/search/SearchWrapper.vue";
+
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import HeaderContent from "@/components/HeaderContent.astro";
+
+import bannerImage from "@/assets/images/category/guest-road.jpg";
+import Section from "@/components/elements/section.astro";
+
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+    const category: CollectionEntry<"categories">[] =
+        await getCollection("categories");
+    return category.map((category) => ({
+        params: { slug: category.slug },
+        props: category,
+    }));
+}
+
+type Props = CollectionEntry<"categories">;
+
+const entry: Props = Astro.props;
+
+const { Content } = await entry.render();
+
+const { name, description } = entry.data;
+
+const searchCategoryCollection = [name];
+---
+
+<ContentLayout
+    title={name}
+    description={description}
+    image={bannerImage}
+    HeaderContent={HeaderContent}
+>
+    <div data-pagefind-ignore class="flex flex-col py-20 gap-40">
+        <div class="flex flex-col items-center gap-4">
+            <Content />
+        </div>
+
+        <Section>
+            <SearchWrapper
+                client:only="vue"
+                requiredCategories={searchCategoryCollection}
+                isGridLayout={false}
+            />
+        </Section>
+    </div>
+</ContentLayout>

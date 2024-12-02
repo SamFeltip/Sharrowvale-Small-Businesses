@@ -8,8 +8,6 @@ const props: Props = Astro.props;
 
 const { direction = "column" } = props;
 
-console.log(props.direction);
-
 const flexDirection =
     direction == "column" ? "flex-col" : "flex-col md:flex-row";
 ---

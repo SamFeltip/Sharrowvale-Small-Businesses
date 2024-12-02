@@ -49,17 +49,17 @@ import PlaceCardGrid from "../placeCards/PlaceCardGrid.vue";
 const props = defineProps<{
     tag?: string,
     isGridLayout: boolean,
-    hiddenCategories: string[]
+    hiddenTags?: string[]
 }>();
 
 const searchResults = inject("searchResults", ref([] as CustomRecord[]));
 
-console.log(searchResults.value);
-
 function getDisplayTags(result: CustomRecord): { slug: string; name: string }[] {
-    let tags = result.filters?.tag || [];
+    let tags = result.filters?.tags || [];
 
-    tags = tags.filter((tag: string) => tag !== props.tag && !props.hiddenCategories?.includes(tag)).slice(0, 3);
+    console.log(tags);
+
+    tags = tags.filter((tag: string) => tag !== props.tag && !props.hiddenTags?.includes(tag)).slice(0, 3);
 
     return tags.map((tag: string) => ({ slug: tag, name: tag }));
 }

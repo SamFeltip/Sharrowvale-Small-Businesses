@@ -27,8 +27,10 @@ owner: "Lauren"
 openDaysStatement: "Tue-Sun 10:30 -16:00"
 
 # Listing types
+categories:
+    - Directory
+
 tags:
-    - directory
     - bakery
     - cafe
     - take-out

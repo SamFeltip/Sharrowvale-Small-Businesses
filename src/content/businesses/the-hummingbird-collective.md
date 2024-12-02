@@ -27,8 +27,10 @@ owner: "Nicola"
 openDaysStatement: "Open every day"
 
 # Listing types
+categories:
+    - Directory
+
 tags:
-    - directory
     - jewellery
     - art-design
     - clothing

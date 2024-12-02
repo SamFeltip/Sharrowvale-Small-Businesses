@@ -26,8 +26,10 @@ owner: "Richard Golland"
 openDaysStatement: "Open every day"
 
 # Listing types
+categories:
+    - Directory
+
 tags:
-    - directory
     - restaurant
     - take-out
     - breakfast

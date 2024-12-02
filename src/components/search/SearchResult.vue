@@ -5,6 +5,7 @@
                     v-if="image"
                     :src="image"
                     :alt="title"
+                    loading="lazy"
                     class="w-full max-w-[300px] h-48 object-cover rounded-lg"
                 />
                 <div class="w-full p-4">

@@ -28,8 +28,10 @@ owner: ""
 openDaysStatement: "Open Mon - Sat"
 
 # Listing types
+categories:
+    - Directory
+
 tags:
-    - directory
     - clothing
     - fashion
     - outdoors

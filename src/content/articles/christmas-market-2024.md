@@ -5,7 +5,7 @@ heroImage: "@/assets/images/articles/christmas-market-2024/heroImage.jpeg"
 author: "Sam Felton"
 dateTime: "2024-12-01T12:00:00Z"
 publishDate: "2024-12-01"
-articleCategories:
+categories:
     - events
     - community
 tags: []
