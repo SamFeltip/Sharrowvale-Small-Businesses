@@ -29,7 +29,7 @@ openDaysStatement: "Open every day"
 # Listing types
 tags:
     - jewellery
-    - art-design
+    - art-and-design
     - clothing
     - gift-shop
     - made-in-sheffield

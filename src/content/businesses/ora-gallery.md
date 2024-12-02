@@ -29,7 +29,7 @@ tags:
     - jewellery
     - fashion
     - made-in-sheffield
-    - art-design
+    - art-and-design
     - gift-shop
     - jewellery
 ---
