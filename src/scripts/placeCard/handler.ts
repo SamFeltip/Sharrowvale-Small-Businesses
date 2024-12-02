@@ -27,13 +27,13 @@ export async function getPlaceCardsFromArticles(
 }
 
 export async function getPlaceCardsFromBusinesses(
-    articles: CollectionEntry<"businesses">[],
+    businesses: CollectionEntry<"businesses">[],
     imgWidth: number = 400
 ): Promise<PlaceCard[]> {
     const collectionTags = await getCollection("tags");
 
     return await Promise.all(
-        articles.map(async (item) => {
+        businesses.map(async (item) => {
             let imageUrl = await getImageHelper(item.data.heroImage, imgWidth);
 
             const tagPreviews = getTagPreviews(collectionTags, item.data);

@@ -2,8 +2,10 @@
 import HeaderContent from "@/components/HeaderContent.astro";
 import ContentPromotions from "@/components/content/ContentPromotions.astro";
 import H1 from "@/components/elements/headers/H1.astro";
+import Section from "@/components/elements/section.astro";
 import SearchWrapper from "@/components/search/SearchWrapper.vue";
 import ContentLayout from "@/layouts/ContentLayout.astro";
+import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
 import { getEntry } from "astro:content";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 
@@ -24,6 +26,8 @@ const entry: Props = Astro.props;
 const { name, description, bannerImage, promotedBusinesses, relatedTags } =
     entry.data;
 
+console.log(name);
+
 if (bannerImage == null) {
     throw new Error("isPage tags must have banner images");
 }
@@ -31,6 +35,10 @@ if (bannerImage == null) {
 const { Content } = await entry.render();
 
 const promoBusinesses = await getEntries(promotedBusinesses);
+
+const promoBusinessPlaceCards =
+    await getPlaceCardsFromBusinesses(promoBusinesses);
+
 const promoCategories = await getEntries(relatedTags);
 
 const tags = await getCollection("tags", (tag) => !tag.data.isVisible);
@@ -38,7 +46,7 @@ const tags = await getCollection("tags", (tag) => !tag.data.isVisible);
 const hiddenTags = tags.map((tag) => tag.data.name);
 
 const businesses = await getCollection("businesses", ({ data }) =>
-    data.tags.some((tag) => tag.slug === entry.slug)
+    data.tags.map((tag) => tag.slug).includes(entry.slug)
 );
 
 const isGridLayout = businesses.length >= 6;
@@ -61,11 +69,15 @@ if (directoryCategory == null) {
         <Content />
     </section>
 
-    {
-        promoBusinesses.length >= 4 && (
-            <ContentPromotions businesses={promoBusinesses} classList="" />
-        )
-    }
+    <Section>
+        {
+            promoBusinessPlaceCards.length == 4 && (
+                <ContentPromotions
+                    promotionPlaceCards={promoBusinessPlaceCards}
+                />
+            )
+        }
+    </Section>
 
     <SearchWrapper
         client:only="vue"

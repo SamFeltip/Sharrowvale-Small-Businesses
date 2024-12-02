@@ -1,9 +1,9 @@
 <template>
-    <a :href="href">
+    <a :href="href" :class=outerClassList>
         <article
             :class="`${classList} hover:scale-[1.02] transition-transform duration-300 cursor-pointer`"
             >
-            <slot />
+            <slot ></slot>
         </article>
     </a>
 </template>
@@ -11,9 +11,10 @@
 import { defineProps } from "vue";
 
 const props = defineProps<{
+    outerClassList?: string;
     classList?: string;
     href?: string;
 }>();
 
-const {classList, href} = props;
+const {classList, outerClassList, href} = props;
 </script>

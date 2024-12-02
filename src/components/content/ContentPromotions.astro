@@ -1,71 +1,39 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import LargePromotionalItem from "../businesses/LargePromotionalItem.astro";
-import SmallPromotionalCard from "../placeCards/SmallPromotionalCard.vue";
-import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
+import type { PlaceCard } from "../placeCards/PlaceCard";
 
 type Props = {
-    businesses: CollectionEntry<"businesses">[];
+    promotionPlaceCards: PlaceCard[];
     classList?: string;
 };
 
-const { businesses, classList } = Astro.props;
+const { promotionPlaceCards, classList } = Astro.props;
 
-if (businesses.length < 4) {
+if (promotionPlaceCards.length < 4) {
     throw new Error("At least 4 businesses must be provided");
 }
 
-// Take the first item for primary and next 3 for secondary
-const primaryBusiness = businesses[0];
-
-const primaryItemPlaceCards = await getPlaceCardsFromBusinesses(
-    [primaryBusiness],
-    800
-);
-const primaryItem = primaryItemPlaceCards[0];
-
-const secondaryItems = await getPlaceCardsFromBusinesses(
-    businesses.slice(1, 4)
-);
+const primaryItem = promotionPlaceCards[0];
+const secondaryItems = promotionPlaceCards.slice(1, 4);
 ---
 
-<section class:list={[`gap-4 h-[400px] lg:h-[600px]`, classList]}>
+<div
+    id="whats-on"
+    class:list={[
+        `gap-4 h-[400px] md:h-[600px] grid grid-cols-2 md:grid-cols-[1fr_300px]`,
+        classList,
+    ]}
+>
     {/* Primary promotional item - spans full height */}
-    <div class="h-full">
-        <LargePromotionalItem
-            heroImageSrc={primaryItem.image}
-            name={primaryItem.title}
-            description={primaryBusiness.data.description}
-            href={`/businesses/${primaryBusiness.slug}`}
-            className="h-full"
-        />
-    </div>
+    <LargePromotionalItem
+        card={primaryItem}
+        position="start"
+        className="md:row-span-3"
+    />
 
-    {/* Secondary promotional items column */}
-    <div class="grid grid-rows-3 gap-4 h-full">
-        {
-            secondaryItems.map((item) => (
-                <SmallPromotionalCard position="end" card={item} />
-            ))
-        }
-    </div>
-</section>
-
-<style>
-    section {
-        display: grid;
-        grid-template-columns: 1fr 180px;
+    {
+        secondaryItems.map((item) => (
+            <LargePromotionalItem position="end" card={item} />
+        ))
     }
-
-    @media screen and (min-width: 768px) {
-        section {
-            grid-template-columns: 1fr 250px;
-        }
-    }
-
-    @media screen and (min-width: 1200px) {
-        section {
-            grid-template-columns: 1fr 280px;
-        }
-    }
-</style>
+</div>

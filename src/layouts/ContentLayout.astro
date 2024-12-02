@@ -13,7 +13,8 @@ type Props = {
     HeaderContent: (_props: any) => JSX.Element;
 };
 
-const {description, image, HeaderContent, title, classList }: Props = Astro.props;
+const { description, image, HeaderContent, title, classList }: Props =
+    Astro.props;
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -21,7 +22,12 @@ const {description, image, HeaderContent, title, classList }: Props = Astro.prop
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body class="font-lato bg-cream">
-        <Header image={image} title={title} description={description} Content={HeaderContent} />
+        <Header
+            image={image}
+            title={title}
+            description={description}
+            Content={HeaderContent}
+        />
 
         <main>
             <ScreenWidth classList={classList}>

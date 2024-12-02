@@ -1,34 +1,27 @@
 ---
-import H1 from "../elements/headers/H1.astro";
 import HoverArticle from "../elements/articles/HoverArticle.vue";
+import type { PlaceCard } from "../placeCards/PlaceCard";
+import H2 from "../elements/headers/H2.astro";
 
 interface Props {
-    heroImageSrc?: string;
-    name: string;
-    href: string;
-    description: string;
+    card: PlaceCard;
     className?: string;
+    position: "start" | "end";
 }
 
-const {
-    heroImageSrc,
-    name,
-    href,
-    description,
-
-    className = "",
-} = Astro.props;
+const { card, position, className = "" } = Astro.props;
 ---
 
 <HoverArticle
-    classList={`relative w-full overflow-hidden group ${className}`}
-    href={href}
+    classList="relative w-full h-full overflow-hidden group"
+    outerClassList={className}
+    href={card.href}
 >
     {
         (
             <img
-                src={heroImageSrc}
-                alt={name}
+                src={card.image}
+                alt={card.title}
                 class="absolute inset-0 w-full h-full object-cover  rounded-2xl"
             />
         )
@@ -39,10 +32,30 @@ const {
     >
     </div>
 
-    <div class="absolute bottom-0 right-0 p-6 text-right">
-        <H1 color="white" position="end">{name}</H1>
-        <p class="text-sm md:text-base text-white/90">
-            {description}
+    <div
+        class="absolute bottom-0 right-0 p-6 w-full text-right"
+        id="card-content"
+    >
+        <H2 color="white" position="end" classList="text-2xl">{card.title}</H2>
+        <p id="card-text" class="text-sm md:text-base text-white/90">
+            {card.content}
         </p>
     </div>
 </HoverArticle>
+
+<style>
+    #card-content {
+        container-name: card-content;
+        container-type: inline-size;
+    }
+
+    #card-text {
+        display: none;
+    }
+
+    @container (min-width: 300px) {
+        #card-text {
+            display: block;
+        }
+    }
+</style>
