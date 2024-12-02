@@ -9,6 +9,7 @@ export const articleSchema =  ({image}: { image: ImageFunction }) => z.object({
     bannerImage: image(),
 
     dateTime: z.string().datetime().optional(),
+    publishDate: z.string().date().optional(),
 
     categories: z.array(reference("category")),
     articleCategories: z.array(reference("articleCategory")),  
