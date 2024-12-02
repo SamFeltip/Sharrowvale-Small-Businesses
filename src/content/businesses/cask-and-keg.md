@@ -27,9 +27,6 @@ owner: null
 openDaysStatement: "Open Monday to Sunday, 12:00 - 23:00"
 
 # Listing types
-categories:
-    - Directory
-
 tags:
     - pubs-and-bars
     - food-and-drink

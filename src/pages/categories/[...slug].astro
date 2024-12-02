@@ -5,7 +5,6 @@ import SearchWrapper from "@/components/search/SearchWrapper.vue";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import HeaderContent from "@/components/HeaderContent.astro";
 
-import bannerImage from "@/assets/images/category/guest-road.jpg";
 import Section from "@/components/elements/section.astro";
 
 import { getCollection, type CollectionEntry } from "astro:content";
@@ -25,7 +24,7 @@ const entry: Props = Astro.props;
 
 const { Content } = await entry.render();
 
-const { name, description } = entry.data;
+const { name, description, bannerImage, isGridLayout } = entry.data;
 
 const searchCategoryCollection = [name];
 ---
@@ -45,7 +44,7 @@ const searchCategoryCollection = [name];
             <SearchWrapper
                 client:only="vue"
                 requiredCategories={searchCategoryCollection}
-                isGridLayout={false}
+                isGridLayout={isGridLayout}
             />
         </Section>
     </div>

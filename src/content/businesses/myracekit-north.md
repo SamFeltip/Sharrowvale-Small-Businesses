@@ -26,9 +26,6 @@ owner: "Matt Rimmer"
 openDaysStatement: "Open everyday"
 
 # Listing types
-categories:
-    - Directory
-
 tags:
     - sport
     - clothing

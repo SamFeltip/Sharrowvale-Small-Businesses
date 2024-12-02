@@ -5,5 +5,6 @@ export const categorySchema = ({image}: { image: ImageFunction }) => z.object({
 	description: z.string().optional(),
 	promotedArticles: z.array(reference("article")).optional(),
 	bannerImage: image(),
+	isGridLayout: z.boolean().default(false),
 	heroImage: image().optional(),
 })

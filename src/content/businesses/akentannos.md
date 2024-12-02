@@ -30,9 +30,6 @@ owner: "Mario"
 openDaysStatement: "Open Tues - Sat"
 
 # Listing types
-categories:
-    - Directory
-
 tags:
     - restaurant
     - dinner

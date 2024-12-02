@@ -26,9 +26,6 @@ owner: "Richard Golland"
 openDaysStatement: "Open every day"
 
 # Listing types
-categories:
-    - Directory
-
 tags:
     - restaurant
     - take-out

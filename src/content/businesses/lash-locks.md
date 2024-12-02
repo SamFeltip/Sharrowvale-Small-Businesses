@@ -28,9 +28,6 @@ owner: ""
 openDaysStatement: "Open Mon - Sat"
 
 # Listing types
-categories:
-    - Directory
-
 tags:
     - hair-beauty
     - hairdressers

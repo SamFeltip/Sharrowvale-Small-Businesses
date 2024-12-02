@@ -27,9 +27,6 @@ owner: "Nicola"
 openDaysStatement: "Open every day"
 
 # Listing types
-categories:
-    - Directory
-
 tags:
     - jewellery
     - art-design

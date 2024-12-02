@@ -28,9 +28,6 @@ owner: "Mario"
 openDaysStatement: "Closed Mondays"
 
 # Listing types
-categories:
-    - Directory
-
 tags:
     - cafe
     - deli
