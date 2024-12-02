@@ -22,6 +22,6 @@ The Christmas market is a great way to get your Christmas wishes and gifts deliv
 -   Gifts
 -   Crafts
 
-![christmas market](/src/assets/images/article/christmas-market-2024/christmas-market-2024.jpeg)
+![christmas market](@/assets/images/articles/christmas-market-2024/christmas-market-2024.jpeg)
 
 The Christmas market is held by the Sharrow Vale Community Association (SVCA) every december.

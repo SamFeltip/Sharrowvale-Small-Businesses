@@ -43,7 +43,7 @@ const businesses = await getCollection("businesses", ({ data }) =>
 
 const isGridLayout = businesses.length >= 6;
 
-const directoryCategory = await getEntry("categories", "Directory");
+const directoryCategory = await getEntry("categories", "directory");
 
 if (directoryCategory == null) {
     throw new Error("Directory category not found");
