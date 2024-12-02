@@ -3,7 +3,7 @@ import { defineCollection, reference, z } from 'astro:content';
 import { businessSchema } from '@/schemas/businesses';
 import { articleSchema } from '@/schemas/articles';
 import { tagSchema } from '@/schemas/tag';
-import { articleCategorySchema } from '@/schemas/articleCategory';
+import { categorySchema } from '@/schemas/category';
 import { promotionSchema } from '@/schemas/promotion';
 
 const businesses = defineCollection({
@@ -19,7 +19,7 @@ const articles = defineCollection({
 
 const articleCategories = defineCollection({
 	type: 'content',
-	schema: articleCategorySchema,
+	schema: categorySchema,
 });
 
 const tagCollection = defineCollection({
