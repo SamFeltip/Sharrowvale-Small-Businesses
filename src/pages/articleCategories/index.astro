@@ -26,7 +26,7 @@ const eventPlaceCards: PlaceCard[] = await Promise.all(
         return {
             image: image.src,
             title: event.data.name,
-            href: `/article/${event.slug}`,
+            href: `/articles/${event.slug}`,
         };
     })
 );
