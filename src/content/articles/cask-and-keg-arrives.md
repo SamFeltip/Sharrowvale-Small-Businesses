@@ -2,6 +2,7 @@
 name: "Cask and Keg joins Sharrow vale"
 bannerImage: "@/assets/images/businesses/cask-and-keg/banner.webp"
 heroImage: "@/assets/images/businesses/cask-and-keg/hero.webp"
+description: "The latest pub to join Sharrow vale has arrived"
 author: "Sam Felton"
 dateTime: "2024-12-01T12:00:00Z"
 publishDate: "2024-12-01"

@@ -16,7 +16,8 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"articles">;
 
 const entry: Props = Astro.props;
-const { name, categories, tags, bannerImage, heroImage } = entry.data;
+const { name, description, categories, tags, bannerImage, heroImage } =
+    entry.data;
 
 const { Content } = await entry.render();
 
@@ -38,11 +39,12 @@ console.log(categoryItems);
     <div data-pagefind-body>
         <h1 data-pagefind-sort="name">{name}</h1>
 
+        <p data-pagefind-meta="content[data-src]" data-src={description}></p>
+
         <Image
             data-pagefind-meta="image[src], image_alt[alt]"
             src={heroImage}
             alt={name}
-            width={450}
         />
 
         <br />

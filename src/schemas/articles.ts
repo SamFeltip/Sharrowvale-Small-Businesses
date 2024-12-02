@@ -4,7 +4,8 @@ import { reference, z, type ImageFunction } from 'astro:content';
 export const articleSchema =  ({image}: { image: ImageFunction }) => z.object({
     name: z.string(),
     author: z.string().optional(),
-
+    description: z.string(),
+    
     heroImage: image(),
     bannerImage: image(),
 

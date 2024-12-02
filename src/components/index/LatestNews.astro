@@ -5,42 +5,32 @@ import PlaceCardWide from "../placeCards/PlaceCardWide.vue";
 import Button from "../elements/Button.vue";
 import { getImage } from "astro:assets";
 
-const promotions: CollectionEntry<"businesses">[] =
-    await getCollection("businesses");
-
 const tags = await getCollection("tags");
 
-const bussinessItems = await Promise.all(
-    promotions.slice(0, 4).map(async (business) => {
-        const businessCategories = tags
-            .filter(
-                (tag) =>
-                    tag.data.isVisible &&
-                    business.data.tags.some((c) => c.slug === tag.slug)
-            )
-            .slice(0, 2);
+const news = await getCollection("articles");
 
-        const placeCardCategories = businessCategories.map((tag) => {
-            return {
-                name: tag.data.name,
-                slug: tag.slug,
-            };
-        });
-
-        const heroImageResult = await getImage({
-            src: business.data.heroImage,
+const promotionItems = await Promise.all(
+    news.slice(0, 4).map(async (item) => {
+        let image = await getImage({
+            src: item.data.heroImage,
+            width: 300,
             format: "webp",
         });
+        let imageUrl = image.src;
 
-        const heroImageSrc = heroImageResult.src;
+        const itemTags = item.data.tags.map((tag) => tag.slug);
+        const articleTags = tags.filter((tag) => itemTags.includes(tag.slug));
+
+        const tagPreviews = articleTags.map((tag) => {
+            return { slug: tag.slug, name: tag.data.name };
+        });
 
         return {
-            image: heroImageSrc,
-            title: business.data.name,
-            content: business.data.description,
-            href: `/businesses/${business.slug}`,
-
-            tags: placeCardCategories,
+            title: item.data.name,
+            image: imageUrl,
+            tags: tagPreviews,
+            content: item.data.description,
+            href: `/articles/${item.slug}`,
         };
     })
 );
@@ -54,7 +44,7 @@ const bussinessItems = await Promise.all(
     </div>
     <div class="flex flex-col gap-3" id="news-items">
         {
-            bussinessItems.map((item) => (
+            promotionItems.map((item) => (
                 <PlaceCardWide
                     image={item.image}
                     title={item.title}

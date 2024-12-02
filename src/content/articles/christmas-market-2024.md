@@ -3,6 +3,7 @@ name: "Christmas Market 2024"
 bannerImage: "@/assets/images/articles/christmas-market-2024/bannerImage.jpeg"
 heroImage: "@/assets/images/articles/christmas-market-2024/heroImage.jpeg"
 author: "Sam Felton"
+description: "Find out more about the Sharrow vale Christmas market"
 dateTime: "2024-12-01T12:00:00Z"
 publishDate: "2024-12-01"
 categories:

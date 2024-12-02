@@ -28,6 +28,7 @@ const specialItems = await Promise.all(
 
         let image = await getImage({
             src: tag.data.heroImage,
+            width: 280 * 4,
             format: "webp",
         });
 

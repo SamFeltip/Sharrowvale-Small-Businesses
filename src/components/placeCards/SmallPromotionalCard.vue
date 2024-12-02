@@ -1,5 +1,5 @@
 <template>
-    <HoverArticle :href="card.href" classList="relative w-full aspec-[3/2] h-full">
+    <HoverArticle :href="card.href" classList="relative w-full h-full">
         <img
             :src="card.image"
             :alt="card.title"
