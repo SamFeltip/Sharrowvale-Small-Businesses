@@ -18,7 +18,7 @@ import HeaderContent from "@/components/HeaderContent.astro";
 import Button from "@/components/elements/Button.vue";
 import H2 from "@/components/elements/headers/H2.astro";
 import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
-import type { PlaceCard } from "@/components/placeCards/PlaceCard";
+import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
@@ -76,21 +76,7 @@ function similarCategories(
 
 const similarListings = businesses.sort(similarCategories).slice(0, 3);
 
-const similarPlaceCards: PlaceCard[] = await Promise.all(
-    similarListings.map(async (item) => {
-        const image = await getImage({
-            src: item.data.heroImage,
-            width: 400,
-            height: 400,
-        });
-
-        return {
-            title: item.data.name,
-            image: image.src,
-            href: `/businesses/${item.slug}`,
-        };
-    })
-);
+const similarPlaceCards = await getPlaceCardsFromBusinesses(similarListings);
 
 const heroImageResult = await getImage({
     src: heroImage,

@@ -2,8 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import LargePromotionalItem from "../businesses/LargePromotionalItem.astro";
 import SmallPromotionalCard from "../placeCards/SmallPromotionalCard.vue";
-import { getImage } from "astro:assets";
-import type { PlaceCard } from "../placeCards/PlaceCard";
+import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
 
 type Props = {
     businesses: CollectionEntry<"businesses">[];
@@ -19,36 +18,14 @@ if (businesses.length < 4) {
 // Take the first item for primary and next 3 for secondary
 const primaryBusiness = businesses[0];
 
-const primaryBusinessImage = await getImage({
-    src: primaryBusiness.data.heroImage,
-    format: "webp",
-});
+const primaryItemPlaceCards = await getPlaceCardsFromBusinesses(
+    [primaryBusiness],
+    800
+);
+const primaryItem = primaryItemPlaceCards[0];
 
-const primaryItem: PlaceCard = {
-    image: primaryBusinessImage.src,
-    title: primaryBusiness.data.name,
-    content: primaryBusiness.data.description,
-    href: `/businesses/${primaryBusiness.slug}`,
-};
-
-const secondaryBusinesses = businesses.slice(1, 4);
-
-const secondaryItems: PlaceCard[] = await Promise.all(
-    secondaryBusinesses.map(async (item) => {
-        let image = await getImage({
-            src: item.data.heroImage,
-            width: 400,
-            format: "webp",
-        });
-
-        let imageUrl = image.src;
-
-        return {
-            title: item.data.name,
-            image: imageUrl,
-            href: `/businesses/${item.slug}`,
-        };
-    })
+const secondaryItems = await getPlaceCardsFromBusinesses(
+    businesses.slice(1, 4)
 );
 ---
 

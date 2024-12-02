@@ -11,24 +11,14 @@ import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
 
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import { getCollection, type CollectionEntry } from "astro:content";
-import { getImage } from "astro:assets";
+import { getPlaceCardsFromArticles } from "@/scripts/placeCard/handler";
 
 const events: CollectionEntry<"articles">[] = await getCollection(
     "articles",
     ({ data }) => data.categories.some((tag) => tag.slug === "events")
 );
 
-const eventPlaceCards: PlaceCard[] = await Promise.all(
-    events.map(async (event) => {
-        const image = await getImage({ src: event.data.heroImage });
-
-        return {
-            image: image.src,
-            title: event.data.name,
-            href: `/articles/${event.slug}`,
-        };
-    })
-);
+const eventPlaceCards: PlaceCard[] = await getPlaceCardsFromArticles(events);
 
 const searchCategoryCollection = await getCollection(
     "categories",

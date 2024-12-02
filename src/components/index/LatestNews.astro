@@ -3,37 +3,11 @@ import H2 from "@/components/elements/headers/H2.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 import PlaceCardWide from "../placeCards/PlaceCardWide.vue";
 import Button from "../elements/Button.vue";
-import { getImage } from "astro:assets";
-
-const tags = await getCollection("tags");
+import { getPlaceCardsFromArticles } from "@scripts/placeCard/handler";
 
 const news = await getCollection("articles");
 
-const promotionItems = await Promise.all(
-    news.slice(0, 4).map(async (item) => {
-        let image = await getImage({
-            src: item.data.heroImage,
-            width: 300,
-            format: "webp",
-        });
-        let imageUrl = image.src;
-
-        const itemTags = item.data.tags.map((tag) => tag.slug);
-        const articleTags = tags.filter((tag) => itemTags.includes(tag.slug));
-
-        const tagPreviews = articleTags.map((tag) => {
-            return { slug: tag.slug, name: tag.data.name };
-        });
-
-        return {
-            title: item.data.name,
-            image: imageUrl,
-            tags: tagPreviews,
-            content: item.data.description,
-            href: `/articles/${item.slug}`,
-        };
-    })
-);
+const promotionItems = await getPlaceCardsFromArticles(news.slice(0, 4), 300);
 ---
 
 <section class="grid md:grid-cols-[300px_1fr] gap-12">

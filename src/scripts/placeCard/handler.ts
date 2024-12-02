@@ -5,7 +5,7 @@ import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 
 export async function getPlaceCardsFromArticles(
     articles: CollectionEntry<"articles">[],
-    imgWidth: number
+    imgWidth: number = 400
 ): Promise<PlaceCard[]> {
     const collectionTags = await getCollection("tags");
 
@@ -28,7 +28,7 @@ export async function getPlaceCardsFromArticles(
 
 export async function getPlaceCardsFromBusinesses(
     articles: CollectionEntry<"businesses">[],
-    imgWidth: number
+    imgWidth: number = 400
 ): Promise<PlaceCard[]> {
     const collectionTags = await getCollection("tags");
 
