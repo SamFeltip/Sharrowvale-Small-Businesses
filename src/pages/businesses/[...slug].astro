@@ -14,7 +14,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
 import { getEntries } from "astro:content";
 import ContentLayout from "@/layouts/ContentLayout.astro";
-import HeaderContent from "@/components/category/HeaderContent.astro";
+import HeaderContent from "@/components/tag/HeaderContent.astro";
 import Button from "@/components/elements/Button.vue";
 import H2 from "@/components/elements/headers/H2.astro";
 import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
@@ -40,7 +40,7 @@ const {
     heroImage,
     streetAddress,
     additionalImages,
-    categories,
+    tags,
     websiteLink,
     facebookLink,
     instagramLink,
@@ -62,10 +62,9 @@ const businesses: CollectionEntry<"businesses">[] =
     await getCollection("businesses");
 
 function similarTags(a: CollectionEntry<"businesses">) {
-    const categorySlugs = new Set(categories.map((category) => category.slug));
+    const categorySlugs = new Set(tags.map((tag) => tag.slug));
 
-    return a.data.categories.filter((item) => categorySlugs.has(item.slug))
-        .length;
+    return a.data.tags.filter((item) => categorySlugs.has(item.slug)).length;
 }
 
 function similarCategories(
@@ -100,7 +99,7 @@ const heroImageResult = await getImage({
 
 const heroImageSrc = heroImageResult.src;
 
-const categoryItems = await getEntries(categories);
+const categoryItems = await getEntries(tags);
 ---
 
 <ContentLayout
@@ -191,15 +190,15 @@ const categoryItems = await getEntries(categories);
                 categoryItems && (
                     <div class="flex flex-col items-center">
                         <div
-                            data-pagefind-filter="category"
+                            data-pagefind-filter="tag"
                             class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]"
                         >
-                            {categoryItems.map((category) => (
+                            {categoryItems.map((tag) => (
                                 <Button
-                                    href={`/category/${category.slug}`}
-                                    data-pagefind-filter="category"
+                                    href={`/tag/${tag.slug}`}
+                                    data-pagefind-filter="tag"
                                 >
-                                    {category.data.name}
+                                    {tag.data.name}
                                 </Button>
                             ))}
                         </div>
@@ -211,7 +210,7 @@ const categoryItems = await getEntries(categories);
         <section>
             <a
                 class="underline text-center flex justify-center"
-                href="/category/directory"
+                href="/tag/directory"
             >
                 Back to results
             </a>

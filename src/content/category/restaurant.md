@@ -1,6 +1,6 @@
 ---
-bannerImage: ../../assets/images/category/restaurant/restaurant.jpg
-heroImage: ../../assets/images/category/restaurant/restaurant.jpg
+bannerImage: ../../assets/images/tag/restaurant/restaurant.jpg
+heroImage: ../../assets/images/tag/restaurant/restaurant.jpg
 isPage: true
 relatedCategories: []
 promotedBusinesses: []

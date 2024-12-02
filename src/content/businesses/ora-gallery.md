@@ -24,7 +24,7 @@ owner: "Marika"
 openDaysStatement: "Open Tues - Sat"
 
 # Listing types
-categories:
+tags:
     - directory
     - gift-shop
     - jewellery

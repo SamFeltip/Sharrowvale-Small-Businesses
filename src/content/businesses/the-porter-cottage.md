@@ -25,7 +25,7 @@ owner: ""
 openDaysStatement: "Open every day"
 
 # Listing types
-categories:
+tags:
     - directory
     - pubs-and-bars
     - food-and-drink

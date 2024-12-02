@@ -10,11 +10,11 @@
                 <div class="w-full p-4">
                     <div class="flex gap-2">
                         <a
-                            v-for="(category, index) in categories"
+                            v-for="(tag, index) in tags"
                             :key="index"
                             class="text-coral px-2 py-1 text-sm"
                         >
-                            {{ category.name }}
+                            {{ tag.name }}
                         </a>
                     </div>
                     <h3 class="text-lg font-semibold mb-2">
@@ -33,7 +33,7 @@ const props = defineProps<{
     image: string;
     title: string;
     content: string;
-    categories: { slug: string; name: string }[];
+    tags: { slug: string; name: string }[];
     href?: string;
     isGridLayout?: boolean;
 }>();

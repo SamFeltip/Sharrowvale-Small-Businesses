@@ -7,9 +7,9 @@
     >
         <SearchBox :requiredCategory="requiredCategory" />
         <SearchResults
-            :category="requiredCategory"
+            :tag="requiredCategory"
             :isGridLayout="isGridLayout"
-            :hidden-categories="hiddenCategories"
+            :hidden-tags="hiddenCategories"
         />
     </div>
 </template>

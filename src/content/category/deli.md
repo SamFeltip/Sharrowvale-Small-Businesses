@@ -1,6 +1,6 @@
 ---
-bannerImage: ../../assets/images/category/deli/deli.jpg
-heroImage: ../../assets/images/category/deli/deli.jpg
+bannerImage: ../../assets/images/tag/deli/deli.jpg
+heroImage: ../../assets/images/tag/deli/deli.jpg
 isPage: false
 relatedCategories: []
 promotedBusinesses: []

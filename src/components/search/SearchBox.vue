@@ -97,7 +97,7 @@ const sortAscending = ref(true);
 
 type PagefindSearchOptions = {
     filters: {
-        category?: Record<string, any>;
+        tag?: Record<string, any>;
         tags?: Record<string, any>;
     };
     sort?: {
@@ -128,14 +128,14 @@ async function handleSearch() {
 function getSearchOptions(): PagefindSearchOptions {
     let searchOptions: PagefindSearchOptions = {
         filters: {
-            category: [],
+            tag: [],
             tags: [],
         },
         sort: { title: sortAscending ? "asc" : "desc" },
     };
 
     if (props.requiredCategory !== undefined) {
-        searchOptions.filters.category = [props.requiredCategory];
+        searchOptions.filters.tag = [props.requiredCategory];
     }
 
     if (localSelectedTags.length > 0) {

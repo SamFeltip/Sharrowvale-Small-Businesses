@@ -1,6 +1,6 @@
 ---
-bannerImage: ../../assets/images/category/services/services.jpg
-heroImage: ../../assets/images/category/services/services.jpg
+bannerImage: ../../assets/images/tag/services/services.jpg
+heroImage: ../../assets/images/tag/services/services.jpg
 isPage: false
 relatedCategories: []
 promotedBusinesses: []

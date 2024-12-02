@@ -26,7 +26,7 @@
       <Button @click="goToNext" class="rounded-full border border-gray-800 text-gray-800 p-3">
         <ArrowRight/>
       </Button>
-      <a class="bg-coral rounded-full text-white py-3 px-5" href="/category/directory">
+      <a class="bg-coral rounded-full text-white py-3 px-5" href="/tag/directory">
          See the full directory
       </a>
     </div>

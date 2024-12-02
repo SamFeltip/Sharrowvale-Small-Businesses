@@ -1,6 +1,6 @@
 ---
-bannerImage: ../../assets/images/category/bar/banner.jpg
-heroImage: ../../assets/images/category/bar/hero.avif
+bannerImage: ../../assets/images/tag/bar/banner.jpg
+heroImage: ../../assets/images/tag/bar/hero.avif
 isPage: true
 relatedCategories: []
 promotedBusinesses: []

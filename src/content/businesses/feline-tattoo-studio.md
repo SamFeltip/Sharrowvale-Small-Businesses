@@ -27,7 +27,7 @@ owner: "Fiona Long"
 openDaysStatement: "Open Tues - Sun"
 
 # Listing types
-categories:
+tags:
     - directory
     - beauty-and-care
 

@@ -1,6 +1,6 @@
 ---
-bannerImage: ../../assets/images/category/clothing/banner.jpg
-heroImage: ../../assets/images/category/clothing/hero.jpg
+bannerImage: ../../assets/images/tag/clothing/banner.jpg
+heroImage: ../../assets/images/tag/clothing/hero.jpg
 isPage: true
 relatedCategories: []
 promotedBusinesses: []

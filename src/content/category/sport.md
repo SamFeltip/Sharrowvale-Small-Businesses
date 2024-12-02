@@ -1,6 +1,6 @@
 ---
-bannerImage: ../../assets/images/category/sport/sport.jpg
-heroImage: ../../assets/images/category/sport/sport.jpg
+bannerImage: ../../assets/images/tag/sport/sport.jpg
+heroImage: ../../assets/images/tag/sport/sport.jpg
 isPage: false
 relatedCategories: []
 promotedBusinesses: []

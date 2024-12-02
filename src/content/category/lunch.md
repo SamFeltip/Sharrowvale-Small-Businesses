@@ -1,6 +1,6 @@
 ---
-bannerImage: ../../assets/images/category/lunch/banner.webp
-heroImage: ../../assets/images/category/lunch/hero.png
+bannerImage: ../../assets/images/tag/lunch/banner.webp
+heroImage: ../../assets/images/tag/lunch/hero.png
 isPage: true
 relatedCategories: []
 promotedBusinesses: []

@@ -1,6 +1,6 @@
 ---
-bannerImage: ../../assets/images/category/directory/sunset.jpeg
-heroImage: ../../assets/images/category/directory/sunset.jpeg
+bannerImage: ../../assets/images/tag/directory/sunset.jpeg
+heroImage: ../../assets/images/tag/directory/sunset.jpeg
 isPage: true
 relatedCategories: []
 promotedBusinesses: []

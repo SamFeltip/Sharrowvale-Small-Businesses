@@ -27,7 +27,7 @@ owner: ""
 openDaysStatement: "Open everyday"
 
 # Listing types
-categories:
+tags:
     - directory
     - cafe
     - restaurant

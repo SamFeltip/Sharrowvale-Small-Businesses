@@ -8,24 +8,22 @@ import { getImage } from "astro:assets";
 const promotions: CollectionEntry<"businesses">[] =
     await getCollection("businesses");
 
-const categories = await getCollection("category");
+const tags = await getCollection("tag");
 
 const bussinessItems = await Promise.all(
     promotions.slice(0, 4).map(async (business) => {
-        const businessCategories = categories
+        const businessCategories = tags
             .filter(
-                (category) =>
-                    category.data.isVisible &&
-                    business.data.categories.some(
-                        (c) => c.slug === category.slug
-                    )
+                (tag) =>
+                    tag.data.isVisible &&
+                    business.data.tags.some((c) => c.slug === tag.slug)
             )
             .slice(0, 2);
 
-        const placeCardCategories = businessCategories.map((category) => {
+        const placeCardCategories = businessCategories.map((tag) => {
             return {
-                name: category.data.name,
-                slug: category.slug,
+                name: tag.data.name,
+                slug: tag.slug,
             };
         });
 
@@ -42,7 +40,7 @@ const bussinessItems = await Promise.all(
             content: business.data.description,
             href: `/businesses/${business.slug}`,
 
-            categories: placeCardCategories,
+            tags: placeCardCategories,
         };
     })
 );
@@ -52,7 +50,7 @@ const bussinessItems = await Promise.all(
     <div class="flex flex-col items-start gap-3">
         <H2 position="start" color="coral">The latest news <wbr /> & updates</H2
         >
-        <Button href="/category/news">See all posts</Button>
+        <Button href="/tag/news">See all posts</Button>
     </div>
     <div class="flex flex-col gap-3" id="news-items">
         {
@@ -61,7 +59,7 @@ const bussinessItems = await Promise.all(
                     image={item.image}
                     title={item.title}
                     content={item.content}
-                    categories={item.categories}
+                    tags={item.tags}
                     href={item.href}
                 />
             ))

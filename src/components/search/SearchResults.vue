@@ -20,7 +20,7 @@
                 v-if="isGridLayout"
                 v-for="result in searchResults"
                 :key="`gridLayout-${result.url}`"
-                :categories="getDisplayTags(result)"
+                :tags="getDisplayTags(result)"
                 :image="result.meta?.image || ''"
                 :content="result.meta?.content"
                 :title="result.meta?.title  || ''"
@@ -30,7 +30,7 @@
                 v-else
                 v-for="result in searchResults"
                 :key="result.url"
-                :categories="getDisplayTags(result)"
+                :tags="getDisplayTags(result)"
                 :image="result.meta?.image || ''"
                 :content="result.meta?.content"
                 :title="result.meta?.title || ''"
@@ -47,7 +47,7 @@ import PlaceCardWide from "../placeCards/PlaceCardWide.vue";
 import PlaceCardGrid from "../placeCards/PlaceCardGrid.vue";
 
 const props = defineProps<{
-    category?: string,
+    tag?: string,
     isGridLayout: boolean,
     hiddenCategories: string[]
 }>();
@@ -57,9 +57,9 @@ const searchResults = inject("searchResults", ref([] as CustomRecord[]));
 console.log(searchResults.value);
 
 function getDisplayTags(result: CustomRecord): { slug: string; name: string }[] {
-    let tags = result.filters?.category || [];
+    let tags = result.filters?.tag || [];
 
-    tags = tags.filter((tag: string) => tag !== props.category && !props.hiddenCategories?.includes(tag)).slice(0, 3);
+    tags = tags.filter((tag: string) => tag !== props.tag && !props.hiddenCategories?.includes(tag)).slice(0, 3);
 
     return tags.map((tag: string) => ({ slug: tag, name: tag }));
 }

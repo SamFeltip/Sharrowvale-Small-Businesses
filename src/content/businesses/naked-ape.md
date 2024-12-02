@@ -28,7 +28,7 @@ owner: ""
 openDaysStatement: "Open Mon - Sat"
 
 # Listing types
-categories:
+tags:
     - directory
     - clothing
 

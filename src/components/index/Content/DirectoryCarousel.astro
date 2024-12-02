@@ -5,10 +5,10 @@ import { getCollection } from "astro:content";
 
 import { getImage } from "astro:assets";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
-import { categorySchema } from "@/schemas/category";
+import { categorySchema } from "@/schemas/tag";
 import Section from "@/components/elements/section.astro";
 
-const categories = await getCollection("category");
+const tags = await getCollection("tag");
 
 const promotedCategories = [
     "food-and-drink",
@@ -19,24 +19,24 @@ const promotedCategories = [
     "pubs-and-bars",
 ];
 
-const selectedCategories = categories.filter((category) =>
-    promotedCategories.includes(category.slug)
+const selectedCategories = tags.filter((tag) =>
+    promotedCategories.includes(tag.slug)
 );
 
 const specialItems = await Promise.all(
-    selectedCategories.map(async (category) => {
+    selectedCategories.map(async (tag) => {
         let image = await getImage({
-            src: category.data.heroImage,
+            src: tag.data.heroImage,
             format: "webp",
         });
 
         let imageUrl = image.src;
 
         return {
-            title: category.data.name,
-            content: category.data.description,
+            title: tag.data.name,
+            content: tag.data.description,
             image: imageUrl,
-            href: `/category/${category.slug}`,
+            href: `/tag/${tag.slug}`,
         } as PlaceCard;
     })
 );

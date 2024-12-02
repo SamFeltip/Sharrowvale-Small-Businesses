@@ -1,5 +1,5 @@
 ---
-import HeaderContent from "@/components/category/HeaderContent.astro";
+import HeaderContent from "@/components/tag/HeaderContent.astro";
 import ContentPromotions from "@/components/content/ContentPromotions.astro";
 import H1 from "@/components/elements/headers/H1.astro";
 import SearchWrapper from "@/components/search/SearchWrapper.vue";
@@ -7,15 +7,14 @@ import ContentLayout from "@/layouts/ContentLayout.astro";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-    const category: CollectionEntry<"category">[] =
-        await getCollection("category");
-    return category.map((business) => ({
+    const tag: CollectionEntry<"tag">[] = await getCollection("tag");
+    return tag.map((business) => ({
         params: { slug: business.slug },
         props: business,
     }));
 }
 
-type Props = CollectionEntry<"category">;
+type Props = CollectionEntry<"tag">;
 
 const entry: Props = Astro.props;
 const {
@@ -31,15 +30,12 @@ const { Content } = await entry.render();
 const promoBusinesses = await getEntries(promotedBusinesses);
 const promoCategories = await getEntries(relatedCategories);
 
-const categories = await getCollection(
-    "category",
-    (category) => !category.data.isVisible
-);
+const tags = await getCollection("tag", (tag) => !tag.data.isVisible);
 
-const hiddenCategories = categories.map((category) => category.data.name);
+const hiddenCategories = tags.map((tag) => tag.data.name);
 
 const businesses = await getCollection("businesses", ({ data }) =>
-    data.categories.some((category) => category.slug === entry.slug)
+    data.tags.some((tag) => tag.slug === entry.slug)
 );
 
 const isGridLayout = businesses.length >= 6;
@@ -75,11 +71,9 @@ const isGridLayout = businesses.length >= 6;
                 <H1 color="coral">Export more Categories</H1>
                 <div>
                     <ul>
-                        {promoCategories.map((category) => (
+                        {promoCategories.map((tag) => (
                             <li>
-                                <a href={`/category/${category.slug}`}>
-                                    {category.data.name}
-                                </a>
+                                <a href={`/tag/${tag.slug}`}>{tag.data.name}</a>
                             </li>
                         ))}
                     </ul>

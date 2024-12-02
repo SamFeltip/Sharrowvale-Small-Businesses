@@ -1,6 +1,6 @@
 ---
-bannerImage: ../../assets/images/category/cafe/banner.jpg
-heroImage: ../../assets/images/category/cafe/heroImage.jpeg
+bannerImage: ../../assets/images/tag/cafe/banner.jpg
+heroImage: ../../assets/images/tag/cafe/heroImage.jpeg
 isPage: true
 relatedCategories: []
 promotedBusinesses: []

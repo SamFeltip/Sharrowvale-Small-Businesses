@@ -8,13 +8,13 @@
                 class="w-full max-w-[300px] h-48 object-cover rounded-lg"
             />
             <div class="w-full p-4">
-                <div class="flex gap-2 category-list">
+                <div class="flex gap-2 tag-list">
                     <a
-                        v-for="(category, index) in categories"
+                        v-for="(tag, index) in tags"
                         :key="index"
                         class="text-coral px-2 py-1 text-sm"
                     >
-                        {{ category.name }}
+                        {{ tag.name }}
                     </a>
                 </div>
                 <h3 class="text-lg font-semibold mb-2">
@@ -32,7 +32,7 @@ import type { PlaceCard } from "./PlaceCard";
 
 const props = defineProps<PlaceCard>();
 
-const { image, title, content, categories, href } = props;
+const { image, title, content, tags, href } = props;
 
 </script>
 
@@ -40,7 +40,7 @@ const { image, title, content, categories, href } = props;
 .search-result-wide {
     grid-template-columns: 1fr;
 
-    & .category-list {
+    & .tag-list {
         display: none;
     }
 }
@@ -49,7 +49,7 @@ const { image, title, content, categories, href } = props;
     .search-result-wide {
         grid-template-columns: 300px 1fr;
 
-        & .category-list {
+        & .tag-list {
             display: block;
         }
     }

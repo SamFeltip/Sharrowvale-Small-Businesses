@@ -1,6 +1,6 @@
 ---
-bannerImage: ../../assets/images/category/home-hardware/home-hardware.jpg
-heroImage: ../../assets/images/category/home-hardware/home-hardware.jpg
+bannerImage: ../../assets/images/tag/home-hardware/home-hardware.jpg
+heroImage: ../../assets/images/tag/home-hardware/home-hardware.jpg
 isPage: false
 relatedCategories: []
 promotedBusinesses: []

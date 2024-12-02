@@ -2,8 +2,7 @@
 import "@/styles/pagefind.css";
 import { type CollectionEntry, getCollection } from "astro:content";
 
-const categories: CollectionEntry<"category">[] =
-    await getCollection("category");
+const tags: CollectionEntry<"tag">[] = await getCollection("tag");
 
 const businesses: CollectionEntry<"businesses">[] =
     await getCollection("businesses");
