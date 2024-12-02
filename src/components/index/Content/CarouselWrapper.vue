@@ -2,17 +2,17 @@
 <Carousel
     ref="carouselRef"
     :opts="{
-        align: 'start',
+        align: 'center',
         loop: true,
         skipSnaps: true,
     }"   
 >
     <CarouselContent
     >
-      <CarouselItem v-for="item in items" class="basis-1/3 lg:basis-1/5 h-[250px] xl:h-[380px]">
+      <CarouselItem v-for="item in items" class="basis-1/2 md:basis-1/4 h-[250px] xl:h-[380px]">
         <SmallPromotionalCard 
             :key="item.title" 
-            position="start"
+            position="end"
             :card="item"
         />
       </CarouselItem>
