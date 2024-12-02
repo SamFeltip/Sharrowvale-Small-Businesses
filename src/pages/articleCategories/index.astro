@@ -1,0 +1,56 @@
+---
+import H2 from "@/components/elements/headers/H2.astro";
+import SearchWrapper from "@/components/search/SearchWrapper.vue";
+
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import HeaderContent from "@/components/category/HeaderContent.astro";
+
+import bannerImage from "@/assets/images/articleCategory/guest-road.jpg";
+import Section from "@/components/elements/section.astro";
+import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
+
+import type { PlaceCard } from "@/components/placeCards/PlaceCard";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getImage } from "astro:assets";
+
+const events: CollectionEntry<"articles">[] = await getCollection(
+    "articles",
+    ({ data }) =>
+        data.articleCategories.some((category) => category.slug === "events")
+);
+
+const eventPlaceCards: PlaceCard[] = await Promise.all(
+    events.map(async (event) => {
+        const image = await getImage({ src: event.data.heroImage });
+
+        return {
+            image: image.src,
+            title: event.data.name,
+            href: `/article/${event.slug}`,
+        };
+    })
+);
+
+console.log(eventPlaceCards);
+---
+
+<ContentLayout
+    title="News & Updates"
+    description="WHAT'S HAPPENING IN THE AREA"
+    image={bannerImage}
+    HeaderContent={HeaderContent}
+>
+    <H2 color="coral" position="center"
+        >Find out what's happening in The Vale</H2
+    >
+
+    <!-- <SearchWrapper requiredArticleCategory="article" , isGridLayout={false} /> -->
+
+    <Section>
+        <H2 position="center" color="coral">Upcoming events</H2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {eventPlaceCards.map((event) => <PlaceCardGrid {...event} />)}
+        </div>
+    </Section>
+</ContentLayout>
