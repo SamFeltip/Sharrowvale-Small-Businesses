@@ -34,8 +34,6 @@ const searchResults = inject("searchResults", ref([] as CustomRecord[]));
 function getDisplayTags(result: CustomRecord): { slug: string; name: string }[] {
     let tags = result.filters?.tags || [];
 
-    console.log(tags);
-
     tags = tags.filter((tag: string) => tag !== props.tag && !props.hiddenTags?.includes(tag)).slice(0, 3);
 
     return tags.map((tag: string) => ({ slug: tag, name: tag }));

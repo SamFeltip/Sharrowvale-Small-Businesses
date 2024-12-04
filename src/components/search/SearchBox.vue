@@ -105,7 +105,7 @@ function getSearchOptions(): PagefindSearchOptions {
             tags: [],
             category: { any: [] },
         },
-        sort: { name: sortAscending ? "asc" : "desc" },
+        sort: { name: sortAscending.value ? "asc" : "desc" },
     };
 
     if (props.requiredTag !== undefined) {
@@ -159,7 +159,9 @@ async function processResults(pagefindResults: {
 
     const validTags = tagEntries.filter(([key, value]) => localSelectedTags.includes(key) || value > 0 && value < data.length);
 
-    availableTags.value = validTags.sort((a, b) => a[1] - b[1]).map(([key, value]) => key).slice(0, 10);
+    const sortedTags = validTags.sort((a, b) => b[1] - a[1]);
+
+    availableTags.value = sortedTags.map(([key, value]) => key).slice(0, 10);
 
 
 
