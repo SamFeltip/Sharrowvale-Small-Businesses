@@ -1,41 +1,18 @@
 <!-- SearchResults.vue -->
 <template>
     <div class="w-full mx-auto px-4">
-        <div
-            v-if="searchResults.length === 0"
-            class="text-center py-8 text-gray-500"
-        >
+        <div v-if="searchResults.length === 0" class="text-center py-8 text-gray-500">
             No results found
         </div>
 
-        <TransitionGroup
-            name="list"
-            tag="div"
-            v-else
-            class="gap-6"
-            :class="{ gridLayout: isGridLayout }"
-            id="search-results"
-        >
-            <PlaceCardGrid
-                v-if="isGridLayout"
-                v-for="result in searchResults"
-                :key="`gridLayout-${result.url}`"
-                :tags="getDisplayTags(result)"
-                :image="result.meta?.image || ''"
-                :content="result.meta?.content"
-                :title="result.meta?.title  || ''"
-                :href="result.url"
-            />
-            <PlaceCardWide
-                v-else
-                v-for="result in searchResults"
-                :key="result.url"
-                :tags="getDisplayTags(result)"
-                :image="result.meta?.image || ''"
-                :content="result.meta?.content"
-                :title="result.meta?.title || ''"
-                :href="result.url"
-            />
+        <TransitionGroup name="list" tag="div" v-else class="gap-6" :class="{ gridLayout: isGridLayout }"
+            id="search-results">
+            <PlaceCardGrid v-if="isGridLayout" v-for="result in searchResults" :key="`gridLayout-${result.url}`"
+                :tags="getDisplayTags(result)" :image="result.meta?.image || ''" :content="result.meta?.content"
+                :title="result.meta?.title || ''" :href="result.url" />
+            <PlaceCardWide v-else v-for="result in searchResults" :key="result.url" :tags="getDisplayTags(result)"
+                :image="result.meta?.image || ''" :content="result.meta?.content" :title="result.meta?.title || ''"
+                :href="result.url" />
         </TransitionGroup>
     </div>
 </template>
@@ -86,7 +63,8 @@ function getDisplayTags(result: CustomRecord): { slug: string; name: string }[] 
     }
 }
 
-.list-move, /* apply transition to moving elements */
+.list-move,
+/* apply transition to moving elements */
 .list-enter-active,
 .list-leave-active {
     transition: transform 0.5s ease;
