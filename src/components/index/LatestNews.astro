@@ -11,7 +11,7 @@ const promotionItems = await getPlaceCardsFromArticles(news.slice(0, 4), 300);
 ---
 
 <section class="grid md:grid-cols-[300px_1fr] gap-8 md:gap-12">
-    <div class="flex flex-col items-center justify-center md:items-start gap-3">
+    <div class="flex flex-col items-center md:items-start gap-3">
         <H2 position="start" color="coral">The latest news <wbr /> & updates</H2
         >
         <Button href="/articles">See all posts</Button>
@@ -22,7 +22,8 @@ const promotionItems = await getPlaceCardsFromArticles(news.slice(0, 4), 300);
                 <PlaceCardWide
                     image={item.image}
                     title={item.title}
-                    lightContent={item.content}
+                    content={item.content}
+                    lightContent={item.lightContent}
                     tags={item.tags}
                     href={item.href}
                 />

@@ -14,13 +14,18 @@ const promotedCategories = [
     "art-and-design",
     "cafe",
     "lunch",
-    "restaurant",
     "pubs-and-bars",
-    "health",
+    "restaurant",
 ];
 
-const selectedCategories = tags.filter((tag) =>
+let selectedCategories = tags.filter((tag) =>
     promotedCategories.includes(tag.slug)
+);
+
+selectedCategories = selectedCategories.sort(
+    (category, category2) =>
+        promotedCategories.indexOf(category.slug) -
+        promotedCategories.indexOf(category2.slug)
 );
 
 const specialItems = await Promise.all(
@@ -44,7 +49,7 @@ const specialItems = await Promise.all(
     })
 );
 
-const carouselItems = specialItems.filter((item) => item !== null).slice(0, 7);
+const carouselItems = specialItems.filter((item) => item !== null);
 ---
 
 <Section direction="column">

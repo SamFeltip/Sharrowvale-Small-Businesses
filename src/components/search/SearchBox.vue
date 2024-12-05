@@ -38,8 +38,7 @@
         </div>
 
         <div v-if="showFilters" class="p-4 mt-4">
-            <h3 class="text-lg font-semibold mb-3 text-center md:text-start">Filter by Tags</h3>
-            <div class="flex flex-wrap justify-center md:justify-normal">
+            <div class="flex flex-wrap justify-center lg:justify-normal">
                 <label v-for="tag in availableTags" :key="tag"
                     class="font-merriweather cursor-pointer inline-block px-2 py-1 m-1 border border-black rounded-full text-sm transition-all duration-200 hover:scale-105 group relative"
                     :class="{

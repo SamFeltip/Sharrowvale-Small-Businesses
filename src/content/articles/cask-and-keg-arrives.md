@@ -1,5 +1,5 @@
 ---
-name: "Cask and Keg joins Sharrow vale"
+name: "Cask & Keg - New Bar opening on Sharrow Vale"
 bannerImage: "@/assets/images/businesses/cask-and-keg/banner.webp"
 heroImage: "@/assets/images/businesses/cask-and-keg/hero.webp"
 description: "The latest pub to join Sharrow vale has arrived"

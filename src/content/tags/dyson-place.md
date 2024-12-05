@@ -1,6 +1,6 @@
 ---
-bannerImage: ../../assets/images/tags/cafe/banner.jpg
-heroImage: ../../assets/images/tags/cafe/heroImage.jpeg
+bannerImage: ../../assets/images/tags/dyson-place/banner.jpeg
+heroImage: ../../assets/images/tags/dyson-place/hero.jpeg
 isPage: true
 relatedTags: []
 promotedBusinesses: []
@@ -8,3 +8,7 @@ name: Dyson Place
 ---
 
 ## Check out Dyson Place's broad range of food, shopping spots, and services
+
+Dyson Place is a where you'll find the latest up and coming restaurants, shops and bars in Sharrow Vale.
+
+Whether it's the latest lifestyle spots in Artisans' yard, or a place to get a bite to eat, Dyson Place has got you covered.

@@ -2,7 +2,7 @@
     <HoverArticle :href="href">
         <div class="flex flex-col rounded-lg overflow-hidden">
             <img v-if="image" :src="image" :alt="title" class="w-full h-48 object-cover rounded-lg" />
-            <div class="w-full pt-4">
+            <div class="w-full pt-2">
                 <H3>
                     {{ title }}
                 </H3>

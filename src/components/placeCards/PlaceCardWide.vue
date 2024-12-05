@@ -12,7 +12,7 @@
                     {{ title }}
                 </H3>
                 <P class="py-1 md:font-bold">{{ content }}</P>
-                <p class="font-light hidden lg:block">{{ lightContent }}</p>
+                <P weight="light" class=" hidden lg:block">{{ lightContent }}</P>
             </div>
         </div>
     </HoverArticle>
