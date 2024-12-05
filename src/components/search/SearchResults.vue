@@ -34,8 +34,6 @@ const props = defineProps<{
 
 const searchResults = inject("searchResults", ref([] as CustomRecord[]));
 
-console.log(searchResults.value);
-
 function getDisplayTags(result: CustomRecord): { slug: string; name: string }[] {
     let tags = result.filters?.tags || [];
 

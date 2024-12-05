@@ -1,5 +1,7 @@
 ---
 import P from "@/components/elements/body/P.vue";
+import H2 from "@/components/elements/headers/H2.astro";
+import Section from "@/components/elements/section.astro";
 import LargeCard from "@/components/placeCards/LargeCard.astro";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 
@@ -10,7 +12,10 @@ const item: PlaceCard = {
 };
 ---
 
-<section>
+<Section>
+    <H2 color="coral" position="center" classList="md:hidden"
+        >Sharrow Vale Market</H2
+    >
     <LargeCard item={item} callToAction="Find out more">
         <P>
             Sharrow Vale Market is one of the Sharrows most beloved features,
@@ -24,4 +29,4 @@ const item: PlaceCard = {
             cafes are also open on market days.
         </P>
     </LargeCard>
-</section>
+</Section>

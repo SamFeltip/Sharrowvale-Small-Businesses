@@ -19,7 +19,7 @@ export async function getPlaceCardsFromArticles(
                 title: item.data.name,
                 image: imageUrl,
                 tags: tagPreviews,
-                content: item.data.description,
+                lightContent: item.data.description,
                 href: `/articles/${item.slug}`,
             };
         })

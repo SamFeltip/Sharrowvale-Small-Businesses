@@ -1,5 +1,5 @@
 <template>
-  <h3 :id="id" :class="computedClasses" class="font-merriweather text-lg font-semibold">
+  <h3 :id="id" :class="computedClasses" class="font-merriweather text-lg">
     <slot />
   </h3>
 </template>
@@ -13,14 +13,16 @@ interface Props {
   classList?: string;
   color?: "white" | "coral" | "black";
   position?: "start" | "center" | "end";
+  weight?: "light" | "bold" | "semibold" | "normal";
 }
 
 const props = withDefaults(defineProps<Props>(), {
   color: "black",
   position: "start",
   classList: "",
+  weight: "normal",
 });
-const { color, position, classList } = props;
+const { color, position, weight, classList } = props;
 
 // Computed property for dynamic classes
 const computedClasses = computed(() => {
@@ -36,6 +38,13 @@ const computedClasses = computed(() => {
     end: "text-right",
   };
 
-  return `${colorClasses[color]} ${positionClasses[position]} ${classList}`;
+  const weightClasses: Record<string, string> = {
+    light: "font-light",
+    bold: "font-bold",
+    semibold: "font-semibold",
+    normal: "font-normal",
+  };
+
+  return `${colorClasses[color]} ${positionClasses[position]} ${weightClasses[weight]} ${classList}`;
 });
 </script>

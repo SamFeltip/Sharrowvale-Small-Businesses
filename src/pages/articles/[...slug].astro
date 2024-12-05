@@ -19,6 +19,10 @@ import {
     getPlaceCardsFromBusinesses,
 } from "@/scripts/placeCard/handler";
 import PlaceCardWide from "@/components/placeCards/PlaceCardWide.vue";
+import ContentCollectionItem from "@/components/elements/ContentCollectionItem.astro";
+import BlogContentCollectionItem from "@/components/elements/BlogContentCollectionItem.astro";
+import H2 from "@/components/elements/headers/H2.astro";
+import Section from "@/components/elements/section.astro";
 
 export async function getStaticPaths() {
     const article: CollectionEntry<"articles">[] =
@@ -104,31 +108,44 @@ const articlePages = await getPlaceCardsFromArticles(moreArticles);
 
     <div data-pagefind-body id="article">
         <section id="article-content">
-            <Content />
+            <BlogContentCollectionItem>
+                <Content />
+            </BlogContentCollectionItem>
         </section>
 
-        <section id="article-tags" class="pb-6 flex flex-col gap-2">
-            <H3 position="center" color="coral">Article Tags</H3>
-            <div class="flex flex-wrap justify-center">
-                {
-                    tagItems.map((tag) => (
-                        <Button
+        <section
+            id="article-tags"
+            class="pb-6 flex flex-col items-center md:items-end gap-2"
+        >
+            {tagItems.length > 0 && 
+                <H3 color="coral">Article Tags</H3>
+                <div class="flex flex-wrap justify-center">
+                    {
+                        tagItems.map((tag) => (
+                            <Button
                             disabled={tag.data.isPage}
                             data-pagefind-filter="tags"
-                        >
-                            {tag.data.name}
-                        </Button>
-                    ))
-                }
-            </div>
+                            >
+                                {tag.data.name}
+                            </Button>
+                        ))
+                    }
+                </div>
+            }
         </section>
 
-        <section id="article-author" class="pb-6 flex flex-col gap-2">
+        <section
+            id="article-author"
+            class="pb-6 flex flex-col items-center md:items-end gap-2"
+        >
             <H3 position="center" color="coral">Author</H3>
             <SerifBody position="center">{author}</SerifBody>
         </section>
 
-        <section class="article-share">
+        <section
+            id="article-share"
+            class="flex flex-col items-center md:items-end gap-2"
+        >
             <H3 position="center" color="coral">Share</H3>
 
             <div class="flex flex-row flex-wrap gap-5 justify-center">
@@ -171,16 +188,18 @@ const articlePages = await getPlaceCardsFromArticles(moreArticles);
             </div>
         </section>
 
-        <section id="article-promotion" class="h-[400px]" class="">
+        <section id="article-promotion">
             {
                 promotedCard !== undefined && (
-                    <LargePromotionalItem card={promotedCard} />
+                    <div class="h-[400px]">
+                        <LargePromotionalItem card={promotedCard} />
+                    </div>
                 )
             }
         </section>
 
-        <section id="article-more">
-            <H3 position="center" color="coral"> More Articles</H3>
+        <Section id="article-more">
+            <H2 position="center" color="coral"> More Articles</H2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {
                     articlePages &&
@@ -189,7 +208,7 @@ const articlePages = await getPlaceCardsFromArticles(moreArticles);
                         ))
                 }
             </div>
-        </section>
+        </Section>
     </div>
 </ContentLayout>
 

@@ -27,7 +27,7 @@ const { image, title, content, tags, href } = item;
         }
 
         <div class="w-full flex flex-col items-start gap-4 p-4">
-            <H2 color="coral">{title}</H2>
+            <H2 classList="hidden md:block" color="coral">{title}</H2>
             {content && <p>{content}</p>}
             <slot />
             <Button href={href}>

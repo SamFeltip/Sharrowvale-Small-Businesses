@@ -153,7 +153,6 @@ async function processResults(pagefindResults: {
         pagefindResults.results.map((result) => result.data())
     );
 
-    console.log(data);
     searchResults.value = data;
 
     let tags = pagefindResults.filters?.tags ?? {};

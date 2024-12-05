@@ -19,10 +19,10 @@ The Christmas market is a great way to get your Christmas wishes and gifts deliv
 
 ## What to expect
 
--   Food
--   Gifts
--   Crafts
+Each year, the Sharrow Vale Community Association (SVCA) holds a Christmas Market in the town centre. It hosts over 100 stalls selling a wide variety of locally reared and home made produce as well as hot food, crafts, clothing, and more!
+
+There's a collection of businesses, charities, and not-for-profit organisations that are part of the Christmas Market.
 
 ![christmas market](@/assets/images/articles/christmas-market-2024/christmas-market-2024.jpeg)
 
-The Christmas market is held by the Sharrow Vale Community Association (SVCA) every december.
+The Christmas market is held by the Sharrow Vale Community Association (SVCA) every December.

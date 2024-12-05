@@ -2,17 +2,19 @@
 type Props = {
     direction?: "column" | "row";
     classList?: string;
+    id?: string;
 };
 
 const props: Props = Astro.props;
 
-const { direction = "column" } = props;
+const { direction = "column", id } = props;
 
 const flexDirection =
     direction == "column" ? "flex-col" : "flex-col md:flex-row";
 ---
 
 <section
+    id={id}
     class:list={[
         "w-full flex align-items gap-6 md:gap-10",
         flexDirection,

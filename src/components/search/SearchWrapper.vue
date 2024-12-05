@@ -1,22 +1,12 @@
 <!-- SearchWrapper.vue -->
 <template>
-    <div
-        id="search-wrapper"
-        class="w-full gap-6"
-        :class="{ gridLayout: isGridLayout }"
-    >
+    <div id="search-wrapper" class="w-full gap-6" :class="{ gridLayout: isGridLayout }">
         <SearchBox :requiredTag="requiredTag" :requiredCategories="requiredCategories" />
-        <SearchResults
-            :tag="requiredTag"
-            :isGridLayout="isGridLayout"
-            :hiddenTags="hiddenTags"
-        />
+        <SearchResults :tag="requiredTag" :isGridLayout="isGridLayout" :hiddenTags="hiddenTags" />
     </div>
 </template>
 
 <script setup lang="ts">
-
-console.log("hello wrapper");
 
 import SearchBox from "./SearchBox.vue";
 import SearchResults from "./SearchResults.vue";
@@ -30,7 +20,7 @@ const props = defineProps<{
     hiddenTags?: string[]
 }>();
 
-const {requiredTag, isGridLayout, hiddenTags} = props;
+const { requiredTag, isGridLayout, hiddenTags } = props;
 
 const searchResults = ref([]);
 const searchQuery = ref("");

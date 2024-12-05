@@ -26,7 +26,6 @@ if (size == "lg") {
     baseStyles = "p-3"
 }
 
-console.log(disabled);
 if (!disabled) {
     baseStyles += " cursor-pointer hover:scale-110 transition-all"
 } else {

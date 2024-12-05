@@ -2,7 +2,7 @@
     <HoverArticle :href="href">
         <div class="search-result-wide w-full grid rounded-lg overflow-hidden">
             <img v-if="image" :src="image" :alt="title" class="w-full h-48 object-cover rounded-lg" />
-            <div class="w-full px-4">
+            <div class="search-result-body w-full">
                 <div class="tag-list">
                     <a v-for="(tag, index) in tags" :key="index" class="text-coral py-1 text-sm">
                         {{ tag.name }}
@@ -21,7 +21,6 @@
 <script setup lang="ts">
 import HoverArticle from "../elements/articles/HoverArticle.vue";
 import P from "../elements/body/P.vue";
-import SerifBody from "../elements/body/SerifBody.vue";
 import H3 from "../elements/headers/H3.vue";
 import type { PlaceCard } from "./PlaceCard";
 
@@ -40,6 +39,10 @@ const { image, title, content, tags, href, lightContent } = props;
         gap: 0.75rem;
         padding-bottom: 0.5rem;
     }
+
+    & .search-result-body {
+        padding-block: 1rem;
+    }
 }
 
 @container (min-width: 550px) {
@@ -48,6 +51,11 @@ const { image, title, content, tags, href, lightContent } = props;
 
         & .tag-list {
             display: flex;
+        }
+
+
+        & .search-result-body {
+            padding-inline: 1rem;
         }
     }
 }
