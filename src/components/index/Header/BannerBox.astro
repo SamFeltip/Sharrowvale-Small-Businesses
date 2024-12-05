@@ -14,7 +14,7 @@ type Props = {
 const { icon, text, href, classList } = Astro.props;
 ---
 
-<HoverArticle href={href} classList={classList}>
+<HoverArticle href={href} outerClassList={classList}>
     <div class="flex flex-col items-center justify-center text-white">
         <div class="flex flex-col items-center justify-center gap-5">
             <FontAwesomeIcon icon={icon} height={40} width={40} />

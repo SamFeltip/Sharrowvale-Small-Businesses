@@ -46,17 +46,18 @@ const { title, description } = Astro.props;
                     classList="hidden md:flex"
                     href="/categories/directory"
                     icon={faCircleInfo}
-                    text="Search for details"
+                    text="Discover businesses"
                 />
+                <BannerBox
+                    href="/articles"
+                    icon={faNewspaper}
+                    text="News & Updates"
+                />
+
                 <BannerBox
                     href="/tag/tradespeople"
                     icon={faScrewdriverWrench}
                     text="Find local tradespeople"
-                />
-                <BannerBox
-                    href="/categories/news"
-                    icon={faNewspaper}
-                    text="News & Updates"
                 />
             </div>
         </ScreenWidth>
