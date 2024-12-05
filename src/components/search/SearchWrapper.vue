@@ -1,7 +1,7 @@
 <!-- SearchWrapper.vue -->
 <template>
     <div id="search-wrapper" class="w-full gap-6" :class="{ gridLayout: isGridLayout }">
-        <SearchBox :requiredTag="requiredTag" :requiredCategories="requiredCategories" />
+        <SearchBox :isGridLayout :requiredTag="requiredTag" :requiredCategories="requiredCategories" />
         <SearchResults :tag="requiredTag" :isGridLayout="isGridLayout" :hiddenTags="hiddenTags" />
     </div>
 </template>

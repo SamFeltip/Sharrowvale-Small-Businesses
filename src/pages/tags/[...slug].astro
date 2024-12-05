@@ -4,6 +4,7 @@ import ContentPromotions from "@/components/content/ContentPromotions.astro";
 import Button from "@/components/elements/Button.vue";
 import ContentCollectionItem from "@/components/elements/contentCollectionWrapper/ContentCollectionItem.astro";
 import H2 from "@/components/elements/headers/H2.astro";
+import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
 import Section from "@/components/elements/section.astro";
 import SearchWrapper from "@/components/search/SearchWrapper.vue";
 import ContentLayout from "@/layouts/ContentLayout.astro";
@@ -105,4 +106,6 @@ if (directoryCategory == null) {
             </section>
         )
     }
+
+    {isGridLayout && <PromoBanner />}
 </ContentLayout>

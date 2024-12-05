@@ -38,6 +38,9 @@
         </div>
 
         <div v-if="showFilters" class="p-4 mt-4">
+            <H3 v-if="availableTags.length > 0" color="coral">
+                Filter by Category:
+            </H3>
             <div class="flex flex-wrap justify-center lg:justify-normal">
                 <label v-for="tag in availableTags" :key="tag"
                     class="font-merriweather cursor-pointer inline-block px-2 py-1 m-1 border border-black rounded-full text-sm transition-all duration-200 hover:scale-105 group relative"
@@ -51,6 +54,9 @@
                 </label>
             </div>
         </div>
+        <div v-if="props.isGridLayout == false" class="flex flex-col items-center">
+            <PromoBanner callToAction="Advertise on this site for only £20 a month" class="hidden lg:block" />
+        </div>
     </div>
 </template>
 
@@ -58,6 +64,9 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faArrowUpWideShort } from "@fortawesome/free-solid-svg-icons/faArrowUpWideShort"
 import { faArrowDownShortWide } from "@fortawesome/free-solid-svg-icons/faArrowDownShortWide"
+import PromoBanner from "@/components/elements/promos/PromoBanner.vue"
+
+import H3 from "@/components/elements/headers/H3.vue";
 
 import { faFilter } from "@fortawesome/free-solid-svg-icons/faFilter"
 
@@ -68,6 +77,7 @@ import Button from "../elements/Button.vue";
 const props = defineProps<{
     requiredTag?: string,
     requiredCategories: string[],
+    isGridLayout: boolean,
 }>();
 
 const searchResults = inject("searchResults", ref([] as CustomRecord[]));
