@@ -153,6 +153,9 @@ async function processResults(pagefindResults: {
         pagefindResults.results.map((result) => result.data())
     );
 
+    console.log(data);
+    searchResults.value = data;
+
     let tags = pagefindResults.filters?.tags ?? {};
 
     let tagEntries = Object.entries(tags) as [string, number][];
@@ -165,7 +168,6 @@ async function processResults(pagefindResults: {
 
 
 
-    searchResults.value = data;
 }
 
 function toggleSort() {

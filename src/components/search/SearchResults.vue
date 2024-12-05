@@ -7,12 +7,15 @@
 
         <TransitionGroup name="list" tag="div" v-else class="gap-6" :class="{ gridLayout: isGridLayout }"
             id="search-results">
+
             <PlaceCardGrid v-if="isGridLayout" v-for="result in searchResults" :key="`gridLayout-${result.url}`"
                 :tags="getDisplayTags(result)" :image="result.meta?.image || ''" :content="result.meta?.content"
                 :title="result.meta?.title || ''" :href="result.url" />
+
             <PlaceCardWide v-else v-for="result in searchResults" :key="result.url" :tags="getDisplayTags(result)"
                 :image="result.meta?.image || ''" :content="result.meta?.content" :title="result.meta?.title || ''"
-                :href="result.url" />
+                :href="result.url" :search-content="result.excerpt" />
+
         </TransitionGroup>
     </div>
 </template>
@@ -30,6 +33,8 @@ const props = defineProps<{
 }>();
 
 const searchResults = inject("searchResults", ref([] as CustomRecord[]));
+
+console.log(searchResults.value);
 
 function getDisplayTags(result: CustomRecord): { slug: string; name: string }[] {
     let tags = result.filters?.tags || [];

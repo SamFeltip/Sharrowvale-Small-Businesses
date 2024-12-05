@@ -8,10 +8,11 @@
                         {{ tag.name }}
                     </a>
                 </div>
-                <h3 class="text-lg font-semibold mb-2">
+                <H3 class="text-lg font-semibold">
                     {{ title }}
-                </h3>
-                <p class="mb-4">{{ content }}</p>
+                </H3>
+                <p class="py-1">{{ content }}</p>
+                <p class="font-light hidden lg:block">{{ searchContent }}</p>
             </div>
         </div>
     </HoverArticle>
@@ -19,6 +20,7 @@
 
 <script setup lang="ts">
 import HoverArticle from "../elements/articles/HoverArticle.vue";
+import H3 from "../elements/headers/H3.vue";
 import type { PlaceCard } from "./PlaceCard";
 
 const props = defineProps<PlaceCard>();

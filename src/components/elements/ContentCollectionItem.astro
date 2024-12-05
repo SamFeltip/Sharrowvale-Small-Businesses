@@ -1,0 +1,22 @@
+---
+
+---
+
+<section>
+    <slot />
+</section>
+
+<style>
+    section :global(h3) {
+        @apply font-merriweather text-lg font-semibold;
+    }
+
+    section :global(p) {
+        @apply text-base font-merriweather font-light leading-[1.24] no-underline;
+    }
+
+    section :global(#business-content),
+    section :global(#article-content) {
+        @apply text-coral;
+    }
+</style>
