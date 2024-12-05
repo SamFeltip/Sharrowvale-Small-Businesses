@@ -1,6 +1,7 @@
 ---
 type Props = {
     classList?: string;
+    weight?: "light" | "bold" | "normal";
     position: "center" | "start" | "end";
     color?: "white" | "coral" | "black";
     id?: string;
@@ -12,15 +13,25 @@ const props: Props = Astro.props;
 export const defaultProps: Props = {
     color: "black",
     position: "start",
+    weight: "light",
 };
+
+let weightStyles = "";
+
+if (props.weight == "bold") {
+    weightStyles = "font-bold tracking-wider";
+} else {
+    weightStyles = `font-${props.weight} tracking-normal`;
+}
 ---
 
 <p
     id={props.id}
     class:list={[
-        "text-base font-lato font-light leading-[1.24] no-underline",
+        "md:text-lg xl:text-xl font-lato no-underline leading-5",
         `text-${props.color}`,
         `text-${props.position}`,
+        weightStyles,
         props.classList,
     ]}
 >
