@@ -8,7 +8,7 @@ import HeaderContent from "@/components/HeaderContent.astro";
 import Section from "@/components/elements/section.astro";
 
 import { getCollection, type CollectionEntry } from "astro:content";
-import ContentCollectionItem from "@/components/elements/ContentCollectionItem.astro";
+import ContentCollectionItem from "@/components/elements/contentCollectionWrapper/ContentCollectionItem.astro";
 
 export async function getStaticPaths() {
     const category: CollectionEntry<"categories">[] =

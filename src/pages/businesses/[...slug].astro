@@ -20,8 +20,7 @@ import H2 from "@/components/elements/headers/H2.astro";
 import P from "@/components/elements/body/P.vue";
 import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
 import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
-import SerifBody from "@/components/elements/body/SerifBody.astro";
-import BlogContentCollectionItem from "@/components/elements/BlogContentCollectionItem.astro";
+import BlogContentCollectionItem from "@/components/elements/contentCollectionWrapper/BlogContentCollectionItem.astro";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
