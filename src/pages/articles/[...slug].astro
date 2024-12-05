@@ -20,7 +20,6 @@ import {
 } from "@/scripts/placeCard/handler";
 import PlaceCardWide from "@/components/placeCards/PlaceCardWide.vue";
 import ContentCollectionItem from "@/components/elements/ContentCollectionItem.astro";
-import BlogContentCollectionItem from "@/components/elements/BlogContentCollectionItem.astro";
 import H2 from "@/components/elements/headers/H2.astro";
 import Section from "@/components/elements/section.astro";
 
@@ -108,9 +107,9 @@ const articlePages = await getPlaceCardsFromArticles(moreArticles);
 
     <div data-pagefind-body id="article">
         <section id="article-content">
-            <BlogContentCollectionItem>
+            <ContentCollectionItem>
                 <Content />
-            </BlogContentCollectionItem>
+            </ContentCollectionItem>
         </section>
 
         <section

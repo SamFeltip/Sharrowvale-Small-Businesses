@@ -1,5 +1,6 @@
 ---
     name: "events"
     description: "local events"
-    bannerImage: "/src/assets/images/category/guest-road.jpg"
+    bannerImage: "../../assets/images/category/guest-road.jpg"
+    heroImage: "../../assets/images/category/events/hero.jpeg" 
 ---

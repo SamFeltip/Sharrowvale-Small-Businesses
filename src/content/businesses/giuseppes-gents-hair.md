@@ -1,8 +1,7 @@
 ---
 name: "Giuseppes Gents Hair"
 preview: "Traditional Gents and Boys Barbers."
-description: "With over 34 years of hands-on experience and five successful years in business, Giuseppe's offers expert haircuts for all hair types in a friendly and professional atmosphere. 
-   
+description: "Haircuts for all hair types in a friendly and professional atmosphere 
 ‍"
 type: "beauty"
 
@@ -49,7 +48,7 @@ tags:
 | Phone   | 07415275048                             |
 | Website | https://giuseppesgentshair.nearcut.com/ |
 
-Giuseppe's is an easy, non nonsense mens barbers.
+Giuseppe's is an easy, non nonsense mens barbers. With over 34 years of hands-on experience and five successful years in business, Giuseppe's offers expert haircuts for all hair types in a friendly and professional atmosphere
 
 Nicky has been cutting hair for over 34 years and is able to do whatever you need.
 

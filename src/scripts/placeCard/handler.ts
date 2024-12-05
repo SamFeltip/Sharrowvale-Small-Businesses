@@ -2,6 +2,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import { getImageHelper } from "@scripts/images/getImageHelper";
 import { getTagPreviews } from "@scripts/tags/getPreview";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
+import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 
 export async function getPlaceCardsFromArticles(
     articles: CollectionEntry<"articles">[],
@@ -45,6 +46,28 @@ export async function getPlaceCardsFromBusinesses(
                 content: item.data.description,
                 href: `/businesses/${item.slug}`,
             };
+        })
+    );
+}
+
+export async function getPlaceCardsFromItems(
+    itemRefs: PlaceCardRef[],
+    imgWidth: number = 400
+): Promise<PlaceCard[]> {
+    return await Promise.all(
+        itemRefs.map(async (itemRef) => {
+            let imageUrl = await getImageHelper(
+                itemRef.item.heroImageMetaData,
+                imgWidth
+            );
+
+            return {
+                slug: itemRef.item.slug,
+                image: imageUrl,
+                title: itemRef.item.name,
+                content: itemRef.item.description,
+                href: `/${itemRef.type}/${itemRef.item.slug}`,
+            } as PlaceCard;
         })
     );
 }

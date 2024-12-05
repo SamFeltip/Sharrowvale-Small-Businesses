@@ -25,9 +25,8 @@ const mergedProps = computed(() => ({
     ...props,
 }));
 
-// Compute the dynamic classes
 const dynamicClasses = computed(() => [
-    "font-lato no-underline leading-5",
+    "font-lato no-underline text-base leading-6 font-light",
     `text-${mergedProps.value.color}`,
     `text-${mergedProps.value.position}`,
     `font-${mergedProps.value.weight}`,

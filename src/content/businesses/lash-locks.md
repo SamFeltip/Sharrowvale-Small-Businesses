@@ -1,7 +1,7 @@
 ---
 name: "Lash and Locks"
 preview: "Stylish salon specialising in Hair, Nails and Brows"
-description: "At Lash and Locks we have been serving local customers for over 10yrs. We have the very best highly qualified technical professionals for all you hair and beauty needs. "
+description: "Highly qualified technical professionals for all you hair and beauty needs. "
 type: "beauty"
 
 heroImage: "../../assets/images/businesses/lash-locks/668c13dbf7119001b80cfd49_IMG_1719_Original---Alison-Belk.jpeg"
@@ -50,5 +50,7 @@ tags:
 | Phone   | 07967017936                             |
 | Website | http://Lashandlockssheffield.booksy.com |
 
-Lash and Locks services include everything you need with: Lash extensions and liftsBrowsAcrylic, Gel and Biab nailsHair styling, cutting, colouring and all types of hair extensionsFacials and morePop in anytime to chat to our stylists.
+Lash and Locks has been serving local customers for over 10yrs.
+
+Their services include everything you need with: Lash extensions and liftsBrowsAcrylic, Gel and Biab nailsHair styling, cutting, colouring and all types of hair extensionsFacials and morePop in anytime to chat to our stylists.
 For prices and booking visit our website.

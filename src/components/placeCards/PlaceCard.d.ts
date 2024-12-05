@@ -1,4 +1,5 @@
 export type PlaceCard = {
+    slug?: string;
     image: string;
     title: string;
     content?: string;

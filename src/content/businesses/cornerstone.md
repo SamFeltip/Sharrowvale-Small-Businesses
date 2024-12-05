@@ -1,7 +1,7 @@
 ---
 name: "Cornerstone"
 preview: "Locally sourced neighbourhood Restaurant and Bar"
-description: "Your local neighbourhood restaurant and bar offering quality plates all day, every day. Our life in hospitality has taught us that the best venues are a collection of simple things done well. At the cornerstone of any good venue is good food, sourced locally, made thoughtfully and served with a welcome to match the quality."
+description: "Your local neighbourhood restaurant and bar offering quality plates all day, every day"
 type: "restaurant"
 
 heroImage: "../../assets/images/businesses/cornerstone-dyson-place/66953f8aadc2d5cf6630bc87_Cornerstone-1---Richard-Massarella.jpg"
@@ -59,6 +59,8 @@ tags:
 | Email   | info@cornerstonecoffeegroup.co.uk         |
 | Phone   | 01146982679                               |
 | Website | https://www.cornerstonecoffeegroup.co.uk/ |
+
+Your local neighbourhood restaurant and bar offering quality plates all day, every day. Our life in hospitality has taught us that the best venues are a collection of simple things done well. At the cornerstone of any good venue is good food, sourced locally, made thoughtfully and served with a welcome to match the quality.
 
 Cornerstone @ Dyson Place has quickly become one of Sheffield’s go-to contemporary restaurants and brunch spots since opening last year. This two-storey building, located just off Sharrow Vale Road, was formerly used by the church as a mission hall and has been transformed into a light, airy hangout that still proudly boasts many original features.
 
