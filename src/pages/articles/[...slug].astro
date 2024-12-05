@@ -121,14 +121,13 @@ const articlePages = await getPlaceCardsFromArticles(moreArticles);
                 <H3 color="coral">Article Tags</H3>
                 <div class="flex flex-wrap justify-center">
                     {
-                        tagItems.map((tag) => (
-                            <Button
-                            disabled={tag.data.isPage}
-                            data-pagefind-filter="tags"
-                            >
-                                {tag.data.name}
-                            </Button>
-                        ))
+                        tagItems.map((tag) => 
+                            {
+                                console.log(tag); 
+                                return <Button href={`/tags/${tag.slug}`} disabled={tag.data.isPage == false} data-pagefind-filter="tags">
+                                    {tag.data.name}
+                                </Button>}
+                        )
                     }
                 </div>
             }

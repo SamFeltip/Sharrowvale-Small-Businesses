@@ -1,5 +1,5 @@
 <template>
-    <a v-if="href" :href="href" :class="[borderStyles, baseStyles]">
+    <a v-if="href && disabled == false" :href="href" :class="[borderStyles, baseStyles]">
         <slot></slot>
     </a>
     <button v-else :class="[borderStyles, baseStyles]" :disabled=disabled>
