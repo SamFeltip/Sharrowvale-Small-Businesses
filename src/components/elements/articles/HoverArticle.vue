@@ -1,9 +1,7 @@
 <template>
     <a :href="href" :class=outerClassList>
-        <article
-            :class="`${classList} hover:scale-[1.02] transition-transform duration-300 cursor-pointer`"
-            >
-            <slot ></slot>
+        <article :class="`${classList} hover:scale-[1.02] transition-transform duration-300 cursor-pointer`">
+            <slot></slot>
         </article>
     </a>
 </template>
@@ -16,5 +14,5 @@ const props = defineProps<{
     href?: string;
 }>();
 
-const {classList="", outerClassList="", href} = props;
+const { classList = "", outerClassList = "", href } = props;
 </script>

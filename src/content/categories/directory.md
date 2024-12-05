@@ -6,4 +6,4 @@ description: Independent small businesses
 isGridLayout: true
 ---
 
-### Find local Restaurants, Shops, Cafes and more
+## Find local Restaurants, Shops, Cafes and more

@@ -12,17 +12,27 @@
                     </svg>
                 </div>
                 <input v-model="localSearchQuery" type="text" placeholder="Search..."
-                    class="flex-1 px-3 py-2 bg-transparent border-b border-gray-400" @input="handleSearch" />
+                    class="flex-1 px-3 py-2 bg-transparent border-b border-gray-400 focus:outline-none"
+                    @input="handleSearch" />
             </div>
 
-            <div class="flex gap-2">
-                <Button @click="toggleSort"
-                    class="w-full px-4 flex flex-row justify-center items-center gap-2 border border-gray-400 rounded-2xl">
-                    Sort <span>{{ sortAscending ? "↑" : "↓" }}</span>
+            <div class="flex justify-center gap-2">
+                <Button title="sort" @click="toggleSort" class="w-full">
+                    Sort
+
+                    <span v-if="sortAscending">
+                        <FontAwesomeIcon :icon="faArrowUpWideShort" />
+                    </span>
+                    <span v-else>
+                        <FontAwesomeIcon :icon="faArrowDownShortWide" />
+                    </span>
+
                 </Button>
-                <Button @click="toggleFilters"
-                    class="w-full px-4 flex flex-row justify-center items-center gap-2 border border-gray-400 rounded-2xl">
-                    Filters <span>{{ showFilters ? "−" : "+" }}</span>
+                <Button title="filter" @click="toggleFilters" class=" w-full">
+                    Filters
+                    <span>
+                        <FontAwesomeIcon :icon="faFilter" />
+                    </span>
                 </Button>
             </div>
         </div>
@@ -46,6 +56,12 @@
 </template>
 
 <script setup lang="ts">
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faArrowUpWideShort } from "@fortawesome/free-solid-svg-icons/faArrowUpWideShort"
+import { faArrowDownShortWide } from "@fortawesome/free-solid-svg-icons/faArrowDownShortWide"
+
+import { faFilter } from "@fortawesome/free-solid-svg-icons/faFilter"
+
 import type { CustomRecord } from "pagefind";
 import { ref, inject, onMounted, watch } from "vue";
 import Button from "../elements/Button.vue";
@@ -84,10 +100,21 @@ onMounted(async () => {
         /* @vite-ignore */ window.location.origin + "/pagefind/pagefind.js"
     );
 
+    const params = new URLSearchParams(document.location.search);
+    let startingSearch = params.get("search");
+
+    if (startingSearch !== null) {
+        startingSearch = startingSearch.replaceAll("+", " ");
+        startingSearch = startingSearch.replaceAll("%20", " ");
+        localSearchQuery.value = startingSearch;
+    }
+
     await handleSearch();
 });
 
 async function handleSearch() {
+
+
     searchQuery.value = localSearchQuery.value;
 
     let searchOptions = getSearchOptions();

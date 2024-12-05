@@ -6,17 +6,17 @@
   }">
     <CarouselContent>
       <CarouselItem v-for="item in items" class="basis-2/3 md:basis-1/4 h-[380px]">
-        <SmallPromotionalCard :key="item.title" position="end" :card="item" />
+        <SmallPromotionalCard :key="item.title" position="start" :card="item" />
       </CarouselItem>
     </CarouselContent>
 
     <!-- Carousel Navigation Buttons below -->
     <div class="carousel-buttons flex justify-center gap-4 mt-4">
-      <Button @click="goToPrevious" size="lg" class="rounded-full border border-gray-800 text-gray-800 p-3">
-        <ArrowLeft />
+      <Button title="previous" @click="goToPrevious" size="lg">
+        <FontAwesomeIcon :icon="faChevronLeft" width="20" height="20" font-size="20" />
       </Button>
-      <Button @click="goToNext" size="lg" class="rounded-full border border-gray-800 text-gray-800 p-3">
-        <ArrowRight />
+      <Button title="next" @click="goToNext" size="lg">
+        <FontAwesomeIcon :icon="faChevronRight" width="20" height="20" font-size="20" />
       </Button>
       <a class="bg-coral rounded-full text-white py-3 px-5" href="/categories/directory">
         See the full directory
@@ -25,8 +25,15 @@
   </Carousel>
 </template>
 
+<!-- 
+    height={40}
+    width={40}
+    fontSize={40} -->
+
 <script setup lang="ts">
-import { ArrowRight, ArrowLeft } from 'lucide-vue-next'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight"
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft"
 
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { ref, type Ref } from "vue";

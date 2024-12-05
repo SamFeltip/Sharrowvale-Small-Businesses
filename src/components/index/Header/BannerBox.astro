@@ -5,19 +5,24 @@ import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type Props = {
-    icon: IconDefinition;
+    iconDef: IconDefinition;
     text: string;
     href: string;
     classList?: string;
 };
 
-const { icon, text, href, classList } = Astro.props;
+const { iconDef, text, href, classList } = Astro.props;
 ---
 
 <HoverArticle href={href} outerClassList={classList}>
     <div class="flex flex-col items-center justify-center text-white">
         <div class="flex flex-col items-center justify-center gap-5">
-            <FontAwesomeIcon icon={icon} height={40} width={40} />
+            <FontAwesomeIcon
+                icon={iconDef}
+                height={40}
+                width={40}
+                fontSize={40}
+            />
             <SerifBody color="white" position="center">{text}</SerifBody>
         </div>
     </div>

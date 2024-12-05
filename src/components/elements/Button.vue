@@ -2,7 +2,8 @@
     <a v-if="href && disabled == false" :href="href" :class="[borderStyles, baseStyles]">
         <slot></slot>
     </a>
-    <button v-else :class="[borderStyles, baseStyles]" :disabled=disabled>
+    <button v-else @click="$emit('click')" :aria-label="title" :title type="button" :class="[borderStyles, baseStyles]"
+        :disabled=disabled>
         <slot></slot>
     </button>
 </template>
@@ -11,19 +12,24 @@
 import { defineProps } from "vue";
 
 const props = defineProps<{
+    title?: string;
     href?: string;
     type?: "yellow" | "clear";
     size?: "sm" | "lg";
     disabled?: boolean;
 }>();
 
-const { href, type = "clear", size = "sm", disabled = false } = props;
+const emit = defineEmits<{
+    (e: 'click'): void; // Emits a 'click' event
+}>();
 
 
-let baseStyles = "px-2 py-1";
+const { title, href, type = "clear", size = "sm", disabled = false } = props;
+
+let baseStyles = "flex flex-row gap-2 items-center justify-center px-3 py-1 text-base";
 
 if (size == "lg") {
-    baseStyles = "p-3"
+    baseStyles = "flex items-center justify-center text-base p-3 w-[48px]"
 }
 
 if (!disabled) {
