@@ -2,16 +2,16 @@
     <HoverArticle :href="href">
         <div class="search-result-wide w-full grid rounded-lg overflow-hidden">
             <img v-if="image" :src="image" :alt="title" class="w-full h-48 object-cover rounded-lg" />
-            <div class="w-full p-4">
-                <div class="flex gap-2 tag-list">
-                    <a v-for="(tag, index) in tags" :key="index" class="text-coral px-2 py-1 text-sm">
+            <div class="w-full px-4">
+                <div class="tag-list">
+                    <a v-for="(tag, index) in tags" :key="index" class="text-coral py-1 text-sm">
                         {{ tag.name }}
                     </a>
                 </div>
-                <H3 class="text-lg font-semibold">
+                <H3 class="md:text-2xl">
                     {{ title }}
                 </H3>
-                <p class="py-1">{{ content }}</p>
+                <P class="py-1 md:font-bold">{{ content }}</P>
                 <p class="font-light hidden lg:block">{{ lightContent }}</p>
             </div>
         </div>
@@ -20,6 +20,8 @@
 
 <script setup lang="ts">
 import HoverArticle from "../elements/articles/HoverArticle.vue";
+import P from "../elements/body/P.vue";
+import SerifBody from "../elements/body/SerifBody.vue";
 import H3 from "../elements/headers/H3.vue";
 import type { PlaceCard } from "./PlaceCard";
 
@@ -35,6 +37,8 @@ const { image, title, content, tags, href, lightContent } = props;
 
     & .tag-list {
         display: none;
+        gap: 0.75rem;
+        padding-bottom: 0.5rem;
     }
 }
 
@@ -43,7 +47,7 @@ const { image, title, content, tags, href, lightContent } = props;
         grid-template-columns: 300px 1fr;
 
         & .tag-list {
-            display: block;
+            display: flex;
         }
     }
 }

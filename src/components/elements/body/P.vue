@@ -5,6 +5,7 @@ import { computed, defineProps } from "vue";
 type Props = {
     classList?: string;
     position?: "center" | "start" | "end";
+    weight?: "light" | "bold" | "normal";
     color?: "white" | "coral" | "black";
     id?: string;
 };
@@ -15,6 +16,7 @@ const props = defineProps<Props>();
 const defaultProps = {
     color: "black",
     position: "start",
+    weight: "normal",
 };
 
 // Merge props with default values
@@ -25,9 +27,10 @@ const mergedProps = computed(() => ({
 
 // Compute the dynamic classes
 const dynamicClasses = computed(() => [
-    "font-lato font-light no-underline",
+    "font-lato no-underline",
     `text-${mergedProps.value.color}`,
     `text-${mergedProps.value.position}`,
+    `font-${mergedProps.value.weight}`,
     mergedProps.value.classList,
 ]);
 </script>
