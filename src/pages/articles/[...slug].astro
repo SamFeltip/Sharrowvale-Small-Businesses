@@ -122,13 +122,10 @@ const articlePages = await getPlaceCardsFromArticles(moreArticles);
                 <div class="flex flex-wrap justify-center">
                     {
                         tagItems.map((tag) => 
-                            {
-                                console.log(tag); 
-                                return <Button href={`/tags/${tag.slug}`} disabled={tag.data.isPage == false} data-pagefind-filter="tags">
+                                (<Button href={`/tags/${tag.slug}`} disabled={tag.data.isPage == false} data-pagefind-filter="tags">
                                     {tag.data.name}
-                                </Button>}
-                        )
-                    }
+                                </Button>)
+                    )}
                 </div>
             }
         </section>
