@@ -35,20 +35,20 @@ const searchCategoryCollection = [name];
     description={description}
     image={bannerImage}
     HeaderContent={HeaderContent}
+    classList="gap-8"
+    pagefindIgnore={true}
 >
-    <div data-pagefind-ignore class="flex flex-col">
-        <div class="flex flex-col items-center gap-4">
-            <ContentCollectionItem>
-                <Content />
-            </ContentCollectionItem>
-        </div>
-
-        <Section>
-            <SearchWrapper
-                client:only="vue"
-                requiredCategories={searchCategoryCollection}
-                isGridLayout={isGridLayout}
-            />
-        </Section>
+    <div class="flex flex-col items-center gap-4">
+        <ContentCollectionItem>
+            <Content />
+        </ContentCollectionItem>
     </div>
+
+    <Section>
+        <SearchWrapper
+            client:only="vue"
+            requiredCategories={searchCategoryCollection}
+            isGridLayout={isGridLayout}
+        />
+    </Section>
 </ContentLayout>

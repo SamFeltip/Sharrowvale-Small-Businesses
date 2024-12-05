@@ -6,7 +6,7 @@
                 <H3>
                     {{ title }}
                 </H3>
-                <p>{{ content }}</p>
+                <P>{{ content }}</P>
             </div>
         </div>
     </HoverArticle>
@@ -18,6 +18,7 @@
 import type { PlaceCard } from "./PlaceCard.d.ts";
 
 import H3 from "../elements/headers/H3.vue";
+import P from "../elements/body/P.vue";
 import HoverArticle from "../elements/articles/HoverArticle.vue";
 
 const props = defineProps<PlaceCard>();

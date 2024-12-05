@@ -14,7 +14,7 @@
 
             <PlaceCardWide v-else v-for="result in searchResults" :key="result.url" :tags="getDisplayTags(result)"
                 :image="result.meta?.image || ''" :content="result.meta?.content" :title="result.meta?.title || ''"
-                :href="result.url" :search-content="result.excerpt" />
+                :href="result.url" :lightContent="result.excerpt" />
 
         </TransitionGroup>
     </div>

@@ -1,6 +1,7 @@
 ---
 import HeaderContent from "@/components/HeaderContent.astro";
 import ContentPromotions from "@/components/content/ContentPromotions.astro";
+import ContentCollectionItem from "@/components/elements/ContentCollectionItem.astro";
 import H1 from "@/components/elements/headers/H1.astro";
 import Section from "@/components/elements/section.astro";
 import SearchWrapper from "@/components/search/SearchWrapper.vue";
@@ -62,22 +63,22 @@ if (directoryCategory == null) {
     image={bannerImage}
     title={name}
     description={description}
-    classList="gap-12 py-12"
+    classList="gap-8"
     HeaderContent={HeaderContent}
 >
-    <section class="text-center">
+    <ContentCollectionItem position="center">
         <Content />
-    </section>
+    </ContentCollectionItem>
 
-    <Section>
-        {
-            promoBusinessPlaceCards.length == 4 && (
+    {
+        promoBusinessPlaceCards.length == 4 && (
+            <Section>
                 <ContentPromotions
                     promotionPlaceCards={promoBusinessPlaceCards}
                 />
-            )
-        }
-    </Section>
+            </Section>
+        )
+    }
 
     <SearchWrapper
         client:only="vue"

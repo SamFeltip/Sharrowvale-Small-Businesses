@@ -12,7 +12,7 @@
                     {{ title }}
                 </H3>
                 <p class="py-1">{{ content }}</p>
-                <p class="font-light hidden lg:block">{{ searchContent }}</p>
+                <p class="font-light hidden lg:block">{{ lightContent }}</p>
             </div>
         </div>
     </HoverArticle>
@@ -25,7 +25,7 @@ import type { PlaceCard } from "./PlaceCard";
 
 const props = defineProps<PlaceCard>();
 
-const { image, title, content, tags, href } = props;
+const { image, title, content, tags, href, lightContent } = props;
 
 </script>
 
