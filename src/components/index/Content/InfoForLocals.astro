@@ -4,36 +4,56 @@ import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
 
 import newsImage from "@/assets/images/index/home/guest-road.jpg";
-const newsImageSrc = newsImage.src;
 
 import tradeImage from "@/assets/images/tags/bakery/bakery.jpg";
-const tradeImageSrc = tradeImage.src;
 
 import marketImage from "@/assets/images/index/sharrow-vale-market/666576a0c2d4c780054817d3_market-.jpeg";
-const marketImageSrc = marketImage.src;
 
 import aboutImage from "@/assets/images/index/home/dyson-place.jpeg";
 import Section from "@/components/elements/section.astro";
-const aboutImageSrc = aboutImage.src;
+import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
+import { getPlaceCardsFromItems } from "@/scripts/placeCard/handler";
+import { getImage } from "astro:assets";
 
-const info: PlaceCard[] = [
+const placeCardRefs: PlaceCardRef[] = [
     {
-        image: newsImageSrc,
-        title: "News & Updates",
-        href: "/articles",
+        type: "articles",
+        item: {
+            name: "News & Updates",
+            heroImageMetaData: newsImage,
+            slug: "",
+        },
     },
     {
-        image: tradeImageSrc,
-        title: "Find a local tradesperson",
-        href: "/tags/bakery",
+        type: "categories",
+        item: {
+            name: "Find a local tradesperson",
+            heroImageMetaData: tradeImage,
+            slug: "directory",
+        },
     },
     {
-        image: marketImageSrc,
-        title: "Sharrow Vale Market",
-        href: "/categories/community",
+        type: "categories",
+        item: {
+            name: "Sharrow Vale Market",
+            heroImageMetaData: marketImage,
+            slug: "community",
+        },
     },
+];
+
+const contentCollectionPlaceCards = await getPlaceCardsFromItems(placeCardRefs);
+
+const aboutImageLoaded = await getImage({
+    src: aboutImage,
+    format: "avif",
+    width: 600,
+});
+
+const placeCards = [
+    ...contentCollectionPlaceCards,
     {
-        image: aboutImageSrc,
+        image: aboutImageLoaded.src,
         title: "About this site",
         href: "/join",
     },
@@ -44,7 +64,7 @@ const info: PlaceCard[] = [
     <H2 position="center" color="coral">Info for Locals</H2>
     <div class="justify-center flex">
         <div class="grid grid-cols-2 max-w-screen-md gap-x-3 gap-y-5">
-            {info.map((item) => <PlaceCardGrid {...item} />)}
+            {placeCards.map((item) => <PlaceCardGrid {...item} />)}
         </div>
     </div>
 </Section>

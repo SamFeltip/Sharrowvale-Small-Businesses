@@ -6,7 +6,7 @@ import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 
 export async function getPlaceCardsFromArticles(
     articles: CollectionEntry<"articles">[],
-    imgWidth: number = 400
+    imgWidth: number = 600
 ): Promise<PlaceCard[]> {
     const collectionTags = await getCollection("tags");
 
@@ -29,7 +29,7 @@ export async function getPlaceCardsFromArticles(
 
 export async function getPlaceCardsFromBusinesses(
     businesses: CollectionEntry<"businesses">[],
-    imgWidth: number = 400
+    imgWidth: number = 600
 ): Promise<PlaceCard[]> {
     const collectionTags = await getCollection("tags");
 
@@ -52,7 +52,7 @@ export async function getPlaceCardsFromBusinesses(
 
 export async function getPlaceCardsFromItems(
     itemRefs: PlaceCardRef[],
-    imgWidth: number = 400
+    imgWidth: number = 600
 ): Promise<PlaceCard[]> {
     return await Promise.all(
         itemRefs.map(async (itemRef) => {
