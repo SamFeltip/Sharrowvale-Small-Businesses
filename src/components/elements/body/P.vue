@@ -16,7 +16,6 @@ const props = defineProps<Props>();
 const defaultProps = {
     color: "black",
     position: "start",
-    weight: "light",
 };
 
 // Merge props with default values
@@ -27,9 +26,9 @@ const mergedProps = computed(() => ({
 
 const dynamicClasses = computed(() => [
     "font-lato no-underline text-base leading-6 font-light",
-    `text-${mergedProps.value.color}`,
-    `text-${mergedProps.value.position}`,
-    `font-${mergedProps.value.weight}`,
+    mergedProps.value.color && `text-${mergedProps.value.color}`,
+    mergedProps.value.position && `text-${mergedProps.value.position}`,
+    mergedProps.value.weight && `font-${mergedProps.value.weight}`,
     mergedProps.value.classList,
 ]);
 </script>

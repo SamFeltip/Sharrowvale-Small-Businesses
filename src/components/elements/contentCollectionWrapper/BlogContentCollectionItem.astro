@@ -23,7 +23,11 @@ const positionClass = `text-${position}`;
 
     section :global(p),
     section :global(td) {
-        @apply text-base font-lato font-light leading-6 no-underline mb-3;
+        @apply font-lato font-light leading-6 no-underline mb-3 text-base;
+    }
+
+    section :global(p) {
+        @apply text-xl;
     }
 
     section :global(#business-content),

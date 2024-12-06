@@ -1,7 +1,7 @@
 <!-- SearchBox.vue -->
 <template>
-    <div class="mx-auto px-4 w-full" id="search-box-wrapper">
-        <div id="search-box" class="gap-4 mb-4">
+    <div class="mx-auto px-4 w-full flex flex-col items-center" id="search-box-wrapper">
+        <div id="search-box" class="gap-4 mb-4 w-full">
             <div class="flex flex-row items-center gap-4">
                 <div class="text-gray-600">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
@@ -38,10 +38,10 @@
         </div>
 
         <div v-if="showFilters" class="p-4 mt-4">
-            <H3 v-if="availableTags.length > 0" color="coral">
+            <H3 v-if="availableTags.length > 0 && props.isGridLayout == false" color="coral">
                 Filter by Category:
             </H3>
-            <div class="flex flex-wrap justify-center lg:justify-normal">
+            <div class="flex flex-wrap justify-center">
                 <label v-for="tag in availableTags" :key="tag"
                     class="font-merriweather cursor-pointer inline-block px-2 py-1 m-1 border border-black rounded-full text-sm transition-all duration-200 hover:scale-105 group relative"
                     :class="{
@@ -54,7 +54,7 @@
                 </label>
             </div>
         </div>
-        <div v-if="props.isGridLayout == false" class="flex flex-col items-center">
+        <div v-if="props.isGridLayout == false" class="flex flex-col items-center px-4">
             <PromoBanner callToAction="Advertise on this site for only £20 a month" class="hidden lg:block" />
         </div>
     </div>

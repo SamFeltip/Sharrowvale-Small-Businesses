@@ -1,8 +1,8 @@
 <template>
     <HoverArticle :href="href">
-        <div class="search-result-wide w-full grid rounded-lg overflow-hidden">
-            <img v-if="image" :src="image" :alt="title" class="w-full h-48 object-cover rounded-lg" />
-            <div class="search-result-body w-full">
+        <div class="search-result-wide w-full grid rounded-lg text-ellipsis">
+            <img v-if="image" :src="image" :alt="title" class="w-full object-cover rounded-lg  h-48" />
+            <div class="search-result-body w-full overflow-hidden flex flex-col text-ellipsis  h-48">
                 <div class="tag-list">
                     <a v-for="(tag, index) in tags" :key="index" class="text-coral py-1 text-sm">
                         {{ tag.name }}
@@ -11,8 +11,8 @@
                 <H3 class="md:text-2xl">
                     {{ title }}
                 </H3>
-                <P class="py-1 md:font-bold">{{ content }}</P>
-                <P weight="light" class=" hidden lg:block">{{ lightContent }}</P>
+                <P class="py-1 font-normal">{{ content }}</P>
+                <P weight="light" class="hidden lg:block text-ellipsis">{{ lightContent }}</P>
             </div>
         </div>
     </HoverArticle>
@@ -42,6 +42,7 @@ const { image, title, content, tags, href, lightContent } = props;
 
     & .search-result-body {
         padding-block: 1rem;
+        padding-inline: 0;
     }
 }
 
@@ -56,6 +57,7 @@ const { image, title, content, tags, href, lightContent } = props;
 
         & .search-result-body {
             padding-inline: 1rem;
+            padding-block: 0;
         }
     }
 }

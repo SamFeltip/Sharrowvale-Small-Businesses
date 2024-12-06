@@ -14,10 +14,7 @@ import { getEntry } from "astro:content";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-    const tag: CollectionEntry<"tags">[] = await getCollection(
-        "tags",
-        (tag) => tag.data.isPage
-    );
+    const tag: CollectionEntry<"tags">[] = await getCollection("tags");
     return tag.map((business) => ({
         params: { slug: business.slug },
         props: business,

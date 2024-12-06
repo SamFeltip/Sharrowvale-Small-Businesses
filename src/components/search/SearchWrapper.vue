@@ -44,7 +44,7 @@ provide("availableTags", availableTags);
     grid-template-columns: 1fr;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1150px) {
     #search-wrapper {
         grid-template-columns: 370px 1fr;
     }

@@ -63,5 +63,6 @@ tags:
 At Nue, we believe that eating gluten-free doesn't have to mean sacrificing taste or nutrition.
 Our menu is designed to cater to people with celiac disease, gluten intolerance, or those who simply choose to follow a gluten-free diet.
 We're committed to providing our customers with healthy and flavorful food that's free of gluten.
+
 Whether you're gluten-free by necessity or by choice, you'll love our menu which features a range of options made from fresh, locally-sourced ingredients.
 Even if you're not gluten free, why not try something new.

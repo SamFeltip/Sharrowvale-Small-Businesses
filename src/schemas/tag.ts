@@ -1,12 +1,12 @@
-import { reference, z, type ImageFunction } from 'astro:content';
+import { reference, z, type ImageFunction } from "astro:content";
 
-export const tagSchema = ({image}: { image: ImageFunction }) => z.object({
-	name: z.string(),
-	description: z.string().optional(),
-    relatedTags: z.array(reference("tags")).default([]),
-	promotedBusinesses: z.array(reference("businesses")).default([]),
-	bannerImage: image().optional(),
-	heroImage: image().optional(),
-	isPage: z.boolean().default(false),
-	isVisible: z.boolean().default(true) // used to hide tag from appearing in lists
-})
+export const tagSchema = ({ image }: { image: ImageFunction }) =>
+    z.object({
+        name: z.string(),
+        description: z.string().optional(),
+        relatedTags: z.array(reference("tags")).default([]),
+        promotedBusinesses: z.array(reference("businesses")).default([]),
+        bannerImage: image().optional(),
+        heroImage: image().optional(),
+        isVisible: z.boolean().default(true), // used to hide tag from appearing in lists
+    });
