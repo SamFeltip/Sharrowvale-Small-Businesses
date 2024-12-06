@@ -6,6 +6,8 @@ import { getCollection } from "astro:content";
 import { getImage } from "astro:assets";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import Section from "@/components/elements/section.astro";
+import { getPlaceCardsFromItems } from "@/scripts/placeCard/handler";
+import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 
 const tags = await getCollection("tags");
 
@@ -22,38 +24,35 @@ let selectedCategories = tags.filter((tag) =>
     promotedCategories.includes(tag.slug)
 );
 
-selectedCategories = selectedCategories.sort(
-    (category, category2) =>
-        promotedCategories.indexOf(category.slug) -
-        promotedCategories.indexOf(category2.slug)
+const categoryPlaceCardRefs: PlaceCardRef[] = selectedCategories.map((tag) => {
+    if (tag.data.heroImage == null) {
+        throw new Error(
+            "tags must include a hero images to be matched to a PlaceCardRef"
+        );
+    }
+
+    return {
+        type: "tags",
+        item: {
+            name: tag.data.name,
+            description: tag.data.description,
+            heroImageMetaData: tag.data.heroImage,
+            slug: tag.slug,
+        },
+    };
+});
+
+const categoryPlaceCards = await getPlaceCardsFromItems(categoryPlaceCardRefs);
+
+const sortedCategoryPlaceCards = categoryPlaceCards.sort(
+    (a, b) =>
+        promotedCategories.indexOf(a.slug ?? "") -
+        promotedCategories.indexOf(b.slug ?? "")
 );
-
-const specialItems = await Promise.all(
-    selectedCategories.map(async (tag) => {
-        if (tag.data.heroImage == null) return null;
-
-        let image = await getImage({
-            src: tag.data.heroImage,
-            width: 280 * 4,
-            format: "webp",
-        });
-
-        let imageUrl = image.src;
-
-        return {
-            title: tag.data.name,
-            content: tag.data.description,
-            image: imageUrl,
-            href: `/tags/${tag.slug}`,
-        } as PlaceCard;
-    })
-);
-
-const carouselItems = specialItems.filter((item) => item !== null);
 ---
 
 <Section direction="column">
     <H2 color="coral" position="center"> Independent Businesses </H2>
 
-    <CarouselWrapper client:load items={carouselItems} />
+    <CarouselWrapper client:load items={sortedCategoryPlaceCards} />
 </Section>
