@@ -2,6 +2,7 @@
 import HeaderContent from "@/components/HeaderContent.astro";
 import ContentPromotions from "@/components/content/ContentPromotions.astro";
 import Button from "@/components/elements/Button.vue";
+import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 import ContentCollectionItem from "@/components/elements/contentCollectionWrapper/ContentCollectionItem.astro";
 import H2 from "@/components/elements/headers/H2.astro";
 import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
@@ -64,33 +65,31 @@ if (directoryCategory == null) {
     classList="gap-8"
     HeaderContent={HeaderContent}
 >
-    <ContentCollectionItem position="center">
-        <Content />
-    </ContentCollectionItem>
-
-    {
-        promoBusinessPlaceCards.length == 4 && (
-            <Section>
-                <ContentPromotions
-                    promotionPlaceCards={promoBusinessPlaceCards}
-                />
-            </Section>
-        )
-    }
-
-    <SearchWrapper
-        client:only="vue"
-        requiredCategories={[]}
-        requiredTag={name}
-        isGridLayout={isGridLayout}
-        hiddenTags={hiddenTags}
-    />
-
-    {
-        promoCategories.length > 0 && (
-            <PromotedTags promoCategories={promoCategories} />
-        )
-    }
-
-    {isGridLayout && <PromoBanner />}
+    <ScreenWidth>
+        <ContentCollectionItem position="center">
+            <Content />
+        </ContentCollectionItem>
+        {
+            promoBusinessPlaceCards.length == 4 && (
+                <Section>
+                    <ContentPromotions
+                        promotionPlaceCards={promoBusinessPlaceCards}
+                    />
+                </Section>
+            )
+        }
+        <SearchWrapper
+            client:only="vue"
+            requiredCategories={[]}
+            requiredTag={name}
+            isGridLayout={isGridLayout}
+            hiddenTags={hiddenTags}
+        />
+        {
+            promoCategories.length > 0 && (
+                <PromotedTags promoCategories={promoCategories} />
+            )
+        }
+        {isGridLayout && <PromoBanner />}
+    </ScreenWidth>
 </ContentLayout>

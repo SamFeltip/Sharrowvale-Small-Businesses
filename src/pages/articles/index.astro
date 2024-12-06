@@ -12,6 +12,7 @@ import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { getPlaceCardsFromArticles } from "@/scripts/placeCard/handler";
+import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 
 const events: CollectionEntry<"articles">[] = await getCollection(
     "articles",
@@ -37,7 +38,7 @@ const searchCategories = searchCategoryCollection.map(
     HeaderContent={HeaderContent}
     pagefindIgnore={true}
 >
-    <div class="flex flex-col">
+    <ScreenWidth>
         <Section>
             <H2 color="coral" position="center"
                 >Find out what's happening in The Vale</H2
@@ -53,9 +54,9 @@ const searchCategories = searchCategoryCollection.map(
         <Section>
             <H2 position="center" color="coral">Upcoming events</H2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {eventPlaceCards.map((event) => <PlaceCardGrid {...event} />)}
             </div>
         </Section>
-    </div>
+    </ScreenWidth>
 </ContentLayout>

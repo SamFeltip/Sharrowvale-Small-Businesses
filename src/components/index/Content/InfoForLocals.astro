@@ -13,8 +13,8 @@ import aboutImage from "@/assets/images/index/home/dyson-place.jpeg";
 import Section from "@/components/elements/section.astro";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 import { getPlaceCardsFromItems } from "@/scripts/placeCard/handler";
-import { getImage } from "astro:assets";
 import { getImageHelper } from "@/scripts/images/getImageHelper";
+import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 
 const placeCardRefs: PlaceCardRef[] = [
     {

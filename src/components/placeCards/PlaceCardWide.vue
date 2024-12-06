@@ -2,7 +2,7 @@
     <HoverArticle :href="href">
         <div class="search-result-wide w-full grid rounded-lg text-ellipsis">
             <img v-if="image" :src="image" :alt="title" class="w-full object-cover rounded-lg  h-48" />
-            <div class="search-result-body w-full overflow-hidden flex flex-col text-ellipsis  h-48">
+            <div class="search-result-body w-full overflow-hidden flex flex-col text-ellipsis">
                 <div class="tag-list">
                     <a v-for="(tag, index) in tags" :key="index" class="text-coral py-1 text-sm">
                         {{ tag.name }}

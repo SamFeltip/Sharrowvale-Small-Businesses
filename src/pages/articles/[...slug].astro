@@ -22,6 +22,7 @@ import PlaceCardWide from "@/components/placeCards/PlaceCardWide.vue";
 import ContentCollectionItem from "@/components/elements/contentCollectionWrapper/ContentCollectionItem.astro";
 import H2 from "@/components/elements/headers/H2.astro";
 import Section from "@/components/elements/section.astro";
+import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 
 export async function getStaticPaths() {
     const article: CollectionEntry<"articles">[] =
@@ -74,138 +75,139 @@ const moreArticles = await getCollection(
 
 const articlePages = await getPlaceCardsFromArticles(moreArticles);
 ---
+<ScreenWidth>
+    <ContentLayout
+        title={name}
+        description="Sharrow Vale Blog"
+        image={bannerImage}
+        HeaderContent={HeaderContent}
+    >
+        <div id="pagefind-metadata">
+            <h1 class="hidden" data-pagefind-sort="name">{name}</h1>
+            <p
+                class="hidden"
+                data-pagefind-meta="content[data-src]"
+                data-src={description}
+            >
+            </p>
+            <Image
+                class="hidden"
+                data-pagefind-meta="image[src], image_alt[alt]"
+                src={heroImage}
+                alt={name}
+            />
 
-<ContentLayout
-    title={name}
-    description="Sharrow Vale Blog"
-    image={bannerImage}
-    HeaderContent={HeaderContent}
->
-    <div id="pagefind-metadata">
-        <h1 class="hidden" data-pagefind-sort="name">{name}</h1>
-        <p
-            class="hidden"
-            data-pagefind-meta="content[data-src]"
-            data-src={description}
-        >
-        </p>
-        <Image
-            class="hidden"
-            data-pagefind-meta="image[src], image_alt[alt]"
-            src={heroImage}
-            alt={name}
-        />
-
-        {
-            categoryItems.map((category) => (
-                <p class="hidden" data-pagefind-filter="category">
-                    {category.data.name}
-                </p>
-            ))
-        }
-    </div>
-
-    <div data-pagefind-body id="article">
-        <section id="article-content">
-            <ContentCollectionItem>
-                <Content />
-            </ContentCollectionItem>
-        </section>
-
-        <section
-            id="article-tags"
-            class="pb-6 flex flex-col items-center md:items-end gap-2"
-        >
-            {tagItems.length > 0 && 
-                <H3 color="coral">Article Tags</H3>
-                <div class="flex flex-wrap justify-center">
-                    {
-                        tagItems.map((tag) => 
-                                (<Button href={`/tags/${tag.slug}`} disabled={tag.data.isPage == false} data-pagefind-filter="tags">
-                                    {tag.data.name}
-                                </Button>)
-                    )}
-                </div>
-            }
-        </section>
-
-        <section
-            id="article-author"
-            class="pb-6 flex flex-col items-center md:items-end gap-2"
-        >
-            <H3 position="center" color="coral">Author</H3>
-            <SerifBody position="center">{author}</SerifBody>
-        </section>
-
-        <section
-            id="article-share"
-            class="flex flex-col items-center md:items-end gap-2"
-        >
-            <H3 position="center" color="coral">Share</H3>
-
-            <div class="flex flex-row flex-wrap gap-5 justify-center">
-                {
-                    (
-                        <Button size="lg" href={"#instagramLink"}>
-                            <span>
-                                <FontAwesomeIcon
-                                    className="h-5 w-5"
-                                    icon={faInstagram}
-                                />
-                            </span>
-                        </Button>
-                    )
-                }
-                {
-                    (
-                        <Button size="lg" href={"#websiteLink"}>
-                            <span>
-                                <FontAwesomeIcon
-                                    className="h-5 w-5"
-                                    icon={faLink}
-                                />
-                            </span>
-                        </Button>
-                    )
-                }
-                {
-                    (
-                        <Button size="lg" href={"#facebookLink"}>
-                            <span>
-                                <FontAwesomeIcon
-                                    className="h-5 w-5"
-                                    icon={faFacebook}
-                                />
-                            </span>
-                        </Button>
-                    )
-                }
-            </div>
-        </section>
-
-        <section id="article-promotion">
             {
-                promotedCard !== undefined && (
-                    <div class="h-[400px]">
-                        <LargePromotionalItem card={promotedCard} />
-                    </div>
-                )
+                categoryItems.map((category) => (
+                    <p class="hidden" data-pagefind-filter="category">
+                        {category.data.name}
+                    </p>
+                ))
             }
-        </section>
+        </div>
 
-        <Section id="article-more">
-            <H2 position="center" color="coral"> More Articles</H2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {
-                    articlePages &&
-                        articlePages.map((article) => (
-                            <PlaceCardWide {...article} />
-                        ))
+        <div data-pagefind-body id="article">
+            <section id="article-content">
+                <ContentCollectionItem>
+                    <Content />
+                </ContentCollectionItem>
+            </section>
+
+            <section
+                id="article-tags"
+                class="pb-6 flex flex-col items-center md:items-end gap-2"
+            >
+                {tagItems.length > 0 && 
+                    <H3 color="coral">Article Tags</H3>
+                    <div class="flex flex-wrap justify-center">
+                        {
+                            tagItems.map((tag) => 
+                                    (<Button href={`/tags/${tag.slug}`} data-pagefind-filter="tags">
+                                        {tag.data.name}
+                                    </Button>)
+                        )}
+                    </div>
                 }
-            </div>
-        </Section>
-    </div>
+            </section>
+
+            <section
+                id="article-author"
+                class="pb-6 flex flex-col items-center md:items-end gap-2"
+            >
+                <H3 position="center" color="coral">Author</H3>
+                <SerifBody position="center">{author}</SerifBody>
+            </section>
+
+            <section
+                id="article-share"
+                class="flex flex-col items-center md:items-end gap-2"
+            >
+                <H3 position="center" color="coral">Share</H3>
+
+                <div class="flex flex-row flex-wrap gap-5 justify-center">
+                    {
+                        (
+                            <Button size="lg" href={"#instagramLink"}>
+                                <span>
+                                    <FontAwesomeIcon
+                                        className="h-5 w-5"
+                                        icon={faInstagram}
+                                    />
+                                </span>
+                            </Button>
+                        )
+                    }
+                    {
+                        (
+                            <Button size="lg" href={"#websiteLink"}>
+                                <span>
+                                    <FontAwesomeIcon
+                                        className="h-5 w-5"
+                                        icon={faLink}
+                                    />
+                                </span>
+                            </Button>
+                        )
+                    }
+                    {
+                        (
+                            <Button size="lg" href={"#facebookLink"}>
+                                <span>
+                                    <FontAwesomeIcon
+                                        className="h-5 w-5"
+                                        icon={faFacebook}
+                                    />
+                                </span>
+                            </Button>
+                        )
+                    }
+                </div>
+            </section>
+
+            <section id="article-promotion">
+                {
+                    promotedCard !== undefined && (
+                        <div class="h-[400px]">
+                            <LargePromotionalItem card={promotedCard} />
+                        </div>
+                    )
+                }
+            </section>
+
+            <Section id="article-more">
+                <H2 position="center" color="coral"> More Articles</H2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {
+                        articlePages &&
+                            articlePages.map((article) => (
+                                <PlaceCardWide {...article} />
+                            ))
+                    }
+                </div>
+            </Section>
+        </div>
 </ContentLayout>
+</ScreenWidth>
 
 <style>
     #article {

@@ -3,8 +3,6 @@ import H2 from "@/components/elements/headers/H2.astro";
 import CarouselWrapper from "./CarouselWrapper.vue";
 import { getCollection } from "astro:content";
 
-import { getImage } from "astro:assets";
-import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import Section from "@/components/elements/section.astro";
 import { getPlaceCardsFromItems } from "@/scripts/placeCard/handler";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
@@ -18,6 +16,7 @@ const promotedCategories = [
     "lunch",
     "pubs-and-bars",
     "restaurant",
+    "healthcare",
 ];
 
 let selectedCategories = tags.filter((tag) =>

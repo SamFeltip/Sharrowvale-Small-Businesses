@@ -38,7 +38,7 @@ if (!disabled) {
     baseStyles += " cursor-default"
 }
 
-let borderStyles = "rounded-full border border-gray-800 text-gray-800"
+let borderStyles = "rounded-full border border-gray-500 text-gray-800"
 
 if (type == "yellow") {
     borderStyles = "rounded-full text-gray-800 bg-yellow-400"

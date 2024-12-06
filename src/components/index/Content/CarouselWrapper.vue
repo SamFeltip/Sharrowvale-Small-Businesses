@@ -5,19 +5,21 @@
     skipSnaps: true,
   }">
     <CarouselContent>
-      <CarouselItem v-for="item in items" class="basis-2/3 md:basis-1/4 h-[380px]">
+      <CarouselItem v-for="item in items" class="basis-2/3 md:basis-1/4 xl:basis-1/5 2xl:basis-1/6 h-[380px]">
         <SmallPromotionalCard :key="item.title" position="start" :card="item" />
       </CarouselItem>
     </CarouselContent>
 
     <!-- Carousel Navigation Buttons below -->
-    <div class="carousel-buttons flex justify-center gap-4 mt-4">
-      <Button title="previous" @click="goToPrevious" size="lg">
-        <FontAwesomeIcon :icon="faChevronLeft" width="20" height="20" font-size="20" />
-      </Button>
-      <Button title="next" @click="goToNext" size="lg">
-        <FontAwesomeIcon :icon="faChevronRight" width="20" height="20" font-size="20" />
-      </Button>
+    <div class="carousel-buttons flex justify-center gap-12 mt-4">
+      <div class="flex gap-4">
+        <Button title="previous" @click="goToPrevious" size="lg">
+          <FontAwesomeIcon :icon="faChevronLeft" width="20" height="20" font-size="20" />
+        </Button>
+        <Button title="next" @click="goToNext" size="lg">
+          <FontAwesomeIcon :icon="faChevronRight" width="20" height="20" font-size="20" />
+        </Button>
+      </div>
       <a class="bg-coral rounded-full text-white py-3 px-5" href="/categories/directory">
         See the full directory
       </a>

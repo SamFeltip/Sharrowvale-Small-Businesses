@@ -10,6 +10,7 @@ import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 import ContentCollectionItem from "@/components/elements/contentCollectionWrapper/ContentCollectionItem.astro";
 import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
 import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
+import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 
 export async function getStaticPaths() {
     const category: CollectionEntry<"categories">[] =
@@ -42,31 +43,33 @@ const searchCategoryCollection = [name];
     classList="gap-8"
     pagefindIgnore={true}
 >
-    <div class="flex flex-col items-center gap-4">
-        <ContentCollectionItem>
-            <Content />
-        </ContentCollectionItem>
-    </div>
+    <ScreenWidth>
+        <div class="flex flex-col items-center gap-4">
+            <ContentCollectionItem>
+                <Content />
+            </ContentCollectionItem>
+        </div>
 
-    <Section>
-        <SearchWrapper
-            client:only="vue"
-            requiredCategories={searchCategoryCollection}
-            isGridLayout={isGridLayout}
-        />
-    </Section>
+        <Section>
+            <SearchWrapper
+                client:only="vue"
+                requiredCategories={searchCategoryCollection}
+                isGridLayout={isGridLayout}
+            />
+        </Section>
 
-    {
-        promoCategories.length > 0 && (
-            <PromotedTags promoCategories={promoCategories} />
-        )
-    }
+        {
+            promoCategories.length > 0 && (
+                <PromotedTags promoCategories={promoCategories} />
+            )
+        }
 
-    {
-        isGridLayout && (
-            <div class="flex flex-col items-center">
-                <PromoBanner callToAction="Get listed on this site for only £20 a year" />
-            </div>
-        )
-    }
+        {
+            isGridLayout && (
+                <div class="flex flex-col items-center">
+                    <PromoBanner callToAction="Get listed on this site for only £20 a year" />
+                </div>
+            )
+        }
+    </ScreenWidth>
 </ContentLayout>

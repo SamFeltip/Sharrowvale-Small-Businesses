@@ -9,6 +9,7 @@ import InfoForLocals from "@/components/index/Content/InfoForLocals.astro";
 import Spotlight from "@/components/index/Content/Spotlight.astro";
 import LatestNews from "@/components/index/LatestNews.astro";
 import SharrowValeMarket from "@/components/index/Content/SharrowValeMarket.astro";
+import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 ---
 
 <ContentLayout
@@ -20,10 +21,12 @@ import SharrowValeMarket from "@/components/index/Content/SharrowValeMarket.astr
 >
     <div class="flex flex-col gap-12 md:gap-40">
         <DirectoryCarousel />
-        <InfoForLocals />
-        <!-- when we have more content, we can add this component -->
-        <Spotlight />
-        <LatestNews />
-        <SharrowValeMarket />
+        <ScreenWidth classList="flex flex-col gap-12 md:gap-40">
+            <InfoForLocals />
+            <!-- when we have more content, we can add this component -->
+            <Spotlight />
+            <LatestNews />
+            <SharrowValeMarket />
+        </ScreenWidth>
     </div>
 </ContentLayout>
