@@ -12,7 +12,7 @@
                     {{ title }}
                 </H3>
                 <P class="py-1 font-normal">{{ content }}</P>
-                <P weight="light" class="hidden lg:block text-ellipsis">{{ lightContent }}</P>
+                <P weight="light" class="hidden lg:block text-ellipsis">{{ croppedLightContent }}</P>
             </div>
         </div>
     </HoverArticle>
@@ -27,6 +27,8 @@ import type { PlaceCard } from "./PlaceCard";
 const props = defineProps<PlaceCard>();
 
 const { image, title, content, tags, href, lightContent } = props;
+
+const croppedLightContent = lightContent && lightContent.slice(0, 100) + (lightContent.length > 100 ? "..." : "");
 
 </script>
 
