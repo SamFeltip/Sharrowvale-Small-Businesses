@@ -75,13 +75,13 @@ const moreArticles = await getCollection(
 
 const articlePages = await getPlaceCardsFromArticles(moreArticles);
 ---
-<ScreenWidth>
-    <ContentLayout
-        title={name}
-        description="Sharrow Vale Blog"
-        image={bannerImage}
-        HeaderContent={HeaderContent}
-    >
+<ContentLayout
+title={name}
+description="Sharrow Vale Blog"
+image={bannerImage}
+HeaderContent={HeaderContent}
+>
+    <ScreenWidth>
         <div id="pagefind-metadata">
             <h1 class="hidden" data-pagefind-sort="name">{name}</h1>
             <p
@@ -206,8 +206,8 @@ const articlePages = await getPlaceCardsFromArticles(moreArticles);
                 </div>
             </Section>
         </div>
+    </ScreenWidth>
 </ContentLayout>
-</ScreenWidth>
 
 <style>
     #article {

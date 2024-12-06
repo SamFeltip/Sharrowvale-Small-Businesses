@@ -16,12 +16,12 @@ const { iconDef, text, href, classList } = Astro.props;
 
 <HoverArticle href={href} outerClassList={classList}>
     <div class="flex flex-col items-center justify-center text-white">
-        <div class="flex flex-col items-center justify-center gap-5">
+        <div class="flex flex-col items-center justify-center gap-3">
             <FontAwesomeIcon
                 icon={iconDef}
-                height={40}
-                width={40}
-                fontSize={40}
+                height={30}
+                width={30}
+                fontSize={30}
             />
             <SerifBody color="white" position="center">{text}</SerifBody>
         </div>
