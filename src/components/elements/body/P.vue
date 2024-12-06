@@ -7,6 +7,7 @@ type Props = {
     position?: "center" | "start" | "end";
     weight?: "light" | "bold" | "normal";
     color?: "white" | "coral" | "black";
+    size?: "xl" | "base";
     id?: string;
 };
 
@@ -16,6 +17,7 @@ const props = defineProps<Props>();
 const defaultProps = {
     color: "black",
     position: "start",
+    size: "base",
 };
 
 // Merge props with default values
@@ -25,10 +27,11 @@ const mergedProps = computed(() => ({
 }));
 
 const dynamicClasses = computed(() => [
-    "font-lato no-underline text-base leading-6 font-light",
+    "font-lato no-underline leading-6 font-light",
     mergedProps.value.color && `text-${mergedProps.value.color}`,
     mergedProps.value.position && `text-${mergedProps.value.position}`,
     mergedProps.value.weight && `font-${mergedProps.value.weight}`,
+    mergedProps.value.size && `text-${mergedProps.value.size}`,
     mergedProps.value.classList,
 ]);
 </script>

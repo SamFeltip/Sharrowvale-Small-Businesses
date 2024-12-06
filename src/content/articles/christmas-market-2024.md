@@ -9,7 +9,8 @@ publishDate: "2024-12-01"
 categories:
     - events
     - community
-tags: []
+tags:
+    - sharrow-vale-market
 websiteLink: "http://www.sharrowvalemarket.co.uk/"
 ---
 

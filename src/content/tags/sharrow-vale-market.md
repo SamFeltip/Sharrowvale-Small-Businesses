@@ -1,5 +1,5 @@
 ---
-bannerImage: ../../assets/images/tags/clothing/banner.jpg
+bannerImage: "@/assets/images/articles/christmas-market-2024/bannerImage.jpeg"
 heroImage: ../../assets/images/tags/clothing/hero.jpg
 isPage: true
 relatedTags: []
@@ -7,4 +7,8 @@ promotedBusinesses: []
 name: Sharrow Vale Market
 ---
 
-## Put together by the SVCA, the Sharrow Vale market is full of local businesses, charities, and art
+## Sharrow Vale Market
+
+The sharrow vale market is one of the Sharrow Vale's most beloved features, running three times a year from Hunters Bar roundabout all the way down to Stewart road.
+
+Put together by the SVCA, the Sharrow Vale Market is full of local businesses, charities, and art. You can find out more about it on their website [sharrowvalemarket.co.uk](http://www.sharrowvalemarket.co.uk/)

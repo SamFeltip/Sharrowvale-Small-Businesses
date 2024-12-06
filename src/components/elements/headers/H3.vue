@@ -1,5 +1,5 @@
 <template>
-  <h3 :id="id" :class="computedClasses" class="font-merriweather text-lg">
+  <h3 :id="id" :class="computedClasses" class="font-merriweather text-lg md:text-2xl">
     <slot />
   </h3>
 </template>

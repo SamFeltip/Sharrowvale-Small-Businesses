@@ -9,7 +9,7 @@ import tradeImage from "@/assets/images/tags/bakery/bakery.jpg";
 
 import marketImage from "@/assets/images/index/sharrow-vale-market/666576a0c2d4c780054817d3_market-.jpeg";
 
-import aboutImage from "@/assets/images/index/home/dyson-place.jpeg";
+import aboutImage from "@/assets/images/index/about.png";
 import Section from "@/components/elements/section.astro";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 import { getPlaceCardsFromItems } from "@/scripts/placeCard/handler";
@@ -60,7 +60,7 @@ const placeCards = [
 <Section>
     <H2 position="center" color="coral">Info for Locals</H2>
     <div class="justify-center flex">
-        <div class="grid grid-cols-2 max-w-screen-md gap-x-3 gap-y-5">
+        <div class="grid grid-cols-2 max-w-screen-xl gap-4">
             {placeCards.map((item) => <PlaceCardGrid {...item} />)}
         </div>
     </div>
