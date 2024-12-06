@@ -1,0 +1,28 @@
+---
+import H2 from "@/components/elements/headers/H2.astro";
+import Button from "../Button.vue";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+    promoCategories: CollectionEntry<"tags">[];
+};
+
+const { promoCategories } = Astro.props;
+---
+
+<section class="text-center">
+    <H2 color="coral">Explore more Categories</H2>
+    <div class="py-3">
+        <ul class="flex flex-row justify-center flex-wrap gap-3">
+            {
+                promoCategories.map((tag) => (
+                    <li class="hover:scale-110 transition-all">
+                        <Button href={`/tags/${tag.slug}`}>
+                            {tag.data.name}
+                        </Button>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</section>

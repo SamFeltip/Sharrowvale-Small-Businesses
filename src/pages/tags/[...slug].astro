@@ -5,6 +5,7 @@ import Button from "@/components/elements/Button.vue";
 import ContentCollectionItem from "@/components/elements/contentCollectionWrapper/ContentCollectionItem.astro";
 import H2 from "@/components/elements/headers/H2.astro";
 import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
+import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import Section from "@/components/elements/section.astro";
 import SearchWrapper from "@/components/search/SearchWrapper.vue";
 import ContentLayout from "@/layouts/ContentLayout.astro";
@@ -90,20 +91,7 @@ if (directoryCategory == null) {
 
     {
         promoCategories.length > 0 && (
-            <section class="text-center">
-                <H2 color="coral">Export more Categories</H2>
-                <div class="py-3">
-                    <ul class="flex flex-row justify-center flex-wrap gap-3">
-                        {promoCategories.map((tag) => (
-                            <li class="hover:scale-110 transition-all">
-                                <Button href={`/tags/${tag.slug}`}>
-                                    {tag.data.name}
-                                </Button>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </section>
+            <PromotedTags promoCategories={promoCategories} />
         )
     }
 
