@@ -1,37 +1,38 @@
 ---
-import HoverArticle from "../elements/articles/HoverArticle.vue"; // Keep Vue import
 import Button from "../elements/Button.vue";
 import H2 from "../elements/headers/H2.astro";
 import type { PlaceCard } from "./PlaceCard";
+import { Image } from "astro:assets";
 
 type Props = {
     item: PlaceCard;
-    callToAction: string;
 };
 
-const { item, callToAction } = Astro.props;
+const { item } = Astro.props;
 
-const { image, title, content, tags, href } = item;
+const { image, title, lightContent, content, href } = item;
 ---
 
 <article>
     <div class="flex flex-col md:flex-row items-center gap-4">
         {
             image && (
-                <img
+                <Image
                     src={image}
                     alt={title}
+                    width={600}
+                    height={500}
                     class="w-full md:max-w-[400px] object-cover rounded-lg"
+                    format="avif"
                 />
             )
         }
 
         <div class="w-full flex flex-col items-start gap-4 p-4">
             <H2 classList="hidden md:block" color="coral">{title}</H2>
-            {content && <p>{content}</p>}
             <slot />
             <Button href={href}>
-                {callToAction}
+                {content}
             </Button>
         </div>
     </div>

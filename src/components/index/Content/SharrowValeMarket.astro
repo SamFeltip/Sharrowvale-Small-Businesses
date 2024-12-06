@@ -5,10 +5,16 @@ import Section from "@/components/elements/section.astro";
 import LargeCard from "@/components/placeCards/LargeCard.astro";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 
+import img from "@/assets/images/index/sharrow-vale-market/666576a0c2d4c780054817d3_market-.jpeg";
+import { getImageHelper } from "@/scripts/images/getImageHelper";
+
+const imgSrc = await getImageHelper(img);
+
 const item: PlaceCard = {
-    image: "/images/promotion/sharrow-vale-market/666576a0c2d4c780054817d3_market-.jpeg",
+    image: imgSrc,
     title: "Sharrow Vale Market",
     href: "/categories/community",
+    content: "Discover more about the community",
 };
 ---
 
@@ -16,7 +22,7 @@ const item: PlaceCard = {
     <H2 color="coral" position="center" classList="md:hidden"
         >Sharrow Vale Market</H2
     >
-    <LargeCard item={item} callToAction="Discover more about the community">
+    <LargeCard item={item}>
         <P weight="light">
             Sharrow Vale Market is one of the Sharrows most beloved features,
             running three times a year from Hunters Bar roundabout all the way
