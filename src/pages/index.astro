@@ -3,12 +3,13 @@ import ContentLayout from "@/layouts/ContentLayout.astro";
 
 import bannerImage from "../assets/images/index/heroImage.jpg";
 import HeaderContent from "@/components/index/Header/HeaderContent.astro";
-import DirectoryCarousel from "@/components/index/Content/DirectoryCarousel.astro";
+import CategoryCarousel from "@/components/index/Content/CategoryCarousel.astro";
 import InfoForLocals from "@/components/index/Content/InfoForLocals.astro";
 import Spotlight from "@/components/index/Content/Spotlight.astro";
 import LatestNews from "@/components/index/LatestNews.astro";
 import SharrowValeMarket from "@/components/index/Content/SharrowValeMarket.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.astro";
+import BusinessCarousel from "@/components/index/Content/BusinessCarousel.astro";
 ---
 
 <ContentLayout
@@ -19,7 +20,7 @@ import ScreenWidth from "@/components/elements/ScreenWidth.astro";
     pagefindIgnore={true}
 >
     <div class="flex flex-col gap-12 md:gap-40">
-        <DirectoryCarousel />
+        <CategoryCarousel />
         <ScreenWidth classList="flex flex-col gap-12 md:gap-40">
             <InfoForLocals />
             <!-- when we have more content, we can add this component -->
@@ -27,5 +28,6 @@ import ScreenWidth from "@/components/elements/ScreenWidth.astro";
             <LatestNews />
             <SharrowValeMarket />
         </ScreenWidth>
+        <BusinessCarousel />
     </div>
 </ContentLayout>
