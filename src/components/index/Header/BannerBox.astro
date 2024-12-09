@@ -9,13 +9,19 @@ type Props = {
     text: string;
     href: string;
     classList?: string;
+    animationDelay?: number;
 };
 
-const { iconDef, text, href, classList } = Astro.props;
+const { iconDef, text, href, classList, animationDelay = 0 } = Astro.props;
+
+const transitionDelay = `${animationDelay}ms`;
 ---
 
 <HoverArticle href={href} outerClassList={classList}>
-    <div class="flex flex-col items-center justify-center text-white">
+    <div
+        id="banner-box"
+        class="opacity-0 animate-appear flex flex-col items-center justify-center text-white"
+    >
         <div class="flex flex-col items-center justify-center gap-3">
             <FontAwesomeIcon
                 icon={iconDef}
@@ -27,3 +33,9 @@ const { iconDef, text, href, classList } = Astro.props;
         </div>
     </div>
 </HoverArticle>
+
+<style define:vars={{ transitionDelay }}>
+    #banner-box {
+        animation-delay: var(--transitionDelay);
+    }
+</style>

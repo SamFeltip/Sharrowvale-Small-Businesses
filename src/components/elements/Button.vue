@@ -26,10 +26,10 @@ const emit = defineEmits<{
 
 const { title, href, type = "clear", size = "sm", disabled = false } = props;
 
-let baseStyles = "flex flex-row gap-2 items-center justify-center px-3 py-1 text-base";
+let baseStyles = "flex flex-row gap-2 items-center justify-center px-3 py-1 text-base touch-manipulation";
 
 if (size == "lg") {
-    baseStyles = "flex items-center justify-center text-base p-3 w-[48px]"
+    baseStyles = "flex items-center justify-center text-xl p-3 w-[48px] touch-manipulation"
 }
 
 if (!disabled) {

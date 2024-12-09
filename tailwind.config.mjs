@@ -88,8 +88,19 @@ export default {
                     from: { height: "var(--radix-collapsible-content-height)" },
                     to: { height: 0 },
                 },
+                appear: {
+                    "0%": {
+                        transform: "translateY(50px)",
+                        opacity: 0,
+                    },
+                    "100%": {
+                        opacity: 1,
+                        transform: "translateY(0)",
+                    },
+                },
             },
             animation: {
+                appear: "appear 0.5s ease-in-out forwards",
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 "collapsible-down": "collapsible-down 0.2s ease-in-out",

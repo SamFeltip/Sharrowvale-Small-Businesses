@@ -37,14 +37,6 @@ const flexDirection =
     }
     console.log("section", sections);
 
-    sections.forEach((section) => {
-        section.classList.add("opacity-0");
-        section.classList.add("transition-all");
-        section.classList.add("translate-y-[100px]");
-        section.classList.add("duration-700");
-        section.classList.add("ease-in-out");
-    });
-
     const observerOptions = {
         root: null,
     };
@@ -52,9 +44,7 @@ const flexDirection =
     const sectionObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add("opacity-100");
-                entry.target.classList.remove("opacity-0");
-                entry.target.classList.remove("translate-y-[100px]");
+                entry.target.classList.add("animate-appear");
 
                 observer.unobserve(entry.target);
             }

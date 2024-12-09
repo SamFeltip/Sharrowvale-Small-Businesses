@@ -13,6 +13,7 @@ import BannerBox from "./BannerBox.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Section from "@/components/elements/section.astro";
 
 type Props = {
     title: string;
@@ -24,61 +25,68 @@ const { title, description } = Astro.props;
 
 <div class="flex flex-col justify-center items-center text-center h-full">
     <div class="flex flex-col items-center gap-4">
-        <div class="flex flex-col items-center gap-2">
-            <MonoBody size="large">DISCOVER</MonoBody>
-            <H1 color="coral">Sharrow Vale</H1>
-            <MonoBody size="medium"
-                >SHEFFIELD'S HOME FOR INDEPENDENT BUSINESSES</MonoBody
+        <Section floatIn={true}>
+            <div class="flex flex-col items-center gap-2">
+                <MonoBody size="large">DISCOVER</MonoBody>
+                <H1 color="coral">Sharrow Vale</H1>
+                <MonoBody size="medium"
+                    >SHEFFIELD'S HOME FOR INDEPENDENT BUSINESSES</MonoBody
+                >
+            </div>
+            <form
+                class="bg-white w-full my-3 max-w-[500px] lg:max-w-[800px] rouded-full flex flex-row items-center gap-2 rounded-full p-2 px-3 lg:p-3 lg:px-4"
+                action="/categories/directory"
+                method="get"
             >
-        </div>
-        <form
-            class="bg-white w-full my-3 max-w-[500px] lg:max-w-[800px] rouded-full flex flex-row items-center gap-2 rounded-full p-2 px-3 lg:p-3 lg:px-4"
-            action="/categories/directory"
-            method="get"
-        >
-            <input
-                name="search"
-                type="text"
-                class="w-full h-full p-2 leading-8 focus:outline-none text-md lg:text-xl"
-                placeholder="Search for shops, blogs, events & more..."
-            />
-            <button class="bg-coral rounded-full text-white p-2 flex">
-                <FontAwesomeIcon
-                    icon={faArrowRight}
-                    height={20}
-                    width={20}
-                    fontSize={20}
+                <input
+                    name="search"
+                    type="text"
+                    class="w-full h-full p-2 leading-8 focus:outline-none text-md lg:text-xl"
+                    placeholder="Search for shops, blogs, events & more..."
                 />
-            </button>
-        </form>
+                <button class="bg-coral rounded-full text-white p-2 flex">
+                    <FontAwesomeIcon
+                        icon={faArrowRight}
+                        height={20}
+                        width={20}
+                        fontSize={20}
+                    />
+                </button>
+            </form>
+        </Section>
     </div>
     <div class="absolute bottom-0 flex flex-row pb-8 items-center">
         <ScreenWidth>
             <div class="flex flex-row gap-6">
                 <BannerBox
-                    href="/categories/events"
-                    iconDef={faCalendarDays}
-                    text="Attend local events"
-                />
-                <BannerBox
+                    animationDelay={200}
                     classList="hidden md:flex"
                     href="/tags/cafe"
                     iconDef={faGem}
                     text="Discover a hidden gem"
                 />
                 <BannerBox
+                    animationDelay={300}
+                    href="/categories/events"
+                    iconDef={faCalendarDays}
+                    text="Attend local events"
+                />
+                <BannerBox
+                    animationDelay={400}
                     classList="hidden md:flex"
                     href="/categories/directory"
                     iconDef={faCircleInfo}
                     text="Discover businesses"
                 />
                 <BannerBox
+                    animationDelay={500}
                     href="/articles"
                     iconDef={faNewspaper}
                     text="News & Updates"
                 />
 
                 <BannerBox
+                    animationDelay={600}
                     href="/tag/tradespeople"
                     iconDef={faScrewdriverWrench}
                     text="Find local tradespeople"
