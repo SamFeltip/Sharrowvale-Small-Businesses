@@ -7,3 +7,12 @@ export type PlaceCardRef = {
         slug: string;
     };
 };
+
+export type GenericCollectionEntry = {
+    slug: string;
+    data: {
+        name: string;
+        description?: string;
+        heroImage?: ImageMetadata;
+    };
+};

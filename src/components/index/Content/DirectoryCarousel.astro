@@ -7,8 +7,7 @@ import Section from "@/components/elements/section.astro";
 import { getPlaceCardsFromItems } from "@/scripts/placeCard/handler";
 import { sortByIndex } from "@/scripts/placeCard/sorting";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
-
-const tags = await getCollection("tags");
+import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
 
 const promotedCategories = [
     "food-and-drink",
@@ -20,29 +19,16 @@ const promotedCategories = [
     "healthcare",
 ];
 
+const tags = await getCollection("tags");
+
 const selectedCategories = tags.filter((tag) =>
     promotedCategories.includes(tag.slug)
 );
 
-// const categoryPlaceCardRefs: PlaceCardRef[] = getPlaceCardRefsFromItem("tags");
-
-const categoryPlaceCardRefs: PlaceCardRef[] = selectedCategories.map((tag) => {
-    if (tag.data.heroImage == null) {
-        throw new Error(
-            "tags must include a hero images to be matched to a PlaceCardRef"
-        );
-    }
-
-    return {
-        type: "tags",
-        item: {
-            name: tag.data.name,
-            description: tag.data.description,
-            heroImageMetaData: tag.data.heroImage,
-            slug: tag.slug,
-        },
-    };
-});
+const categoryPlaceCardRefs: PlaceCardRef[] = getPlaceCardRefs(
+    "tags",
+    selectedCategories
+);
 
 const categoryPlaceCards = await getPlaceCardsFromItems(categoryPlaceCardRefs);
 
