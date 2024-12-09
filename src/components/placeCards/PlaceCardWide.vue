@@ -4,11 +4,11 @@
             <img v-if="image" :src="image" :alt="title" class="w-full object-cover rounded-lg  h-48" />
             <div class="search-result-body w-full overflow-hidden flex flex-col text-ellipsis">
                 <div class="tag-list">
-                    <a v-for="(tag, index) in tags" :key="index" class="text-coral py-1 text-sm">
+                    <a v-for="(tag, index) in tags" :key="index" class="text-coral py-1 text-base">
                         {{ tag.name }}
                     </a>
                 </div>
-                <H3 class="md:text-2xl">
+                <H3 class="md:text-2xl" weight="medium">
                     {{ title }}
                 </H3>
                 <P class="py-1 font-normal">{{ content }}</P>

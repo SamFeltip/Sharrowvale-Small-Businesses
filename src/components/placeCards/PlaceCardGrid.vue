@@ -3,9 +3,9 @@
         <div class="flex flex-col rounded-lg overflow-hidden">
             <img v-if="image" :src="image" :alt="title" class="w-full h-56 object-cover rounded-lg" />
             <div class="w-full pt-2">
-                <H3>
+                <H4 weight="medium">
                     {{ title }}
-                </H3>
+                </H4>
                 <P>{{ content }}</P>
             </div>
         </div>
@@ -17,7 +17,7 @@
 
 import type { PlaceCard } from "./PlaceCard.d.ts";
 
-import H3 from "../elements/headers/H3.vue";
+import H4 from "../elements/headers/H4.vue";
 import P from "../elements/body/P.vue";
 import HoverArticle from "../elements/articles/HoverArticle.vue";
 

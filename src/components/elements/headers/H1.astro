@@ -2,26 +2,33 @@
 type Props = {
     classList?: string;
     color?: "white" | "coral" | "black";
+    font: "crimson" | "merriweather";
     id?: string;
     position?: "start" | "center" | "end";
 };
 
 const props: Props = Astro.props;
 
-// Assign default value for props
-export const defaultProps: Props = {
-    color: "white",
-    position: "start",
+const {
+    color = "white",
+    position = "start",
+    font = "merriweather",
+} = Astro.props;
+
+const fontFamilies = {
+    merriweather: "font-merriweather",
+    crimson: "font-crimson",
 };
 ---
 
 <h1
     id={props.id}
     class:list={[
-        "capitalize w-full mt-0 mb-0 font-merriweather font-bold underline-none text-6xl md:text-7xl",
-        `text-${props.color}`,
-        `text-${props.position}`,
+        "capitalize w-full mt-0 mb-0 font-semibold md:font-bold underline-none text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl",
+        `text-${color}`,
+        `text-${position}`,
         props.classList,
+        fontFamilies[font],
     ]}
 >
     <slot />

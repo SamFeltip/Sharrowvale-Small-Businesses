@@ -47,44 +47,43 @@ const positionClass = `text-${position}`;
             "business-contact";
 
         grid-template-columns: 1fr;
+    }
+    section :global(p) {
+        grid-column: 1/-1;
+    }
 
-        & :global(p) {
-            grid-column: 1/-1;
-        }
+    section :global(ul) {
+        list-style: circle;
+        grid-column: 1/-1;
+        margin-left: 1.5rem;
+    }
 
-        & :global(ul) {
-            list-style: circle;
-            grid-column: 1/-1;
-            margin-left: 1.5rem;
+    section :global(h2) {
+        + table tr :last-child {
+            text-align: right;
         }
+    }
 
-        & :global(h2) {
-            + table tr :last-child {
-                text-align: right;
-            }
-        }
+    section :global(h2#open-hours) {
+        grid-area: open-hours-title;
+        text-align: center;
+    }
 
-        & :global(h2#open-hours) {
-            grid-area: open-hours-title;
-            text-align: center;
-        }
+    section :global(h2#open-hours + table) {
+        grid-area: open-hours;
+    }
 
-        & :global(h2#open-hours + table) {
-            grid-area: open-hours;
-        }
+    section :global(h2#business-contact) {
+        grid-area: business-contact-title;
+    }
 
-        & :global(h2#business-contact) {
-            grid-area: business-contact-title;
-        }
+    section :global(h2#business-contact + table) {
+        grid-area: business-contact;
+    }
 
-        & :global(h2#business-contact + table) {
-            grid-area: business-contact;
-        }
-
-        & :global(table) {
-            table-layout: auto;
-            margin-bottom: 1rem;
-        }
+    section :global(table) {
+        table-layout: auto;
+        margin-bottom: 1rem;
     }
 
     @media screen and (min-width: 768px) {

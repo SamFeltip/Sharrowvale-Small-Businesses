@@ -11,12 +11,6 @@ const { title, description } = Astro.props;
 ---
 
 <div class="flex flex-col justify-center items-center text-center p-4 h-full">
-    <H1 color="white" position="center">{title}</H1>
-    {
-        description && (
-            <MonoBody color="white" position="center">
-                {description}
-            </MonoBody>
-        )
-    }
+    <H1 color="white" position="center" font="crimson">{title}</H1>
+    {description && <MonoBody size="small">{description}</MonoBody>}
 </div>

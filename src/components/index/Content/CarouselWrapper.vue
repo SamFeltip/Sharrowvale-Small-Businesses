@@ -6,7 +6,7 @@
   }">
     <CarouselContent>
       <CarouselItem v-for="item in items" class="basis-2/3 md:basis-1/4 xl:basis-1/5 2xl:basis-1/6 h-[380px]">
-        <SmallPromotionalCard :key="item.title" position="start" :card="item" />
+        <PromotionalCard :key="item.title" position="start" :card="item" />
       </CarouselItem>
     </CarouselContent>
 
@@ -20,7 +20,7 @@
           <FontAwesomeIcon :icon="faChevronRight" width="20" height="20" font-size="20" />
         </Button>
       </div>
-      <a class="bg-coral rounded-full text-white py-3 px-5" href="/categories/directory">
+      <a class="bg-coral rounded-full text-white py-3 px-5 text-xl" href="/categories/directory">
         See the full directory
       </a>
     </div>
@@ -42,7 +42,7 @@ import { ref, type Ref } from "vue";
 import type { PlaceCard } from "../../placeCards/PlaceCard.d.ts";
 import Button from "@/components/elements/Button.vue";
 import type { EmblaCarouselType } from 'embla-carousel';
-import SmallPromotionalCard from '@/components/placeCards/SmallPromotionalCard.vue';
+import PromotionalCard from '@/components/placeCards/PromotionalCard.vue';
 
 const props = defineProps<{ items: PlaceCard[] }>();
 

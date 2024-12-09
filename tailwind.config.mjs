@@ -59,6 +59,7 @@ export default {
             fontFamily: {
                 merriweather: ["Merriweather", "serif"],
                 lato: ["Lato", "sans-serif"],
+                crimson: ["Crimson Pro", "serif"],
             },
             fontSize: {
                 mega: "6rem", // Add custom font size
