@@ -35,7 +35,7 @@ const businessPlaceCards = await getPlaceCardsFromRefs(
 const sortedBusinessPlaceCards = sortByIndex(businessPlaceCards, slugs);
 ---
 
-<Section>
+<Section floatIn={true}>
     <H2 position="center" color="coral">Business Spotlight</H2>
     <ContentPromotions promotionPlaceCards={sortedBusinessPlaceCards} />
 </Section>
