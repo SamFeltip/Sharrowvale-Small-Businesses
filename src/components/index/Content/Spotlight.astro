@@ -4,6 +4,7 @@ import H2 from "@/components/elements/headers/H2.astro";
 import Section from "@/components/elements/section.astro";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 import { getPlaceCardsFromItems as getPlaceCardsFromRefs } from "@/scripts/placeCard/handler";
+import { sortByIndex } from "@/scripts/placeCard/sorting";
 import { type CollectionEntry, getCollection } from "astro:content";
 
 const slugs = ["dyson-place", "made-in-sheffield", "new-to-the-area", "events"];
@@ -63,12 +64,10 @@ const businessPlaceCards = await getPlaceCardsFromRefs(
     800
 );
 
-businessPlaceCards.sort(
-    (a, b) => slugs.indexOf(a.slug ?? "") - slugs.indexOf(b.slug ?? "")
-);
+const sortedBusinessPlaceCards = sortByIndex(businessPlaceCards, slugs);
 ---
 
 <Section>
     <H2 position="center" color="coral">What's New</H2>
-    <ContentPromotions promotionPlaceCards={businessPlaceCards} />
+    <ContentPromotions promotionPlaceCards={sortedBusinessPlaceCards} />
 </Section>

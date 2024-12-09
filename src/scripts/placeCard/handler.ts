@@ -50,6 +50,10 @@ export async function getPlaceCardsFromBusinesses(
     );
 }
 
+/**
+ * gets place cards for a given list of place card refs, including an imported image
+ * @param imgWidth image width to import images for
+ */
 export async function getPlaceCardsFromItems(
     itemRefs: PlaceCardRef[],
     imgWidth: number = 600

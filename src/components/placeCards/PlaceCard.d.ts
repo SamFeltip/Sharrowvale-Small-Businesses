@@ -1,6 +1,6 @@
 export type PlaceCard = {
     slug?: string;
-    image: string;
+    image: string; // output of getImage image url
     title: string;
     content?: string;
     lightContent?: string;

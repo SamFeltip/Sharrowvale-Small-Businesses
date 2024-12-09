@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 
 import Section from "@/components/elements/section.astro";
 import { getPlaceCardsFromItems } from "@/scripts/placeCard/handler";
+import { sortByIndex } from "@/scripts/placeCard/sorting";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 
 const tags = await getCollection("tags");
@@ -19,9 +20,11 @@ const promotedCategories = [
     "healthcare",
 ];
 
-let selectedCategories = tags.filter((tag) =>
+const selectedCategories = tags.filter((tag) =>
     promotedCategories.includes(tag.slug)
 );
+
+// const categoryPlaceCardRefs: PlaceCardRef[] = getPlaceCardRefsFromItem("tags");
 
 const categoryPlaceCardRefs: PlaceCardRef[] = selectedCategories.map((tag) => {
     if (tag.data.heroImage == null) {
@@ -43,10 +46,9 @@ const categoryPlaceCardRefs: PlaceCardRef[] = selectedCategories.map((tag) => {
 
 const categoryPlaceCards = await getPlaceCardsFromItems(categoryPlaceCardRefs);
 
-const sortedCategoryPlaceCards = categoryPlaceCards.sort(
-    (a, b) =>
-        promotedCategories.indexOf(a.slug ?? "") -
-        promotedCategories.indexOf(b.slug ?? "")
+const sortedCategoryPlaceCards = sortByIndex(
+    categoryPlaceCards,
+    promotedCategories
 );
 ---
 
