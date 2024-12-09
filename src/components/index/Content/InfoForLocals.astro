@@ -1,49 +1,51 @@
 ---
 import H2 from "@/components/elements/headers/H2.astro";
-import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
 
 import newsImage from "@/assets/images/index/home/guest-road.jpg";
-
 import tradeImage from "@/assets/images/tags/bakery/bakery.jpg";
-
 import marketImage from "@/assets/images/index/sharrow-vale-market/666576a0c2d4c780054817d3_market-.jpeg";
-
 import aboutImage from "@/assets/images/index/about.png";
+
 import Section from "@/components/elements/section.astro";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
-import { getPlaceCardsFromItems } from "@/scripts/placeCard/handler";
+import { getPlaceCards } from "@/scripts/placeCard/handler";
 import { getImageHelper } from "@/scripts/images/getImageHelper";
-import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 
 const placeCardRefs: PlaceCardRef[] = [
     {
         type: "articles",
-        item: {
-            name: "News & Updates",
-            heroImageMetaData: newsImage,
+        collectionEntry: {
             slug: "",
+            data: {
+                name: "News & Updates",
+                heroImage: newsImage,
+            },
         },
     },
     {
         type: "categories",
-        item: {
-            name: "Find a local tradesperson",
-            heroImageMetaData: tradeImage,
+        collectionEntry: {
             slug: "directory",
+            data: {
+                name: "Find a local tradesperson",
+                heroImage: tradeImage,
+            },
         },
     },
     {
         type: "categories",
-        item: {
-            name: "Sharrow Vale Market",
-            heroImageMetaData: marketImage,
+        collectionEntry: {
             slug: "community",
+            data: {
+                name: "Sharrow Vale Market",
+                heroImage: marketImage,
+            },
         },
     },
 ];
 
-const contentCollectionPlaceCards = await getPlaceCardsFromItems(placeCardRefs);
+const contentCollectionPlaceCards = await getPlaceCards(placeCardRefs);
 
 const aboutImageLoaded = await getImageHelper(aboutImage);
 

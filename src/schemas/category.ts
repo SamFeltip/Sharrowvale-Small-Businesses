@@ -7,6 +7,6 @@ export const categorySchema = ({ image }: { image: ImageFunction }) =>
         promotedArticles: z.array(reference("article")).optional(),
         bannerImage: image(),
         isGridLayout: z.boolean().default(false),
-        heroImage: image().optional(),
+        heroImage: image(),
         relatedTags: z.array(reference("tags")).optional(),
     });

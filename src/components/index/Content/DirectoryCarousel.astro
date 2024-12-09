@@ -4,7 +4,7 @@ import CarouselWrapper from "./CarouselWrapper.vue";
 import { getCollection } from "astro:content";
 
 import Section from "@/components/elements/section.astro";
-import { getPlaceCardsFromItems } from "@/scripts/placeCard/handler";
+import { getPlaceCards } from "@/scripts/placeCard/handler";
 import { sortByIndex } from "@/scripts/placeCard/sorting";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
@@ -30,7 +30,7 @@ const categoryPlaceCardRefs: PlaceCardRef[] = getPlaceCardRefs(
     selectedCategories
 );
 
-const categoryPlaceCards = await getPlaceCardsFromItems(categoryPlaceCardRefs);
+const categoryPlaceCards = await getPlaceCards(categoryPlaceCardRefs);
 
 const sortedCategoryPlaceCards = sortByIndex(
     categoryPlaceCards,

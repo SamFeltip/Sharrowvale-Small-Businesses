@@ -54,23 +54,23 @@ export async function getPlaceCardsFromBusinesses(
  * gets place cards for a given list of place card refs, including an imported image
  * @param imgWidth image width to import images for
  */
-export async function getPlaceCardsFromItems(
+export async function getPlaceCards(
     itemRefs: PlaceCardRef[],
     imgWidth: number = 600
 ): Promise<PlaceCard[]> {
     return await Promise.all(
         itemRefs.map(async (itemRef) => {
             let imageUrl = await getImageHelper(
-                itemRef.item.heroImageMetaData,
+                itemRef.collectionEntry.data.heroImage,
                 imgWidth
             );
 
             return {
-                slug: itemRef.item.slug,
+                slug: itemRef.collectionEntry.slug,
                 image: imageUrl,
-                title: itemRef.item.name,
-                content: itemRef.item.description,
-                href: `/${itemRef.type}/${itemRef.item.slug}`,
+                title: itemRef.collectionEntry.data.name,
+                content: itemRef.collectionEntry.data.description,
+                href: `/${itemRef.type}/${itemRef.collectionEntry.slug}`,
             } as PlaceCard;
         })
     );

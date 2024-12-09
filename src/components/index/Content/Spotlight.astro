@@ -4,7 +4,7 @@ import H2 from "@/components/elements/headers/H2.astro";
 import Section from "@/components/elements/section.astro";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
-import { getPlaceCardsFromItems as getPlaceCardsFromRefs } from "@/scripts/placeCard/handler";
+import { getPlaceCards as getPlaceCardsFromRefs } from "@/scripts/placeCard/handler";
 import { sortByIndex } from "@/scripts/placeCard/sorting";
 import { type CollectionEntry, getCollection } from "astro:content";
 
@@ -15,25 +15,10 @@ const categories: CollectionEntry<"categories">[] = await getCollection(
     (category) => slugs.includes(category.slug)
 );
 
-console.log(categories);
-
-const categoryItems: PlaceCardRef[] = categories.map((category) => {
-    if (category.data.heroImage == null) {
-        throw new Error(
-            "category must include a hero images to be matted to a PlaceCardRef"
-        );
-    }
-
-    return {
-        type: "categories",
-        item: {
-            name: category.data.name,
-            heroImageMetaData: category.data.heroImage,
-            slug: category.slug,
-            description: category.data.description,
-        },
-    };
-});
+const categoryItems: PlaceCardRef[] = getPlaceCardRefs(
+    "categories",
+    categories
+);
 
 const tags: CollectionEntry<"tags">[] = await getCollection(
     "tags",
