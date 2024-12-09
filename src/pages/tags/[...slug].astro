@@ -25,8 +25,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"tags">;
 
 const entry: Props = Astro.props;
-const { name, description, bannerImage, promotedBusinesses, relatedTags } =
-    entry.data;
+const { name, description, bannerImage, promotedBusinesses } = entry.data;
 
 if (bannerImage == null) {
     throw new Error("isPage tags must have banner images");
@@ -34,28 +33,48 @@ if (bannerImage == null) {
 
 const { Content } = await entry.render();
 
+// Promoted Businesses
+
 const promoBusinesses = await getEntries(promotedBusinesses);
 
 const promoBusinessPlaceCards =
     await getPlaceCardsFromBusinesses(promoBusinesses);
 
-const promoCategories = await getEntries(relatedTags);
+// sorting Tags
 
 const tags = await getCollection("tags", (tag) => !tag.data.isVisible);
 
 const hiddenTags = tags.map((tag) => tag.data.name);
 
+// Promoted Categories
+
 const businesses = await getCollection("businesses", ({ data }) =>
     data.tags.map((tag) => tag.slug).includes(entry.slug)
 );
 
-const isGridLayout = businesses.length >= 6;
+const relatedTags = businesses.map((business) => business.data.tags).flat();
 
-const directoryCategory = await getEntry("categories", "directory");
+const uniquePromoCategories = Array.from(
+    new Set(relatedTags.map((tag) => tag.slug))
+);
 
-if (directoryCategory == null) {
-    throw new Error("Directory category not found");
-}
+const promoCategories = await getCollection("tags", (tag) =>
+    uniquePromoCategories.includes(tag.slug)
+);
+
+const slugCounts: Record<string, number> = relatedTags.reduce(
+    (acc, tag) => {
+        acc[tag.slug] = (acc[tag.slug] || 0) + 1;
+        return acc;
+    },
+    {} as Record<string, number>
+);
+
+const sortedPromoCategories = promoCategories
+    .sort((a, b) => slugCounts[b.slug] - slugCounts[a.slug])
+    .filter((tag) => slugCounts[tag.slug] < businesses.length - 1);
+
+const isGridLayout = businesses.length >= 9;
 ---
 
 <ContentLayout
@@ -87,7 +106,7 @@ if (directoryCategory == null) {
         />
         {
             promoCategories.length > 0 && (
-                <PromotedTags promoCategories={promoCategories} />
+                <PromotedTags promoCategories={sortedPromoCategories} />
             )
         }
         {isGridLayout && <PromoBanner />}

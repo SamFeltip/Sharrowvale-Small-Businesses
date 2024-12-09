@@ -4,7 +4,6 @@ export const tagSchema = ({ image }: { image: ImageFunction }) =>
     z.object({
         name: z.string(),
         description: z.string().optional(),
-        relatedTags: z.array(reference("tags")).default([]),
         promotedBusinesses: z.array(reference("businesses")).default([]),
         bannerImage: image().optional(),
         heroImage: image(),

@@ -43,7 +43,7 @@
             </H3>
             <div class="flex flex-wrap justify-center">
                 <label v-for="tag in availableTags" :key="tag"
-                    class="font-merriweather cursor-pointer inline-block px-2 py-1 m-1 border border-black rounded-full text-sm transition-all duration-200 hover:scale-105 group relative"
+                    class="font-merriweather cursor-pointer inline-block px-2 py-1 m-1 border border-gray-500 rounded-full text-sm transition-all duration-200 hover:scale-105 group relative"
                     :class="{
                         'bg-coral border-coral text-white':
                             localSelectedTags.includes(tag),
