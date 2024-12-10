@@ -2,6 +2,7 @@
 import H2 from "@/components/elements/headers/H2.astro";
 import Button from "../Button.vue";
 import type { CollectionEntry } from "astro:content";
+import Section from "../section.astro";
 
 type Props = {
     promoCategories: CollectionEntry<"tags">[];
@@ -10,7 +11,7 @@ type Props = {
 const { promoCategories } = Astro.props;
 ---
 
-<section class="text-center">
+<Section floatIn={true}>
     <H2 color="coral">Explore more Categories</H2>
     <div class="py-3">
         <ul class="flex flex-row justify-center flex-wrap gap-3">
@@ -25,4 +26,4 @@ const { promoCategories } = Astro.props;
             }
         </ul>
     </div>
-</section>
+</Section>

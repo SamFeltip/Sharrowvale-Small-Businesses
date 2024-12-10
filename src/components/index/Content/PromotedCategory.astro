@@ -1,0 +1,23 @@
+---
+import Button from "@/components/elements/Button.vue";
+import H2 from "@/components/elements/headers/H2.astro";
+import Section from "@/components/elements/section.astro";
+import { getCollection } from "astro:content";
+
+const categories = await getCollection("categories");
+---
+
+<Section floatIn={true}>
+    <H2 position="center" color="coral"> Discover more</H2>
+    <ul class="flex flex-row justify-center flex-wrap gap-5">
+        {
+            categories.map((category) => (
+                <li class="hover:scale-110 transition-all">
+                    <Button size="lg" href={`/categories/${category.slug}`}>
+                        {category.data.name}
+                    </Button>
+                </li>
+            ))
+        }
+    </ul>
+</Section>
