@@ -5,7 +5,7 @@
         </div>
 
         <div class="absolute bottom-0 w-full p-3">
-            <H3 color="white" :position>{{ card.title }}</H3>
+            <H4 color="white" :position>{{ card.title }}</H4>
         </div>
     </HoverArticle>
 </template>
@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 import HoverArticle from '../elements/articles/HoverArticle.vue';
 import type { PlaceCard } from './PlaceCard';
-import H3 from '../elements/headers/H3.vue';
+import H4 from '../elements/headers/H4.vue';
 
 const props = withDefaults(defineProps<{ position: "start" | "end", card: PlaceCard }>(), {
     position: "start"

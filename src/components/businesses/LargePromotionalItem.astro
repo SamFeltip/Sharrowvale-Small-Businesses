@@ -1,7 +1,8 @@
 ---
 import HoverArticle from "../elements/articles/HoverArticle.vue";
 import type { PlaceCard } from "../placeCards/PlaceCard";
-import H2 from "../elements/headers/H2.astro";
+import H3 from "../elements/headers/H3.vue";
+import H4 from "../elements/headers/H4.vue";
 
 interface Props {
     card: PlaceCard;
@@ -36,7 +37,7 @@ const { card, position = "start", className = "" } = Astro.props;
         class="absolute bottom-0 right-0 p-6 w-full text-right"
         id="card-content"
     >
-        <H2 color="white" position="end" classList="text-2xl">{card.title}</H2>
+        <H4 color="white" position="end" classList="text-2xl">{card.title}</H4>
         <p id="card-text" class="text-sm md:text-base text-white/90">
             {card.content}
         </p>

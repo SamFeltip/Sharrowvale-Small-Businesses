@@ -8,6 +8,7 @@ import { getPlaceCards } from "@/scripts/placeCard/handler";
 import { sortByIndex } from "@/scripts/placeCard/sorting";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
+import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 
 const promotedCategories = [
     "food-and-drink",
@@ -39,7 +40,9 @@ const sortedCategoryPlaceCards = sortByIndex(
 ---
 
 <Section direction="column">
-    <H2 color="coral" position="center"> Independent Businesses </H2>
+    <ScreenWidth>
+        <H2 color="coral" position="center"> Independent Businesses </H2>
+    </ScreenWidth>
 
     <CarouselWrapper client:load items={sortedCategoryPlaceCards} />
 </Section>

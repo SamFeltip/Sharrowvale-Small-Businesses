@@ -1,5 +1,5 @@
 <template>
-  <h3 :id="id" :class="computedClasses" class="font-merriweather text-xl md:text-2xl lg:text-3xl text-stone-800">
+  <h3 :id="id" :class="computedClasses" class="font-merriweather text-3xl text-stone-800">
     <slot />
   </h3>
 </template>
@@ -18,7 +18,6 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   color: "black",
-  position: "start",
   classList: "",
   weight: "normal",
 });
@@ -46,6 +45,6 @@ const computedClasses = computed(() => {
     medium: "font-medium",
   };
 
-  return `${colorClasses[color]} ${positionClasses[position]} ${weightClasses[weight]} ${classList}`;
+  return `${colorClasses[color]} ${position && positionClasses[position]} ${weightClasses[weight]} ${classList}`;
 });
 </script>

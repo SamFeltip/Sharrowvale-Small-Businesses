@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 
 import Section from "@/components/elements/section.astro";
 import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
+import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 
 const businesses = await getCollection("businesses");
 
@@ -12,7 +13,9 @@ const businessPlaceCards = await getPlaceCardsFromBusinesses(businesses);
 ---
 
 <Section direction="column">
-    <H2 color="coral" position="center"> Discover more Businesses </H2>
+    <ScreenWidth>
+        <H2 color="coral" position="center"> Discover more Businesses </H2>
+    </ScreenWidth>
 
     <CarouselWrapper client:load items={businessPlaceCards} />
 </Section>

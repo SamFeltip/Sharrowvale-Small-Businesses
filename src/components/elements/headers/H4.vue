@@ -1,7 +1,7 @@
 <template>
-  <h3 :id="id" :class="computedClasses" class="font-merriweather text-lg md:text-xl lg:text-2xl text-stone-800">
+  <h4 :id="id" :class="computedClasses" class="font-merriweather text-2xl text-stone-800">
     <slot />
-  </h3>
+  </h4>
 </template>
 
 <script setup lang="ts">
