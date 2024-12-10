@@ -48,6 +48,11 @@ const businesses = await getCollection("businesses", ({ data }) =>
 
 const promotedTags = await getPromotedTags(businesses);
 
+const promotedItems = promotedTags.map((tag) => ({
+    type: "tags",
+    collectionEntry: tag,
+}));
+
 const isGridLayout = businesses.length >= 9;
 ---
 
@@ -82,8 +87,11 @@ const isGridLayout = businesses.length >= 9;
             />
         </Section>
         {
-            promotedTags.length > 0 && (
-                <PromotedTags promoCategories={promotedTags} />
+            promotedItems.length > 0 && (
+                <PromotedTags
+                    title="Explore more Categories"
+                    promotedItems={promotedItems}
+                />
             )
         }
         {isGridLayout && <PromoBanner />}

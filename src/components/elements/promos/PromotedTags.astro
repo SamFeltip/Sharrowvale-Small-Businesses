@@ -1,29 +1,31 @@
 ---
 import H2 from "@/components/elements/headers/H2.astro";
 import Button from "../Button.vue";
-import type { CollectionEntry } from "astro:content";
 import Section from "../section.astro";
+import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 
 type Props = {
-    promoCategories: CollectionEntry<"tags">[];
+    promotedItems: PlaceCardRef[];
+    title?: string;
 };
 
-const { promoCategories } = Astro.props;
+const { promotedItems, title = "Discover more" } = Astro.props;
 ---
 
 <Section floatIn={true}>
-    <H2 color="coral">Explore more Categories</H2>
-    <div class="py-3">
-        <ul class="flex flex-row justify-center flex-wrap gap-3">
-            {
-                promoCategories.map((tag) => (
-                    <li class="hover:scale-110 transition-all">
-                        <Button href={`/tags/${tag.slug}`}>
-                            {tag.data.name}
-                        </Button>
-                    </li>
-                ))
-            }
-        </ul>
-    </div>
+    <H2 color="coral" position="center">{title}</H2>
+    <ul class="flex flex-row justify-center flex-wrap gap-3">
+        {
+            promotedItems.map((promoItem) => (
+                <li class="hover:scale-110 transition-all">
+                    <Button
+                        size="lg"
+                        href={`/${promoItem.type}/${promoItem.collectionEntry.slug}`}
+                    >
+                        {promoItem.collectionEntry.data.name}
+                    </Button>
+                </li>
+            ))
+        }
+    </ul>
 </Section>

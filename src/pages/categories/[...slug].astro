@@ -11,6 +11,8 @@ import ContentCollectionItem from "@/components/elements/contentCollectionWrappe
 import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
 import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.astro";
+import type { PlaceCard } from "@/components/placeCards/PlaceCard";
+import type { GenericCollectionEntry } from "@/components/placeCards/PlaceCardRef";
 
 export async function getStaticPaths() {
     const category: CollectionEntry<"categories">[] =
@@ -30,7 +32,12 @@ const { Content } = await entry.render();
 const { name, description, bannerImage, isGridLayout, relatedTags } =
     entry.data;
 
-const promoCategories = await getEntries(relatedTags ?? []);
+const promoTags = await getEntries(relatedTags ?? []);
+
+const promotedItems = promoTags.map((tag) => ({
+    type: "tags",
+    collectionEntry: tag,
+}));
 
 const searchCategoryCollection = [name];
 ---
@@ -59,8 +66,11 @@ const searchCategoryCollection = [name];
         </Section>
 
         {
-            promoCategories.length > 0 && (
-                <PromotedTags promoCategories={promoCategories} />
+            promoTags.length > 0 && (
+                <PromotedTags
+                    title="Explore more Categories"
+                    promotedItems={promotedItems}
+                />
             )
         }
 
