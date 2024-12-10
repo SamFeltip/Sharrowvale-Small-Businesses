@@ -11,6 +11,7 @@ import Section from "@/components/elements/section.astro";
 import SearchWrapper from "@/components/search/SearchWrapper.vue";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
+import { getPromotedTags } from "@/scripts/tags/promotedTags";
 import { getEntry } from "astro:content";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 
@@ -40,39 +41,15 @@ const promoBusinesses = await getEntries(promotedBusinesses);
 const promoBusinessPlaceCards =
     await getPlaceCardsFromBusinesses(promoBusinesses);
 
-// sorting Tags
-
 const tags = await getCollection("tags", (tag) => !tag.data.isVisible);
 
-const hiddenTags = tags.map((tag) => tag.data.name);
-
-// Promoted Categories
+const hiddenTagNames = tags.map((tag) => tag.data.name);
 
 const businesses = await getCollection("businesses", ({ data }) =>
     data.tags.map((tag) => tag.slug).includes(entry.slug)
 );
 
-const relatedTags = businesses.map((business) => business.data.tags).flat();
-
-const uniquePromoCategories = Array.from(
-    new Set(relatedTags.map((tag) => tag.slug))
-);
-
-const promoCategories = await getCollection("tags", (tag) =>
-    uniquePromoCategories.includes(tag.slug)
-);
-
-const slugCounts: Record<string, number> = relatedTags.reduce(
-    (acc, tag) => {
-        acc[tag.slug] = (acc[tag.slug] || 0) + 1;
-        return acc;
-    },
-    {} as Record<string, number>
-);
-
-const sortedPromoCategories = promoCategories
-    .sort((a, b) => slugCounts[b.slug] - slugCounts[a.slug])
-    .filter((tag) => slugCounts[tag.slug] < businesses.length - 1);
+const promotedTags = await getPromotedTags(businesses);
 
 const isGridLayout = businesses.length >= 9;
 ---
@@ -81,10 +58,9 @@ const isGridLayout = businesses.length >= 9;
     image={bannerImage}
     title={name}
     description={description}
-    classList="gap-8"
     HeaderContent={HeaderContent}
 >
-    <ScreenWidth>
+    <ScreenWidth classList="gap-8">
         <ContentCollectionItem position="center">
             <Content />
         </ContentCollectionItem>
@@ -102,11 +78,11 @@ const isGridLayout = businesses.length >= 9;
             requiredCategories={[]}
             requiredTag={name}
             isGridLayout={isGridLayout}
-            hiddenTags={hiddenTags}
+            hiddenTags={hiddenTagNames}
         />
         {
-            promoCategories.length > 0 && (
-                <PromotedTags promoCategories={sortedPromoCategories} />
+            promotedTags.length > 0 && (
+                <PromotedTags promoCategories={promotedTags} />
             )
         }
         {isGridLayout && <PromoBanner />}

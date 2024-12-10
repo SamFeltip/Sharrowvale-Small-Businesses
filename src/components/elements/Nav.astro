@@ -11,11 +11,11 @@ import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
 
 <nav class="w-full">
     <ScreenWidth>
-        <div class="w-full md:hidden">
+        <div class="w-full lg:hidden">
             <BurgerMenu logo={LOGO_URL_DARK} client:load />
         </div>
 
-        <div class="hidden md:flex w-full pt-8 justify-between items-center">
+        <div class="hidden lg:flex w-full pt-8 justify-between items-center">
             <a href="/">
                 <img
                     src={LOGO_URL_DARK}
@@ -25,30 +25,30 @@ import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
                 />
             </a>
 
-            <div class="internal-links gap-8 hidden lg:flex text-white">
-                <HeaderLink
+            <div class="internal-links gap-8 flex text-white">
+                <a
                     href="/tags/sharrow-vale-market"
-                    class="font-lato font-light text-xl mt-0 mb-0"
-                    >The Market</HeaderLink
+                    class="font-lato font-light text-xl mt-0 mb-0">The Market</a
                 >
-                <HeaderLink
+                <a
                     href="/categories/directory"
-                    class="font-lato font-light text-xl mt-0 mb-0"
-                    >Directory</HeaderLink
+                    class="font-lato font-light text-xl mt-0 mb-0">Directory</a
                 >
-                <HeaderLink
+                <a
                     href="/articles"
                     class="font-lato font-light text-xl mt-0 mb-0"
-                    >News & Updates</HeaderLink
+                    >News & Updates</a
                 >
-                <HeaderLink
-                    href="/join"
-                    class="font-lato font-light text-xl mt-0 mb-0"
-                    >About</HeaderLink
+                <a href="/join" class="font-lato font-light text-xl mt-0 mb-0"
+                    >About</a
                 >
                 <div class="border-b border-white">
-                    <div class="flex flex-row items-center gap-2 mb-2">
-                        <label for="nav-search">
+                    <form
+                        action="/categories/directory"
+                        method="GET"
+                        class="flex flex-row items-center gap-2 mb-2"
+                    >
+                        <button id="nav-search" class="flex">
                             <svg
                                 xmlns="
                             http:
@@ -68,14 +68,15 @@ import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
                                     fill="currentColor"
                                     class="path-1b5n5"></path>
                             </svg>
-                        </label>
+                        </button>
                         <input
-                            name="nav-search"
+                            id="nav-search"
+                            name="search"
                             type="text"
-                            class="bg-transparent text-white placeholder-white focus:outline-none"
+                            class="bg-transparent text-white placeholder-white focus:outline-none text-xl font-light"
                             placeholder="Search"
                         />
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

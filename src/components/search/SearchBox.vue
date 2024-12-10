@@ -1,8 +1,8 @@
 <!-- SearchBox.vue -->
 <template>
     <div class="mx-auto px-4 w-full flex flex-col items-center" id="search-box-wrapper">
-        <div id="search-box" class="gap-4 mb-4 w-full">
-            <div class="flex flex-row items-center gap-4">
+        <div class="gap-4 mb-4 w-full" id="search-box">
+            <div class="flex flex-row items-center gap-4 w-full">
                 <div class="text-gray-600">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
                         class="ikonik-9adjq">
@@ -12,13 +12,14 @@
                     </svg>
                 </div>
                 <input v-model="localSearchQuery" type="text" placeholder="Search..."
-                    class="flex-1 px-3 py-2 bg-transparent border-b border-gray-400 focus:outline-none"
+                    class="flex-1 px-3 py-2 bg-transparent border-b border-gray-400 focus:outline-none text-lato font-light text-xl md:text-2xl w-full"
                     @input="handleSearch" />
             </div>
 
             <div class="flex justify-center gap-2">
                 <Button title="sort" @click="toggleSort" class="w-full">
-                    Sort
+                    <span class="text-xl">
+                        Sort</span>
 
                     <span v-if="sortAscending">
                         <FontAwesomeIcon :icon="faArrowUpWideShort" />
@@ -29,7 +30,9 @@
 
                 </Button>
                 <Button title="filter" @click="toggleFilters" class=" w-full">
-                    Filters
+                    <span class="text-xl">
+                        Filters
+                    </span>
                     <span>
                         <FontAwesomeIcon :icon="faFilter" />
                     </span>
@@ -43,7 +46,7 @@
             </H3>
             <div class="flex flex-wrap justify-center">
                 <label v-for="tag in availableTags" :key="tag"
-                    class="font-merriweather cursor-pointer inline-block px-2 py-1 m-1 border border-gray-500 rounded-full text-sm transition-all duration-200 hover:scale-105 group relative"
+                    class="font-merriweather cursor-pointer inline-block px-2 py-1 m-1 border border-gray-500 rounded-full text-base transition-all duration-200 hover:scale-105 group relative"
                     :class="{
                         'bg-coral border-coral text-white':
                             localSelectedTags.includes(tag),
@@ -237,7 +240,7 @@ watch(localSelectedTags, async () => {
     grid-template-columns: 1fr;
 }
 
-@container (min-width: 400px) {
+@container (min-width: 500px) {
     #search-box {
         grid-template-columns: 1fr auto;
     }
