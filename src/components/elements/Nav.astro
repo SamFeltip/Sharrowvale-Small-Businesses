@@ -10,11 +10,11 @@ import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
 ---
 
 <nav class="w-full">
+    <div class="w-full lg:hidden">
+        <BurgerMenu logo={LOGO_URL_DARK} client:load />
+    </div>
+    
     <ScreenWidth>
-        <div class="w-full lg:hidden">
-            <BurgerMenu logo={LOGO_URL_DARK} client:load />
-        </div>
-
         <div class="hidden lg:flex w-full pt-8 justify-between items-center">
             <a href="/">
                 <img
