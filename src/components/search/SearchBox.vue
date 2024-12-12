@@ -73,9 +73,9 @@ import H3 from "@/components/elements/headers/H3.vue";
 
 import { faFilter } from "@fortawesome/free-solid-svg-icons/faFilter"
 
-import type { CustomRecord } from "pagefind";
 import { ref, inject, onMounted, watch } from "vue";
 import Button from "../elements/Button.vue";
+import type { PagefindSearchResult } from './src/PagefindSearchResult';
 
 const props = defineProps<{
     requiredTag?: string,
@@ -83,7 +83,7 @@ const props = defineProps<{
     isGridLayout: boolean,
 }>();
 
-const searchResults = inject("searchResults", ref([] as CustomRecord[]));
+const searchResults = inject("searchResults", ref([] as PagefindSearchResult[]));
 const searchQuery = inject("searchQuery", ref(""));
 const selectedTags = inject("selectedTags", ref([] as string[]));
 const availableTags = inject("availableTags", ref([] as string[]));
@@ -185,7 +185,7 @@ async function updateSearch(searchOptions: PagefindSearchOptions) {
 }
 
 async function processResults(pagefindResults: {
-    results: { data: () => CustomRecord }[];
+    results: { data: () => PagefindSearchResult }[];
     filters: PagefindSearchOptions["filters"];
 }) {
     const data = await Promise.all(

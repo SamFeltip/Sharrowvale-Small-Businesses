@@ -22,9 +22,9 @@
 
 <script setup lang="ts">
 import { inject, ref } from "vue";
-import type { CustomRecord } from "pagefind";
 import PlaceCardWide from "../placeCards/PlaceCardWide.vue";
 import PlaceCardGrid from "../placeCards/PlaceCardGrid.vue";
+import type { PagefindSearchResult } from "./src/PagefindSearchResult";
 
 const props = defineProps<{
     tag?: string,
@@ -32,9 +32,9 @@ const props = defineProps<{
     hiddenTags?: string[]
 }>();
 
-const searchResults = inject("searchResults", ref([] as CustomRecord[]));
+const searchResults = inject("searchResults", ref([] as PagefindSearchResult[]));
 
-function getDisplayTags(result: CustomRecord): { slug: string; name: string }[] {
+function getDisplayTags(result: PagefindSearchResult): { slug: string; name: string }[] {
     let tags = result.filters?.tags || [];
 
     tags = tags.filter((tag: string) => tag !== props.tag && !props.hiddenTags?.includes(tag)).slice(0, 3);
