@@ -65,6 +65,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.14.12",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^5.5.4"
   }
 }

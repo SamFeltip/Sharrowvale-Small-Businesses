@@ -21,7 +21,7 @@
                 class="fixed inset-0 bg-black bg-opacity-95 z-40 overflow-hidden transition-all duration-500 ease-in-out"
                 :class="{ 'h-0': !isMenuOpen, 'h-full': isMenuOpen }" @click="closeMenu">
                 <nav class="flex flex-col items-end p-8 pt-24 h-full" @click.stop>
-                    <div class="w-full max-w-md">
+                    <div class="w-full">
                         <div v-for="(link, index) in menuLinks" :key="link.href"
                             class="transform transition-all duration-500 ease-in-out" :class="{
                                 'translate-x-full opacity-0': !isMenuOpen,
@@ -33,9 +33,9 @@
                             </a>
                         </div>
 
-                        <div class="mt-8">
+                        <div class="mt-8 flex justify-end">
                             <form action="/categories/directory" method="GET"
-                                class="flex flex-row items-center gap-2 mb-2 w-full border-b border-white ">
+                                class="flex flex-row items-center gap-2 mb-2 w-full border-b border-white max-w-md">
 
 
                                 <div class="flex flex-row items-center gap-2 w-full">
