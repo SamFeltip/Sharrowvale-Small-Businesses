@@ -11,7 +11,7 @@
 import SearchBox from "./SearchBox.vue";
 import SearchResults from "./SearchResults.vue";
 
-import { provide, ref, watch } from "vue";
+import { provide, reactive, ref, watch } from "vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
 
 const props = defineProps<{
@@ -23,10 +23,10 @@ const props = defineProps<{
 
 const { requiredTag, isGridLayout, hiddenTags } = props;
 
-const searchResults = ref<PagefindSearchResult[]>([]);
-const searchQuery = ref("");
-const selectedTags = ref([]);
-const availableTags = ref([]);
+let searchResults = ref<PagefindSearchResult[]>([]);
+let searchQuery = ref("");
+let selectedTags = ref([]);
+let availableTags = ref([]);
 
 provide("searchResults", searchResults);
 provide("searchQuery", searchQuery);

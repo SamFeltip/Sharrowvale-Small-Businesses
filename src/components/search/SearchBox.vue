@@ -49,9 +49,9 @@
                     class="font-merriweather cursor-pointer inline-block px-2 py-1 m-1 border border-gray-500 rounded-full text-base transition-all duration-200 hover:scale-105 group relative"
                     :class="{
                         'bg-coral border-coral text-white':
-                            localSelectedTags.includes(tag),
+                            selectedTags.includes(tag),
                     }">
-                    <input type="checkbox" :value="tag" v-model="localSelectedTags" @change="handleSearch"
+                    <input type="checkbox" :value="tag" v-model="selectedTags" @change="handleSearch"
                         class="absolute opacity-0 -z-10" />
                     <span>{{ tag }}</span>
                 </label>
@@ -73,7 +73,7 @@ import H3 from "@/components/elements/headers/H3.vue";
 
 import { faFilter } from "@fortawesome/free-solid-svg-icons/faFilter"
 
-import { ref, inject, onMounted, watch } from "vue";
+import { ref, inject, onMounted, watch, reactive } from "vue";
 import Button from "../elements/Button.vue";
 import type { PagefindSearchResult } from './src/PagefindSearchResult';
 
@@ -83,14 +83,13 @@ const props = defineProps<{
     isGridLayout: boolean,
 }>();
 
-const searchResults = inject("searchResults", ref([] as PagefindSearchResult[]));
-const searchQuery = inject("searchQuery", ref(""));
-const selectedTags = inject("selectedTags", ref([] as string[]));
-const availableTags = inject("availableTags", ref([] as string[]));
-const pagefind = ref(null); //inject('pagefind', ref(null));
+let searchResults = inject("searchResults", ref([] as PagefindSearchResult[]));
+let searchQuery = inject("searchQuery", ref(""));
+let selectedTags = inject("selectedTags", ref([] as string[]));
+let availableTags = inject("availableTags", ref([] as string[]));
+let pagefind = ref(null); //inject('pagefind', ref(null));
 
 const localSearchQuery = ref("");
-let localSelectedTags: string[] = [];
 const showFilters = ref(true);
 const sortAscending = ref(true);
 
@@ -125,11 +124,13 @@ onMounted(async () => {
 });
 
 async function handleSearch() {
-
+    console.log("handling")
 
     searchQuery.value = localSearchQuery.value;
 
     let searchOptions = getSearchOptions();
+
+    console.log(searchOptions);
 
     if (searchQuery.value == "") {
         await loadAllResults(searchOptions);
@@ -155,8 +156,8 @@ function getSearchOptions(): PagefindSearchOptions {
         searchOptions.filters.category.any = props.requiredCategories;
     }
 
-    if (localSelectedTags.length > 0) {
-        searchOptions.filters.tags?.push(...localSelectedTags);
+    if (selectedTags.value.length > 0) {
+        searchOptions.filters.tags?.push(...selectedTags.value);
     }
 
     return searchOptions;
@@ -198,7 +199,7 @@ async function processResults(pagefindResults: {
 
     let tagEntries = Object.entries(tags) as [string, number][];
 
-    const validTags = tagEntries.filter(([key, value]) => localSelectedTags.includes(key) || value > 0 && value < data.length);
+    const validTags = tagEntries.filter(([key, value]) => selectedTags.value.includes(key) || value > 0 && value < data.length);
 
     const sortedTags = validTags.sort((a, b) => b[1] - a[1]);
 
@@ -220,8 +221,7 @@ function toggleFilters() {
     showFilters.value = !showFilters.value;
 }
 
-watch(localSelectedTags, async () => {
-    selectedTags.value = localSelectedTags;
+watch(selectedTags, async () => {
 
     let searchOptions = getSearchOptions();
 

@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref } from "vue";
+import { inject, reactive, ref } from "vue";
 import PlaceCardWide from "../placeCards/PlaceCardWide.vue";
 import PlaceCardGrid from "../placeCards/PlaceCardGrid.vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
@@ -29,10 +29,10 @@ import type { PagefindSearchResult } from "./src/PagefindSearchResult";
 const props = defineProps<{
     tag?: string,
     isGridLayout: boolean,
-    hiddenTags?: string[]
+    hiddenTags?: string[],
 }>();
 
-const searchResults = inject("searchResults", ref([] as PagefindSearchResult[]));
+let searchResults = inject("searchResults", ref<PagefindSearchResult[]>([]));
 
 function getDisplayTags(result: PagefindSearchResult): { slug: string; name: string }[] {
     let tags = result.filters?.tags || [];
