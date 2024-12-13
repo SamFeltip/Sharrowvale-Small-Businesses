@@ -4,12 +4,12 @@
         <SearchBox v-model:searchResults="searchResults" v-model:searchQuery="searchQuery"
             v-model:available-tags="availableTags" v-model:selectedTags="selectedTags" :isGridLayout
             :requiredTag="requiredTag" :requiredCategories="requiredCategories" />
-        <section>
+        <section v-if="searchResults.length > 0">
             <H3 color="coral">Businesses</h3>
             <SearchCarousel v-model:searchResults="searchResults" />
         </section>
 
-        <section>
+        <section v-if="articles.length > 0">
             <H3 color="coral">Articles</h3>
             <SearchResults v-model:searchResults="articles" :tag="requiredTag" :isGridLayout="isGridLayout"
                 :hiddenTags="hiddenTags" />
@@ -24,7 +24,7 @@ import SearchCarousel from "./SearchCarousel.vue";
 import SearchBox from "./SearchBox.vue";
 import SearchResults from "./SearchResults.vue";
 
-import { ref, watch, watchEffect } from "vue";
+import { ref, watchEffect } from "vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
 
 const props = defineProps<{
@@ -45,6 +45,7 @@ let articles: PagefindSearchResult[];
 
 watchEffect(() => {
     articles = searchResults.value.filter(result => !result.filters.category.includes("Directory"));
+    console.log({ searchResults: searchResults.value });
     console.log("search results changed");
 })
 
