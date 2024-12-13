@@ -5,7 +5,7 @@
     skipSnaps: true,
   }">
     <CarouselContent>
-      <CarouselItem v-for="item in items" class="basis-2/3 md:basis-1/4 xl:basis-1/5 2xl:basis-1/6 h-[380px]">
+      <CarouselItem v-for="item in props.items" class="basis-2/3 md:basis-1/4 xl:basis-1/5 2xl:basis-1/6 h-[380px]">
         <PromotionalCard :key="item.title" position="start" :card="item" />
       </CarouselItem>
     </CarouselContent>
@@ -38,15 +38,13 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft"
 
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { ref, type Ref } from "vue";
+import { ref, toRefs, type Ref } from "vue";
 import type { PlaceCard } from "../../placeCards/PlaceCard.d.ts";
 import Button from "@/components/elements/Button.vue";
 import type { EmblaCarouselType } from 'embla-carousel';
 import PromotionalCard from '@/components/placeCards/PromotionalCard.vue';
 
 const props = defineProps<{ items: PlaceCard[] }>();
-
-const { items } = props;
 
 // Managing carousel navigation
 const carouselRef: Ref<EmblaCarouselType | null> = ref(null);

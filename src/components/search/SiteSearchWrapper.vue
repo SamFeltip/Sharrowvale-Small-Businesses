@@ -4,22 +4,28 @@
         <SearchBox v-model:searchResults="searchResults" v-model:searchQuery="searchQuery"
             v-model:available-tags="availableTags" v-model:selectedTags="selectedTags" :isGridLayout
             :requiredTag="requiredTag" :requiredCategories="requiredCategories" />
-        <SearchCarousel :search-results="searchResults" />
-        <SearchResults v-model:searchResults="searchResults" :tag="requiredTag" :isGridLayout="isGridLayout"
-            :hiddenTags="hiddenTags" />
+        <section>
+            <H3 color="coral">Businesses</h3>
+            <SearchCarousel v-model:searchResults="searchResults" />
+        </section>
+
+        <section>
+            <H3 color="coral">Articles</h3>
+            <SearchResults v-model:searchResults="articles" :tag="requiredTag" :isGridLayout="isGridLayout"
+                :hiddenTags="hiddenTags" />
+        </section>
     </div>
 </template>
 
 <script setup lang="ts">
+import H3 from "@/components/elements/headers/H3.vue"
 
 import SearchCarousel from "./SearchCarousel.vue";
 import SearchBox from "./SearchBox.vue";
 import SearchResults from "./SearchResults.vue";
 
-import { provide, reactive, ref, watch } from "vue";
+import { ref, watch, watchEffect } from "vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
-import Carousel from "../ui/carousel/Carousel.vue";
-import type { PlaceCard } from "../placeCards/PlaceCard";
 
 const props = defineProps<{
     requiredTag?: string,
@@ -30,22 +36,17 @@ const props = defineProps<{
 
 const { requiredTag, isGridLayout, hiddenTags } = props;
 
-let searchResults = reactive<PagefindSearchResult[]>([]);
+let searchResults = ref<PagefindSearchResult[]>([]);
 let searchQuery = ref("");
-let selectedTags = reactive([]);
-let availableTags = reactive([]);
+let selectedTags = ref([]);
+let availableTags = ref([]);
 
-let carouselItems = reactive<PlaceCard[]>([]);
+let articles: PagefindSearchResult[];
 
-carouselItems = searchResults.map((result) => ({
-    title: result.meta?.title || "",
-    image: result.meta?.image || "",
-    content: result.meta?.content || "",
-    href: result.url || "",
-}));
-
-console.log(carouselItems);
-console.log(searchResults);
+watchEffect(() => {
+    articles = searchResults.value.filter(result => !result.filters.category.includes("Directory"));
+    console.log("search results changed");
+})
 
 </script>
 
