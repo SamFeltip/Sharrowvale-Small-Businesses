@@ -120,7 +120,7 @@ async function handleSearch() {
 
     let searchOptions = getSearchOptions();
 
-    console.log(searchOptions);
+    console.log({ searchOptions });
 
     if (searchQuery.value == "") {
         await loadAllResults(searchOptions);
@@ -163,8 +163,10 @@ async function loadAllResults(searchOptions: PagefindSearchOptions) {
 async function updateSearch(searchOptions: PagefindSearchOptions) {
     if (pagefind.value === null) return;
 
+    console.log({ searchQuery, searchOptions })
+
     //@ts-ignore
-    const results = await pagefind.value.search(searchQuery, searchOptions);
+    const results = await pagefind.value.search(searchQuery.value, searchOptions);
 
     processResults(results);
 }
@@ -178,7 +180,7 @@ async function processResults(pagefindResults: {
     );
 
     searchResults.value = data;
-    console.log(searchResults);
+    console.log({ searchResults: searchResults.value[0].url });
 
     let tags = pagefindResults.filters?.tags ?? {};
 
