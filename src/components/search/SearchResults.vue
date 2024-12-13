@@ -29,10 +29,10 @@ import type { PagefindSearchResult } from "./src/PagefindSearchResult";
 const props = defineProps<{
     tag?: string,
     isGridLayout: boolean,
-    hiddenTags?: string[],
+    hiddenTags?: string[]
 }>();
 
-let searchResults = inject("searchResults", ref<PagefindSearchResult[]>([]));
+const searchResults = defineModel<PagefindSearchResult[]>("searchResults", { required: true });
 
 function getDisplayTags(result: PagefindSearchResult): { slug: string; name: string }[] {
     let tags = result.filters?.tags || [];

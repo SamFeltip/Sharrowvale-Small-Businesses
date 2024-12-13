@@ -11,7 +11,7 @@
                             fill="currentColor" class="path-1b5n5"></path>
                     </svg>
                 </div>
-                <input v-model="localSearchQuery" type="text" placeholder="Search..."
+                <input v-model="searchQuery" type="text" placeholder="Search..."
                     class="flex-1 px-3 py-2 bg-transparent border-b border-gray-400 focus:outline-none text-lato font-light text-xl md:text-2xl w-full"
                     @input="handleSearch" />
             </div>
@@ -83,13 +83,14 @@ const props = defineProps<{
     isGridLayout: boolean,
 }>();
 
-let searchResults = inject("searchResults", ref([] as PagefindSearchResult[]));
-let searchQuery = inject("searchQuery", ref(""));
-let selectedTags = inject("selectedTags", ref([] as string[]));
-let availableTags = inject("availableTags", ref([] as string[]));
+let searchResults = defineModel<PagefindSearchResult[]>("searchResults", { required: true });
+let searchQuery = defineModel<string>("searchQuery", { required: true });
+let selectedTags = defineModel<string[]>("selectedTags", { required: true });
+let availableTags = defineModel<string[]>("availableTags", { required: true });
+
+
 let pagefind = ref(null); //inject('pagefind', ref(null));
 
-const localSearchQuery = ref("");
 const showFilters = ref(true);
 const sortAscending = ref(true);
 
@@ -111,22 +112,11 @@ onMounted(async () => {
         /* @vite-ignore */ window.location.origin + "/pagefind/pagefind.js"
     );
 
-    const params = new URLSearchParams(document.location.search);
-    let startingSearch = params.get("search");
-
-    if (startingSearch !== null) {
-        startingSearch = startingSearch.replaceAll("+", " ");
-        startingSearch = startingSearch.replaceAll("%20", " ");
-        localSearchQuery.value = startingSearch;
-    }
-
     await handleSearch();
 });
 
 async function handleSearch() {
     console.log("handling")
-
-    searchQuery.value = localSearchQuery.value;
 
     let searchOptions = getSearchOptions();
 
@@ -156,8 +146,8 @@ function getSearchOptions(): PagefindSearchOptions {
         searchOptions.filters.category.any = props.requiredCategories;
     }
 
-    if (selectedTags.value.length > 0) {
-        searchOptions.filters.tags?.push(...selectedTags.value);
+    if (selectedTags.length > 0) {
+        searchOptions.filters.tags?.push(...selectedTags);
     }
 
     return searchOptions;
@@ -172,12 +162,6 @@ async function loadAllResults(searchOptions: PagefindSearchOptions) {
 
 async function updateSearch(searchOptions: PagefindSearchOptions) {
     if (pagefind.value === null) return;
-
-    let searchQuery: string | null = null;
-
-    if (localSearchQuery.value !== "") {
-        searchQuery = localSearchQuery.value;
-    }
 
     //@ts-ignore
     const results = await pagefind.value.search(searchQuery, searchOptions);
@@ -194,6 +178,7 @@ async function processResults(pagefindResults: {
     );
 
     searchResults.value = data;
+    console.log(searchResults);
 
     let tags = pagefindResults.filters?.tags ?? {};
 

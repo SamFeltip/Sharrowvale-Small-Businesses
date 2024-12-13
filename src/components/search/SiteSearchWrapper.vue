@@ -1,10 +1,11 @@
 <!-- SearchWrapper.vue -->
 <template>
     <div id="search-wrapper" class="w-full gap-6" :class="{ gridLayout: isGridLayout }">
-        <SearchBox :search-results="searchResults" :isGridLayout :requiredTag="requiredTag"
-            :requiredCategories="requiredCategories" />
-        <SearchCarousel />
-        <SearchResults :search-results="searchResults" :tag="requiredTag" :isGridLayout="isGridLayout"
+        <SearchBox v-model:searchResults="searchResults" v-model:searchQuery="searchQuery"
+            v-model:available-tags="availableTags" v-model:selectedTags="selectedTags" :isGridLayout
+            :requiredTag="requiredTag" :requiredCategories="requiredCategories" />
+        <SearchCarousel :search-results="searchResults" />
+        <SearchResults v-model:searchResults="searchResults" :tag="requiredTag" :isGridLayout="isGridLayout"
             :hiddenTags="hiddenTags" />
     </div>
 </template>
@@ -33,11 +34,6 @@ let searchResults = reactive<PagefindSearchResult[]>([]);
 let searchQuery = ref("");
 let selectedTags = reactive([]);
 let availableTags = reactive([]);
-
-provide("searchResults", searchResults);
-provide("searchQuery", searchQuery);
-provide("selectedTags", selectedTags);
-provide("availableTags", availableTags);
 
 let carouselItems = reactive<PlaceCard[]>([]);
 

@@ -1,8 +1,11 @@
 <!-- SearchWrapper.vue -->
 <template>
     <div id="search-wrapper" class="w-full gap-6" :class="{ gridLayout: isGridLayout }">
-        <SearchBox :isGridLayout :requiredTag="requiredTag" :requiredCategories="requiredCategories" />
-        <SearchResults :tag="requiredTag" :isGridLayout="isGridLayout" :hiddenTags="hiddenTags" />
+        <SearchBox v-model:searchResults="searchResults" v-model:searchQuery="searchQuery"
+            v-model:selectedTags="selectedTags" :availableTags :isGridLayout :requiredTag="requiredTag"
+            :requiredCategories="requiredCategories" />
+        <SearchResults v-model:searchResults="searchResults" :tag="requiredTag" :isGridLayout="isGridLayout"
+            :hiddenTags="hiddenTags" />
     </div>
 </template>
 
@@ -24,14 +27,21 @@ const props = defineProps<{
 const { requiredTag, isGridLayout, hiddenTags } = props;
 
 let searchResults = ref<PagefindSearchResult[]>([]);
+
 let searchQuery = ref("");
+
+const params = new URLSearchParams(document.location.search);
+let startingSearch = params.get("search");
+
+if (startingSearch !== null) {
+    startingSearch = startingSearch.replaceAll("+", " ");
+    startingSearch = startingSearch.replaceAll("%20", " ");
+
+    searchQuery.value = startingSearch;
+}
+
 let selectedTags = ref([]);
 let availableTags = ref([]);
-
-provide("searchResults", searchResults);
-provide("searchQuery", searchQuery);
-provide("selectedTags", selectedTags);
-provide("availableTags", availableTags);
 </script>
 
 <style>
