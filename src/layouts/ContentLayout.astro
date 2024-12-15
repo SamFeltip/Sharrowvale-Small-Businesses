@@ -3,11 +3,12 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/content/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import ScreenWidth from "@/components/elements/ScreenWidth.astro";
+
+import defaultBannerImage from "@/assets/images/index/home/guest-road.jpg";
 
 type Props = {
     pagefindIgnore?: boolean;
-    image: ImageMetadata;
+    image?: ImageMetadata;
     description?: string;
     title: string;
     classList?: string;
@@ -17,7 +18,7 @@ type Props = {
 const {
     pagefindIgnore,
     description,
-    image,
+    image = defaultBannerImage,
     HeaderContent,
     title,
     classList,
