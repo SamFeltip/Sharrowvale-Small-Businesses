@@ -73,9 +73,9 @@ import { ref, onMounted, watch } from "vue";
 import Button from "../elements/Button.vue";
 import type { PagefindSearchResult } from './src/PagefindSearchResult';
 import FaSearch from '../icons/faSearch.vue';
-import { getSearchOptions, search, updateSearch } from '@/scripts/search/handleSearch';
+import { search } from '@/scripts/search/handleSearch';
 import type { PagefindResource } from '@/scripts/search/PagefindResource';
-import type { SearchOptionsConfig } from '@/scripts/search/searchOptionsConfig';
+import type { SearchOptionsConfig } from '@/scripts/search/PagefindSearchOptions';
 
 const props = defineProps<{
     requiredTag?: string,
@@ -136,13 +136,11 @@ async function toggleSort() {
 
     const searchOptionsConfig = createSearchOptionsFromRefs();
 
-    let searchOptions = getSearchOptions(searchOptionsConfig);
-
     if (pagefind.value == null) {
         return;
     }
 
-    const searchResult = await updateSearch(searchQuery.value, searchOptions, pagefind.value);
+    const searchResult = await search(searchQuery.value, searchOptionsConfig, pagefind.value);
 
     const [d, t] = searchResult;
 
@@ -154,13 +152,11 @@ watch(selectedTags, async () => {
 
     const searchOptionsConfig = createSearchOptionsFromRefs();
 
-    let searchOptions = getSearchOptions(searchOptionsConfig);
-
     if (pagefind.value == null) {
         return;
     }
 
-    const searchResult = await updateSearch(searchQuery.value, searchOptions, pagefind.value);
+    const searchResult = await search(searchQuery.value, searchOptionsConfig, pagefind.value);
 
     const [d, t] = searchResult;
 

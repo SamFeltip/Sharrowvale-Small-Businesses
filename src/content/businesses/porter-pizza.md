@@ -35,6 +35,7 @@ tags:
     - lunch
     - outdoor-seating
     - restaurant
+    - food-and-drink
 
 
 ---

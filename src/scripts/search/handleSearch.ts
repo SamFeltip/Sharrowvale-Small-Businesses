@@ -2,8 +2,10 @@ import type {
     PagefindSearchOutput,
     PagefindSearchResult,
 } from "@/components/search/src/PagefindSearchResult";
-import type { PagefindSearchOptions } from "./PagefindSearchOptions";
-import type { SearchOptionsConfig } from "./searchOptionsConfig";
+import type {
+    PagefindSearchOptions,
+    SearchOptionsConfig,
+} from "./PagefindSearchOptions";
 import { getAvailableTags } from "./getAvailableTags";
 import type { PagefindResource } from "./PagefindResource";
 
@@ -12,18 +14,39 @@ export async function search(
     searchOptionsConfig: SearchOptionsConfig,
     pagefind: PagefindResource
 ): Promise<[PagefindSearchResult[], string[]]> {
-    console.log("handling");
+    const pagefindResults = await doSearch(
+        searchQuery,
+        searchOptionsConfig,
+        pagefind
+    );
 
-    let searchOptions = getSearchOptions(searchOptionsConfig);
+    const results = await processResults(
+        pagefindResults,
+        searchOptionsConfig.selectedTags
+    );
 
-    if (searchQuery == "") {
-        return await loadAllResults(searchOptions, pagefind);
-    } else {
-        return await updateSearch(searchQuery, searchOptions, pagefind);
-    }
+    const tags = getFilterTags(pagefindResults, searchOptionsConfig);
+
+    return [results, tags];
 }
 
-export function getSearchOptions(
+async function doSearch(
+    searchQuery: string,
+    searchOptionsConfig: SearchOptionsConfig,
+    pagefind: PagefindResource
+): Promise<PagefindSearchOutput> {
+    let searchOptions = getPagefindSearchOptions(searchOptionsConfig);
+
+    let search: string | null = searchQuery;
+
+    if (searchQuery == "") {
+        search = null;
+    }
+
+    return await pagefind.search(search, searchOptions);
+}
+
+export function getPagefindSearchOptions(
     config: SearchOptionsConfig
 ): PagefindSearchOptions {
     let searchOptions: PagefindSearchOptions = {
@@ -53,60 +76,29 @@ export function getSearchOptions(
     return searchOptions;
 }
 
-async function loadAllResults(
-    searchOptions: PagefindSearchOptions,
-    pagefind: PagefindResource
-): Promise<[PagefindSearchResult[], string[]]> {
-    const allResults = await pagefind.search(null, searchOptions);
-
-    let selectedTags: string[] = getSelectedTags(searchOptions);
-
-    return processResults(allResults, selectedTags);
-}
-
-export async function updateSearch(
-    searchQuery: string,
-    searchOptions: PagefindSearchOptions,
-    pagefind: PagefindResource
-): Promise<[PagefindSearchResult[], string[]]> {
-    const results = await pagefind.search(searchQuery, searchOptions);
-
-    let selectedTags: string[] = getSelectedTags(searchOptions);
-
-    return processResults(results, selectedTags);
-}
-
-function getSelectedTags(searchOptions: PagefindSearchOptions) {
-    let selectedTags: string[] = [];
-
-    if (searchOptions.filters.tags !== undefined) {
-        selectedTags = searchOptions.filters.tags.map(
-            (tag: Record<string, number>) => tag
-        );
-    }
-
-    return selectedTags;
-}
-
 async function processResults(
     pagefindResults: PagefindSearchOutput,
     selectedTags: string[]
-): Promise<[PagefindSearchResult[], string[]]> {
+): Promise<PagefindSearchResult[]> {
     const data = await Promise.all(
         pagefindResults.results.map((result) => result.data())
     );
 
-    console.log(pagefindResults.filters);
+    return data;
+}
 
-    const tags = getAvailableTags(pagefindResults);
+function getFilterTags(
+    pagefindResults: PagefindSearchOutput,
+    searchOptionsConfig: SearchOptionsConfig
+) {
+    const availableTags = getAvailableTags(pagefindResults);
 
-    console.log(tags);
-
-    const recommendedTags = tags
-        .filter((tag) => selectedTags.includes(tag) == false)
+    const recommendedTags = availableTags
+        .filter(
+            (tag) => searchOptionsConfig.selectedTags.includes(tag) == false
+        )
         .slice(0, 10);
 
-    const availableTags = [...selectedTags, ...recommendedTags];
-
-    return [data, availableTags];
+    const tags = [...searchOptionsConfig.selectedTags, ...recommendedTags];
+    return tags;
 }
