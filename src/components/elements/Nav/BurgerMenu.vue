@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="mt-8 flex justify-end">
-                            <form action="/categories/directory" method="GET"
+                            <form action="/search" method="GET"
                                 class="flex flex-row items-center gap-2 mb-2 w-full border-b border-white max-w-md">
 
 

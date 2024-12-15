@@ -19,9 +19,13 @@ export async function getPromotedTagsFromBusiness(
         (tag) => promotedTagSlugs.includes(tag.slug) && tag.data.isVisible
     );
 
-    return promotedTags
+    const output = promotedTags
         .sort((a, b) => slugCounts[b.slug] - slugCounts[a.slug])
-        .filter((tag) => slugCounts[tag.slug] < businesses.length - 1);
+        .filter((tag) => slugCounts[tag.slug] < businesses.length);
+
+    console.log(businesses.length);
+
+    return output;
 }
 
 export async function getPromotedTagsFromTagNames(

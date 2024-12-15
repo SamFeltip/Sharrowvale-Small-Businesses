@@ -25,8 +25,6 @@ watchEffect(async () => {
         collectionEntry: tag,
     }));
 
-    console.log(tags);
-
 })
 
 </script>

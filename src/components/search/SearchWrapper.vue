@@ -30,16 +30,6 @@ let searchResults = ref<PagefindSearchResult[]>([]);
 
 let searchQuery = ref("");
 
-const params = new URLSearchParams(document.location.search);
-let startingSearch = params.get("search");
-
-if (startingSearch !== null) {
-    startingSearch = startingSearch.replaceAll("+", " ");
-    startingSearch = startingSearch.replaceAll("%20", " ");
-
-    searchQuery.value = startingSearch;
-}
-
 let selectedTags = ref([]);
 let availableTags = ref([]);
 </script>

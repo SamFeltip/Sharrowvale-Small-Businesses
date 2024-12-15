@@ -40,9 +40,9 @@
             </div>
         </div>
 
-        <div v-if="showFilters && availableTags.length > 0" class="p-4">
+        <div v-if="showFilters && availableTags.length > 0" class="p-4 flex flex-col gap-2">
             <H3 v-if="availableTags.length > 0 && props.isGridLayout == false" color="coral">
-                Filter by Category:
+                Filter by Category
             </H3>
             <div class="flex flex-wrap justify-center">
                 <label v-for="tag in availableTags" :key="tag"
@@ -87,6 +87,18 @@ const props = defineProps<{
 
 let searchResults = defineModel<PagefindSearchResult[]>("searchResults", { required: true });
 let searchQuery = defineModel<string>("searchQuery", { required: true });
+
+
+const params = new URLSearchParams(document.location.search);
+let startingSearch = params.get("search");
+
+if (startingSearch !== null) {
+    startingSearch = startingSearch.replaceAll("+", " ");
+    startingSearch = startingSearch.replaceAll("%20", " ");
+
+    searchQuery.value = startingSearch;
+}
+
 let selectedTags = defineModel<string[]>("selectedTags", { required: true });
 let availableTags = defineModel<string[]>("availableTags", { required: true });
 
