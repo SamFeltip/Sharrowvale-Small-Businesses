@@ -14,7 +14,7 @@
 import SearchBox from "./SearchBox.vue";
 import SearchResults from "./SearchResults.vue";
 
-import { provide, reactive, ref, watch } from "vue";
+import { ref } from "vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
 
 const props = defineProps<{

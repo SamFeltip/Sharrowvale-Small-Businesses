@@ -53,7 +53,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import NavSearch from "@/components/search/NavSearch.vue";
+import NavSearch from "@/components/search/NavSearchWrapper.vue";
 
 const props = defineProps<{
     logo: string

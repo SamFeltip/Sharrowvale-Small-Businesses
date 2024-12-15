@@ -71,10 +71,11 @@ import faSearch from "@/components/icons/faSearch.vue";
 
 import { ref, onMounted, watch } from "vue";
 import Button from "../elements/Button.vue";
-import type { PagefindSearchOutput, PagefindSearchResult } from './src/PagefindSearchResult';
-import type { PagefindSearchOptions } from '@/scripts/search/PagefindSearchOptions';
-import { getAvailableTags } from '@/scripts/search/getAvailableTags';
+import type { PagefindSearchResult } from './src/PagefindSearchResult';
 import FaSearch from '../icons/faSearch.vue';
+import { getSearchOptions, search, updateSearch } from '@/scripts/search/handleSearch';
+import type { PagefindResource } from '@/scripts/search/PagefindResource';
+import type { SearchOptionsConfig } from '@/scripts/search/searchOptionsConfig';
 
 const props = defineProps<{
     requiredTag?: string,
@@ -85,8 +86,8 @@ const props = defineProps<{
 let searchResults = defineModel<PagefindSearchResult[]>("searchResults", { required: true });
 let searchQuery = defineModel<string>("searchQuery", { required: true });
 
-
 const params = new URLSearchParams(document.location.search);
+
 let startingSearch = params.get("search");
 
 if (startingSearch !== null) {
@@ -100,7 +101,7 @@ let selectedTags = defineModel<string[]>("selectedTags", { required: true });
 let availableTags = defineModel<string[]>("availableTags", { required: true });
 
 
-let pagefind = ref(null); //inject('pagefind', ref(null));
+let pagefind = ref<PagefindResource | null>(null); //inject('pagefind', ref(null));
 
 const showFilters = ref(true);
 const sortAscending = ref(true);
@@ -115,102 +116,73 @@ onMounted(async () => {
 });
 
 async function handleSearch() {
-    console.log("handling")
 
-    let searchOptions = getSearchOptions();
+    const searchOptionsConfig = createSearchOptionsFromRefs();
 
-    if (searchQuery.value == "") {
-        await loadAllResults(searchOptions);
-    } else {
-        await updateSearch(searchOptions);
-    }
-}
-
-function getSearchOptions(): PagefindSearchOptions {
-    let searchOptions: PagefindSearchOptions = {
-        filters: {
-            tags: [],
-            category: { any: [] },
-        },
-        sort: { name: sortAscending.value ? "asc" : "desc" },
-    };
-
-    if (props.requiredTag !== undefined) {
-        searchOptions.filters.tags = [props.requiredTag];
+    if (pagefind.value == null) {
+        return;
     }
 
-    if (props.requiredCategories !== undefined && searchOptions.filters.category !== undefined) {
-        searchOptions.filters.category.any = props.requiredCategories;
-    }
+    const searchResult = await search(searchQuery.value, searchOptionsConfig, pagefind.value);
 
-    console.log("get search options");
-    console.log(selectedTags.value);
+    const [d, t] = searchResult;
 
-    if (selectedTags.value.length > 0) {
-        console.log("adding filters");
-        searchOptions.filters.tags?.push(...selectedTags.value);
-    }
-
-    return searchOptions;
+    searchResults.value = d;
+    availableTags.value = t;
 }
 
-async function loadAllResults(searchOptions: PagefindSearchOptions) {
-    console.log(searchOptions);
-    console.log(`loading all results, ${searchOptions?.filters?.tags ?? "none"}`);
-
-    //@ts-ignore
-    const allResults = await pagefind.value.search(null, searchOptions);
-
-    processResults(allResults);
-}
-
-async function updateSearch(searchOptions: PagefindSearchOptions) {
-    if (pagefind.value === null) return;
-
-    console.log({ searchQuery, searchOptions })
-
-    //@ts-ignore
-    const results = await pagefind.value.search(searchQuery.value, searchOptions);
-
-    processResults(results);
-}
-
-async function processResults(pagefindResults: PagefindSearchOutput) {
-    const data = await Promise.all(
-        pagefindResults.results.map((result) => result.data())
-    );
-
-    searchResults.value = data;
-
-    console.log(pagefindResults.filters);
-
-    const tags = getAvailableTags(pagefindResults);
-
-    console.log(tags);
-
-    const recommendedTags = tags.filter(tag => selectedTags.value.includes(tag) == false).slice(0, 10);
-
-    availableTags.value = [...selectedTags.value, ...recommendedTags];
-}
-
-function toggleSort() {
+async function toggleSort() {
     sortAscending.value = !sortAscending.value;
 
-    let searchOptions = getSearchOptions();
+    const searchOptionsConfig = createSearchOptionsFromRefs();
 
-    updateSearch(searchOptions);
+    let searchOptions = getSearchOptions(searchOptionsConfig);
+
+    if (pagefind.value == null) {
+        return;
+    }
+
+    const searchResult = await updateSearch(searchQuery.value, searchOptions, pagefind.value);
+
+    const [d, t] = searchResult;
+
+    searchResults.value = d;
+    availableTags.value = t;
+}
+
+watch(selectedTags, async () => {
+
+    const searchOptionsConfig = createSearchOptionsFromRefs();
+
+    let searchOptions = getSearchOptions(searchOptionsConfig);
+
+    if (pagefind.value == null) {
+        return;
+    }
+
+    const searchResult = await updateSearch(searchQuery.value, searchOptions, pagefind.value);
+
+    const [d, t] = searchResult;
+
+    searchResults.value = d;
+    availableTags.value = t;
+});
+
+/**
+ * uses props and refs to create a config describing the search output
+ * */
+function createSearchOptionsFromRefs(): SearchOptionsConfig {
+    return {
+        sortAscending: sortAscending.value,
+        selectedTags: selectedTags.value,
+        requiredTag: props.requiredTag,
+        requiredCategories: props.requiredCategories
+    }
 }
 
 function toggleFilters() {
     showFilters.value = !showFilters.value;
 }
-
-watch(selectedTags, async () => {
-
-    let searchOptions = getSearchOptions();
-
-    await updateSearch(searchOptions);
-});
 </script>
 
 <style>
