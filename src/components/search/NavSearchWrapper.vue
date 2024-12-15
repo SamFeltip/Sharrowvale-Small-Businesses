@@ -1,6 +1,5 @@
 <template>
-    <form action="/search" method="GET"
-        class="flex flex-row items-center gap-2 mb-2 w-full border-b border-white max-w-md">
+    <div class="flex flex-row items-center gap-2 mb-2 w-full border-b border-white max-w-md">
 
         <div class="flex flex-row items-center gap-2 w-full">
             <input v-model="searchQuery" @input="handleSearch" name="search" type="text"
@@ -12,7 +11,7 @@
                 <faSearch />
             </label>
         </button>
-    </form>
+    </div>
     <div class="flex flex-col items-center px-4 gap-4">
 
         <Section :float-in="true" v-if="searchResults.length > 0">
@@ -29,6 +28,7 @@
             <H3 color="white">Tags</H3>
             <SearchResultTags v-model:tagNames="availableTags" />
         </Section>
+        <a href="/search" class="text-center underline text-white">See more</a>
     </div>
 
 </template>
