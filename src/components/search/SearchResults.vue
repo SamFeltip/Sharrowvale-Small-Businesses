@@ -54,7 +54,14 @@ function getDisplayTags(result: PagefindSearchResult): { slug: string; name: str
 
 #search-results.gridLayout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 640px) {
+    #search-results.gridLayout {
+        grid-template-columns: 1fr 1fr;
+    }
+
 }
 
 @media screen and (min-width: 768px) {
