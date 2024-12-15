@@ -4,6 +4,7 @@
         <SearchBox v-model:searchResults="searchResults" v-model:searchQuery="searchQuery"
             v-model:available-tags="availableTags" v-model:selectedTags="selectedTags" :isGridLayout
             :requiredTag="requiredTag" :requiredCategories="requiredCategories" />
+
         <Section :float-in="true" v-if="searchResults.length > 0">
             <H3 color="coral">Businesses</h3>
             <SearchCarousel v-model:searchResults="searchResults" />
@@ -15,7 +16,10 @@
                 :hiddenTags="hiddenTags" />
         </Section>
 
-
+        <Section :float-in="true" v-if="searchResults.length > 0">
+            <H3 color="coral">Tags</H3>
+            <SearchResultTags v-model:tagNames="availableTags" />
+        </Section>
     </div>
 </template>
 
@@ -26,6 +30,7 @@ import Section from "@/components/elements/Section.vue";
 import SearchCarousel from "./SearchCarousel.vue";
 import SearchBox from "./SearchBox.vue";
 import SearchResults from "./SearchResults.vue";
+import SearchResultTags from "./SearchResultTags.vue";
 
 import { ref, watchEffect } from "vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
@@ -42,15 +47,14 @@ const { requiredTag, isGridLayout, hiddenTags } = props;
 let searchResults = ref<PagefindSearchResult[]>([]);
 let searchQuery = ref("");
 let selectedTags = ref([]);
-let availableTags = ref([]);
+let availableTags = ref<string[]>([]);
 
 let articles: PagefindSearchResult[];
 
 watchEffect(() => {
     articles = searchResults.value.filter(result => !result.filters.category.includes("Directory"));
-    console.log({ searchResults: searchResults.value });
-    console.log("search results changed");
 })
+
 
 </script>
 

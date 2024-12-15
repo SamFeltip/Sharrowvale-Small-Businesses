@@ -1,8 +1,8 @@
 ---
 import H2 from "@/components/elements/headers/H2.astro";
-import Button from "../Button.vue";
 import Section from "@/components/elements/Section.astro";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
+import TagList from "@/components/promos/TagList.vue";
 
 type Props = {
     promotedItems: PlaceCardRef[];
@@ -14,18 +14,5 @@ const { promotedItems, title = "Discover more" } = Astro.props;
 
 <Section floatIn={true}>
     <H2 color="coral" position="center">{title}</H2>
-    <ul class="flex flex-row justify-center flex-wrap gap-3">
-        {
-            promotedItems.map((promoItem) => (
-                <li class="hover:scale-110 transition-all">
-                    <Button
-                        size="lg"
-                        href={`/${promoItem.type}/${promoItem.collectionEntry.slug}`}
-                    >
-                        {promoItem.collectionEntry.data.name}
-                    </Button>
-                </li>
-            ))
-        }
-    </ul>
+    <TagList tags={promotedItems} />
 </Section>

@@ -73,9 +73,11 @@ import H3 from "@/components/elements/headers/H3.vue";
 
 import { faFilter } from "@fortawesome/free-solid-svg-icons/faFilter"
 
-import { ref, inject, onMounted, watch, reactive } from "vue";
+import { ref, onMounted, watch } from "vue";
 import Button from "../elements/Button.vue";
-import type { PagefindSearchResult } from './src/PagefindSearchResult';
+import type { PagefindSearchOutput, PagefindSearchResult } from './src/PagefindSearchResult';
+import type { PagefindSearchOptions } from '@/scripts/search/PagefindSearchOptions';
+import { getAvailableTags } from '@/scripts/search/getAvailableTags';
 
 const props = defineProps<{
     requiredTag?: string,
@@ -93,18 +95,6 @@ let pagefind = ref(null); //inject('pagefind', ref(null));
 
 const showFilters = ref(true);
 const sortAscending = ref(true);
-
-type PagefindSearchOptions = {
-    filters: {
-        category?: {
-            any: Record<string, any>
-        };
-        tags?: Record<string, any>;
-    };
-    sort?: {
-        name: "asc" | "desc";
-    };
-};
 
 onMounted(async () => {
 
@@ -144,14 +134,21 @@ function getSearchOptions(): PagefindSearchOptions {
         searchOptions.filters.category.any = props.requiredCategories;
     }
 
-    if (selectedTags.length > 0) {
-        searchOptions.filters.tags?.push(...selectedTags);
+    console.log("get search options");
+    console.log(selectedTags.value);
+
+    if (selectedTags.value.length > 0) {
+        console.log("adding filters");
+        searchOptions.filters.tags?.push(...selectedTags.value);
     }
 
     return searchOptions;
 }
 
 async function loadAllResults(searchOptions: PagefindSearchOptions) {
+    console.log(searchOptions);
+    console.log(`loading all results, ${searchOptions?.filters?.tags ?? "none"}`);
+
     //@ts-ignore
     const allResults = await pagefind.value.search(null, searchOptions);
 
@@ -169,26 +166,22 @@ async function updateSearch(searchOptions: PagefindSearchOptions) {
     processResults(results);
 }
 
-async function processResults(pagefindResults: {
-    results: { data: () => PagefindSearchResult }[];
-    filters: PagefindSearchOptions["filters"];
-}) {
+async function processResults(pagefindResults: PagefindSearchOutput) {
     const data = await Promise.all(
         pagefindResults.results.map((result) => result.data())
     );
 
     searchResults.value = data;
 
-    let tags = pagefindResults.filters?.tags ?? {};
+    console.log(pagefindResults.filters);
 
-    let tagEntries = Object.entries(tags) as [string, number][];
+    const tags = getAvailableTags(pagefindResults);
 
-    const validTags = tagEntries.filter(([key, value]) => selectedTags.value.includes(key) || value > 0 && value < data.length);
+    console.log(tags);
 
-    const sortedTags = validTags.sort((a, b) => b[1] - a[1]);
+    const recommendedTags = tags.filter(tag => selectedTags.value.includes(tag) == false).slice(0, 10);
 
-    availableTags.value = sortedTags.map(([key, value]) => key).slice(0, 10);
-
+    availableTags.value = [...selectedTags.value, ...recommendedTags];
 }
 
 function toggleSort() {

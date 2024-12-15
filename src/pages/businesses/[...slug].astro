@@ -23,6 +23,10 @@ import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
 import BlogContentCollectionItem from "@/components/elements/contentCollectionWrapper/BlogContentCollectionItem.astro";
 import Section from "@/components/elements/Section.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.astro";
+import type {
+    GenericCollectionEntry,
+    PlaceCardRef,
+} from "@/components/placeCards/PlaceCardRef";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
@@ -89,9 +93,9 @@ const heroImageResult = await getImage({
 
 const heroImageSrc = heroImageResult.src;
 
-let tagItems = await getEntries(tags);
+const tagEntries: CollectionEntry<"tags">[] = await getEntries(tags);
 
-tagItems = tagItems.filter((tag) => tag.data.isVisible);
+const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
 ---
 
 <ContentLayout
@@ -183,10 +187,10 @@ tagItems = tagItems.filter((tag) => tag.data.isVisible);
 
             <section>
                 {
-                    tagItems && (
+                    promoTags && (
                         <div class="flex flex-col items-center">
                             <div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
-                                {tagItems.map((tag) => (
+                                {promoTags.map((tag) => (
                                     <Button
                                         href={
                                             tag.data.isVisible

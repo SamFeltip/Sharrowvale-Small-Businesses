@@ -9,8 +9,9 @@ import Section from "@/components/elements/Section.astro";
 import SearchWrapper from "@/components/search/SearchWrapper.vue";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
-import { getPromotedTags } from "@/scripts/tags/promotedTags";
+import { getPromotedTagsFromBusiness } from "@/scripts/tags/promotedTags";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
+import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 
 export async function getStaticPaths() {
     const tag: CollectionEntry<"tags">[] = await getCollection("tags");
@@ -46,9 +47,10 @@ const businesses = await getCollection("businesses", ({ data }) =>
     data.tags.map((tag) => tag.slug).includes(entry.slug)
 );
 
-const promotedTags = await getPromotedTags(businesses);
+const promotedTags: CollectionEntry<"tags">[] =
+    await getPromotedTagsFromBusiness(businesses);
 
-const promotedItems = promotedTags.map((tag) => ({
+const promotedItems: PlaceCardRef[] = promotedTags.map((tag) => ({
     type: "tags",
     collectionEntry: tag,
 }));
