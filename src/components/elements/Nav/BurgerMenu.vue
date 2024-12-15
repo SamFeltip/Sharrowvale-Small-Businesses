@@ -41,8 +41,8 @@
                             </a>
                         </div>
 
-                        <div class="mt-8 flex justify-end">
-                            <NavSearch />
+                        <div class="mt-8 flex flex-col justify-end">
+                            <NavSearchWrapper />
                         </div>
                     </div>
                 </nav>
@@ -53,7 +53,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import NavSearch from "@/components/search/NavSearchWrapper.vue";
+import NavSearchWrapper from "@/components/search/NavSearchWrapper.vue";
 
 const props = defineProps<{
     logo: string
