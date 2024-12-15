@@ -38,7 +38,7 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft"
 
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { ref, toRefs, type Ref } from "vue";
+import { ref, type Ref } from "vue";
 import type { PlaceCard } from "../../placeCards/PlaceCard.d.ts";
 import Button from "@/components/elements/Button.vue";
 import type { EmblaCarouselType } from 'embla-carousel';

@@ -4,7 +4,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import PlaceCardWide from "../placeCards/PlaceCardWide.vue";
 import Button from "../elements/Button.vue";
 import { getPlaceCardsFromArticles } from "@scripts/placeCard/handler";
-import Section from "../elements/section.astro";
+import Section from "@/components/elements/Section.astro";
 
 const news = await getCollection("articles");
 

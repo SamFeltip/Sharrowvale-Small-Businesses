@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <div v-if="showFilters" class="p-4 mt-4">
+        <div v-if="showFilters && availableTags.length > 0" class="p-4">
             <H3 v-if="availableTags.length > 0 && props.isGridLayout == false" color="coral">
                 Filter by Category:
             </H3>
@@ -120,8 +120,6 @@ async function handleSearch() {
 
     let searchOptions = getSearchOptions();
 
-    console.log({ searchOptions });
-
     if (searchQuery.value == "") {
         await loadAllResults(searchOptions);
     } else {
@@ -180,7 +178,6 @@ async function processResults(pagefindResults: {
     );
 
     searchResults.value = data;
-    console.log({ searchResults: searchResults.value[0].url });
 
     let tags = pagefindResults.filters?.tags ?? {};
 
@@ -191,8 +188,6 @@ async function processResults(pagefindResults: {
     const sortedTags = validTags.sort((a, b) => b[1] - a[1]);
 
     availableTags.value = sortedTags.map(([key, value]) => key).slice(0, 10);
-
-
 
 }
 

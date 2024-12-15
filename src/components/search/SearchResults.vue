@@ -21,7 +21,6 @@
 </template>
 
 <script setup lang="ts">
-import { inject, reactive, ref } from "vue";
 import PlaceCardWide from "../placeCards/PlaceCardWide.vue";
 import PlaceCardGrid from "../placeCards/PlaceCardGrid.vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";

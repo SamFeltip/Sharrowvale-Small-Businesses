@@ -2,7 +2,7 @@
 import HeaderContent from "@/components/HeaderContent.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
-import Section from "@/components/elements/section.astro";
+import Section from "@/components/elements/Section.astro";
 import SiteSearchWrapper from "@/components/search/SiteSearchWrapper.vue";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 
@@ -24,6 +24,6 @@ const name = "Search";
                 isGridLayout={true}
             />
         </Section>
-        <a href="/search">See more</a>
+        <a href="/search" class="text-center underline">See more</a>
     </ScreenWidth>
 </ContentLayout>

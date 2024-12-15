@@ -6,8 +6,6 @@ import react from "@astrojs/react";
 import pagefind from "astro-pagefind";
 import embeds from "astro-embed/integration";
 
-import { imageService } from "@unpic/astro/service";
-
 import vue from "@astrojs/vue";
 
 // https://astro.build/config

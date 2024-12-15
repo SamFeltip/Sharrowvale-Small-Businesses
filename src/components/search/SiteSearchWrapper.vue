@@ -4,22 +4,25 @@
         <SearchBox v-model:searchResults="searchResults" v-model:searchQuery="searchQuery"
             v-model:available-tags="availableTags" v-model:selectedTags="selectedTags" :isGridLayout
             :requiredTag="requiredTag" :requiredCategories="requiredCategories" />
-        <section v-if="searchResults.length > 0">
+        <Section :float-in="true" v-if="searchResults.length > 0">
             <H3 color="coral">Businesses</h3>
             <SearchCarousel v-model:searchResults="searchResults" />
-        </section>
+        </Section>
 
-        <section v-if="articles.length > 0">
+        <Section :float-in="true" v-if="articles.length > 0">
             <H3 color="coral">Articles</h3>
             <SearchResults v-model:searchResults="articles" :tag="requiredTag" :isGridLayout="isGridLayout"
                 :hiddenTags="hiddenTags" />
-        </section>
+        </Section>
+
+
     </div>
 </template>
 
 <script setup lang="ts">
 import H3 from "@/components/elements/headers/H3.vue"
 
+import Section from "@/components/elements/Section.vue";
 import SearchCarousel from "./SearchCarousel.vue";
 import SearchBox from "./SearchBox.vue";
 import SearchResults from "./SearchResults.vue";
