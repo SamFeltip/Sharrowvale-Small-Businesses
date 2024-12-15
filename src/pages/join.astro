@@ -4,9 +4,17 @@ import { YouTube } from "@astro-community/astro-embed-youtube";
 import ScreenWidth from "@/components/elements/ScreenWidth.astro";
 import HeaderContent from "@/components/HeaderContent.astro";
 import ContentLayout from "@/layouts/ContentLayout.astro";
+import H1 from "@/components/elements/headers/H1.astro";
+import H2 from "@/components/elements/headers/H2.astro";
+import H3 from "@/components/elements/headers/H3.vue";
+import H4 from "@/components/elements/headers/H4.vue";
 ---
 
-<ContentLayout title={"Join the directory"} HeaderContent={HeaderContent}>
+<ContentLayout
+    description={"Interested in finding out more about the Sharrow Vale directory?"}
+    title={"Join the directory"}
+    HeaderContent={HeaderContent}
+>
     <ScreenWidth classList="gap-8">
         <!-- <style>
         h2 {
@@ -22,29 +30,6 @@ import ContentLayout from "@/layouts/ContentLayout.astro";
         }
     </style> -->
         <article data-pagefind-ignore="all">
-            <section class="">
-                <div
-                    class="grid md:grid-cols-2 md:items-center pt-[3vh] px-9 pb-[10vh]"
-                >
-                    <img
-                        class="z-10 translate-y-[50px] md:translate-y-0 rounded-2xl md:translate-x-[50px]"
-                        height="319px"
-                        src="/images/home/dyson-place.jpg"
-                        alt="dyson place"
-                    />
-                    <!-- padding 64 px as tailwind unit -->
-                    <div
-                        class="z-20 md:translate-x-[-50px] flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10 p-64"
-                    >
-                        <h1 class="text-coral">Joining the site</h1>
-                        <p>
-                            Interested in finding out more about the Sharrow
-                            Vale directory?
-                        </p>
-                        <p>Scroll down to find out more!</p>
-                    </div>
-                </div>
-            </section>
             <div class="grid gap-[40px] px-9">
                 <section>
                     <div class="md:hidden block">
@@ -58,7 +43,7 @@ import ContentLayout from "@/layouts/ContentLayout.astro";
                     <div
                         class="flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-b-2xl md:rounded-2xl py-12 px-10"
                     >
-                        <h2>Hey! 👋</h2>
+                        <H2>Hey! 👋</H2>
                         <p>
                             An introduction to the site from its founders Dan &
                             Sam
@@ -76,7 +61,7 @@ import ContentLayout from "@/layouts/ContentLayout.astro";
                 <section
                     class="flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10"
                 >
-                    <h2>Our Vision</h2>
+                    <H2>Our Vision</H2>
                     <p>
                         Our vision is to help grow and support small businesses
                         in Sharrow Vale.
@@ -113,9 +98,11 @@ import ContentLayout from "@/layouts/ContentLayout.astro";
                 <section
                     class="flex flex-col items-start w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10"
                 >
-                    <h2>Why be on the site?</h2>
-                    <h3 class="text-center">Benefits for you</h3>
-                    <ol class="flex flex-col md:flex-row gap-3 list-decimal">
+                    <H2>Why be on the site?</H2>
+                    <H3 position="center">Benefits for you</H3>
+                    <ol
+                        class="grid grid-cols-2 lg:grid-cols-4 gap-3 list-decimal"
+                    >
                         <li
                             class="border border-dashed border-black text-black text-center bg-yellow-300 bg-opacity-25 rounded-2xl justify-center items-start max-w-xs p-4 font-serif font-normal flex"
                         >
@@ -143,7 +130,7 @@ import ContentLayout from "@/layouts/ContentLayout.astro";
                             Friendly and accessible support from S11 locals
                         </li>
                     </ol>
-                    <h4>Further benefits:</h4>
+                    <H4>Further benefits:</H4>
                     <ul class="list-disc">
                         <li>A site for locals run by locals</li>
                         <li>A cheap alternative to a custom website</li>
@@ -159,7 +146,7 @@ import ContentLayout from "@/layouts/ContentLayout.astro";
                         <li>Easy, cancel anytime payments</li>
                     </ul>
 
-                    <h3>Benefits for the community</h3>
+                    <H3>Benefits for the community</H3>
                     <ul class="list-disc">
                         <li>Build the community of small businesses</li>
                         <li>
@@ -184,7 +171,7 @@ import ContentLayout from "@/layouts/ContentLayout.astro";
                     class="w-full max-w-screen-xl gap-x-6 gap-y-6 bg-white rounded-2xl py-12 px-10 grid grid-cols-1 md:grid-cols-2"
                 >
                     <div>
-                        <h2>Interested?</h2>
+                        <H2>Interested?</H2>
                         <p>
                             Start a conversation using the form and we'll be in
                             touch with next steps or email us directly at
