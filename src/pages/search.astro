@@ -11,7 +11,12 @@ import H2 from "@/components/elements/headers/H2.astro";
 const name = "Search";
 ---
 
-<ContentLayout image={bannerImage} title={name} HeaderContent={HeaderContent}>
+<ContentLayout
+    description="see relevant results below"
+    image={bannerImage}
+    title={name}
+    HeaderContent={HeaderContent}
+>
     <ScreenWidth classList="gap-8">
         <Section floatIn={true}>
             <H2 position="center" color="coral">Search the Site</H2>
