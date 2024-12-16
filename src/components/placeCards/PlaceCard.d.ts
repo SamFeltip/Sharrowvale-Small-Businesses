@@ -6,4 +6,5 @@ export type PlaceCard = {
     lightContent?: string;
     href?: string;
     tags?: { slug: string; name: string }[];
+    color?: "white" | "black";
 };

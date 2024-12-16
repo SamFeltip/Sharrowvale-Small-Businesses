@@ -22,6 +22,8 @@ export async function search(
 
     const results = await processResults(pagefindResults);
 
+    console.log(results);
+
     const tags = getFilterTags(pagefindResults, searchOptionsConfig);
 
     return [results, tags];
@@ -84,7 +86,7 @@ async function processResults(
         pagefindResults.results.map((result) => result.data())
     );
 
-    return data;
+    return Object.values(data);
 }
 
 function getFilterTags(

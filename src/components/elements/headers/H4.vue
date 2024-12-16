@@ -1,5 +1,5 @@
 <template>
-  <h4 :id="id" :class="computedClasses" class="font-merriweather text-2xl text-stone-800">
+  <h4 :id="id" :class="computedClasses" class="font-merriweather text-2xl">
     <slot />
   </h4>
 </template>
@@ -28,8 +28,8 @@ const { color, position, weight, classList } = props;
 const computedClasses = computed(() => {
   const colorClasses: Record<string, string> = {
     white: "text-white",
-    coral: "text-coral", // Adjust this class based on your Tailwind setup
-    black: "text-black",
+    coral: "text-coral",
+    black: "text-stone-800",
   };
 
   const positionClasses: Record<string, string> = {

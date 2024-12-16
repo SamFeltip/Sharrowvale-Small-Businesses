@@ -17,16 +17,19 @@ export function getTagsFromSearchResults(
 export function getArticlesFromSearchResults(
     searchResults: PagefindSearchResult[]
 ): PagefindSearchResult[] {
-    return searchResults.filter((result) => {
+    const filteredResults = searchResults.filter((result) => {
         let categories = result.filters?.category;
 
         if (categories == null) return false;
 
         let categoryNames = Object.values(categories);
 
-        return (
+        const isArticle =
             !categoryNames.includes("Directory") &&
-            !categoryNames.includes("Tag")
-        );
+            !categoryNames.includes("Tag");
+
+        return isArticle;
     });
+
+    return Object.values(filteredResults);
 }

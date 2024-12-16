@@ -1,6 +1,6 @@
 <template>
     <div class="w-full flex justify-between items-center relative">
-        <div class="pt-8 px-6 w-full flex justify-between items-center z-50 top-0 transition-all"
+        <div class="py-8 px-6 w-full flex justify-between items-center z-50 top-0 transition-all"
             :class="{ 'bg-black ': isMenuOpen }">
             <!-- Logo -->
             <a href="/" class="relative">

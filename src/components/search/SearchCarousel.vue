@@ -1,5 +1,5 @@
 <template>
-    <CarouselWrapper :items="carouselItems" :type="type" />
+    <CarouselWrapper :items="carouselItems" :type="type" :height="height" />
 </template>
 
 <script setup lang="ts">
@@ -9,15 +9,23 @@ import type { PlaceCard } from "../placeCards/PlaceCard";
 import CarouselWrapper from "@/components/index/Content/CarouselWrapper.vue";
 import { watchEffect } from "vue";
 
-const props = defineProps<{ searchResults: PagefindSearchResult[], type?: "white-clear" | "yellow" | "clear" }>();
+const props = defineProps<{ searchResults: PagefindSearchResult[], type?: "white-clear" | "yellow" | "clear", height?: "sm" | "lg" }>();
 
-const { type = "clear" } = props;
+const { type = "clear", height = "lg" } = props;
+
+console.log(height);
 
 let carouselItems: PlaceCard[] = [];
 
 watchEffect(() => {
 
-    const businesses = props.searchResults.filter(searchResult => searchResult.filters?.category?.includes("Directory"));
+    const businesses = props.searchResults.filter(searchResult => {
+        const categories = searchResult.filters?.category;
+
+        if (categories === undefined) return false;
+
+        return Object.values(categories).includes("Directory");
+    });
 
     carouselItems = businesses.map((result) => ({
         title: result.meta?.title || "",

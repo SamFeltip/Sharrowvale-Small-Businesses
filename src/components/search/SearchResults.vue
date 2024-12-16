@@ -10,11 +10,11 @@
 
             <PlaceCardGrid v-if="isGridLayout" v-for="result in searchResults" :key="`gridLayout-${result.url}`"
                 :tags="getDisplayTags(result)" :image="result.meta?.image || ''" :content="result.meta?.content"
-                :title="result.meta?.title || ''" :href="result.url" />
+                :title="result.meta?.title || ''" :href="result.url" :color="color" />
 
             <PlaceCardWide v-else v-for="result in searchResults" :key="result.url" :tags="getDisplayTags(result)"
                 :image="result.meta?.image || ''" :content="result.meta?.content" :title="result.meta?.title || ''"
-                :href="result.url" :lightContent="result.excerpt" />
+                :href="result.url" :lightContent="result.excerpt" :color="color" />
 
         </TransitionGroup>
     </div>
@@ -28,17 +28,21 @@ import type { PagefindSearchResult } from "./src/PagefindSearchResult";
 const props = defineProps<{
     tag?: string,
     isGridLayout: boolean,
-    hiddenTags?: string[]
+    hiddenTags?: string[],
+    color?: "white" | "black"
 }>();
 
+const { color = "black" } = props;
 const searchResults = defineModel<PagefindSearchResult[]>("searchResults", { required: true });
 
 function getDisplayTags(result: PagefindSearchResult): { slug: string; name: string }[] {
-    let tags = result.filters?.tags || [];
+    const tags = result.filters?.tags || [];
 
-    tags = tags.filter((tag: string) => tag !== props.tag && !props.hiddenTags?.includes(tag)).slice(0, 3);
+    const tagValues = Object.values(tags);
 
-    return tags.map((tag: string) => ({ slug: tag, name: tag }));
+    const filteredTags = tagValues.filter((tag: string) => tag !== props.tag && !props.hiddenTags?.includes(tag)).slice(0, 3);
+
+    return filteredTags.map((tag: string) => ({ slug: tag, name: tag }));
 }
 </script>
 

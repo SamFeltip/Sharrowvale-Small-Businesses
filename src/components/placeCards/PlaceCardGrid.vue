@@ -3,7 +3,7 @@
         <div class="flex flex-col rounded-lg overflow-hidden">
             <img v-if="image" :src="image" :alt="title" class="w-full h-56 object-cover rounded-lg" />
             <div class="w-full pt-2">
-                <H4 weight="medium">
+                <H4 weight="medium" :color="color">
                     {{ title }}
                 </H4>
                 <P>{{ content }}</P>
@@ -23,6 +23,6 @@ import HoverArticle from "../elements/articles/HoverArticle.vue";
 
 const props = defineProps<PlaceCard>();
 
-const { image, title, content, href } = props;
+const { image, title, content, href, color = "black" } = props;
 
 </script>

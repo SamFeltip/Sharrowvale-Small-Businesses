@@ -5,7 +5,8 @@
     skipSnaps: true,
   }">
     <CarouselContent class="py-4">
-      <CarouselItem v-for="item in props.items" class="basis-2/3 md:basis-1/4 xl:basis-1/5 2xl:basis-1/6 h-[380px]">
+      <CarouselItem v-for="item in props.items"
+        :class="`basis-2/3 md:basis-1/4 xl:basis-1/5 2xl:basis-1/6 ${heightStyle}`">
         <PromotionalCard :key="item.title" position="start" :card="item" />
       </CarouselItem>
     </CarouselContent>
@@ -55,9 +56,19 @@ import ScreenWidth from '@/components/elements/ScreenWidth.vue';
 const props = defineProps<{
   items: PlaceCard[],
   type?: "white-clear" | "clear" | "yellow"
+  height?: "sm" | "lg"
 }>();
 
-const { type = "clear" } = props;
+console.log(props.height);
+
+const { type = "clear", height = "lg" } = props;
+
+let heightStyle = "h-[380px]";
+
+if (height == "sm") {
+  heightStyle = "h-[180px]"
+}
+
 
 // Managing carousel navigation
 const carouselRef: Ref<EmblaCarouselType | null> = ref(null);

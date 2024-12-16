@@ -1,5 +1,5 @@
 <template>
-    <TagList :tags="tagPlaceCards" :type="type" />
+    <TagList :tags="tagPlaceCards" :type="type" size="sm" />
 </template>
 
 <script setup lang="ts">

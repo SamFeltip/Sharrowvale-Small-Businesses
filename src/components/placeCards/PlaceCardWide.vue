@@ -8,7 +8,7 @@
                         {{ tag.name }}
                     </a>
                 </div>
-                <H3 class="md:text-2xl" weight="medium">
+                <H3 class="md:text-2xl" weight="medium" :color="color">
                     {{ title }}
                 </H3>
                 <P class="py-1 font-normal">{{ content }}</P>
@@ -26,7 +26,7 @@ import type { PlaceCard } from "./PlaceCard";
 
 const props = defineProps<PlaceCard>();
 
-const { image, title, content, tags, href, lightContent } = props;
+const { image, title, content, tags, href, lightContent, color = "black" } = props;
 
 const croppedLightContent = lightContent && lightContent.slice(0, 100) + (lightContent.length > 100 ? "..." : "");
 

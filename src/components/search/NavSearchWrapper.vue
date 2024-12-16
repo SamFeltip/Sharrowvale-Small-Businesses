@@ -15,19 +15,20 @@
             </button>
         </form>
     </ScreenWidth>
-    <div class="flex flex-col items-center gap-4">
+    <div class="flex flex-col items-center gap-8">
         <Loader v-if="loading" />
         <Section :float-in="false" v-if="searchResults.length > 0">
             <ScreenWidth>
                 <H3 color="white">Businesses</h3>
             </ScreenWidth>
-            <SearchCarousel v-model:searchResults="searchResults" type="white-clear" />
+            <SearchCarousel v-model:searchResults="searchResults" type="white-clear" height="sm" />
         </Section>
 
         <ScreenWidth>
             <Section :float-in="false" v-if="articles.length > 0">
                 <H3 color="white">Articles</h3>
-                <SearchResults v-model:searchResults="articles" :isGridLayout="true" :hiddenTags="hiddenTags" />
+                <SearchResults v-model:searchResults="articles" :isGridLayout="true" :hiddenTags="hiddenTags"
+                    color="white" />
             </Section>
         </ScreenWidth>
 
@@ -37,14 +38,14 @@
                 <SearchResultTags v-model:tags="tags" type="white-clear" />
             </Section>
             <button form="search-form" type="submit" v-if="searchQuery != ''" href="/search"
-                class="text-center underline text-white">See more</button>
+                class="text-center underline text-white text-xl">See more</button>
         </ScreenWidth>
     </div>
 
 </template>
 <script setup lang="ts">
 import faSearch from "@/components/icons/faSearch.vue";
-import { onMounted, ref, watchEffect } from "vue";
+import { onMounted, ref, watchEffect, type Ref } from "vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
 import Section from "@/components/elements/Section.vue";
 import SearchCarousel from "./SearchCarousel.vue";
@@ -66,7 +67,7 @@ let availableTags = ref<string[]>([]);
 
 let hiddenTags = ["directory"];
 
-let articles: PagefindSearchResult[];
+let articles: Ref<PagefindSearchResult[]> = ref([]);
 let tags: PagefindSearchResult[];
 
 let pagefind = ref<PagefindResource | null>(null); //inject('pagefind', ref(null));
@@ -74,7 +75,7 @@ let pagefind = ref<PagefindResource | null>(null); //inject('pagefind', ref(null
 let loading = ref(false);
 
 watchEffect(() => {
-    articles = getArticlesFromSearchResults(searchResults.value);
+    articles.value = getArticlesFromSearchResults(searchResults.value);
 })
 
 watchEffect(() => {
@@ -102,7 +103,7 @@ async function handleSearch() {
     if (searchQuery.value == "") {
         searchResults.value = [];
         availableTags.value = [];
-        articles = [];
+        articles.value = [];
         loading.value = false;
         return;
     }
