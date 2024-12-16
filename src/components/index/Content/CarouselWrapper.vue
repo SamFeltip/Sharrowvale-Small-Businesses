@@ -13,10 +13,10 @@
     <!-- Carousel Navigation Buttons below -->
     <div class="carousel-buttons flex justify-center gap-12 mt-4">
       <div class="flex gap-4">
-        <Button title="previous" @click="goToPrevious" size="lg">
+        <Button title="previous" @click="goToPrevious" size="lg" :type="type">
           <FontAwesomeIcon :icon="faChevronLeft" width="20" height="20" font-size="20" />
         </Button>
-        <Button title="next" @click="goToNext" size="lg">
+        <Button title="next" @click="goToNext" size="lg" :type="type">
           <FontAwesomeIcon :icon="faChevronRight" width="20" height="20" font-size="20" />
         </Button>
       </div>
@@ -44,7 +44,12 @@ import Button from "@/components/elements/Button.vue";
 import type { EmblaCarouselType } from 'embla-carousel';
 import PromotionalCard from '@/components/placeCards/PromotionalCard.vue';
 
-const props = defineProps<{ items: PlaceCard[] }>();
+const props = defineProps<{
+  items: PlaceCard[],
+  type: "white-clear" | "clear" | "yellow"
+}>();
+
+const { type = "clear" } = props;
 
 // Managing carousel navigation
 const carouselRef: Ref<EmblaCarouselType | null> = ref(null);

@@ -28,24 +28,28 @@
             <div id="mobile-menu-overlay"
                 class="fixed inset-0 bg-black bg-opacity-95 z-40 overflow-hidden transition-all duration-500 ease-in-out"
                 :class="{ 'h-0': !isMenuOpen, 'h-full': isMenuOpen }" @click="closeMenu">
-                <nav class="flex flex-col items-end p-8 pt-24 h-full overflow-y-scroll" @click.stop>
+                <div class="flex flex-col items-end pt-24 h-full overflow-y-scroll" @click.stop>
                     <div class="w-full">
-                        <div v-for="(link, index) in menuLinks" :key="link.href"
-                            class="transform transition-all duration-500 ease-in-out" :class="{
-                                'translate-x-full opacity-0': !isMenuOpen,
-                                'translate-x-0 opacity-100': isMenuOpen
-                            }" :style="`transition-delay: ${index * 100}ms`">
-                            <a :href="link.href" class="text-lato font-light block text-white text-2xl py-4 text-right"
-                                @click="closeMenu">
-                                {{ link.label }}
-                            </a>
-                        </div>
-
                         <div class="mt-8 flex flex-col justify-end">
                             <NavSearchWrapper />
                         </div>
+
+                        <ScreenWidth>
+                            <div v-for="(link, index) in menuLinks" :key="link.href"
+                                class="transform transition-all duration-500 ease-in-out" :class="{
+                                    'translate-x-full opacity-0': !isMenuOpen,
+                                    'translate-x-0 opacity-100': isMenuOpen
+                                }" :style="`transition-delay: ${index * 100}ms`">
+                                <a :href="link.href"
+                                    class="text-lato font-light block text-white text-2xl py-4 text-right"
+                                    @click="closeMenu">
+                                    {{ link.label }}
+                                </a>
+                            </div>
+                        </ScreenWidth>
+
                     </div>
-                </nav>
+                </div>
             </div>
         </div>
     </div>
@@ -54,7 +58,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import NavSearchWrapper from "@/components/search/NavSearchWrapper.vue";
-
+import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 const props = defineProps<{
     logo: string
 }>();

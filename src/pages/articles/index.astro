@@ -12,7 +12,7 @@ import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { getPlaceCardsFromArticles } from "@/scripts/placeCard/handler";
-import ScreenWidth from "@/components/elements/ScreenWidth.astro";
+import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 
 const events: CollectionEntry<"articles">[] = await getCollection(
     "articles",

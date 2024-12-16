@@ -14,7 +14,7 @@ import { defineProps } from "vue";
 const props = defineProps<{
     title?: string;
     href?: string;
-    type?: "yellow" | "clear";
+    type?: "yellow" | "clear" | "white-clear";
     size?: "sm" | "lg";
     disabled?: boolean;
 }>();
@@ -42,6 +42,8 @@ let borderStyles = "rounded-full border border-gray-500 text-gray-800"
 
 if (type == "yellow") {
     borderStyles = "rounded-full text-gray-800 bg-yellow-400"
+} else if (type == "white-clear") {
+    borderStyles = "rounded-full border border-white text-white"
 }
 
 if (disabled) {

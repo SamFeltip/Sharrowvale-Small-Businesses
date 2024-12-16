@@ -1,5 +1,5 @@
 <template>
-    <CarouselWrapper :items="carouselItems" />
+    <CarouselWrapper :items="carouselItems" :type="type" />
 </template>
 
 <script setup lang="ts">
@@ -9,8 +9,9 @@ import type { PlaceCard } from "../placeCards/PlaceCard";
 import CarouselWrapper from "@/components/index/Content/CarouselWrapper.vue";
 import { watchEffect } from "vue";
 
-const props = defineProps<{ searchResults: PagefindSearchResult[] }>();
+const props = defineProps<{ searchResults: PagefindSearchResult[], type: "white-clear" | "yellow" | "clear" }>();
 
+const { type = "clear" } = props;
 
 let carouselItems: PlaceCard[] = [];
 

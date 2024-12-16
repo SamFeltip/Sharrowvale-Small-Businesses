@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 
 import Section from "@/components/elements/Section.astro";
 import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
-import ScreenWidth from "@/components/elements/ScreenWidth.astro";
+import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 
 const businesses = await getCollection("businesses");
 

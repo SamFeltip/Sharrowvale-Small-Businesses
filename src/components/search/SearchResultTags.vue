@@ -1,5 +1,5 @@
 <template>
-    <TagList :tags="tags" />
+    <TagList :tags="tags" :type="type" />
 </template>
 
 <script setup lang="ts">
@@ -11,6 +11,12 @@ import type { CollectionEntry } from "astro:content";
 import { getPromotedTagsFromTagNames } from "@/scripts/tags/promotedTags";
 
 const tagNames = defineModel<string[]>("tagNames", { required: true });
+
+const props = defineProps<{
+    type: "white-clear" | "yellow" | "clear";
+}>();
+
+const { type = "clear" } = props;
 
 console.log(tagNames.value);
 
