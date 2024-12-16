@@ -17,7 +17,6 @@ const props = defineProps<{
 
 const { type = "clear" } = props;
 
-
 let tagPlaceCards: Ref<PlaceCardRef[]> = ref([]);
 
 watchEffect(async () => {
@@ -25,12 +24,14 @@ watchEffect(async () => {
     tagPlaceCards.value = tags.value.map((tag) => ({
         type: "tags",
         collectionEntry: {
-            slug: tag.url.split("/")[1],
+            slug: tag.url.split("/")[2], // "/tags/pub/"
             data: {
                 name: tag.meta.title,
             }
         } as GenericCollectionEntry,
     }));
+
+    console.log(tags.value);
 
 })
 

@@ -22,8 +22,6 @@ export async function search(
 
     const results = await processResults(pagefindResults);
 
-    console.log(results);
-
     const tags = getFilterTags(pagefindResults, searchOptionsConfig);
 
     return [results, tags];
