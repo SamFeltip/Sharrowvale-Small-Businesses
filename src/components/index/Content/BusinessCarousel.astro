@@ -17,5 +17,8 @@ const businessPlaceCards = await getPlaceCardsFromBusinesses(businesses);
         <H2 color="coral" position="center"> Discover more Businesses </H2>
     </ScreenWidth>
 
-    <CarouselWrapper client:load items={businessPlaceCards} />
+    <CarouselWrapper
+        client:visible={{ rootMargin: "200px" }}
+        items={businessPlaceCards}
+    />
 </Section>

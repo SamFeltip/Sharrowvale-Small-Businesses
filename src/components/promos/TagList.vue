@@ -13,8 +13,8 @@ import type { PlaceCardRef } from "../placeCards/PlaceCardRef";
 import Button from "../elements/Button.vue";
 
 const props = defineProps<{
-    tags: PlaceCardRef[],
-    type: "white-clear" | "yellow" | "clear";
+    tags: PlaceCardRef[], //TODO: PlaceCard instead of Ref
+    type?: "white-clear" | "yellow" | "clear";
 }>();
 
 const { type = "clear" } = props;

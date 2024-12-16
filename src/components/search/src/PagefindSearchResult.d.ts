@@ -5,7 +5,10 @@ export type PagefindSearchResult = {
     meta: { content: string; title: string; image: string };
     url: string;
     excerpt: string;
-    filters: { tags: string[]; category: string[] };
+    filters?: {
+        tags: Record<number, string>;
+        category: Record<number, string>;
+    };
 };
 
 /**

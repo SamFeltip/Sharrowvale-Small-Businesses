@@ -17,7 +17,7 @@
     </ScreenWidth>
     <div class="flex flex-col items-center gap-4">
 
-        <Section :float-in="true" v-if="searchResults.length > 0">
+        <Section :float-in="false" v-if="searchResults.length > 0">
             <ScreenWidth>
                 <H3 color="white">Businesses</h3>
             </ScreenWidth>
@@ -25,16 +25,16 @@
         </Section>
 
         <ScreenWidth>
-            <Section :float-in="true" v-if="articles.length > 0">
+            <Section :float-in="false" v-if="articles.length > 0">
                 <H3 color="white">Articles</h3>
                 <SearchResults v-model:searchResults="articles" :isGridLayout="true" :hiddenTags="hiddenTags" />
             </Section>
         </ScreenWidth>
 
         <ScreenWidth class-list="gap-4">
-            <Section :float-in="true" v-if="searchResults.length > 0">
+            <Section :float-in="false" v-if="searchResults.length > 0">
                 <H3 color="white">Tags</H3>
-                <SearchResultTags v-model:tagNames="availableTags" type="white-clear" />
+                <SearchResultTags v-model:tags="tags" type="white-clear" />
             </Section>
             <a v-if="searchQuery != ''" href="/search" class="text-center underline text-white">See more</a>
         </ScreenWidth>
@@ -63,13 +63,17 @@ let availableTags = ref<string[]>([]);
 let hiddenTags = ["directory"];
 
 let articles: PagefindSearchResult[];
+let tags: PagefindSearchResult[];
 
 let pagefind = ref<PagefindResource | null>(null); //inject('pagefind', ref(null));
 
 watchEffect(() => {
-    articles = searchResults.value.filter(result => !result.filters.category.includes("Directory")).slice(0, 3);
+    articles = searchResults.value.filter(result => !result.filters?.category?.includes("Directory") && !result.filters?.category?.includes("Tag")).slice(0, 3);
 })
 
+watchEffect(() => {
+    tags = searchResults.value.filter(result => result.filters?.category?.includes("Tag"));
+})
 
 onMounted(async () => {
 

@@ -19,6 +19,6 @@ export type PagefindSearchOptions = {
         tags?: Record<string, any>;
     };
     sort?: {
-        name: "asc" | "desc";
+        title: "asc" | "desc";
     };
 };

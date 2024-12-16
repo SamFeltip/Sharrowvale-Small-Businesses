@@ -1,34 +1,37 @@
 <template>
-    <TagList :tags="tags" :type="type" />
+    <TagList :tags="tagPlaceCards" :type="type" />
 </template>
 
 <script setup lang="ts">
 import TagList from "@/components/promos/TagList.vue";
 import { ref, watchEffect, type Ref } from "vue";
-import type { PlaceCardRef } from "../placeCards/PlaceCardRef";
+import type { GenericCollectionEntry, PlaceCardRef } from "../placeCards/PlaceCardRef";
 import type { CollectionEntry } from "astro:content";
 
 import { getPromotedTagsFromTagNames } from "@/scripts/tags/promotedTags";
+import type { PagefindSearchResult } from "./src/PagefindSearchResult";
 
-const tagNames = defineModel<string[]>("tagNames", { required: true });
+const tags = defineModel<PagefindSearchResult[]>("tags", { required: true });
 
 const props = defineProps<{
-    type: "white-clear" | "yellow" | "clear";
+    type?: "white-clear" | "yellow" | "clear";
 }>();
 
 const { type = "clear" } = props;
 
-console.log(tagNames.value);
 
-let tags: Ref<PlaceCardRef[]> = ref([]);
+let tagPlaceCards: Ref<PlaceCardRef[]> = ref([]);
 
 watchEffect(async () => {
 
-    const tagCollection: CollectionEntry<"tags">[] = await getPromotedTagsFromTagNames(tagNames.value);
-
-    tags.value = tagCollection.map((tag) => ({
+    tagPlaceCards.value = tags.value.map((tag) => ({
         type: "tags",
-        collectionEntry: tag,
+        collectionEntry: {
+            slug: tag.url.split("/")[1],
+            data: {
+                name: tag.meta.title,
+            }
+        } as GenericCollectionEntry,
     }));
 
 })

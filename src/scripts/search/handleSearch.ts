@@ -20,10 +20,9 @@ export async function search(
         pagefind
     );
 
-    const results = await processResults(
-        pagefindResults,
-        searchOptionsConfig.selectedTags
-    );
+    const results = await processResults(pagefindResults);
+
+    console.log(results);
 
     const tags = getFilterTags(pagefindResults, searchOptionsConfig);
 
@@ -43,7 +42,11 @@ async function doSearch(
         search = null;
     }
 
-    return await pagefind.search(search, searchOptions);
+    console.log(searchOptions);
+    console.log(search);
+
+    const res = await pagefind.search(search, searchOptions);
+    return res;
 }
 
 export function getPagefindSearchOptions(
@@ -54,7 +57,7 @@ export function getPagefindSearchOptions(
             tags: [],
             category: { any: [] },
         },
-        sort: { name: config.sortAscending ? "asc" : "desc" },
+        sort: { title: config.sortAscending ? "asc" : "desc" },
     };
 
     if (config.requiredTag !== undefined) {
@@ -77,8 +80,7 @@ export function getPagefindSearchOptions(
 }
 
 async function processResults(
-    pagefindResults: PagefindSearchOutput,
-    selectedTags: string[]
+    pagefindResults: PagefindSearchOutput
 ): Promise<PagefindSearchResult[]> {
     const data = await Promise.all(
         pagefindResults.results.map((result) => result.data())
