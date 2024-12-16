@@ -1,6 +1,6 @@
 <template>
     <ScreenWidth class-list="items-center mb-4">
-        <form method="GET" action="/search"
+        <form method="GET" action="/search" id="search-form"
             class="flex flex-row items-center gap-2 mb-2 w-full border-b border-white max-w-md">
 
             <div class="flex flex-row items-center gap-2 w-full">
@@ -36,7 +36,8 @@
                 <H3 color="white">Tags</H3>
                 <SearchResultTags v-model:tags="tags" type="white-clear" />
             </Section>
-            <a v-if="searchQuery != ''" href="/search" class="text-center underline text-white">See more</a>
+            <button form="search-form" type="submit" v-if="searchQuery != ''" href="/search"
+                class="text-center underline text-white">See more</button>
         </ScreenWidth>
     </div>
 
