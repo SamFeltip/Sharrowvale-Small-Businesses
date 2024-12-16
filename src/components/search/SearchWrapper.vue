@@ -1,9 +1,11 @@
 <!-- SearchWrapper.vue -->
 <template>
     <div id="search-wrapper" class="w-full gap-6" :class="{ gridLayout: isGridLayout }">
+        <Loader v-if="loading" />
+
         <SearchBox v-model:searchResults="searchResults" v-model:searchQuery="searchQuery"
             v-model:selectedTags="selectedTags" :availableTags :isGridLayout :requiredTag="requiredTag"
-            :requiredCategories="requiredCategories" />
+            :requiredCategories="requiredCategories" v-model:loading="loading" />
         <SearchResults v-model:searchResults="searchResults" :tag="requiredTag" :isGridLayout="isGridLayout"
             :hiddenTags="hiddenTags" />
     </div>
@@ -32,6 +34,9 @@ let searchQuery = ref("");
 
 let selectedTags = ref([]);
 let availableTags = ref([]);
+
+let loading = ref(true);
+
 </script>
 
 <style>

@@ -4,7 +4,7 @@
     loop: true,
     skipSnaps: true,
   }">
-    <CarouselContent>
+    <CarouselContent class="py-4">
       <CarouselItem v-for="item in props.items" class="basis-2/3 md:basis-1/4 xl:basis-1/5 2xl:basis-1/6 h-[380px]">
         <PromotionalCard :key="item.title" position="start" :card="item" />
       </CarouselItem>

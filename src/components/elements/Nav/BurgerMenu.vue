@@ -1,7 +1,7 @@
 <template>
     <div class="w-full flex justify-between items-center relative">
         <div class="pt-8 px-6 w-full flex justify-between items-center z-50 top-0 transition-all"
-            :class="{ 'bg-black ': isMenuOpen }">
+            :class="{ 'bg-gray-800 ': isMenuOpen }">
             <!-- Logo -->
             <a href="/" class="relative">
                 <img :src="LOGO_URL_DARK" alt="Sharrow Vale Logo" width="160" height="160" />
@@ -17,7 +17,7 @@
 
             <!-- Mobile Menu Overlay -->
             <div id="mobile-menu-overlay"
-                class="fixed inset-0 bg-black bg-opacity-95 z-40 overflow-hidden transition-all duration-500 ease-in-out"
+                class="fixed inset-0 bg-gray-800 bg-opacity-95 z-40 overflow-hidden transition-all duration-500 ease-in-out"
                 :class="{ 'h-0': !isMenuOpen, 'h-full': isMenuOpen }" @click="closeMenu">
                 <div class="flex flex-col items-end pt-24 h-full overflow-y-scroll" @click.stop>
                     <div class="w-full">

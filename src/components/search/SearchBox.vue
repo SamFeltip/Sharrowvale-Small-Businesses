@@ -85,6 +85,7 @@ const props = defineProps<{
 
 let searchResults = defineModel<PagefindSearchResult[]>("searchResults", { required: true });
 let searchQuery = defineModel<string>("searchQuery", { required: true });
+let loading = defineModel<boolean>("loading");
 
 const params = new URLSearchParams(document.location.search);
 
@@ -107,12 +108,15 @@ const showFilters = ref(true);
 const sortAscending = ref(true);
 
 onMounted(async () => {
+    loading.value = true;
 
     pagefind.value = await import(
         /* @vite-ignore */ window.location.origin + "/pagefind/pagefind.js"
     );
 
     await handleSearch();
+
+    loading.value = false;
 });
 
 async function handleSearch() {

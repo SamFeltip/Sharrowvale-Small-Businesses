@@ -16,7 +16,7 @@
         </form>
     </ScreenWidth>
     <div class="flex flex-col items-center gap-4">
-
+        <Loader v-if="loading" />
         <Section :float-in="false" v-if="searchResults.length > 0">
             <ScreenWidth>
                 <H3 color="white">Businesses</h3>
@@ -57,6 +57,8 @@ import { search } from "@/scripts/search/handleSearch";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 import { getArticlesFromSearchResults, getTagsFromSearchResults } from "@/scripts/search/getFromSearchResults";
 
+import Loader from "@/components/elements/Loader.vue";
+
 let searchResults = ref<PagefindSearchResult[]>([]);
 let searchQuery = ref("");
 let selectedTags = ref([]);
@@ -68,6 +70,8 @@ let articles: PagefindSearchResult[];
 let tags: PagefindSearchResult[];
 
 let pagefind = ref<PagefindResource | null>(null); //inject('pagefind', ref(null));
+
+let loading = ref(false);
 
 watchEffect(() => {
     articles = getArticlesFromSearchResults(searchResults.value);
@@ -86,9 +90,12 @@ onMounted(async () => {
 
 async function handleSearch() {
 
+    loading.value = true;
+
     const searchOptionsConfig = createSearchOptionsFromRefs();
 
     if (pagefind.value == null) {
+        loading.value = false;
         return;
     }
 
@@ -96,6 +103,7 @@ async function handleSearch() {
         searchResults.value = [];
         availableTags.value = [];
         articles = [];
+        loading.value = false;
         return;
     }
 
@@ -105,6 +113,9 @@ async function handleSearch() {
 
     searchResults.value = d;
     availableTags.value = t;
+
+
+    loading.value = false;
 }
 
 
