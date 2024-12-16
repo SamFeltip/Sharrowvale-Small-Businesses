@@ -5,12 +5,10 @@ export function getTagsFromSearchResults(
 ): PagefindSearchResult[] {
     return searchResults.filter((result) => {
         let categories = result.filters?.category;
-        console.log(categories);
 
         if (categories == null) return false;
 
         let categoryNames = Object.values(categories);
-        console.log(categoryNames);
 
         return categoryNames.includes("Tag");
     });
@@ -21,14 +19,10 @@ export function getArticlesFromSearchResults(
 ): PagefindSearchResult[] {
     return searchResults.filter((result) => {
         let categories = result.filters?.category;
-        console.log(categories);
 
         if (categories == null) return false;
 
         let categoryNames = Object.values(categories);
-        console.log(categoryNames);
-
-        console.log(categoryNames);
 
         return (
             !categoryNames.includes("Directory") &&

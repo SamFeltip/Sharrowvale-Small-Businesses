@@ -11,19 +11,26 @@
     </CarouselContent>
 
     <!-- Carousel Navigation Buttons below -->
-    <div class="carousel-buttons flex justify-center gap-12 mt-4">
-      <div class="flex gap-4">
-        <Button title="previous" @click="goToPrevious" size="lg" :type="type">
-          <FontAwesomeIcon :icon="faChevronLeft" width="20" height="20" font-size="20" />
-        </Button>
-        <Button title="next" @click="goToNext" size="lg" :type="type">
-          <FontAwesomeIcon :icon="faChevronRight" width="20" height="20" font-size="20" />
-        </Button>
+    <ScreenWidth>
+      <div class="carousel-buttons flex justify-center gap-12 mt-4">
+        <div class="flex gap-4">
+          <Button title="previous" @click="goToPrevious" size="lg" :type="type">
+            <FontAwesomeIcon :icon="faChevronLeft" width="20" height="20" font-size="20" />
+          </Button>
+          <Button title="next" @click="goToNext" size="lg" :type="type">
+            <FontAwesomeIcon :icon="faChevronRight" width="20" height="20" font-size="20" />
+          </Button>
+        </div>
+        <a class="bg-coral rounded-full text-white py-3 px-5 text-xl" href="/categories/directory">
+          <span class="hidden sm:inline">
+            See the full directory
+          </span>
+          <span class="inline sm:hidden">
+            View directory
+          </span>
+        </a>
       </div>
-      <a class="bg-coral rounded-full text-white py-3 px-5 text-xl" href="/categories/directory">
-        See the full directory
-      </a>
-    </div>
+    </ScreenWidth>
   </Carousel>
 </template>
 
@@ -43,6 +50,7 @@ import type { PlaceCard } from "../../placeCards/PlaceCard.d.ts";
 import Button from "@/components/elements/Button.vue";
 import type { EmblaCarouselType } from 'embla-carousel';
 import PromotionalCard from '@/components/placeCards/PromotionalCard.vue';
+import ScreenWidth from '@/components/elements/ScreenWidth.vue';
 
 const props = defineProps<{
   items: PlaceCard[],

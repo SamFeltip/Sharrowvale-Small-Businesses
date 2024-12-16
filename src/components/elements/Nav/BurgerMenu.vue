@@ -32,7 +32,7 @@
                                     'translate-x-0 opacity-100': isMenuOpen
                                 }" :style="`transition-delay: ${index * 100}ms`">
                                 <a :href="link.href"
-                                    class="text-lato font-light block text-white text-2xl py-4 text-right"
+                                    class="text-lato font-light block text-white hover:text-coral text-2xl py-4 text-right"
                                     @click="closeMenu">
                                     {{ link.label }}
                                 </a>

@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
+import { defineProps } from 'vue';
 
 defineProps<{
     classList?: string;

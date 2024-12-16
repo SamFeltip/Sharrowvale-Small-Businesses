@@ -18,6 +18,7 @@ import SearchResults from "./SearchResults.vue";
 
 import { ref } from "vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
+import Loader from "@/components/elements/Loader.vue";
 
 const props = defineProps<{
     requiredTag?: string,
