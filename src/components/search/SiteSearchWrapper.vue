@@ -34,6 +34,7 @@ import SearchResultTags from "./SearchResultTags.vue";
 
 import { ref, watchEffect, type Ref } from "vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
+import { getArticlesFromSearchResults, getTagsFromSearchResults } from "@/scripts/search/getFromSearchResults";
 
 const props = defineProps<{
     requiredTag?: string,
@@ -63,42 +64,6 @@ watchEffect(() => {
     tags = getTagsFromSearchResults(searchResults.value);
 })
 
-function getTagsFromSearchResults(searchResults: PagefindSearchResult[]) {
-
-    return searchResults.filter(result => {
-
-        let categories = result.filters?.category;
-        console.log(categories);
-
-        if (categories == null) return false;
-
-        let categoryNames = Object.values(categories);
-        console.log(categoryNames);
-
-        return categoryNames.includes("Tag");
-
-    })
-}
-
-function getArticlesFromSearchResults(searchResults: PagefindSearchResult[]) {
-
-    return searchResults.filter(result => {
-
-        let categories = result.filters?.category;
-        console.log(categories);
-
-        if (categories == null) return false;
-
-        let categoryNames = Object.values(categories);
-        console.log(categoryNames);
-
-        console.log(categoryNames);
-
-        return !categoryNames.includes("Directory") && !categoryNames.includes("Tag");
-
-    })
-
-}
 </script>
 
 <style>

@@ -6,9 +6,7 @@
 import TagList from "@/components/promos/TagList.vue";
 import { ref, watchEffect, type Ref } from "vue";
 import type { GenericCollectionEntry, PlaceCardRef } from "../placeCards/PlaceCardRef";
-import type { CollectionEntry } from "astro:content";
 
-import { getPromotedTagsFromTagNames } from "@/scripts/tags/promotedTags";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
 
 const tags = defineModel<PagefindSearchResult[]>("tags", { required: true });

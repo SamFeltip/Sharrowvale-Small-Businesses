@@ -1,4 +1,3 @@
-import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getPromotedTagsFromBusiness(
@@ -26,16 +25,6 @@ export async function getPromotedTagsFromBusiness(
     console.log(businesses.length);
 
     return output;
-}
-
-export async function getPromotedTagsFromTagNames(
-    tagNames: string[]
-): Promise<CollectionEntry<"tags">[]> {
-    const tags = await getCollection("tags", (tag) =>
-        tagNames.includes(tag.data.name)
-    );
-
-    return tags;
 }
 
 function getTagAppearanceCounts(

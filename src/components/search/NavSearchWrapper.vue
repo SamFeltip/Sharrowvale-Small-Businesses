@@ -55,6 +55,7 @@ import type { PagefindResource } from "@/scripts/search/PagefindResource";
 import type { SearchOptionsConfig } from "@/scripts/search/PagefindSearchOptions";
 import { search } from "@/scripts/search/handleSearch";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
+import { getArticlesFromSearchResults, getTagsFromSearchResults } from "@/scripts/search/getFromSearchResults";
 
 let searchResults = ref<PagefindSearchResult[]>([]);
 let searchQuery = ref("");
@@ -69,11 +70,11 @@ let tags: PagefindSearchResult[];
 let pagefind = ref<PagefindResource | null>(null); //inject('pagefind', ref(null));
 
 watchEffect(() => {
-    articles = searchResults.value.filter(result => !result.filters?.category?.includes("Directory") && !result.filters?.category?.includes("Tag")).slice(0, 3);
+    articles = getArticlesFromSearchResults(searchResults.value);
 })
 
 watchEffect(() => {
-    tags = searchResults.value.filter(result => result.filters?.category?.includes("Tag"));
+    tags = getTagsFromSearchResults(searchResults.value);
 })
 
 onMounted(async () => {
@@ -81,8 +82,6 @@ onMounted(async () => {
     pagefind.value = await import(
     /* @vite-ignore */ window.location.origin + "/pagefind/pagefind.js"
     );
-
-    // await handleSearch();
 });
 
 async function handleSearch() {

@@ -12,6 +12,7 @@ import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
 import { getPromotedTagsFromBusiness } from "@/scripts/tags/promotedTags";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
+import H1 from "@/components/elements/headers/H1.astro";
 
 export async function getStaticPaths() {
     const tag: CollectionEntry<"tags">[] = await getCollection("tags");
@@ -89,6 +90,7 @@ const isGridLayout = businesses.length >= 9;
                 hiddenTags={hiddenTagNames}
             />
         </Section>
+        <H1 position="center" color="black"> Related Categories </H1>
         {
             promotedItems.length > 0 && (
                 <PromotedTags
