@@ -22,6 +22,10 @@ const events: CollectionEntry<"articles">[] = await getCollection(
 
 const eventPlaceCards: PlaceCard[] = await getPlaceCardsFromArticles(events);
 
+const upcomingEventPlaceCards: PlaceCard[] = eventPlaceCards.filter(
+    (event) => event.dateTime && event.dateTime > new Date()
+);
+
 // get every category except for the directory and events
 const searchCategoryCollection = await getCollection(
     "categories",
@@ -53,12 +57,20 @@ const searchCategories = searchCategoryCollection.map(
             />
         </Section>
 
-        <Section floatIn={true}>
-            <H2 position="center" color="coral">Upcoming events</H2>
+        {
+            upcomingEventPlaceCards.length > 0 && (
+                <Section floatIn={true}>
+                    <H2 position="center" color="coral">
+                        Upcoming events
+                    </H2>
 
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {eventPlaceCards.map((event) => <PlaceCardGrid {...event} />)}
-            </div>
-        </Section>
+                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                        {upcomingEventPlaceCards.map((event) => (
+                            <PlaceCardGrid {...event} />
+                        ))}
+                    </div>
+                </Section>
+            )
+        }
     </ScreenWidth>
 </ContentLayout>

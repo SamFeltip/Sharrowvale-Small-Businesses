@@ -22,6 +22,9 @@ export async function getPlaceCardsFromArticles(
                 tags: tagPreviews,
                 lightContent: item.data.description,
                 href: `/articles/${item.slug}`,
+                datetime: item.data.dateTime
+                    ? new Date(item.data.dateTime)
+                    : null,
             };
         })
     );

@@ -1,6 +1,6 @@
 <!-- SearchWrapper.vue -->
 <template>
-    <div id="search-wrapper" class="w-full gap-6" :class="{ gridLayout: isGridLayout }">
+    <div id="search-wrapper" class="w-full gap-6 lg:gap-8" :class="{ gridLayout: isGridLayout }">
         <Loader v-if="loading" />
 
         <SearchBox v-model:searchResults="searchResults" v-model:searchQuery="searchQuery"

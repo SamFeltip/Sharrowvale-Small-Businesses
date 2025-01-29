@@ -1,10 +1,10 @@
 <template>
     <HoverArticle :href="href">
         <div class="search-result-wide w-full grid rounded-lg text-ellipsis">
-            <img v-if="image" :src="image" :alt="title" class="w-full object-cover rounded-lg  h-48" />
+            <img v-if="image" :src="image" :alt="title" class="w-full object-cover rounded-lg h-full min-h-52" />
             <div class="search-result-body w-full overflow-hidden flex flex-col text-ellipsis">
                 <div class="tag-list">
-                    <a v-for="(tag, index) in tags" :key="index" class="text-coral py-1 text-base">
+                    <a v-for="(tag, index) in tags" :key="index" class="text-coral text-sm font-merriweather font-bold">
                         {{ tag.name }}
                     </a>
                 </div>
@@ -12,7 +12,7 @@
                     {{ title }}
                 </H3>
                 <P class="py-1 font-normal">{{ content }}</P>
-                <P weight="light" class="hidden lg:block text-ellipsis">{{ croppedLightContent }}</P>
+                <P weight="light" class="hidden md:block text-ellipsis text-sm">{{ croppedLightContent }}</P>
             </div>
         </div>
     </HoverArticle>
@@ -28,7 +28,7 @@ const props = defineProps<PlaceCard>();
 
 const { image, title, content, tags, href, lightContent, color = "black" } = props;
 
-const croppedLightContent = lightContent && lightContent.slice(0, 100) + (lightContent.length > 100 ? "..." : "");
+const croppedLightContent = lightContent && lightContent.slice(0, 180) + (lightContent.length > 180 ? "..." : "");
 
 </script>
 

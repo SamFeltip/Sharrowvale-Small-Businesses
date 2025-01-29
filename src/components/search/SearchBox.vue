@@ -1,6 +1,6 @@
 <!-- SearchBox.vue -->
 <template>
-    <div class="mx-auto px-4 w-full flex flex-col items-center" id="search-box-wrapper">
+    <div class="mx-auto px-4 w-full flex flex-col items-center gap-4" id="search-box-wrapper">
         <div class="gap-4 mb-4 w-full" id="search-box">
             <div class="flex flex-row items-center w-full border-b border-gray-400 ">
                 <div class="text-gray-600">
@@ -35,11 +35,11 @@
             </div>
         </div>
 
-        <div v-if="showFilters && availableTags.length > 0" class="p-4 flex flex-col gap-2">
-            <H3 v-if="availableTags.length > 0 && props.isGridLayout == false" color="coral">
+        <div v-if="showFilters && availableTags.length > 0" class="py-4 flex flex-col gap-2">
+            <H4 v-if="availableTags.length > 0 && props.isGridLayout == false" color="coral" id="filter-header">
                 Filter by Category
-            </H3>
-            <div class="flex flex-wrap justify-center">
+            </H4>
+            <div id="filter-items-wrapper" class="flex flex-wrap">
                 <label v-for="tag in availableTags" :key="tag"
                     class="font-merriweather cursor-pointer inline-block px-2 py-1 m-1 border border-gray-500 rounded-full text-base transition-all duration-200 hover:scale-105 group relative"
                     :class="{
@@ -53,7 +53,7 @@
             </div>
         </div>
         <div v-if="props.isGridLayout == false" class="flex flex-col items-center px-4">
-            <PromoBanner callToAction="Advertise on this site for only £20 a month" class="hidden lg:block" />
+            <PromoBanner callToAction="Advertise on this site for only £20 a month" class="hidden lg:flex" />
         </div>
     </div>
 </template>
@@ -64,7 +64,7 @@ import { faArrowUpWideShort } from "@fortawesome/free-solid-svg-icons/faArrowUpW
 import { faArrowDownShortWide } from "@fortawesome/free-solid-svg-icons/faArrowDownShortWide"
 import PromoBanner from "@/components/elements/promos/PromoBanner.vue"
 
-import H3 from "@/components/elements/headers/H3.vue";
+import H4 from "@/components/elements/headers/H4.vue";
 
 import { faFilter } from "@fortawesome/free-solid-svg-icons/faFilter"
 import faSearch from "@/components/icons/faSearch.vue";
@@ -196,9 +196,26 @@ function toggleFilters() {
     grid-template-columns: 1fr;
 }
 
+#filter-header {
+    text-align: start;
+}
+
+#filter-items-wrapper {
+    justify-content: start;
+}
+
 @container (min-width: 500px) {
     #search-box {
         grid-template-columns: 1fr auto;
+    }
+
+    #filter-items-wrapper {
+        justify-content: center;
+    }
+
+
+    #filter-header {
+        text-align: center;
     }
 }
 </style>
