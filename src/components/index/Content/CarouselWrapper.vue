@@ -4,7 +4,7 @@
     loop: true,
     skipSnaps: true,
   }">
-    <CarouselContent class="py-4">
+    <CarouselContent>
       <CarouselItem v-for="item in props.items"
         :class="`basis-2/3 md:basis-1/4 xl:basis-1/5 2xl:basis-1/6 ${heightStyle}`">
         <PromotionalCard :key="item.title" position="start" :card="item" />
@@ -15,21 +15,21 @@
     <ScreenWidth>
       <div class="carousel-buttons flex justify-center gap-6 sm:gap-12 mt-4">
         <div class="flex gap-4">
-          <Button title="previous" @click="goToPrevious" size="lg" :type="type">
+          <Button title="previous" @click="goToPrevious" shape="circle" :type="type">
             <FontAwesomeIcon :icon="faChevronLeft" width="20" height="20" font-size="20" />
           </Button>
-          <Button title="next" @click="goToNext" size="lg" :type="type">
+          <Button title="next" @click="goToNext" shape="circle" :type="type">
             <FontAwesomeIcon :icon="faChevronRight" width="20" height="20" font-size="20" />
           </Button>
         </div>
-        <a class="bg-coral rounded-full text-white py-3 px-5 text-xl" href="/categories/directory">
+        <Button href="/categories/directory" type="coral" size="lg">
           <span class="hidden sm:inline">
             See the full directory
           </span>
           <span class="inline sm:hidden">
             View directory
           </span>
-        </a>
+        </Button>
       </div>
     </ScreenWidth>
   </Carousel>

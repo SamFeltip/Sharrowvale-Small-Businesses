@@ -14,7 +14,8 @@ import { defineProps } from "vue";
 const props = defineProps<{
     title?: string;
     href?: string;
-    type?: "yellow" | "clear" | "white-clear";
+    type?: "yellow" | "clear" | "white-clear" | "coral";
+    shape?: "rounded" | "circle";
     size?: "sm" | "lg";
     disabled?: boolean;
 }>();
@@ -24,12 +25,32 @@ const emit = defineEmits<{
 }>();
 
 
-const { title, href, type = "clear", size = "sm", disabled = false } = props;
+const { title, href, type = "clear", size = "sm", disabled = false, shape = "rounded" } = props;
 
-let baseStyles = "capitalize flex flex-row gap-2 items-center justify-center px-3 py-1 text-base touch-manipulation";
+let baseStyles = "capitalize flex flex-row gap-2 items-center justify-center touch-manipulation";
 
 if (size == "lg") {
-    baseStyles = "capitalize flex items-center justify-center text-xl p-3 min-w-[50px] touch-manipulation"
+    baseStyles += " text-xl "
+} else {
+    baseStyles += " text-base "
+}
+
+if (shape == "rounded") {
+    if (size == "lg") {
+        baseStyles += " py-3 px-5 "
+    } else {
+        baseStyles += " py-1 px-3 "
+    }
+}
+
+if (shape == "circle") {
+    baseStyles += " aspect-square "
+
+    if (size == "lg") {
+        baseStyles += " p-3 min-w-[30px] min-h-[30px]"
+    } else {
+        baseStyles += " p-4 min-w-[20px] min-h-[20px]"
+    }
 }
 
 if (!disabled) {
@@ -44,6 +65,8 @@ if (type == "yellow") {
     borderStyles = "rounded-full text-gray-800 bg-yellow-400"
 } else if (type == "white-clear") {
     borderStyles = "rounded-full border border-white text-white"
+} else if (type == "coral") {
+    borderStyles = "rounded-full bg-coral text-white"
 }
 
 if (disabled) {

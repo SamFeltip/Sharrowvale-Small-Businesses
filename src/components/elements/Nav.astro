@@ -15,7 +15,7 @@ import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
     </div>
 
     <ScreenWidth>
-        <div class="hidden w-full items-center justify-between pt-8 lg:flex">
+        <div class="hidden w-full items-end justify-between pt-8 lg:flex">
             <a href="/">
                 <img
                     src={LOGO_URL_DARK}
@@ -25,7 +25,7 @@ import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
                 />
             </a>
 
-            <div class="internal-links flex gap-8 text-white">
+            <div class="internal-links flex items-center gap-8 text-white">
                 <a
                     href="/tags/sharrow-vale-market"
                     class="mb-0 mt-0 font-lato text-xl font-light">The Market</a
@@ -46,7 +46,7 @@ import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
                     <form
                         action="/search"
                         method="GET"
-                        class="mb-2 flex flex-row items-center gap-2"
+                        class="mb-1 flex flex-row items-center gap-2"
                     >
                         <button id="nav-search" class="flex">
                             <svg

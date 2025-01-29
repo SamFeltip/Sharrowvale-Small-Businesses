@@ -1,7 +1,7 @@
 <!-- SearchBox.vue -->
 <template>
     <div class="mx-auto px-4 w-full flex flex-col items-center gap-4" id="search-box-wrapper">
-        <div class="gap-4 mb-4 w-full" id="search-box">
+        <div class="gap-4 mb-4 w-full max-w-[960px]" id="search-box">
             <div class="flex flex-row items-center w-full border-b border-gray-400 ">
                 <div class="text-gray-600">
                     <faSearch />
