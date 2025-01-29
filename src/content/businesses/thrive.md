@@ -52,9 +52,9 @@ Our expert team provides tailored physiotherapy treatments for pain, leakage/inc
 
 We offer:
 
--   Pain Rehabilitation Physiotherapy: Get you moving pain free again.
--   Pelvic Floor Rehabilitation: Restore strength and function with targeted exercises.
--   Bladder Concern Management: Address incontinence and regain control.
--   Lymphatic Drainage Massage: Reduce swelling and improve circulation.
--   Pelvic Strength Class: Boost your pelvic floor strength, core strength, confidence, and overall health through a mix of breath work, body weight strength and high-intensity training.
--   Experience compassionate, personalised physiotherapy care at Thrive Physiotherapy and start living fearlessly once more!
+- Pain Rehabilitation Physiotherapy: Get you moving pain free again.
+- Pelvic Floor Rehabilitation: Restore strength and function with targeted exercises.
+- Bladder Concern Management: Address incontinence and regain control.
+- Lymphatic Drainage Massage: Reduce swelling and improve circulation.
+- Pelvic Strength Class: Boost your pelvic floor strength, core strength, confidence, and overall health through a mix of breath work, body weight strength and high-intensity training.
+- Experience compassionate, personalised physiotherapy care at Thrive Physiotherapy and start living fearlessly once more!

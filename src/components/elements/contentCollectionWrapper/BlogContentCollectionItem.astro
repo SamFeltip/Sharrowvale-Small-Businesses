@@ -14,16 +14,16 @@ const positionClass = `text-${position}`;
 
 <style>
     section :global(h2) {
-        @apply capitalize font-merriweather text-coral leading-6 text-center text-xl md:text-2xl lg:text-3xl font-normal;
+        @apply text-center font-merriweather text-xl font-normal capitalize leading-6 text-coral md:text-2xl lg:text-3xl;
     }
 
     section :global(h3) {
-        @apply font-merriweather text-lg mb-2;
+        @apply mb-2 font-merriweather text-lg;
     }
 
     section :global(p),
     section :global(td) {
-        @apply font-lato font-light leading-6 no-underline mb-3 text-base;
+        @apply mb-3 font-lato text-base font-light leading-6 no-underline;
     }
 
     section :global(p) {

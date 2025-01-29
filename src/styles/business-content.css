@@ -20,7 +20,6 @@ section {
     }
 
     :global(h2) {
-
         + table tr :last-child {
             text-align: right;
         }

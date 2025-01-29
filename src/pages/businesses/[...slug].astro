@@ -144,7 +144,7 @@ const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
             </section>
 
             <section>
-                <div class="flex flex-row flex-wrap gap-5 justify-center">
+                <div class="flex flex-row flex-wrap justify-center gap-5">
                     {
                         instagramLink && (
                             <Button size="lg" href={instagramLink}>
@@ -189,7 +189,7 @@ const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
                 {
                     promoTags && (
                         <div class="flex flex-col items-center">
-                            <div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
+                            <div class="mt-4 flex w-[60%] flex-wrap justify-center gap-2">
                                 {promoTags.map((tag) => (
                                     <Button
                                         href={
@@ -212,7 +212,7 @@ const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
 
             <section>
                 <a
-                    class="underline text-center flex justify-center"
+                    class="flex justify-center text-center underline"
                     href="/categories/directory"
                 >
                     Back to results
@@ -222,7 +222,7 @@ const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
             <Section pagefindIgnore={true}>
                 <H2 color="coral" position="center">Similar listings</H2>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
                     {similarPlaceCards.map((ap) => <PlaceCardGrid {...ap} />)}
                 </div>
             </Section>

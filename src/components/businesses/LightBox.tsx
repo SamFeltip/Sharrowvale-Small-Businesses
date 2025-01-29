@@ -22,18 +22,18 @@ export default function LightBox({ slides }: { slides: SlideImage[] }) {
         <>
             <div
                 id="lightbox-preview-grid"
-                className="w-full grid grid-cols-1 md:grid-cols-[1fr_150px] gap-4"
+                className="grid w-full grid-cols-1 gap-4 md:grid-cols-[1fr_150px]"
             >
                 <img
-                    className="cursor-pointer rounded-xl md:rounded-3xl w-full h-[400px] object-cover"
+                    className="h-[400px] w-full cursor-pointer rounded-xl object-cover md:rounded-3xl"
                     src={slides[0].src}
                     alt=""
                     onClick={openOnIndex(0)}
                 />
-                <div className="flex flex-row md:flex-col gap-4 md:h-[400px] overflow-y-scroll">
+                <div className="flex flex-row gap-4 overflow-y-scroll md:h-[400px] md:flex-col">
                     {slides.slice(1).map((slide, index) => (
                         <img
-                            className="cursor-pointer object-cover rounded-xl md:rounded-3xl h-[100px]"
+                            className="h-[100px] cursor-pointer rounded-xl object-cover md:rounded-3xl"
                             src={slide.src}
                             alt=""
                             key={index}

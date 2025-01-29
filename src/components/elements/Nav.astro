@@ -15,7 +15,7 @@ import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
     </div>
 
     <ScreenWidth>
-        <div class="hidden lg:flex w-full pt-8 justify-between items-center">
+        <div class="hidden w-full items-center justify-between pt-8 lg:flex">
             <a href="/">
                 <img
                     src={LOGO_URL_DARK}
@@ -25,28 +25,28 @@ import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
                 />
             </a>
 
-            <div class="internal-links gap-8 flex text-white">
+            <div class="internal-links flex gap-8 text-white">
                 <a
                     href="/tags/sharrow-vale-market"
-                    class="font-lato font-light text-xl mt-0 mb-0">The Market</a
+                    class="mb-0 mt-0 font-lato text-xl font-light">The Market</a
                 >
                 <a
                     href="/categories/directory"
-                    class="font-lato font-light text-xl mt-0 mb-0">Directory</a
+                    class="mb-0 mt-0 font-lato text-xl font-light">Directory</a
                 >
                 <a
                     href="/articles"
-                    class="font-lato font-light text-xl mt-0 mb-0"
+                    class="mb-0 mt-0 font-lato text-xl font-light"
                     >News & Updates</a
                 >
-                <a href="/join" class="font-lato font-light text-xl mt-0 mb-0"
+                <a href="/join" class="mb-0 mt-0 font-lato text-xl font-light"
                     >About</a
                 >
                 <div class="border-b border-white">
                     <form
                         action="/search"
                         method="GET"
-                        class="flex flex-row items-center gap-2 mb-2"
+                        class="mb-2 flex flex-row items-center gap-2"
                     >
                         <button id="nav-search" class="flex">
                             <svg
@@ -73,7 +73,7 @@ import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
                             id="nav-search"
                             name="search"
                             type="text"
-                            class="bg-transparent text-white placeholder-white focus:outline-none text-xl font-light"
+                            class="bg-transparent text-xl font-light text-white placeholder-white focus:outline-none"
                             placeholder="Search"
                         />
                     </form>

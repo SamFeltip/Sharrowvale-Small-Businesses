@@ -13,9 +13,9 @@ const { image, title, description, Content }: Props = Astro.props;
 ---
 
 <header
-    class="relative w-full h-[650px] lg:h-[700px] xl:h-[950px] overflow-hidden"
+    class="relative h-[650px] w-full overflow-hidden lg:h-[700px] xl:h-[950px]"
 >
-    <div class="absolute top-0 left-0 right-0 z-10">
+    <div class="absolute left-0 right-0 top-0 z-10">
         <Nav />
     </div>
     <Image
@@ -24,13 +24,7 @@ const { image, title, description, Content }: Props = Astro.props;
         class="absolute inset-0 h-full object-cover"
         width={2500}
     />
-    <div
-        class="bg-black/40
-        absolute
-        inset-0
-        z-[5]
-        40"
-    >
+    <div class="40 absolute inset-0 z-[5] bg-black/40">
         <ScreenWidth>
             <Content title={title} description={description} />
         </ScreenWidth>

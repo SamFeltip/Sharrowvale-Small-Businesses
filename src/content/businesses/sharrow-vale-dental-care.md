@@ -54,12 +54,12 @@ Our professional dentists and supporting team combine a modern approach to denti
 The team are all highly experienced and you are greeted with a friendly, pleasant and sympathetic atmosphere.
 We offer a range of general and advanced services, including but not limited to:
 
--   Dental Hygine
--   Childrens Dentistry
--   Fillings
--   Dental Extraction
--   Mouth guards
--   Dentures
--   Crowns
+- Dental Hygine
+- Childrens Dentistry
+- Fillings
+- Dental Extraction
+- Mouth guards
+- Dentures
+- Crowns
 
 NHS and private patients welcome, more information on our website.
