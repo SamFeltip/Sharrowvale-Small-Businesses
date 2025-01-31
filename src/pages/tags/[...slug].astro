@@ -12,7 +12,6 @@ import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
 import { getPromotedTagsFromBusiness } from "@/scripts/tags/promotedTags";
 import { getCollection, getEntries, type CollectionEntry } from "astro:content";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
-import H1 from "@/components/elements/headers/H1.astro";
 
 export async function getStaticPaths() {
     const tag: CollectionEntry<"tags">[] = await getCollection("tags");
@@ -22,9 +21,9 @@ export async function getStaticPaths() {
     }));
 }
 
-type Props = CollectionEntry<"tags">;
+type TagProps = CollectionEntry<"tags">;
 
-const entry: Props = Astro.props;
+const entry: TagProps = Astro.props;
 const { name, description, bannerImage, promotedBusinesses } = entry.data;
 
 if (bannerImage == null) {
@@ -40,12 +39,17 @@ const promoBusinesses = await getEntries(promotedBusinesses);
 const promoBusinessPlaceCards =
     await getPlaceCardsFromBusinesses(promoBusinesses);
 
-const tags = await getCollection("tags", (tag) => !tag.data.isVisible);
+const tags: TagProps[] = await getCollection(
+    "tags",
+    (tag: TagProps) => !tag.data.isVisible
+);
 
 const hiddenTagNames = tags.map((tag) => tag.data.name);
 
-const businesses = await getCollection("businesses", ({ data }) =>
-    data.tags.map((tag) => tag.slug).includes(entry.slug)
+const businesses: CollectionEntry<"business">[] = await getCollection(
+    "businesses",
+    (business: CollectionEntry<"business">) =>
+        business.data.tags.map((tag: TagProps) => tag.slug).includes(entry.slug)
 );
 
 const promotedTags: CollectionEntry<"tags">[] =
