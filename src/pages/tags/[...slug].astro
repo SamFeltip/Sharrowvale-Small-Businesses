@@ -41,15 +41,14 @@ const promoBusinessPlaceCards =
 
 const tags: TagProps[] = await getCollection(
     "tags",
-    (tag: TagProps) => !tag.data.isVisible
+    (tag) => !tag.data.isVisible
 );
 
 const hiddenTagNames = tags.map((tag) => tag.data.name);
 
-const businesses: CollectionEntry<"business">[] = await getCollection(
+const businesses: CollectionEntry<"businesses">[] = await getCollection(
     "businesses",
-    (business: CollectionEntry<"business">) =>
-        business.data.tags.map((tag: TagProps) => tag.slug).includes(entry.slug)
+    (business) => business.data.tags.map((tag) => tag.slug).includes(entry.slug)
 );
 
 const promotedTags: CollectionEntry<"tags">[] =
