@@ -162,6 +162,32 @@ if (yearEstablished !== null) {
             </section>
 
             <section>
+                {
+                    promoTags && (
+                        <div class="flex flex-col items-center">
+                            <div class="mt-4 flex flex-wrap justify-center gap-2">
+                                {promoTags.map((tag) => (
+                                    <Button
+                                        type="hover-coral"
+                                        href={
+                                            tag.data.isVisible
+                                                ? `/tags/${tag.slug}`
+                                                : undefined
+                                        }
+                                        data-pagefind-filter="tags"
+                                    >
+                                        {tag.data.name}
+                                    </Button>
+                                ))}
+                            </div>
+                        </div>
+                    )
+                }
+                <div class="hidden" data-pagefind-filter="category:Directory">
+                </div>
+            </section>
+
+            <section>
                 <div class="flex flex-row flex-wrap justify-center gap-5">
                     {
                         instagramLink && (
@@ -211,31 +237,7 @@ if (yearEstablished !== null) {
                 </div>
             </section>
 
-            <section>
-                {
-                    promoTags && (
-                        <div class="flex flex-col items-center">
-                            <div class="mt-4 flex flex-wrap justify-center gap-2">
-                                {promoTags.map((tag) => (
-                                    <Button
-                                        type="hover-coral"
-                                        href={
-                                            tag.data.isVisible
-                                                ? `/tags/${tag.slug}`
-                                                : undefined
-                                        }
-                                        data-pagefind-filter="tags"
-                                    >
-                                        {tag.data.name}
-                                    </Button>
-                                ))}
-                            </div>
-                        </div>
-                    )
-                }
-                <div class="hidden" data-pagefind-filter="category:Directory">
-                </div>
-            </section>
+            
 
             <Section pagefindIgnore={true}>
                 <H2 color="coral" position="center">Similar listings</H2>
