@@ -27,3 +27,4 @@ There's a collection of businesses, charities, and not-for-profit organisations 
 ![christmas market](@/assets/images/articles/christmas-market-2024/christmas-market-2024.jpeg)
 
 The Christmas market is held by the Sharrow Vale Community Association (SVCA) every December.
+
