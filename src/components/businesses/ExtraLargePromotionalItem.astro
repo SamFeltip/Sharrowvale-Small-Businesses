@@ -1,0 +1,62 @@
+---
+import HoverArticle from "../elements/articles/HoverArticle.vue";
+import type { PlaceCard } from "../placeCards/PlaceCard";
+import H3 from "../elements/headers/H3.vue";
+import H4 from "../elements/headers/H4.vue";
+
+interface Props {
+    card: PlaceCard;
+    className?: string;
+    position?: "start" | "end";
+}
+
+const { card, position = "start", className = "" } = Astro.props;
+---
+
+<HoverArticle
+    classList="relative w-full h-full overflow-hidden group"
+    outerClassList={className}
+    href={card.href}
+>
+    {
+        (
+            <img
+                src={card.image}
+                alt={card.title}
+                class="absolute inset-0 h-full w-full rounded-2xl object-cover"
+            />
+        )
+    }
+
+    <div
+        class="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+    >
+    </div>
+
+    <div
+        class="absolute bottom-0 right-0 w-full p-6 text-right"
+        id="card-content"
+    >
+        <H3 color="white" position="end" classList="text-2xl">{card.title}</H3>
+        <p id="card-text" class="text-sm text-white/90 md:text-base">
+            {card.content}
+        </p>
+    </div>
+</HoverArticle>
+
+<style>
+    #card-content {
+        container-name: card-content;
+        container-type: inline-size;
+    }
+
+    #card-text {
+        display: none;
+    }
+
+    @container (min-width: 300px) {
+        #card-text {
+            display: block;
+        }
+    }
+</style>

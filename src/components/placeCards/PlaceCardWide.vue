@@ -4,9 +4,10 @@
             <img v-if="image" :src="image" :alt="title" class="w-full object-cover rounded-lg h-52" />
             <div class="search-result-body w-full overflow-hidden flex flex-col text-ellipsis">
                 <div class="tag-list">
-                    <a v-for="(tag, index) in tags" :key="index" class="text-coral text-sm font-merriweather font-bold">
+                    <span v-for="(tag, index) in tags" :key="index"
+                        class="text-coral text-sm font-merriweather font-bold">
                         {{ tag.name }}
-                    </a>
+                    </span>
                 </div>
                 <H3 class="md:text-2xl" weight="medium" :color="color">
                     {{ title }}
@@ -27,6 +28,10 @@ import type { PlaceCard } from "./PlaceCard";
 const props = defineProps<PlaceCard>();
 
 const { image, title, content, tags, href, lightContent, color = "black" } = props;
+
+tags?.forEach(tag => {
+    console.log(tag)
+});
 
 const croppedLightContent = lightContent && lightContent.slice(0, 180) + (lightContent.length > 180 ? "..." : "");
 

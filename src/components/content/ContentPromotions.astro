@@ -1,5 +1,6 @@
 ---
 import LargePromotionalItem from "../businesses/LargePromotionalItem.astro";
+import ExtraLargePromotionalItem from "../businesses/ExtraLargePromotionalItem.astro";
 import type { PlaceCard } from "../placeCards/PlaceCard";
 
 type Props = {
@@ -25,7 +26,7 @@ const secondaryItems = promotionPlaceCards.slice(1, 4);
     ]}
 >
     {/* Primary promotional item - spans full height */}
-    <LargePromotionalItem
+    <ExtraLargePromotionalItem
         card={primaryItem}
         position="start"
         className="md:row-span-3"

@@ -1,5 +1,5 @@
 <template>
-    <a :href="href" :class=outerClassList>
+    <a :href :class=outerClassList>
         <article :class="`${classList} hover:scale-[1.02] transition-transform duration-300 cursor-pointer`">
             <slot></slot>
         </article>
