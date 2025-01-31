@@ -4,5 +4,5 @@ heroImage: ../../assets/images/tags/cafe/heroImage.jpeg
 isPage: false
 relatedTags: []
 promotedBusinesses: []
-name: Cafe
+name: Coffee
 ---

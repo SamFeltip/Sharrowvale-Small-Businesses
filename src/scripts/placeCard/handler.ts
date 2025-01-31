@@ -3,6 +3,8 @@ import { getImageHelper } from "@scripts/images/getImageHelper";
 import { getTagPreviews } from "@scripts/tags/getPreview";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
+import formatBody from "@scripts/content/formatBody";
+import type { TagPreview } from "../tags/preview";
 
 export async function getPlaceCardsFromArticles(
     articles: CollectionEntry<"articles">[],
@@ -16,11 +18,14 @@ export async function getPlaceCardsFromArticles(
 
             const tagPreviews = getTagPreviews(collectionTags, item.data);
 
+            const itemBody = formatBody(item.body);
+
             return {
                 title: item.data.name,
                 image: imageUrl,
                 tags: tagPreviews,
-                lightContent: item.data.description,
+                content: item.data.description,
+                lightContent: itemBody,
                 href: `/articles/${item.slug}`,
                 datetime: item.data.dateTime
                     ? new Date(item.data.dateTime)
@@ -40,13 +45,16 @@ export async function getPlaceCardsFromBusinesses(
         businesses.map(async (item) => {
             let imageUrl = await getImageHelper(item.data.heroImage, imgWidth);
 
-            const tagPreviews = getTagPreviews(collectionTags, item.data);
+            const tagPreviews: TagPreview[] = getTagPreviews(
+                collectionTags,
+                item.data
+            );
 
             return {
                 title: item.data.name,
                 image: imageUrl,
                 tags: tagPreviews,
-                content: item.data.description,
+                content: item.data.preview,
                 href: `/businesses/${item.slug}`,
             };
         })

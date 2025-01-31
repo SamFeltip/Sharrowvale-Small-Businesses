@@ -22,7 +22,7 @@ const { image, title, content, href } = item;
                     alt={title}
                     width={600}
                     height={500}
-                    class="w-full rounded-lg object-cover md:max-w-[400px]"
+                    class="w-full rounded-xl object-cover md:max-w-[400px]"
                     format="avif"
                 />
             )
@@ -31,7 +31,7 @@ const { image, title, content, href } = item;
         <div class="flex w-full flex-col items-start gap-4 p-4">
             <H2 classList="hidden md:block" color="coral">{title}</H2>
             <slot />
-            <Button href={href}>
+            <Button size="lg" href={href}>
                 {content}
             </Button>
         </div>

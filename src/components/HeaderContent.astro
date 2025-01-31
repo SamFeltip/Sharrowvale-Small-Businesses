@@ -6,9 +6,12 @@ import Section from "@/components/elements/Section.astro";
 type Props = {
     title: string;
     description?: string;
+
+    headerTop?: string[];
+    headerBottom?: string[];
 };
 
-const { title, description } = Astro.props;
+const { title, description, headerTop, headerBottom } = Astro.props;
 ---
 
 <div
@@ -16,19 +19,36 @@ const { title, description } = Astro.props;
     data-pagefind-body
 >
     <Section floatIn={true}>
+        {
+            headerTop && (
+                <MonoBody
+                    size="small"
+                    data-pagefind-meta="content[data-src]"
+                    data-pagefind-body
+                >
+                    {headerTop.map((text) => (
+                        <span>{text}</span>
+                    ))}
+                </MonoBody>
+            )
+        }
+
         <H1 color="white" position="center" font="crimson">
             <span data-pagefind-meta="title" data-pagefind-sort="title">
                 {title}
             </span>
         </H1>
         {
-            description && (
+            headerBottom && (
                 <MonoBody
+                    classList="flex gap-3 justify-center "
                     size="small"
                     data-pagefind-meta="content[data-src]"
                     data-pagefind-body
                 >
-                    {description}
+                    {headerBottom.map((text) => (
+                        <span>{text}</span>
+                    ))}
                 </MonoBody>
             )
         }

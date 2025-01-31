@@ -37,6 +37,10 @@ const sortedCategoryPlaceCards = sortByIndex(
     categoryPlaceCards,
     promotedCategories
 );
+
+sortedCategoryPlaceCards.forEach(
+    (placeCard) => (placeCard.content = undefined)
+);
 ---
 
 <Section direction="column" floatIn={true}>

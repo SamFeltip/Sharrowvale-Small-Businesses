@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-coralLight rounded-xl p-2 px-4 text-center flex flex-col gap-2">
+    <div class="bg-coral-light rounded-xl p-2 px-4 text-center flex flex-col gap-2">
         <h4 class="font-merriweather text-white text-2xl">
             {{ callToAction }}
         </h4>

@@ -18,8 +18,11 @@ export default {
         },
         extend: {
             colors: {
-                coral: "#e86868",
-                coralLight: "#eb7e7b",
+                coral: {
+                    DEFAULT: "#e86868",
+                    light: "#eb7e7b",
+                    dark: "#a84b48",
+                },
                 cream: "#fdfae9",
                 gray: { 800: "#252525" },
                 border: "hsl(var(--border))",

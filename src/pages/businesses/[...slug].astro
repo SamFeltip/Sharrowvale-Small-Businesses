@@ -23,10 +23,6 @@ import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
 import BlogContentCollectionItem from "@/components/elements/contentCollectionWrapper/BlogContentCollectionItem.astro";
 import Section from "@/components/elements/Section.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
-import type {
-    GenericCollectionEntry,
-    PlaceCardRef,
-} from "@/components/placeCards/PlaceCardRef";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
@@ -48,7 +44,9 @@ const {
     heroImage,
     streetAddress,
     additionalImages,
+    yearEstablished,
     tags,
+    openDaysStatement,
     websiteLink,
     facebookLink,
     instagramLink,
@@ -72,19 +70,27 @@ const businesses: CollectionEntry<"businesses">[] =
 function similarTags(a: CollectionEntry<"businesses">) {
     const categorySlugs = new Set(tags.map((tag) => tag.slug));
 
-    return a.data.tags.filter((item) => categorySlugs.has(item.slug)).length;
+    return a.data.tags.filter((item) => categorySlugs.has(item.slug));
 }
 
 function similarCategories(
     a: CollectionEntry<"businesses">,
     b: CollectionEntry<"businesses">
 ) {
-    return similarTags(a) - similarTags(b);
+    return similarTags(b).length - similarTags(a).length;
 }
 
-const similarListings = businesses.sort(similarCategories).slice(0, 3);
+const similarListings = businesses.sort(similarCategories).slice(1, 4);
 
 const similarPlaceCards = await getPlaceCardsFromBusinesses(similarListings);
+
+similarPlaceCards.forEach(
+    (placeCard) =>
+        (placeCard.content =
+            placeCard.content && placeCard.content.length > 120
+                ? placeCard.content?.substring(0, 120) + "..."
+                : placeCard.content)
+);
 
 const heroImageResult = await getImage({
     src: heroImage,
@@ -96,12 +102,24 @@ const heroImageSrc = heroImageResult.src;
 const tagEntries: CollectionEntry<"tags">[] = await getEntries(tags);
 
 const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
+
+const headerBottom = [];
+
+if (openDaysStatement !== null) {
+    headerBottom.push(openDaysStatement);
+}
+
+if (yearEstablished !== null) {
+    headerBottom.push(`Est. ${yearEstablished}`);
+}
 ---
 
 <ContentLayout
     image={bannerImage}
     title={name}
     description={preview}
+    headerTop={[tagEntries[0].data.name]}
+    headerBottom={headerBottom}
     HeaderContent={HeaderContent}
 >
     <ScreenWidth>
@@ -147,7 +165,11 @@ const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
                 <div class="flex flex-row flex-wrap justify-center gap-5">
                     {
                         instagramLink && (
-                            <Button size="lg" href={instagramLink}>
+                            <Button
+                                shape="circle"
+                                size="lg"
+                                href={instagramLink}
+                            >
                                 <span>
                                     <FontAwesomeIcon
                                         className="h-5 w-5"
@@ -160,7 +182,7 @@ const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
 
                     {
                         websiteLink && (
-                            <Button size="lg" href={websiteLink}>
+                            <Button shape="circle" size="lg" href={websiteLink}>
                                 <span>
                                     <FontAwesomeIcon
                                         className="h-5 w-5"
@@ -172,7 +194,11 @@ const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
                     }
                     {
                         facebookLink && (
-                            <Button size="lg" href={facebookLink}>
+                            <Button
+                                shape="circle"
+                                size="lg"
+                                href={facebookLink}
+                            >
                                 <span>
                                     <FontAwesomeIcon
                                         className="h-5 w-5"
@@ -189,9 +215,10 @@ const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
                 {
                     promoTags && (
                         <div class="flex flex-col items-center">
-                            <div class="mt-4 flex w-[60%] flex-wrap justify-center gap-2">
+                            <div class="mt-4 flex flex-wrap justify-center gap-2">
                                 {promoTags.map((tag) => (
                                     <Button
+                                        type="hover-coral"
                                         href={
                                             tag.data.isVisible
                                                 ? `/tags/${tag.slug}`
@@ -210,6 +237,16 @@ const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
                 </div>
             </section>
 
+            <Section pagefindIgnore={true}>
+                <H2 color="coral" position="center">Similar listings</H2>
+
+                <div
+                    class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+                >
+                    {similarPlaceCards.map((ap) => <PlaceCardGrid {...ap} />)}
+                </div>
+            </Section>
+
             <section>
                 <a
                     class="flex justify-center text-center underline"
@@ -218,14 +255,6 @@ const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
                     Back to results
                 </a>
             </section>
-
-            <Section pagefindIgnore={true}>
-                <H2 color="coral" position="center">Similar listings</H2>
-
-                <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-                    {similarPlaceCards.map((ap) => <PlaceCardGrid {...ap} />)}
-                </div>
-            </Section>
         </article>
     </ScreenWidth>
 </ContentLayout>

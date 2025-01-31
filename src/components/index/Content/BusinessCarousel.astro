@@ -10,6 +10,11 @@ import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 const businesses = await getCollection("businesses");
 
 const businessPlaceCards = await getPlaceCardsFromBusinesses(businesses);
+
+businessPlaceCards.forEach(
+    (placeCard) =>
+        (placeCard.content = placeCard.tags && placeCard.tags[0].name)
+);
 ---
 
 <Section direction="column">

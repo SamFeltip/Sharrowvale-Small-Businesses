@@ -12,6 +12,8 @@ type Props = {
     description?: string;
     title: string;
     classList?: string;
+    headerTop?: string[];
+    headerBottom?: string[];
     HeaderContent: (_props: any) => JSX.Element;
 };
 
@@ -22,6 +24,8 @@ const {
     HeaderContent,
     title,
     classList,
+    headerTop,
+    headerBottom,
 }: Props = Astro.props;
 ---
 
@@ -33,11 +37,12 @@ const {
         <Header
             image={image}
             title={title}
-            description={description}
+            headerTop={headerTop}
+            headerBottom={headerBottom}
             Content={HeaderContent}
         />
 
-        <main class="py-8 md:py-16">
+        <main class="pb-20 pt-8 md:pt-16">
             <slot />
         </main>
 

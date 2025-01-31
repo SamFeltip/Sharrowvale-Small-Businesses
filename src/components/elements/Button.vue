@@ -14,7 +14,7 @@ import { defineProps } from "vue";
 const props = defineProps<{
     title?: string;
     href?: string;
-    type?: "yellow" | "clear" | "white-clear" | "coral";
+    type?: "yellow" | "clear" | "white-clear" | "coral" | "hover-coral";
     shape?: "rounded" | "circle";
     size?: "sm" | "lg";
     disabled?: boolean;
@@ -59,18 +59,22 @@ if (!disabled) {
     baseStyles += " cursor-default"
 }
 
-let borderStyles = "rounded-full border border-gray-500 text-gray-800"
+let borderStyles = "rounded-full"
 
 if (type == "yellow") {
-    borderStyles = "rounded-full text-gray-800 bg-yellow-400"
+    borderStyles += " text-gray-800 bg-yellow-400"
 } else if (type == "white-clear") {
-    borderStyles = "rounded-full border border-white text-white"
+    borderStyles += " border border-white text-white"
 } else if (type == "coral") {
-    borderStyles = "rounded-full bg-coral text-white"
+    borderStyles += " bg-coral text-white"
+} else if (type == "hover-coral") {
+    borderStyles += " border border-gray-500 text-gray-800 hover:border-coral-dark hover:bg-coral hover:text-white"
+} else {
+    borderStyles += " border border-gray-500 text-gray-800"
 }
 
 if (disabled) {
-    borderStyles = "rounded-full bg-gray-400"
+    borderStyles += " bg-gray-400"
 }
 
 </script>

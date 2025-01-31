@@ -6,6 +6,8 @@
 
         <div class="absolute bottom-0 w-full p-3">
             <H4 color="white" :position>{{ card.title }}</H4>
+
+            <SerifBody position="end" color="white">{{ card.content }}</SerifBody>
         </div>
     </HoverArticle>
 </template>
@@ -14,6 +16,7 @@
 import HoverArticle from '../elements/articles/HoverArticle.vue';
 import type { PlaceCard } from './PlaceCard';
 import H4 from '../elements/headers/H4.vue';
+import SerifBody from '../elements/body/SerifBody.vue';
 
 const props = withDefaults(defineProps<{ position: "start" | "end", card: PlaceCard }>(), {
     position: "start"

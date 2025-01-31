@@ -1,6 +1,6 @@
 ---
 bannerImage: "@/assets/images/articles/christmas-market-2024/bannerImage.jpeg"
-heroImage: ../../assets/images/tags/clothing/hero.jpg
+heroImage: "@/assets/images/articles/christmas-market-2024/heroImage.jpeg"
 isPage: true
 relatedTags: []
 promotedBusinesses: []

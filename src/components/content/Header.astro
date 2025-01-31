@@ -6,10 +6,15 @@ type Props = {
     image: ImageMetadata;
     title: string;
     description?: string;
+
+    headerTop?: string[];
+    headerBottom?: string[];
+
     Content: (_props: any) => JSX.Element;
 };
 
-const { image, title, description, Content }: Props = Astro.props;
+const { image, title, description, headerTop, headerBottom, Content }: Props =
+    Astro.props;
 ---
 
 <header
@@ -26,7 +31,12 @@ const { image, title, description, Content }: Props = Astro.props;
     />
     <div class="40 absolute inset-0 z-[5] bg-black/40">
         <ScreenWidth>
-            <Content title={title} description={description} />
+            <Content
+                title={title}
+                description={description}
+                headerTop={headerTop}
+                headerBottom={headerBottom}
+            />
         </ScreenWidth>
     </div>
 </header>
