@@ -16,7 +16,10 @@ const businessCollection = defineCollection({
 });
 
 const articleCollection = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./articles" }),
+    loader: glob({
+        pattern: "**/*.{md,mdx}",
+        base: "./articles",
+    }),
 
     schema: articleSchema,
 });
@@ -31,7 +34,10 @@ const categoryCollection = defineCollection({
 });
 
 const tagCollection = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./tags" }),
+    loader: glob({
+        pattern: "**/*.{md,mdx}",
+        base: "./tags",
+    }),
 
     // Type-check frontmatter using a schema
     schema: tagSchema,
