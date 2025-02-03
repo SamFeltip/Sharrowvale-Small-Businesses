@@ -21,7 +21,7 @@ import P from "@/components/elements/body/P.vue";
 import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
 import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
 import BlogContentCollectionItem from "@/components/elements/contentCollectionWrapper/BlogContentCollectionItem.astro";
-import Section from "@/components/elements/Section.astro";
+import Section from "@/components/elements/articles/FloatSection.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 
 export async function getStaticPaths() {
@@ -236,8 +236,6 @@ if (yearEstablished !== null) {
                     }
                 </div>
             </section>
-
-            
 
             <Section pagefindIgnore={true}>
                 <H2 color="coral" position="center">Similar listings</H2>

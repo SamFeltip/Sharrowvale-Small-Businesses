@@ -1,0 +1,17 @@
+---
+type Props = {
+    gap: number;
+    mediumGap: number | undefined;
+    direction: "row" | "column";
+    id: string;
+};
+
+const { id, gap, mediumGap, direction = "column" }: Props = Astro.props;
+
+const gapClasses = `gap-${gap} md:gap-${mediumGap ?? gap}`;
+const directionClasses = direction === "row" ? "flex-row" : "flex-col";
+---
+
+<article id={id} class:list={["flex", gapClasses, directionClasses]}>
+    <slot />
+</article>
