@@ -12,6 +12,8 @@ import vue from "@astrojs/vue";
 export default defineConfig({
     experimental: {
         contentCollectionCache: false,
+        contentIntellisense: true,
+        contentLayer: true,
     },
     site: "https://www.sharrowvale.co.uk",
     integrations: [
