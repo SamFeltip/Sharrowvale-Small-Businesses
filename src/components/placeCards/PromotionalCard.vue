@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import HoverSection from '../elements/articles/HoverSection.vue';
+import HoverSection from '@/components/elements/sections/HoverSection.vue';
 import type { PlaceCard } from './PlaceCard';
 import H4 from '../elements/headers/H4.vue';
 import SerifBody from '../elements/body/SerifBody.vue';

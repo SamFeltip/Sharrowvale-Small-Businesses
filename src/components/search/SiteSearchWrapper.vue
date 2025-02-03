@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import H3 from "@/components/elements/headers/H3.vue"
 
-import Section from "@/components/elements/articles/FloatSection.vue";
+import Section from "@/components/elements/sections/FloatSection.vue";
 import SearchCarousel from "./SearchCarousel.vue";
 import SearchBox from "./SearchBox.vue";
 import SearchResults from "./SearchResults.vue";

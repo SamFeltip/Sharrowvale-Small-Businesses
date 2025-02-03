@@ -47,7 +47,7 @@
 import faSearch from "@/components/icons/faSearch.vue";
 import { onMounted, ref, watchEffect, type Ref } from "vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
-import Section from "@/components/elements/articles/FloatSection.vue";
+import Section from "@/components/elements/sections/FloatSection.vue";
 import SearchCarousel from "./SearchCarousel.vue";
 import SearchResults from "./SearchResults.vue";
 import SearchResultTags from "./SearchResultTags.vue";

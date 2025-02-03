@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import HoverSection from "../elements/articles/HoverSection.vue";
+import HoverSection from "@/components/elements/sections/HoverSection.vue";
 import P from "../elements/body/P.vue";
 import H3 from "../elements/headers/H3.vue";
 import type { PlaceCard } from "./PlaceCard";

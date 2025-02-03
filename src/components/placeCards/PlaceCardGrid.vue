@@ -19,7 +19,7 @@ import type { PlaceCard } from "./PlaceCard.d.ts";
 
 import H4 from "../elements/headers/H4.vue";
 import P from "../elements/body/P.vue";
-import HoverSection from "../elements/articles/HoverSection.vue";
+import HoverSection from "@/components/elements/sections/HoverSection.vue";
 
 const props = defineProps<PlaceCard>();
 
