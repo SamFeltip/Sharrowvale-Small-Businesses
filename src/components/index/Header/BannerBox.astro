@@ -1,5 +1,5 @@
 ---
-import HoverArticle from "@/components/elements/articles/HoverArticle.vue";
+import HoverSection from "@/components/elements/articles/HoverSection.vue";
 import SerifBody from "@/components/elements/body/SerifBody.astro";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,7 +17,7 @@ const { iconDef, text, href, classList, animationDelay = 0 } = Astro.props;
 const transitionDelay = `${animationDelay}ms`;
 ---
 
-<HoverArticle href={href} outerClassList={classList}>
+<HoverSection href={href} outerClassList={classList}>
     <div
         id="banner-box"
         class="flex animate-appear flex-col items-center justify-center text-white opacity-0"
@@ -32,7 +32,7 @@ const transitionDelay = `${animationDelay}ms`;
             <SerifBody color="white" position="center">{text}</SerifBody>
         </div>
     </div>
-</HoverArticle>
+</HoverSection>
 
 <style define:vars={{ transitionDelay }}>
     #banner-box {

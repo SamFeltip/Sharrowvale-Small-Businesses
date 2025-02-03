@@ -1,5 +1,5 @@
 <template>
-    <HoverArticle :href="href">
+    <HoverSection :href="href">
         <div class="flex flex-col rounded-lg overflow-hidden">
             <img v-if="image" :src="image" :alt="title" class="w-full h-56 object-cover rounded-lg" />
             <div class="w-full pt-2">
@@ -9,7 +9,7 @@
                 <P>{{ content }}</P>
             </div>
         </div>
-    </HoverArticle>
+    </HoverSection>
 </template>
 
 
@@ -19,7 +19,7 @@ import type { PlaceCard } from "./PlaceCard.d.ts";
 
 import H4 from "../elements/headers/H4.vue";
 import P from "../elements/body/P.vue";
-import HoverArticle from "../elements/articles/HoverArticle.vue";
+import HoverSection from "../elements/articles/HoverSection.vue";
 
 const props = defineProps<PlaceCard>();
 

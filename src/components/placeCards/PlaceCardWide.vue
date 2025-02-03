@@ -1,5 +1,5 @@
 <template>
-    <HoverArticle :href="href">
+    <HoverSection :href="href">
         <div class="search-result-wide w-full grid rounded-lg text-ellipsis">
             <img v-if="image" :src="image" :alt="title" class="w-full object-cover rounded-lg h-52" />
             <div class="search-result-body w-full overflow-hidden flex flex-col text-ellipsis">
@@ -16,11 +16,11 @@
                 <P weight="light" class="hidden md:block text-ellipsis text-sm">{{ croppedLightContent }}</P>
             </div>
         </div>
-    </HoverArticle>
+    </HoverSection>
 </template>
 
 <script setup lang="ts">
-import HoverArticle from "../elements/articles/HoverArticle.vue";
+import HoverSection from "../elements/articles/HoverSection.vue";
 import P from "../elements/body/P.vue";
 import H3 from "../elements/headers/H3.vue";
 import type { PlaceCard } from "./PlaceCard";

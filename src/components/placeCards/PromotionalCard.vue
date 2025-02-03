@@ -1,5 +1,5 @@
 <template>
-    <HoverArticle :href="card.href" classList="relative w-full h-full">
+    <HoverSection :href="card.href" classList="relative w-full h-full">
         <img :src="card.image" :alt="card.title" class="absolute inset-0 w-full h-full object-cover rounded-2xl" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 rounded-2xl to-transparent">
         </div>
@@ -9,11 +9,11 @@
 
             <SerifBody position="end" color="white">{{ card.content }}</SerifBody>
         </div>
-    </HoverArticle>
+    </HoverSection>
 </template>
 
 <script lang="ts" setup>
-import HoverArticle from '../elements/articles/HoverArticle.vue';
+import HoverSection from '../elements/articles/HoverSection.vue';
 import type { PlaceCard } from './PlaceCard';
 import H4 from '../elements/headers/H4.vue';
 import SerifBody from '../elements/body/SerifBody.vue';

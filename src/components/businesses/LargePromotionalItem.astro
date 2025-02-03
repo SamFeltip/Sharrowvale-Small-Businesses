@@ -1,5 +1,5 @@
 ---
-import HoverArticle from "../elements/articles/HoverArticle.vue";
+import HoverSection from "../elements/articles/HoverSection.vue";
 import type { PlaceCard } from "../placeCards/PlaceCard";
 import H3 from "../elements/headers/H3.vue";
 import H4 from "../elements/headers/H4.vue";
@@ -13,7 +13,7 @@ interface Props {
 const { card, position = "start", className = "" } = Astro.props;
 ---
 
-<HoverArticle
+<HoverSection
     classList="relative w-full h-full overflow-hidden group"
     outerClassList={className}
     href={card.href}
@@ -42,7 +42,7 @@ const { card, position = "start", className = "" } = Astro.props;
             {card.content}
         </p>
     </div>
-</HoverArticle>
+</HoverSection>
 
 <style>
     #card-content {
