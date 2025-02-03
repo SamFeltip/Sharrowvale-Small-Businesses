@@ -21,11 +21,30 @@ import PromotedCategory from "@/components/index/Content/PromotedCategory.astro"
     pagefindIgnore={true}
 >
     <div class="flex flex-col gap-20 md:gap-40">
-        <CategoryCarousel />
+        <CategoryCarousel
+            title="Independent Businesses"
+            promotedCategories={[
+                "food-and-drink",
+                "art-and-design",
+                "cafe",
+                "lunch",
+                "pubs-and-bars",
+                "restaurant",
+                "healthcare",
+            ]}
+        />
         <ScreenWidth classList="flex flex-col gap-20 md:gap-40">
             <InfoForLocals />
             <!-- when we have more content, we can add this component -->
-            <Spotlight />
+            <Spotlight
+                title="BusinessSpotlight"
+                slugs={[
+                    "dyson-place",
+                    "made-in-sheffield",
+                    "new-to-the-area",
+                    "events",
+                ]}
+            />
             <LatestNews />
             <SharrowValeMarket />
         </ScreenWidth>

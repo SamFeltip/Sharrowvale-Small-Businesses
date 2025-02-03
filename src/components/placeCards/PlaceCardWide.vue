@@ -9,7 +9,7 @@
                         {{ tag.name }}
                     </span>
                 </div>
-                <H3 class="md:text-2xl" weight="medium" :color="color">
+                <H3 weight="medium" :color="color">
                     {{ title }}
                 </H3>
                 <P class="py-1 font-normal">{{ content }}</P>
@@ -42,7 +42,7 @@ const croppedLightContent = lightContent && lightContent.slice(0, 180) + (lightC
     grid-template-columns: 1fr;
 
     & .tag-list {
-        display: none;
+        display: flex;
         gap: 0.75rem;
         padding-bottom: 0.5rem;
     }
@@ -56,11 +56,6 @@ const croppedLightContent = lightContent && lightContent.slice(0, 180) + (lightC
 @container (min-width: 550px) {
     .search-result-wide {
         grid-template-columns: 300px 1fr;
-
-        & .tag-list {
-            display: flex;
-        }
-
 
         & .search-result-body {
             padding-inline: 1rem;

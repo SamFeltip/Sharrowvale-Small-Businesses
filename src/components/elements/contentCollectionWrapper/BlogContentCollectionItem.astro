@@ -69,6 +69,10 @@ const positionClass = `text-${position}`;
         grid-area: open-hours;
     }
 
+    section :global(h2#open-hours + table td:first-child:not(:empty)::after) {
+        content: ":";
+    }
+
     section :global(h2#business-contact) {
         grid-area: business-contact-title;
     }

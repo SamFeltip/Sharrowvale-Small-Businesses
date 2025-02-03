@@ -10,15 +10,12 @@ import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
 import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 
-const promotedCategories = [
-    "food-and-drink",
-    "art-and-design",
-    "cafe",
-    "lunch",
-    "pubs-and-bars",
-    "restaurant",
-    "healthcare",
-];
+type Props = {
+    title: string;
+    promotedCategories: string[];
+};
+
+const { title, promotedCategories }: Props = Astro.props;
 
 const tags = await getCollection("tags");
 
@@ -45,7 +42,7 @@ sortedCategoryPlaceCards.forEach(
 
 <Section direction="column" floatIn={true}>
     <ScreenWidth>
-        <H2 color="coral" position="center"> Independent Businesses </H2>
+        <H2 color="coral" position="center"> {title} </H2>
     </ScreenWidth>
 
     <CarouselWrapper client:load items={sortedCategoryPlaceCards} />

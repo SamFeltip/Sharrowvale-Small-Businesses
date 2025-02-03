@@ -20,18 +20,7 @@ const promotionItems = await getPlaceCardsFromArticles(news.slice(0, 4));
             <Button href="/articles">See all posts</Button>
         </div>
         <div class="flex flex-col gap-3" id="news-items">
-            {
-                promotionItems.map((item) => (
-                    <PlaceCardWide
-                        image={item.image}
-                        title={item.title}
-                        content={item.content}
-                        lightContent={item.lightContent}
-                        tags={item.tags}
-                        href={item.href}
-                    />
-                ))
-            }
+            {promotionItems.map((item) => <PlaceCardWide {...item} />)}
         </div>
     </section>
 </Section>

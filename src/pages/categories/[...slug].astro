@@ -13,6 +13,7 @@ import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import type { GenericCollectionEntry } from "@/components/placeCards/PlaceCardRef";
+import { getPlaceCardsFromArticles } from "@/scripts/placeCard/handler";
 
 export async function getStaticPaths() {
     const category: CollectionEntry<"categories">[] =
@@ -39,6 +40,8 @@ const promotedItems = promoTags.map((tag) => ({
     collectionEntry: tag,
 }));
 
+const promoTagPlaceCards = await getPlaceCardsFromTags(promoTags);
+
 const searchCategoryCollection = [name];
 ---
 
@@ -50,7 +53,7 @@ const searchCategoryCollection = [name];
     classList="gap-8"
     pagefindIgnore={true}
 >
-    <ScreenWidth classList="md:gap-10 gap-6">
+    <ScreenWidth classList="md:gap-10 gap-8">
         <div class="flex flex-col items-center gap-4">
             <ContentCollectionItem>
                 <Content />
