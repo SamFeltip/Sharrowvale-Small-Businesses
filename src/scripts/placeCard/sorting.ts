@@ -8,7 +8,6 @@ export function sortByIndex(
     slugList: string[]
 ): PlaceCard[] {
     return placeCards.sort(
-        (a, b) =>
-            slugList.indexOf(a.slug ?? "") - slugList.indexOf(b.slug ?? "")
+        (a, b) => slugList.indexOf(a.id ?? "") - slugList.indexOf(b.id ?? "")
     );
 }

@@ -6,20 +6,22 @@ import HeaderContent from "@/components/HeaderContent.astro";
 
 import Section from "@/components/elements/sections/FloatSection.astro";
 
-import { getCollection, getEntries, type CollectionEntry } from "astro:content";
+import {
+    getCollection,
+    getEntries,
+    render,
+    type CollectionEntry,
+} from "astro:content";
 import ContentCollectionItem from "@/components/elements/contentCollectionWrapper/ContentCollectionItem.astro";
 import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
 import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
-import type { PlaceCard } from "@/components/placeCards/PlaceCard";
-import type { GenericCollectionEntry } from "@/components/placeCards/PlaceCardRef";
-import { getPlaceCardsFromArticles } from "@/scripts/placeCard/handler";
 
 export async function getStaticPaths() {
     const category: CollectionEntry<"categories">[] =
         await getCollection("categories");
     return category.map((category) => ({
-        params: { slug: category.slug },
+        params: { slug: category.id },
         props: category,
     }));
 }
@@ -28,21 +30,22 @@ type Props = CollectionEntry<"categories">;
 
 const entry: Props = Astro.props;
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
-const { name, description, bannerImage, isGridLayout, relatedTags } =
-    entry.data;
-
-const promoTags = await getEntries(relatedTags ?? []);
-
-const promotedItems = promoTags.map((tag) => ({
-    type: "tags",
-    collectionEntry: tag,
-}));
+const { name, description, bannerImage, isGridLayout } = entry.data;
 
 // const promoTagPlaceCards = await getPlaceCardsFromTags(promoTags);
 
 const searchCategoryCollection = [name];
+
+const categories = await getCollection("categories");
+
+const promotedItems = categories
+    .filter((category) => category.id.toLowerCase() !== name.toLowerCase())
+    .map((category) => ({
+        type: "categories",
+        collectionEntry: category,
+    }));
 ---
 
 <ContentLayout
@@ -68,14 +71,10 @@ const searchCategoryCollection = [name];
             />
         </Section>
 
-        {
-            promoTags.length > 0 && (
-                <PromotedTags
-                    title="Explore more Categories"
-                    promotedItems={promotedItems}
-                />
-            )
-        }
+        <PromotedTags
+            title="Explore more Categories"
+            promotedItems={promotedItems}
+        />
 
         {
             isGridLayout && (

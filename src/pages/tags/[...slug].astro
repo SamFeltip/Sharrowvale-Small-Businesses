@@ -10,13 +10,19 @@ import SearchWrapper from "@/components/search/SearchWrapper.vue";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
 import { getPromotedTagsFromBusiness } from "@/scripts/tags/promotedTags";
-import { getCollection, getEntries, type CollectionEntry } from "astro:content";
+import {
+    getCollection,
+    getEntries,
+    render,
+    type CollectionEntry,
+} from "astro:content";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
+import { RenderUndefinedEntryError } from "node_modules/astro/dist/core/errors/errors-data";
 
 export async function getStaticPaths() {
     const tag: CollectionEntry<"tags">[] = await getCollection("tags");
     return tag.map((business) => ({
-        params: { slug: business.slug },
+        params: { slug: business.id },
         props: business,
     }));
 }
@@ -30,7 +36,7 @@ if (bannerImage == null) {
     throw new Error("isPage tags must have banner images");
 }
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 // Promoted Businesses
 
@@ -48,7 +54,7 @@ const hiddenTagNames = tags.map((tag) => tag.data.name);
 
 const businesses: CollectionEntry<"businesses">[] = await getCollection(
     "businesses",
-    (business) => business.data.tags.map((tag) => tag.slug).includes(entry.slug)
+    (business) => business.data.tags.map((tag) => tag.id).includes(entry.id)
 );
 
 const promotedTags: CollectionEntry<"tags">[] =

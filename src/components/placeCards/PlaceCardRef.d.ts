@@ -4,7 +4,7 @@ export type PlaceCardRef = {
 };
 
 export type GenericCollectionEntry = {
-    slug: string;
+    id: string;
     data: {
         name: string;
         description?: string;

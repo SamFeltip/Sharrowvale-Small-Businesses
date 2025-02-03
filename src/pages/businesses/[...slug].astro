@@ -2,7 +2,7 @@
 // import "@/styles/business-content.css";
 
 import { getImage } from "astro:assets";
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import GoogleMap from "@/components/businesses/GoogleMap.astro";
 import LightBox from "@/components/businesses/LightBox.tsx";
 import type { SlideImage } from "yet-another-react-lightbox";
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
         await getCollection("businesses");
     return businesses.map((business) => ({
-        params: { slug: business.slug },
+        params: { id: business.id },
         props: business,
     }));
 }
@@ -52,7 +52,7 @@ const {
     instagramLink,
 } = entry.data;
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const slides: SlideImage[] = await Promise.all(
     additionalImages.map(async (slide: ImageMetadata) => {
@@ -68,9 +68,9 @@ const businesses: CollectionEntry<"businesses">[] =
     await getCollection("businesses");
 
 function similarTags(a: CollectionEntry<"businesses">) {
-    const categorySlugs = new Set(tags.map((tag) => tag.slug));
+    const categorySlugs = new Set(tags.map((tag) => tag.id));
 
-    return a.data.tags.filter((item) => categorySlugs.has(item.slug));
+    return a.data.tags.filter((item) => categorySlugs.has(item.id));
 }
 
 function similarCategories(
@@ -171,7 +171,7 @@ if (yearEstablished !== null) {
                                         type="hover-coral"
                                         href={
                                             tag.data.isVisible
-                                                ? `/tags/${tag.slug}`
+                                                ? `/tags/${tag.id}`
                                                 : undefined
                                         }
                                         data-pagefind-filter="tags"

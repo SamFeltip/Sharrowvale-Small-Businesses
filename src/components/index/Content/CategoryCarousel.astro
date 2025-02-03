@@ -20,7 +20,7 @@ const { title, promotedCategories }: Props = Astro.props;
 const tags = await getCollection("tags");
 
 const selectedCategories = tags.filter((tag) =>
-    promotedCategories.includes(tag.slug)
+    promotedCategories.includes(tag.id)
 );
 
 const categoryPlaceCardRefs: PlaceCardRef[] = getPlaceCardRefs(

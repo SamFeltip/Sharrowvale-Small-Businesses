@@ -5,7 +5,9 @@
 
         <SearchBox v-model:searchResults="searchResults" v-model:searchQuery="searchQuery"
             v-model:available-tags="availableTags" v-model:selectedTags="selectedTags" :isGridLayout
-            :requiredTag="requiredTag" :requiredCategories="requiredCategories" v-model:loading="loading" />
+            :requiredTag="requiredTag" :requiredCategories="requiredCategories" v-model:loading="loading">
+            <slot></slot>
+        </SearchBox>
 
         <Section :float-in="true" v-if="searchResults.length > 0">
             <H3 color="coral">Businesses</h3>
@@ -34,6 +36,7 @@ import SearchBox from "./SearchBox.vue";
 import SearchResults from "./SearchResults.vue";
 import SearchResultTags from "./SearchResultTags.vue";
 import Loader from "@/components/elements/Loader.vue";
+
 
 import { ref, watchEffect, type Ref } from "vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";

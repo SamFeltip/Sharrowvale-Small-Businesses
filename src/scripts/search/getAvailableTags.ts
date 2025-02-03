@@ -9,10 +9,10 @@ export function getAvailableTags(
     let tagEntries = Object.entries(tags) as [string, number][];
 
     const validTags = tagEntries.filter(
-        ([key, value]) => value > 0 && value < pagefindResults.results.length
+        ([_, value]) => value > 0 && value < pagefindResults.results.length
     );
 
     const sortedTags = validTags.sort((a, b) => b[1] - a[1]);
 
-    return sortedTags.map(([key, value]) => key);
+    return sortedTags.map(([key, _]) => key);
 }

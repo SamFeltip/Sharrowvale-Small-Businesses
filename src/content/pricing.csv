@@ -1,0 +1,3 @@
+id,name,description,priceSterling,frequency
+listing,Listing,Get a listing in the directory,25,one time
+promotion,Promotion,Get promoted across the site,3,monthly

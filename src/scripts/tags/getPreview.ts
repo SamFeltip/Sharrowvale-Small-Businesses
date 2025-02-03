@@ -3,7 +3,7 @@ import type { TagPreview } from "./preview";
 
 type TaggedEntity = {
     tags: {
-        slug: CollectionEntry<"tags">["slug"];
+        id: CollectionEntry<"tags">["id"];
     }[];
     name: string;
 };
@@ -18,12 +18,12 @@ export function getTagPreviews(
     entity: CollectionEntry<"tags">[],
     itemTagReferences: TaggedEntity
 ): TagPreview[] {
-    const itemTagNames = itemTagReferences.tags.map((tag) => tag.slug);
+    const itemTagNames = itemTagReferences.tags.map((tag) => tag.id);
 
-    const articleTags = entity.filter((tag) => itemTagNames.includes(tag.slug));
+    const articleTags = entity.filter((tag) => itemTagNames.includes(tag.id));
 
     const tagPreviews = articleTags.map((tag) => {
-        return { slug: tag.slug, name: tag.data.name };
+        return { id: tag.id, name: tag.data.name };
     });
     return tagPreviews;
 }

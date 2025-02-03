@@ -17,7 +17,7 @@ const { title, slugs }: Props = Astro.props;
 
 const categories: CollectionEntry<"categories">[] = await getCollection(
     "categories",
-    (category) => slugs.includes(category.slug)
+    (category) => slugs.includes(category.id)
 );
 
 const categoryItems: PlaceCardRef[] = getPlaceCardRefs(
@@ -27,7 +27,7 @@ const categoryItems: PlaceCardRef[] = getPlaceCardRefs(
 
 const tags: CollectionEntry<"tags">[] = await getCollection(
     "tags",
-    (category) => slugs.includes(category.slug)
+    (category) => slugs.includes(category.id)
 );
 
 const tagItems: PlaceCardRef[] = getPlaceCardRefs("tags", tags);

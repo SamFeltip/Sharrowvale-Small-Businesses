@@ -29,7 +29,7 @@ const upcomingEventPlaceCards: PlaceCard[] = eventPlaceCards.filter(
 // get every category except for the directory and events
 const searchCategoryCollection = await getCollection(
     "categories",
-    (category) => ["directory", "events"].includes(category.slug) == false
+    (category) => ["directory", "events"].includes(category.id) == false
 );
 
 const searchCategories = searchCategoryCollection.map(

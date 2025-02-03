@@ -11,9 +11,9 @@ import vue from "@astrojs/vue";
 // https://astro.build/config
 export default defineConfig({
     experimental: {
-        contentCollectionCache: false,
+        // contentCollectionCache: false,
         contentIntellisense: true,
-        contentLayer: true,
+        // contentLayer: true,
     },
     site: "https://www.sharrowvale.co.uk",
     integrations: [

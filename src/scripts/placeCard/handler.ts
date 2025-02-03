@@ -18,7 +18,7 @@ export async function getPlaceCardsFromArticles(
 
             const tagPreviews = getTagPreviews(collectionTags, item.data);
 
-            const itemBody = formatBody(item.body);
+            const itemBody = item.body ? formatBody(item.body) : undefined;
 
             return {
                 title: item.data.name,
@@ -26,7 +26,7 @@ export async function getPlaceCardsFromArticles(
                 tags: tagPreviews,
                 content: item.data.description,
                 lightContent: itemBody,
-                href: `/articles/${item.slug}`,
+                href: `/articles/${item.id}`,
                 datetime: item.data.dateTime
                     ? new Date(item.data.dateTime)
                     : null,
@@ -55,7 +55,7 @@ export async function getPlaceCardsFromBusinesses(
                 image: imageUrl,
                 tags: tagPreviews,
                 content: item.data.preview,
-                href: `/businesses/${item.slug}`,
+                href: `/businesses/${item.id}`,
             };
         })
     );
@@ -77,11 +77,11 @@ export async function getPlaceCards(
             );
 
             return {
-                slug: itemRef.collectionEntry.slug,
+                slug: itemRef.collectionEntry.id,
                 image: imageUrl,
                 title: itemRef.collectionEntry.data.name,
                 content: itemRef.collectionEntry.data.description,
-                href: `/${itemRef.type}/${itemRef.collectionEntry.slug}`,
+                href: `/${itemRef.type}/${itemRef.collectionEntry.id}`,
             } as PlaceCard;
         })
     );
