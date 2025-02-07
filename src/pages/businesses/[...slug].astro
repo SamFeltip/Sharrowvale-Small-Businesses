@@ -7,11 +7,6 @@ import GoogleMap from "@/components/businesses/GoogleMap.astro";
 import LightBox from "@/components/businesses/LightBox.tsx";
 import type { SlideImage } from "yet-another-react-lightbox";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { faLink } from "@fortawesome/free-solid-svg-icons/faLink";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
 import { getEntries } from "astro:content";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import HeaderContent from "@/components/HeaderContent.astro";
@@ -23,6 +18,7 @@ import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
 import BlogContentCollectionItem from "@/components/elements/contentCollectionWrapper/BlogContentCollectionItem.astro";
 import Section from "@/components/elements/sections/FloatSection.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
+import Socials from "@/components/businesses/Socials.astro";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
@@ -143,25 +139,25 @@ if (yearEstablished !== null) {
 
             <!-- correct: /_image?href=%2F%40fs%2FUsers%2Fsamfelton%2FDocuments%2FCode%2FPersonal%2FSharrowvale-Small-Businesses%2Fsrc%2Fassets%2Fimages%2Fbusinesses%2Fcask-and-keg%2Fhero.webp%3ForigWidth%3D3024%26origHeight%3D4032%26origFormat%3Dwebp&f=webp -->
 
-            <section>
+            <Section>
                 <P classList="text-xl" position="center">{description}</P>
-            </section>
+            </Section>
 
-            <section>
+            <Section>
                 <LightBox slides={slides} client:load />
-            </section>
+            </Section>
 
-            <section id="article-content-grid">
+            <Section id="article-content-grid">
                 <BlogContentCollectionItem>
                     <Content />
                 </BlogContentCollectionItem>
-            </section>
+            </Section>
 
-            <section>
+            <Section>
                 <GoogleMap address={streetAddress} title={name} />
-            </section>
+            </Section>
 
-            <section>
+            <Section>
                 {
                     promoTags && (
                         <div class="flex flex-col items-center">
@@ -185,57 +181,15 @@ if (yearEstablished !== null) {
                 }
                 <div class="hidden" data-pagefind-filter="category:Directory">
                 </div>
-            </section>
+            </Section>
 
-            <section>
-                <div class="flex flex-row flex-wrap justify-center gap-5">
-                    {
-                        instagramLink && (
-                            <Button
-                                shape="circle"
-                                size="lg"
-                                href={instagramLink}
-                            >
-                                <span>
-                                    <FontAwesomeIcon
-                                        className="h-5 w-5"
-                                        icon={faInstagram}
-                                    />
-                                </span>
-                            </Button>
-                        )
-                    }
-
-                    {
-                        websiteLink && (
-                            <Button shape="circle" size="lg" href={websiteLink}>
-                                <span>
-                                    <FontAwesomeIcon
-                                        className="h-5 w-5"
-                                        icon={faLink}
-                                    />
-                                </span>
-                            </Button>
-                        )
-                    }
-                    {
-                        facebookLink && (
-                            <Button
-                                shape="circle"
-                                size="lg"
-                                href={facebookLink}
-                            >
-                                <span>
-                                    <FontAwesomeIcon
-                                        className="h-5 w-5"
-                                        icon={faFacebook}
-                                    />
-                                </span>
-                            </Button>
-                        )
-                    }
-                </div>
-            </section>
+            <Section>
+                <Socials
+                    instagramLink={instagramLink}
+                    websiteLink={websiteLink}
+                    facebookLink={facebookLink}
+                />
+            </Section>
 
             <Section pagefindIgnore={true}>
                 <H2 color="coral" position="center">Similar listings</H2>
