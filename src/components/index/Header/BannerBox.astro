@@ -22,14 +22,16 @@ const transitionDelay = `${animationDelay}ms`;
         id="banner-box"
         class="flex animate-appear flex-col items-center justify-center text-white opacity-0"
     >
-        <div class="flex flex-col items-center justify-center gap-3">
+        <div class="flex flex-col items-center justify-center gap-4">
             <FontAwesomeIcon
                 icon={iconDef}
                 height={30}
                 width={30}
                 fontSize={30}
             />
-            <SerifBody color="white" position="center">{text}</SerifBody>
+            <SerifBody size="sm" color="white" position="center"
+                >{text}</SerifBody
+            >
         </div>
     </div>
 </HoverSection>

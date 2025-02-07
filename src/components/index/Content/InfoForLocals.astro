@@ -62,11 +62,11 @@ const placeCards = [
 <Section floatIn={true}>
     <H2 position="center" color="coral">Info for Locals</H2>
     <div class="flex justify-center">
-        <div class="grid w-full grid-cols-2 gap-8 xl:hidden">
+        <div class="grid w-full grid-cols-2 gap-4 md:gap-8 xl:hidden">
             {placeCards.slice(0, 4).map((item) => <PlaceCardGrid {...item} />)}
         </div>
 
-        <div class="hidden w-full grid-cols-3 gap-8 xl:grid">
+        <div class="hidden w-full grid-cols-3 gap-4 md:gap-8 xl:grid">
             {placeCards.slice(0, 3).map((item) => <PlaceCardGrid {...item} />)}
         </div>
     </div>

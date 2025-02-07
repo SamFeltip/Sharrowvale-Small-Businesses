@@ -14,7 +14,7 @@
     <!-- Carousel Navigation Buttons below -->
     <ScreenWidth>
       <div class="carousel-buttons flex justify-center gap-6 sm:gap-12 mt-4">
-        <div class="flex gap-4">
+        <div class="hidden md:flex gap-4">
           <Button title="previous" @click="goToPrevious" shape="circle" :type="type">
             <FontAwesomeIcon :icon="faChevronLeft" width="20" height="20" font-size="20" />
           </Button>
