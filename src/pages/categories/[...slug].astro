@@ -16,6 +16,7 @@ import ContentCollectionItem from "@/components/elements/contentCollectionWrappe
 import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
 import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
+import { PrinterIcon } from "lucide-vue-next";
 
 export async function getStaticPaths() {
     const category: CollectionEntry<"categories">[] =
@@ -46,6 +47,10 @@ const promotedItems = categories
         type: "categories",
         collectionEntry: category,
     }));
+
+const pricing = await getCollection("prices");
+
+const listingPromo = pricing.filter((price) => price.id === "listing")[0];
 ---
 
 <ContentLayout
@@ -68,6 +73,7 @@ const promotedItems = categories
                 client:only="vue"
                 requiredCategories={searchCategoryCollection}
                 isGridLayout={isGridLayout}
+                pricingPromotion={listingPromo}
             />
         </Section>
 
@@ -79,7 +85,7 @@ const promotedItems = categories
         {
             isGridLayout && (
                 <div class="flex flex-col items-center">
-                    <PromoBanner callToAction="Get listed on this site for only £20 a year" />
+                    <PromoBanner pricingPromotion={listingPromo} />
                 </div>
             )
         }

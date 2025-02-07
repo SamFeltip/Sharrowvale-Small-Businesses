@@ -66,6 +66,10 @@ const promotedItems: PlaceCardRef[] = promotedTags.map((tag) => ({
 }));
 
 const isGridLayout = businesses.length >= 9;
+
+const pricing = await getCollection("prices");
+
+const listingPromo = pricing.filter((price) => price.id === "listing")[0];
 ---
 
 <ContentLayout
@@ -97,6 +101,7 @@ const isGridLayout = businesses.length >= 9;
                 requiredTag={name}
                 isGridLayout={isGridLayout}
                 hiddenTags={hiddenTagNames}
+                pricingPromotion={listingPromo}
             />
         </Section>
         {
@@ -107,6 +112,6 @@ const isGridLayout = businesses.length >= 9;
                 />
             )
         }
-        {isGridLayout && <PromoBanner />}
+        {isGridLayout && <PromoBanner pricingPromotion={listingPromo} />}
     </ScreenWidth>
 </ContentLayout>

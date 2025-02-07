@@ -8,7 +8,14 @@ import ContentLayout from "@/layouts/ContentLayout.astro";
 
 import bannerImage from "@/assets/images/index/home/guest-road.jpg";
 import H2 from "@/components/elements/headers/H2.astro";
+import { getCollection } from "astro:content";
 const name = "Search";
+
+const pricing = await getCollection("prices");
+
+const advertisingPromotion = pricing.filter(
+    (price) => price.id === "promotion"
+)[0];
 ---
 
 <ContentLayout
@@ -27,6 +34,7 @@ const name = "Search";
                 requiredCategories={[]}
                 hiddenTags={["directory"]}
                 isGridLayout={true}
+                pricingPromotion={advertisingPromotion}
             />
         </Section>
     </ScreenWidth>

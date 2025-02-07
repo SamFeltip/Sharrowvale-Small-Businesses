@@ -53,7 +53,7 @@
             </div>
         </div>
         <div v-if="props.isGridLayout == false" class="flex flex-col items-center px-4">
-            <PromoBanner callToAction="Advertise on this site for only £20 a month" class="hidden lg:flex" />
+            <PromoBanner :pricingPromotion class="hidden lg:flex" />
         </div>
     </div>
 </template>
@@ -77,11 +77,13 @@ import FaSearch from '../icons/faSearch.vue';
 import { search } from '@/scripts/search/handleSearch';
 import type { PagefindResource } from '@/scripts/search/PagefindResource';
 import type { SearchOptionsConfig } from '@/scripts/search/PagefindSearchOptions';
+import type { CollectionEntry } from 'astro:content';
 
 const props = defineProps<{
     requiredTag?: string,
     requiredCategories: string[],
     isGridLayout: boolean,
+    pricingPromotion: CollectionEntry<"prices">;
 }>();
 
 let searchResults = defineModel<PagefindSearchResult[]>("searchResults", { required: true });

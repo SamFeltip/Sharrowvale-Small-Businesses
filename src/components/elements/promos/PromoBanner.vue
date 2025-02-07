@@ -1,20 +1,24 @@
 <template>
-    <div class="bg-coral-light rounded-xl p-2 px-4 text-center flex flex-col gap-2">
-        <h4 class="font-merriweather text-white text-2xl">
-            {{ callToAction }}
-        </h4>
-        <p class="text-base">
-            <a href="/join">
+    <HoverSection href="/join">
+        <div class="bg-coral-light rounded-xl p-2 px-4 text-center flex flex-col gap-2">
+            <h4 class="font-merriweather text-white text-2xl">
+                {{ pricingPromotion?.data?.description }}
+            </h4>
+            <p class="text-base">
                 FIND OUT MORE
-            </a>
-        </p>
-    </div>
+            </p>
+        </div>
+    </HoverSection>
 </template>
 <script setup lang="ts">
+import type { CollectionEntry } from 'astro:content';
+import HoverSection from '../sections/HoverSection.vue';
+
 
 const props = defineProps<{
-    callToAction?: string;
+    pricingPromotion: CollectionEntry<"prices">;
 }>();
 
-const callToAction = props.callToAction;
+const pricingPromotion = props.pricingPromotion;
+
 </script>

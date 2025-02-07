@@ -5,7 +5,8 @@
 
         <SearchBox v-model:searchResults="searchResults" v-model:searchQuery="searchQuery"
             v-model:available-tags="availableTags" v-model:selectedTags="selectedTags" :isGridLayout
-            :requiredTag="requiredTag" :requiredCategories="requiredCategories" v-model:loading="loading">
+            :requiredTag="requiredTag" :requiredCategories="requiredCategories" v-model:loading="loading"
+            :pricingPromotion>
             <slot></slot>
         </SearchBox>
 
@@ -41,12 +42,14 @@ import Loader from "@/components/elements/Loader.vue";
 import { ref, watchEffect, type Ref } from "vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
 import { getArticlesFromSearchResults, getTagsFromSearchResults } from "@/scripts/search/getFromSearchResults";
+import type { CollectionEntry } from "astro:content";
 
 const props = defineProps<{
     requiredTag?: string,
     requiredCategories: string[],
     isGridLayout: boolean,
-    hiddenTags?: string[]
+    hiddenTags?: string[],
+    pricingPromotion: CollectionEntry<"prices">;
 }>();
 
 const { requiredTag, isGridLayout, hiddenTags } = props;
