@@ -59,6 +59,7 @@
 </template>
 
 <script setup lang="ts">
+
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faArrowUpWideShort } from "@fortawesome/free-solid-svg-icons/faArrowUpWideShort"
 import { faArrowDownShortWide } from "@fortawesome/free-solid-svg-icons/faArrowDownShortWide"
@@ -106,6 +107,11 @@ let pagefind = ref<PagefindResource | null>(null); //inject('pagefind', ref(null
 
 const showFilters = ref(true);
 const sortAscending = ref(true);
+
+watch(availableTags, () => {
+    console.log(availableTags.length);
+    console.log(showFilters && availableTags.length > 0);
+})
 
 onMounted(async () => {
     loading.value = true;
@@ -197,25 +203,46 @@ function toggleFilters() {
 }
 
 #filter-header {
-    text-align: start;
+    text-align: center;
 }
 
 #filter-items-wrapper {
-    justify-content: start;
+    justify-content: center;
 }
 
-@container (min-width: 500px) {
+/* 500px + side margins of the mobile view: 2 x 1.5rem */
+/* container is small and screen is big */
+@media screen and (min-width: 547px) {
+
     #search-box {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 1fr;
     }
 
+
     #filter-items-wrapper {
-        justify-content: center;
+        justify-content: start;
     }
 
 
     #filter-header {
-        text-align: center;
+        text-align: start;
+    }
+
+    /* large container in a large screen */
+    @container (min-width: 500px) {
+
+        #search-box {
+            grid-template-columns: 1fr auto;
+        }
+
+        #filter-header {
+            text-align: center;
+        }
+
+        #filter-items-wrapper {
+            justify-content: center;
+        }
+
     }
 }
 </style>

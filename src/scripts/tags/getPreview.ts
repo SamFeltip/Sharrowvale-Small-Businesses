@@ -12,7 +12,7 @@ type TaggedEntity = {
  * given a collection,
  * @param tags all tags in the collection
  * @param itemTagReferences reference tags given from some article
- * @returns tag slugs and names
+ * @returns tag ids and names
  */
 export function getTagPreviews(
     entity: CollectionEntry<"tags">[],

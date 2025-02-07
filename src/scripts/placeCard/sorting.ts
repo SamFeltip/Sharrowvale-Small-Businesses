@@ -1,13 +1,13 @@
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 
 /**
- * Sorts the place cards by the order of a list of slugs
+ * Sorts the place cards by the order of a list of ids
  */
 export function sortByIndex(
     placeCards: PlaceCard[],
-    slugList: string[]
+    idList: string[]
 ): PlaceCard[] {
     return placeCards.sort(
-        (a, b) => slugList.indexOf(a.id ?? "") - slugList.indexOf(b.id ?? "")
+        (a, b) => idList.indexOf(a.id ?? "") - idList.indexOf(b.id ?? "")
     );
 }

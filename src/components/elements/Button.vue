@@ -18,6 +18,7 @@ const props = defineProps<{
     shape?: "rounded" | "circle";
     size?: "sm" | "lg";
     disabled?: boolean;
+    display?: string;
 }>();
 
 const emit = defineEmits<{
@@ -25,9 +26,9 @@ const emit = defineEmits<{
 }>();
 
 
-const { title, href, type = "clear", size = "sm", disabled = false, shape = "rounded" } = props;
+const { title, href, type = "clear", size = "sm", disabled = false, shape = "rounded", display = "flex" } = props;
 
-let baseStyles = "capitalize flex flex-row gap-2 items-center justify-center touch-manipulation";
+let baseStyles = `capitalize flex-row gap-2 items-center justify-center touch-manipulation text-center ${display}`;
 
 if (size == "lg") {
     baseStyles += " text-xl "

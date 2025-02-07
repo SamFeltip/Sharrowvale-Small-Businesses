@@ -7,20 +7,20 @@ export async function getPromotedTagsFromBusiness(
         .map((business) => business.data.tags)
         .flat();
 
-    const promotedTagSlugs = Array.from(
+    const promotedTagids = Array.from(
         new Set(businessTags.map((tag) => tag.id))
     );
 
-    const slugCounts = getTagAppearanceCounts(businessTags);
+    const idCounts = getTagAppearanceCounts(businessTags);
 
     const promotedTags = await getCollection(
         "tags",
-        (tag) => promotedTagSlugs.includes(tag.id) && tag.data.isVisible
+        (tag) => promotedTagids.includes(tag.id) && tag.data.isVisible
     );
 
     const output = promotedTags
-        .sort((a, b) => slugCounts[b.id] - slugCounts[a.id])
-        .filter((tag) => slugCounts[tag.id] < businesses.length);
+        .sort((a, b) => idCounts[b.id] - idCounts[a.id])
+        .filter((tag) => idCounts[tag.id] < businesses.length);
 
     console.log(businesses.length);
 

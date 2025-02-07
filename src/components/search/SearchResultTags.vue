@@ -24,14 +24,12 @@ watchEffect(async () => {
     tagPlaceCards.value = tags.value.map((tag) => ({
         type: "tags",
         collectionEntry: {
-            slug: tag.url.split("/")[2], // "/tags/pub/"
+            id: tag.url.split("/")[2], // "/tags/pub/"
             data: {
                 name: tag.meta.title,
             }
         } as GenericCollectionEntry,
     }));
-
-    console.log(tags.value);
 
 })
 

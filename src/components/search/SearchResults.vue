@@ -35,14 +35,14 @@ const props = defineProps<{
 const { color = "black" } = props;
 const searchResults = defineModel<PagefindSearchResult[]>("searchResults", { required: true });
 
-function getDisplayTags(result: PagefindSearchResult): { slug: string; name: string }[] {
+function getDisplayTags(result: PagefindSearchResult): { id: string; name: string }[] {
     const tags = result.filters?.tags || [];
 
     const tagValues = Object.values(tags);
 
     const filteredTags = tagValues.filter((tag: string) => tag !== props.tag && !props.hiddenTags?.includes(tag)).slice(0, 3);
 
-    return filteredTags.map((tag: string) => ({ slug: tag, name: tag }));
+    return filteredTags.map((tag: string) => ({ id: tag, name: tag }));
 }
 </script>
 

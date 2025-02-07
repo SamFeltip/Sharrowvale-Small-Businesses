@@ -77,7 +77,7 @@ export async function getPlaceCards(
             );
 
             return {
-                slug: itemRef.collectionEntry.id,
+                id: itemRef.collectionEntry.id,
                 image: imageUrl,
                 title: itemRef.collectionEntry.data.name,
                 content: itemRef.collectionEntry.data.description,
