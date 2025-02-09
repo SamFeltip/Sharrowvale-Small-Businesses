@@ -35,6 +35,12 @@ const searchCategoryCollection = await getCollection(
 const searchCategories = searchCategoryCollection.map(
     (category) => category.data.name
 );
+
+const pricing = await getCollection("prices");
+
+const advertisingPromotion = pricing.filter(
+    (price) => price.id === "promotion"
+)[0];
 ---
 
 <ContentLayout
@@ -54,6 +60,7 @@ const searchCategories = searchCategoryCollection.map(
                 client:only="vue"
                 requiredCategories={searchCategories}
                 isGridLayout={false}
+                pricingPromotion={advertisingPromotion}
             />
         </Section>
 
