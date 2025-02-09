@@ -28,6 +28,7 @@ def extract_section_content(content: str, section_name: str) -> str:
     match = re.search(pattern, content, re.DOTALL)
     return match.group(1) if match else ""
 
+
 def process_mdx_file(file_path: str) -> None:
     """Process MDX file and update its content."""
     try:
@@ -60,9 +61,9 @@ def process_mdx_file(file_path: str) -> None:
     open_hours = parse_table(extract_section_content(body, "Open Hours"))
     business_contacts = parse_table(extract_section_content(body, "Business Contact"))
 
-    # Add new fields to frontmatter
-    front_data['openHours'] = open_hours
-    front_data['businessContacts'] = business_contacts
+    # Convert tuples to lists to avoid !!python/tuple and add to frontmatter
+    front_data['openHours'] = [list(row) for row in open_hours]
+    front_data['businessContacts'] = [list(row) for row in business_contacts]
 
     # Remove the table sections from body using the corrected pattern
     body = re.sub(r'## Open Hours.*?(?=\n\n##|$)', '', body, flags=re.DOTALL)
@@ -72,7 +73,7 @@ def process_mdx_file(file_path: str) -> None:
     # Reconstruct the MDX file
     new_content = (
         '---\n' +
-        yaml.dump(front_data, allow_unicode=True, sort_keys=False) +
+        yaml.dump(front_data, allow_unicode=True, sort_keys=False, default_style='"', width=float("inf")) +
         '---\n' +
         body.strip() + '\n'
     )
@@ -83,6 +84,7 @@ def process_mdx_file(file_path: str) -> None:
             f.write(new_content)
     except Exception as e:
         print(f"Error writing to file {file_path}: {str(e)}")
+
 
 def process_directory(directory_path: str) -> None:
     """Process all MDX files in the given directory."""
