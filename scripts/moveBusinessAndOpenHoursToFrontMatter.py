@@ -24,7 +24,7 @@ def parse_table(content: str) -> List[Tuple[str, str]]:
 
 def extract_section_content(content: str, section_name: str) -> str:
     """Extract content between markdown headers."""
-    pattern = f"## {section_name}\n\n(.*?)(?=\n\n##|\z)"  # Fixed escape sequence
+    pattern = f"## {section_name}\n\n(.*?)(?=\n\n##|$)"  # Fixed regex pattern
     match = re.search(pattern, content, re.DOTALL)
     return match.group(1) if match else ""
 
@@ -64,9 +64,9 @@ def process_mdx_file(file_path: str) -> None:
     front_data['openHours'] = open_hours
     front_data['businessContacts'] = business_contacts
 
-    # Remove the table sections from body
-    body = re.sub(r'## Open Hours.*?(?=\n\n##|\z)', '', body, flags=re.DOTALL)
-    body = re.sub(r'## Business Contact.*?(?=\n\n##|\z)', '', body, flags=re.DOTALL)
+    # Remove the table sections from body using the corrected pattern
+    body = re.sub(r'## Open Hours.*?(?=\n\n##|$)', '', body, flags=re.DOTALL)
+    body = re.sub(r'## Business Contact.*?(?=\n\n##|$)', '', body, flags=re.DOTALL)
     body = re.sub(r'\n{3,}', '\n\n', body)  # Clean up excessive newlines
 
     # Reconstruct the MDX file
