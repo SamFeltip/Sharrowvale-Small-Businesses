@@ -41,11 +41,14 @@ def process_mdx_file(file_path: str) -> None:
     frontmatter = parts[1]
     body = parts[2]
 
+    # Remove quotes from frontmatter
+    frontmatter = re.sub(r':\s*"([^"]*)"', r': \1', frontmatter)
+
     # Extract and parse tables
     open_hours = parse_table(extract_section_content(body, "Open Hours"))
     business_contacts = parse_table(extract_section_content(body, "Business Contact"))
 
-    # Format the new sections
+    # Format the new sections with quotes in the arrays
     open_hours_section = "openHours:\n" + format_list_entries(open_hours)
     business_contacts_section = "\nbusinessContacts:\n" + format_list_entries(business_contacts)
 
