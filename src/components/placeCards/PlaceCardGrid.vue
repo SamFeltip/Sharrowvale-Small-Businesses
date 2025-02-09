@@ -1,7 +1,7 @@
 <template>
     <HoverSection :href="href">
         <div class="flex flex-col rounded-lg overflow-hidden">
-            <img v-if="image" :src="image" :alt="title" class="w-full h-56 object-cover rounded-lg" />
+            <img v-if="image" :src="image" :alt="title" class="aspect-[3/2] object-cover rounded-lg" />
             <div class="w-full pt-2">
                 <H4 weight="medium" :color="color">
                     {{ title }}

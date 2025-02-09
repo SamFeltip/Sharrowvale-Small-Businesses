@@ -3,8 +3,7 @@
         'w-full flex align-items gap-6 md:gap-10',
         flexDirection,
         classList,
-        animateClass && 'animate-appear',
-    ]" ref="sectionRef">
+        animateClass ? 'animate-appear' : ' translate-y-[-50px] opacity-0']" ref="sectionRef">
         <slot />
     </section>
 </template>
@@ -32,7 +31,6 @@ const flexDirection = computed(() =>
 let animateClass = ref(false);
 
 useIntersectionObserver(sectionRef, ([entry], observer) => {
-    console.log("intersection");
     animateClass.value = entry.isIntersecting;
 }, { root: null });
 </script>

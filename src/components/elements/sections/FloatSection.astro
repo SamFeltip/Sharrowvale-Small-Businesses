@@ -20,6 +20,7 @@ const flexDirection =
     data-pagefind-ignore={pagefindIgnore}
     id={id}
     class:list={[
+        floatIn ? "translate-y-[-50px] opacity-0" : "opacity-100",
         "align-items flex w-full gap-8",
         flexDirection,
         props.classList,

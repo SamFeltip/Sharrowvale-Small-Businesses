@@ -1,7 +1,7 @@
 <template>
     <HoverSection :href="href">
         <div class="search-result-wide w-full grid rounded-lg text-ellipsis">
-            <img v-if="image" :src="image" :alt="title" class="w-full object-cover rounded-lg h-52" />
+            <img v-if="image" :src="image" :alt="title" class="aspect-[3/2] object-cover rounded-lg" />
             <div class="search-result-body w-full overflow-hidden flex flex-col text-ellipsis">
                 <div class="tag-list">
                     <span v-for="(tag, index) in tags" :key="index"
