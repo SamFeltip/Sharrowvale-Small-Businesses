@@ -28,7 +28,7 @@ export async function getStaticPaths() {
     const article: CollectionEntry<"articles">[] =
         await getCollection("articles");
     return article.map((articles) => ({
-        params: { id: articles.id },
+        params: { slug: articles.id },
         props: articles,
     }));
 }
