@@ -1,0 +1,32 @@
+---
+import H3 from "@/components/elements/headers/H3.vue";
+import SerifBody from "../elements/body/SerifBody.astro";
+
+type Props = {
+    title?: string;
+    tableData: [string, string][];
+};
+
+const { title, tableData } = Astro.props;
+---
+
+<div class="flex flex-col gap-2">
+    {title && <H3 color="coral">{title}</H3>}
+
+    <table>
+        <tbody>
+            {
+                tableData.map(([key, value]) => (
+                    <tr>
+                        <td>
+                            <SerifBody>{key}:</SerifBody>
+                        </td>
+                        <td>
+                            <SerifBody>{value}:</SerifBody>
+                        </td>
+                    </tr>
+                ))
+            }
+        </tbody>
+    </table>
+</div>

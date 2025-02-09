@@ -54,8 +54,6 @@ const exampleData = [
 const pricingCollection = defineCollection({
     loader: file("src/content/pricing.csv", {
         parser: (text) => {
-            console.log(text);
-            console.log("***");
             return parseCsv(text, {
                 cast: true,
                 columns: true,

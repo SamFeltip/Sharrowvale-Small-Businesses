@@ -17,8 +17,6 @@ export function getTagsFromSearchResults(
 export function getArticlesFromSearchResults(
     searchResults: PagefindSearchResult[]
 ): PagefindSearchResult[] {
-    console.log(searchResults);
-
     const filteredResults = searchResults.filter((result) => {
         let categories = result.filters?.category;
 
@@ -32,8 +30,6 @@ export function getArticlesFromSearchResults(
 
         return isArticle;
     });
-
-    console.log(filteredResults);
 
     return Object.values(filteredResults);
 }

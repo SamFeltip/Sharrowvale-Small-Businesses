@@ -21,6 +21,7 @@ import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 import Socials from "@/components/businesses/Socials.astro";
 import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
+import Table from "@/components/businesses/table.astro";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
@@ -48,6 +49,8 @@ const {
     websiteLink,
     facebookLink,
     instagramLink,
+    businessContacts,
+    openHours,
 } = entry.data;
 
 const { Content } = await render(entry);
@@ -128,7 +131,7 @@ if (yearEstablished !== null) {
             </div>
         </div>
 
-        <article data-pagefind-body id="business-content">
+        <article data-pagefind-body id="business-content" class="grid">
             <div data-pagefind-sort="title" class="hidden">
                 <p>{name}</p>
             </div>
@@ -147,11 +150,12 @@ if (yearEstablished !== null) {
                 <LightBox slides={slides} client:load />
             </Section>
 
-            <Section
-                floatIn={true}
-                id="article-content-grid"
-                classList="contents"
-            >
+            <Section id="tables" floatIn={true}>
+                <Table title="Open hours" tableData={openHours} />
+                <Table title="Business Contacts" tableData={businessContacts} />
+            </Section>
+
+            <Section floatIn={true} id="article-content-grid">
                 <BlogContentCollectionItem>
                     <Content />
                 </BlogContentCollectionItem>
@@ -199,11 +203,6 @@ if (yearEstablished !== null) {
 </ContentLayout>
 
 <style>
-    /* class="flex flex-col gap-6 md:gap-10" */
-    :global(#business-content) {
-        display: grid;
-    }
-
     :global(#back-to-results) {
         grid-area: back-to-results;
     }
@@ -236,6 +235,10 @@ if (yearEstablished !== null) {
         grid-area: similar-listings;
     }
 
+    :global(#tables) {
+        grid-area: tables;
+    }
+
     :global(#business-content) {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -243,6 +246,7 @@ if (yearEstablished !== null) {
         grid-template-areas:
             "description"
             "images"
+            "tables"
             "article-content-grid"
             "map"
             "promoted-tags"
@@ -251,34 +255,17 @@ if (yearEstablished !== null) {
             "back-to-results";
     }
 
-    :global(h2#open-hours) {
-        grid-area: open-hours-title;
-    }
-
-    :global(h2#open-hours + table) {
-        grid-area: open-hours;
-    }
-    :global(h2#business-contact) {
-        grid-area: business-contact-title;
-    }
-
-    :global(h2#business-contact + table) {
-        grid-area: business-contact;
-    }
-
-    @media screen and (min-width: 640px) {
+    @media screen and (min-width: 768px) {
         :global(#business-content) {
             grid-template-columns: 1fr 2fr;
 
             grid-template-areas:
                 "map description"
                 "map images"
-                "open-hours-title article-content-grid"
-                "open-hours article-content-grid"
-                "business-contact-title article-content-grid"
-                "business-contact article-content-grid"
+                "tables images"
+                "tables article-content-grid"
                 "socials article-content-grid"
-                "promoted-tags promoted-tags"
+                ". promoted-tags"
                 "similar-listings similar-listings"
                 "back-to-results back-to-results";
         }

@@ -22,8 +22,6 @@ export async function getPromotedTagsFromBusiness(
         .sort((a, b) => idCounts[b.id] - idCounts[a.id])
         .filter((tag) => idCounts[tag.id] < businesses.length);
 
-    console.log(businesses.length);
-
     return output;
 }
 

@@ -22,8 +22,6 @@ export async function search(
 
     const results = await processResults(pagefindResults);
 
-    console.log(results);
-
     const tags = getFilterTags(pagefindResults, searchOptionsConfig);
 
     return [results, tags];
@@ -41,9 +39,6 @@ async function doSearch(
     if (searchQuery == "") {
         search = null;
     }
-
-    console.log(searchOptions);
-    console.log(search);
 
     const res = await pagefind.search(search, searchOptions);
     return res;
