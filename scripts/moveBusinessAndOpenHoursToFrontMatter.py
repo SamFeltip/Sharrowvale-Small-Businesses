@@ -41,8 +41,8 @@ def process_mdx_file(file_path: str) -> None:
     frontmatter = parts[1]
     body = parts[2]
 
-    # Remove quotes from frontmatter
-    frontmatter = re.sub(r':\s*"([^"]*)"', r': \1', frontmatter)
+    # Remove quotes only from non-numeric values in frontmatter
+    frontmatter = re.sub(r':\s*"([^"]*?[a-zA-Z]+[^"]*)"', r': \1', frontmatter)
 
     # Extract and parse tables
     open_hours = parse_table(extract_section_content(body, "Open Hours"))
