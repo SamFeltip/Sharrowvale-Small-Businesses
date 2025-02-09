@@ -56,10 +56,10 @@ def process_mdx_file(file_path: str) -> None:
     frontmatter_lines = frontmatter.strip().split('\n')
     new_frontmatter = '\n'.join(frontmatter_lines) + '\n\n' + open_hours_section + business_contacts_section + '\n'
 
-    # Remove the table sections from body
-    body = re.sub(r'## Open Hours.*?(?=\n\n##|$)', '', body, flags=re.DOTALL)
-    body = re.sub(r'## Business Contact.*?(?=\n\n##|$)', '', body, flags=re.DOTALL)
-    body = re.sub(r'\n{3,}', '\n\n', body)
+    # Remove only the specific table sections from body, preserving the rest
+    body = re.sub(r'## Open Hours\n\n\|[^#]*?\n\n', '\n', body, flags=re.DOTALL)
+    body = re.sub(r'## Business Contact\n\n\|[^#]*?\n\n', '\n', body, flags=re.DOTALL)
+    body = re.sub(r'\n{3,}', '\n\n', body)  # Clean up excessive newlines
 
     # Reconstruct the file
     new_content = '---\n' + new_frontmatter + '---\n' + body.strip() + '\n'
