@@ -14,6 +14,10 @@ export const businessSchema = ({ image }: { image: ImageFunction }) =>
 
         tags: z.array(reference("tags")),
 
+        openHours: z.array(z.tuple([z.string(), z.string()])),
+
+        businessContacts: z.array(z.tuple([z.string(), z.string()])),
+
         // Remaining fields
         streetAddress: z.string().nullable(), // Street address
         email: z.string().nullable(), // Email

@@ -19,6 +19,8 @@ import BlogContentCollectionItem from "@/components/elements/contentCollectionWr
 import Section from "@/components/elements/sections/FloatSection.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 import Socials from "@/components/businesses/Socials.astro";
+import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
+import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
@@ -99,6 +101,8 @@ const tagEntries: CollectionEntry<"tags">[] = await getEntries(tags);
 
 const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
 
+const promoTagRefs = getPlaceCardRefs("tags", promoTags);
+
 const headerBottom = [];
 
 if (openDaysStatement !== null) {
@@ -124,7 +128,7 @@ if (yearEstablished !== null) {
             </div>
         </div>
 
-        <article data-pagefind-body class="flex flex-col gap-6 md:gap-10">
+        <article data-pagefind-body id="business-content">
             <div data-pagefind-sort="title" class="hidden">
                 <p>{name}</p>
             </div>
@@ -135,55 +139,36 @@ if (yearEstablished !== null) {
                 class="hidden"
             />
 
-            <!--pagefind: /_astro/hero.BDRIXm_V_2rU2u7.webp -->
-
-            <!-- correct: /_image?href=%2F%40fs%2FUsers%2Fsamfelton%2FDocuments%2FCode%2FPersonal%2FSharrowvale-Small-Businesses%2Fsrc%2Fassets%2Fimages%2Fbusinesses%2Fcask-and-keg%2Fhero.webp%3ForigWidth%3D3024%26origHeight%3D4032%26origFormat%3Dwebp&f=webp -->
-
-            <Section floatIn={true}>
+            <Section floatIn={true} id="description">
                 <P classList="text-xl" position="center">{description}</P>
             </Section>
 
-            <Section floatIn={true}>
+            <Section floatIn={true} id="images">
                 <LightBox slides={slides} client:load />
             </Section>
 
-            <Section floatIn={true} id="article-content-grid">
+            <Section
+                floatIn={true}
+                id="article-content-grid"
+                classList="contents"
+            >
                 <BlogContentCollectionItem>
                     <Content />
                 </BlogContentCollectionItem>
             </Section>
 
-            <Section floatIn={true}>
+            <Section floatIn={true} id="map">
                 <GoogleMap address={streetAddress} title={name} />
             </Section>
 
-            <Section floatIn={true}>
-                {
-                    promoTags && (
-                        <div class="flex flex-col items-center">
-                            <div class="mt-4 flex flex-wrap justify-center gap-2">
-                                {promoTags.map((tag) => (
-                                    <Button
-                                        type="hover-coral"
-                                        href={
-                                            tag.data.isVisible
-                                                ? `/tags/${tag.id}`
-                                                : undefined
-                                        }
-                                        data-pagefind-filter="tags"
-                                    >
-                                        {tag.data.name}
-                                    </Button>
-                                ))}
-                            </div>
-                        </div>
-                    )
-                }
+            <Section floatIn={true} id="promoted-tags">
+                <PromotedTags promotedItems={promoTagRefs} />
+
                 <div class="hidden" data-pagefind-filter="category:Directory">
                 </div>
             </Section>
 
-            <Section floatIn={true}>
+            <Section floatIn={true} id="socials">
                 <Socials
                     instagramLink={instagramLink}
                     websiteLink={websiteLink}
@@ -191,7 +176,7 @@ if (yearEstablished !== null) {
                 />
             </Section>
 
-            <Section floatIn={true} pagefindIgnore={true}>
+            <Section floatIn={true} pagefindIgnore={true} id="similar-listings">
                 <H2 color="coral" position="center">Similar listings</H2>
 
                 <div
@@ -201,7 +186,7 @@ if (yearEstablished !== null) {
                 </div>
             </Section>
 
-            <Section floatIn={true}>
+            <Section floatIn={true} id="back-to-results">
                 <a
                     class="flex justify-center text-center underline"
                     href="/categories/directory"
@@ -212,3 +197,90 @@ if (yearEstablished !== null) {
         </article>
     </ScreenWidth>
 </ContentLayout>
+
+<style>
+    /* class="flex flex-col gap-6 md:gap-10" */
+    :global(#business-content) {
+        display: grid;
+    }
+
+    :global(#back-to-results) {
+        grid-area: back-to-results;
+    }
+
+    :global(#description) {
+        grid-area: description;
+    }
+
+    :global(#images) {
+        grid-area: images;
+    }
+
+    :global(#article-content-grid) {
+        grid-area: article-content-grid;
+    }
+
+    :global(#map) {
+        grid-area: map;
+    }
+
+    :global(#promoted-tags) {
+        grid-area: promoted-tags;
+    }
+
+    :global(#socials) {
+        grid-area: socials;
+    }
+
+    :global(#similar-listings) {
+        grid-area: similar-listings;
+    }
+
+    :global(#business-content) {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+
+        grid-template-areas:
+            "description"
+            "images"
+            "article-content-grid"
+            "map"
+            "promoted-tags"
+            "socials"
+            "similar-listings"
+            "back-to-results";
+    }
+
+    :global(h2#open-hours) {
+        grid-area: open-hours-title;
+    }
+
+    :global(h2#open-hours + table) {
+        grid-area: open-hours;
+    }
+    :global(h2#business-contact) {
+        grid-area: business-contact-title;
+    }
+
+    :global(h2#business-contact + table) {
+        grid-area: business-contact;
+    }
+
+    @media screen and (min-width: 640px) {
+        :global(#business-content) {
+            grid-template-columns: 1fr 2fr;
+
+            grid-template-areas:
+                "map description"
+                "map images"
+                "open-hours-title article-content-grid"
+                "open-hours article-content-grid"
+                "business-contact-title article-content-grid"
+                "business-contact article-content-grid"
+                "socials article-content-grid"
+                "promoted-tags promoted-tags"
+                "similar-listings similar-listings"
+                "back-to-results back-to-results";
+        }
+    }
+</style>

@@ -34,13 +34,13 @@ const positionClass = `text-${position}`;
 
 <style>
     section {
-        display: grid;
+        display: contents;
 
-        grid-template-areas:
+        /* grid-template-areas:
             "open-hours-title"
             "open-hours"
             "business-contact-title"
-            "business-contact";
+            "business-contact"; */
 
         grid-template-columns: 1fr;
     }
@@ -60,33 +60,33 @@ const positionClass = `text-${position}`;
         }
     }
 
-    section :global(h2#open-hours) {
+    /* section :global(h2#open-hours) {
         grid-area: open-hours-title;
         text-align: center;
     }
 
     section :global(h2#open-hours + table) {
         grid-area: open-hours;
-    }
+    } */
 
     section :global(h2#open-hours + table td:first-child:not(:empty)::after) {
         content: ":";
     }
 
-    section :global(h2#business-contact) {
+    /* section :global(h2#business-contact) {
         grid-area: business-contact-title;
     }
 
     section :global(h2#business-contact + table) {
         grid-area: business-contact;
-    }
+    } */
 
     section :global(table) {
         table-layout: auto;
         margin-bottom: 1rem;
     }
 
-    @media screen and (min-width: 768px) {
+    /* @media screen and (min-width: 768px) {
         section {
             grid-template-areas:
                 "open-hours-title . business-contact-title"
@@ -95,7 +95,7 @@ const positionClass = `text-${position}`;
             grid-template-columns: 1fr 0.5px 1fr;
             column-gap: 2rem;
         }
-    }
+    } */
 
     section::before {
         grid-area: spacer;

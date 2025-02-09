@@ -14,13 +14,17 @@ const promotionItems = await getPlaceCardsFromArticles(news.slice(0, 4));
 
 <Section floatIn={true}>
     <section class="grid gap-8 md:grid-cols-[300px_1fr] md:gap-12">
-        <div class="flex flex-col items-center gap-3 md:items-start">
-            <H2 classList="text-center md:text-start" color="coral"
-                >The latest news <wbr /> & updates</H2
-            >
-            <Button display="hidden md:flex" href="/articles"
-                >See all posts</Button
-            >
+        <div class="relative">
+            <div class="sticky top-[10%]">
+                <div class="flex flex-col items-center gap-3 md:items-start">
+                    <H2 classList="text-center md:text-start" color="coral"
+                        >The latest news <wbr /> & updates</H2
+                    >
+                    <Button display="hidden md:flex" href="/articles"
+                        >See all posts</Button
+                    >
+                </div>
+            </div>
         </div>
         <UnorderedList gap={3} id="news-items">
             {

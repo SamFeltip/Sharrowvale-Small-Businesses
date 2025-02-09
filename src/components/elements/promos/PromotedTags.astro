@@ -9,10 +9,18 @@ type Props = {
     title?: string;
 };
 
-const { promotedItems, title = "Discover more" } = Astro.props;
+const { promotedItems, title } = Astro.props;
+
+console.log(promotedItems);
 ---
 
 <Section floatIn={true}>
-    <H2 color="coral" position="center">{title}</H2>
+    {
+        title && (
+            <H2 color="coral" position="center">
+                {title}
+            </H2>
+        )
+    }
     <TagList tags={promotedItems} />
 </Section>
