@@ -1,5 +1,4 @@
 import type { PagefindSearchOutput } from "@/components/search/src/PagefindSearchResult";
-import type { PagefindSearchOptions } from "./PagefindSearchOptions";
 
 export function getAvailableTags(
     pagefindResults: PagefindSearchOutput

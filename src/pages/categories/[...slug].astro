@@ -6,17 +6,11 @@ import HeaderContent from "@/components/HeaderContent.astro";
 
 import Section from "@/components/elements/sections/FloatSection.astro";
 
-import {
-    getCollection,
-    getEntries,
-    render,
-    type CollectionEntry,
-} from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import ContentCollectionItem from "@/components/elements/contentCollectionWrapper/ContentCollectionItem.astro";
 import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
 import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
-import { PrinterIcon } from "lucide-vue-next";
 
 export async function getStaticPaths() {
     const category: CollectionEntry<"categories">[] =

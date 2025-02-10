@@ -17,7 +17,6 @@ import {
     type CollectionEntry,
 } from "astro:content";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
-import { RenderUndefinedEntryError } from "node_modules/astro/dist/core/errors/errors-data";
 
 export async function getStaticPaths() {
     const tag: CollectionEntry<"tags">[] = await getCollection("tags");

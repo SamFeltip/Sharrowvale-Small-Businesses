@@ -2,7 +2,6 @@
 import HoverSection from "@/components/elements/sections/HoverSection.vue";
 import type { PlaceCard } from "../placeCards/PlaceCard";
 import H3 from "../elements/headers/H3.vue";
-import H4 from "../elements/headers/H4.vue";
 
 interface Props {
     card: PlaceCard;
@@ -10,7 +9,7 @@ interface Props {
     position?: "start" | "end";
 }
 
-const { card, position = "start", className = "" } = Astro.props;
+const { card, className = "" } = Astro.props;
 ---
 
 <HoverSection

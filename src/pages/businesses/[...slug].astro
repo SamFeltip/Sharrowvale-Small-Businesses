@@ -10,7 +10,6 @@ import type { SlideImage } from "yet-another-react-lightbox";
 import { getEntries } from "astro:content";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import HeaderContent from "@/components/HeaderContent.astro";
-import Button from "@/components/elements/Button.vue";
 import H2 from "@/components/elements/headers/H2.astro";
 import P from "@/components/elements/body/P.vue";
 import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
@@ -21,8 +20,7 @@ import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 import Socials from "@/components/businesses/Socials.astro";
 import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
-import Table from "@/components/businesses/table.astro";
-import H3 from "@/components/elements/headers/H3.vue";
+import Tables from "@/components/businesses/Tables.astro";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
@@ -50,8 +48,6 @@ const {
     websiteLink,
     facebookLink,
     instagramLink,
-    businessContacts,
-    openHours,
 } = entry.data;
 
 const { Content } = await render(entry);
@@ -152,23 +148,7 @@ if (yearEstablished !== null) {
                 </Section>
 
                 <Section id="tables" floatIn={true} classList="hidden lg:flex">
-                    <div
-                        class="grid grid-flow-row grid-cols-1 grid-rows-[auto_1fr] gap-6"
-                    >
-                        <H3 classList="text-center lg:text-start" color="coral"
-                            >Open hours</H3
-                        >
-                        <Table tableData={openHours} tableClassList="" />
-                        <div class="lg:hidden"></div>
-                        <div class="h-full w-[0.1px] bg-black lg:hidden"></div>
-                        <H3 classList="text-center lg:text-start" color="coral"
-                            >Business Contacts</H3
-                        >
-                        <Table
-                            title="Business Contacts"
-                            tableData={businessContacts}
-                        />
-                    </div>
+                    <Tables {...entry.data} />
                 </Section>
 
                 <Section floatIn={true} id="socials">
@@ -195,25 +175,7 @@ if (yearEstablished !== null) {
                 <LightBox slides={slides} client:load />
             </Section>
             <Section id="tables" floatIn={true} classList="flex lg:hidden">
-                <div
-                    class="grid grid-flow-col grid-cols-[1fr_auto_1fr] grid-rows-[auto_1fr] gap-6"
-                >
-                    <H3
-                        position={{ default: "center", lg: "start" }}
-                        color="coral">Open hours</H3
-                    >
-                    <Table tableData={openHours} tableClassList="" />
-                    <div class="lg:hidden"></div>
-                    <div class="h-full w-[0.1px] bg-black lg:hidden"></div>
-                    <H3
-                        position={{ default: "center", lg: "start" }}
-                        color="coral">Business Contacts</H3
-                    >
-                    <Table
-                        title="Business Contacts"
-                        tableData={businessContacts}
-                    />
-                </div>
+                <Tables {...entry.data} />
             </Section>
             <Section floatIn={true} id="article-content-grid">
                 <BlogContentCollectionItem>
@@ -270,8 +232,9 @@ if (yearEstablished !== null) {
         grid-area: similar-listings;
     }
 
-    :global(#business-content) {
+    #business-content {
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto 1fr;
 
         grid-template-areas:
             "description"
@@ -284,7 +247,7 @@ if (yearEstablished !== null) {
     }
 
     @media screen and (min-width: 64rem) {
-        :global(#business-content) {
+        #business-content {
             grid-template-columns: 1fr 2fr;
 
             grid-template-areas:

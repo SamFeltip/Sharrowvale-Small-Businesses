@@ -1,4 +1,4 @@
-import { defineCollection, getCollection, reference, z } from "astro:content";
+import { defineCollection } from "astro:content";
 
 import { businessSchema } from "@/schemas/businesses";
 import { articleSchema } from "@/schemas/articles";

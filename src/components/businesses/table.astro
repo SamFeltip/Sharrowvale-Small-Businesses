@@ -1,14 +1,12 @@
 ---
-import H3 from "@/components/elements/headers/H3.vue";
 import P from "../elements/body/P.vue";
 
 type Props = {
-    title?: string;
     tableData: [string, string][];
     tableClassList?: string;
 };
 
-const { tableClassList, title, tableData } = Astro.props;
+const { tableClassList, tableData } = Astro.props;
 ---
 
 <div class="flex w-full flex-col gap-2">
