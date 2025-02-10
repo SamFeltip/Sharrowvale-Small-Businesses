@@ -21,7 +21,7 @@ const { videoId, videoDescription, signupDescription } = markdown.frontmatter;
 >
     <ScreenWidth classList="gap-8">
         <article data-pagefind-ignore="all">
-            <div class="grid gap-[40px] px-9">
+            <div class="grid px-9">
                 <section>
                     <div class="block md:hidden">
                         <YouTube
@@ -32,7 +32,7 @@ const { videoId, videoDescription, signupDescription } = markdown.frontmatter;
                         />
                     </div>
                     <div
-                        class="flex w-full max-w-screen-xl flex-col items-start gap-x-6 gap-y-6 rounded-b-2xl bg-white px-10 py-12 md:rounded-2xl"
+                        class="flex w-full max-w-screen-xl flex-col items-start gap-4 gap-x-6 rounded-b-2xl px-10"
                     >
                         <H2>Hey! 👋</H2>
                         <p>{videoDescription}</p>
@@ -47,12 +47,12 @@ const { videoId, videoDescription, signupDescription } = markdown.frontmatter;
                     </div>
                 </section>
 
-                <BlogContentCollectionItem>
+                <section id="blog-content">
                     <Content />
-                </BlogContentCollectionItem>
+                </section>
 
                 <section
-                    class="grid w-full max-w-screen-xl grid-cols-1 gap-x-6 gap-y-6 rounded-2xl bg-white px-10 py-12 md:grid-cols-2"
+                    class="grid w-full max-w-screen-xl grid-cols-1 gap-x-6 gap-y-6 rounded-2xl px-10 py-12 md:grid-cols-2"
                 >
                     <div>
                         <H2>Interested?</H2>
@@ -67,3 +67,28 @@ const { videoId, videoDescription, signupDescription } = markdown.frontmatter;
         </article>
     </ScreenWidth>
 </ContentLayout>
+
+<style>
+    #blog-content :global(img) {
+        @apply float-left m-6 w-[50%] rounded-xl;
+    }
+
+    #blog-content :global(h2) {
+        @apply mb-2 mt-[5.5rem] font-merriweather text-2xl font-normal capitalize leading-6 text-coral md:text-2xl lg:text-3xl;
+    }
+
+    #blog-content :global(h3) {
+        @apply mb-2 mt-[2.5rem] font-lato text-xl text-coral;
+    }
+
+    #blog-content :global(p),
+    #blog-content :global(li) {
+        @apply mb-5 mt-3 font-lato text-xl font-light leading-6 no-underline;
+    }
+
+    #blog-content :global(ul) {
+        list-style: circle;
+        grid-column: 1/-1;
+        margin-left: 1.5rem;
+    }
+</style>
