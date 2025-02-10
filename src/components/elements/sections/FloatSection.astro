@@ -11,8 +11,7 @@ const props: Props = Astro.props;
 
 const { direction = "column", id, pagefindIgnore, floatIn } = props;
 
-const flexDirection =
-    direction == "column" ? "flex-col" : "flex-col md:flex-row";
+const flexDirection = direction == "column" ? "flex-col" : "flex-row";
 ---
 
 <section

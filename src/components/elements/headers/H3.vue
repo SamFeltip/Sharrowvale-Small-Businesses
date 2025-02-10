@@ -7,12 +7,20 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
+type Alignment = {
+  default?: "start" | "center" | "end";
+  sm?: "start" | "center" | "end";
+  md?: "start" | "center" | "end";
+  lg?: "start" | "center" | "end";
+};
+
 // Define props with TypeScript types
 interface Props {
   id?: string;
   classList?: string;
   color?: "white" | "coral" | "black";
-  position?: "start" | "center" | "end";
+  position?: Alignment;
+
   weight?: "light" | "bold" | "semibold" | "normal" | "medium";
 }
 
@@ -37,6 +45,23 @@ const computedClasses = computed(() => {
     end: "text-right",
   };
 
+  const keys: (keyof Alignment)[] = ['default', 'sm', 'md', 'lg'];
+
+  let positionClass = "";
+
+  if (position) {
+    keys.forEach((key) => {
+      const positionKey = position[key];
+      if (positionKey) {
+        if (key == "default") {
+          positionClass += ` ${positionClasses[positionKey]}`;
+        } else {
+          positionClass += ` ${key}:${positionClasses[positionKey]}`;
+        }
+      }
+    });
+  }
+
   const weightClasses: Record<string, string> = {
     light: "font-light",
     bold: "font-bold",
@@ -45,6 +70,6 @@ const computedClasses = computed(() => {
     medium: "font-medium",
   };
 
-  return `${colorClasses[color]} ${position && positionClasses[position]} ${weightClasses[weight]} ${classList}`;
+  return `${colorClasses[color]} ${position && positionClass} ${weightClasses[weight]} ${classList}`;
 });
 </script>

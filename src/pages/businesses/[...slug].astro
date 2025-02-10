@@ -22,6 +22,7 @@ import Socials from "@/components/businesses/Socials.astro";
 import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
 import Table from "@/components/businesses/table.astro";
+import H3 from "@/components/elements/headers/H3.vue";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
@@ -131,7 +132,11 @@ if (yearEstablished !== null) {
             </div>
         </div>
 
-        <article data-pagefind-body id="business-content" class="grid">
+        <article
+            data-pagefind-body
+            id="business-content"
+            class="align-content-start grid grid-cols-1 gap-x-10 gap-y-6 lg:grid-cols-[1fr_2fr]"
+        >
             <div data-pagefind-sort="title" class="hidden">
                 <p>{name}</p>
             </div>
@@ -141,55 +146,80 @@ if (yearEstablished !== null) {
                 alt="hero image"
                 class="hidden"
             />
+            <aside class="flex flex-col gap-x-10 gap-y-6">
+                <Section floatIn={true}>
+                    <GoogleMap address={streetAddress} title={name} />
+                </Section>
 
+                <Section id="tables" floatIn={true} classList="hidden lg:flex">
+                    <div
+                        class="grid grid-flow-row grid-cols-1 grid-rows-[auto_1fr] gap-6"
+                    >
+                        <H3 classList="text-center lg:text-start" color="coral"
+                            >Open hours</H3
+                        >
+                        <Table tableData={openHours} tableClassList="" />
+                        <div class="lg:hidden"></div>
+                        <div class="h-full w-[0.1px] bg-black lg:hidden"></div>
+                        <H3 classList="text-center lg:text-start" color="coral"
+                            >Business Contacts</H3
+                        >
+                        <Table
+                            title="Business Contacts"
+                            tableData={businessContacts}
+                        />
+                    </div>
+                </Section>
+
+                <Section floatIn={true} id="socials">
+                    <Socials
+                        instagramLink={instagramLink}
+                        websiteLink={websiteLink}
+                        facebookLink={facebookLink}
+                    />
+                </Section>
+
+                <Section floatIn={true} id="promoted-tags">
+                    <PromotedTags size="sm" promotedItems={promoTagRefs} />
+                    <div
+                        class="hidden"
+                        data-pagefind-filter="category:Directory"
+                    >
+                    </div>
+                </Section>
+            </aside>
             <Section floatIn={true} id="description">
                 <P classList="text-xl" position="center">{description}</P>
             </Section>
-
             <Section floatIn={true} id="images">
                 <LightBox slides={slides} client:load />
             </Section>
-
-            <Section id="tables" floatIn={true}>
-                <Table title="Open hours" tableData={openHours} />
-                <Table title="Business Contacts" tableData={businessContacts} />
+            <Section id="tables" floatIn={true} classList="flex lg:hidden">
+                <div
+                    class="grid grid-flow-col grid-cols-[1fr_auto_1fr] grid-rows-[auto_1fr] gap-6"
+                >
+                    <H3
+                        position={{ default: "center", lg: "start" }}
+                        color="coral">Open hours</H3
+                    >
+                    <Table tableData={openHours} tableClassList="" />
+                    <div class="lg:hidden"></div>
+                    <div class="h-full w-[0.1px] bg-black lg:hidden"></div>
+                    <H3
+                        position={{ default: "center", lg: "start" }}
+                        color="coral">Business Contacts</H3
+                    >
+                    <Table
+                        title="Business Contacts"
+                        tableData={businessContacts}
+                    />
+                </div>
             </Section>
-
             <Section floatIn={true} id="article-content-grid">
                 <BlogContentCollectionItem>
                     <Content />
                 </BlogContentCollectionItem>
             </Section>
-
-            <Section floatIn={true} id="map">
-                <GoogleMap address={streetAddress} title={name} />
-            </Section>
-
-            <Section floatIn={true} id="promoted-tags">
-                <PromotedTags promotedItems={promoTagRefs} />
-
-                <div class="hidden" data-pagefind-filter="category:Directory">
-                </div>
-            </Section>
-
-            <Section floatIn={true} id="socials">
-                <Socials
-                    instagramLink={instagramLink}
-                    websiteLink={websiteLink}
-                    facebookLink={facebookLink}
-                />
-            </Section>
-
-            <Section floatIn={true} pagefindIgnore={true} id="similar-listings">
-                <H2 color="coral" position="center">Similar listings</H2>
-
-                <div
-                    class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3"
-                >
-                    {similarPlaceCards.map((ap) => <PlaceCardGrid {...ap} />)}
-                </div>
-            </Section>
-
             <Section floatIn={true} id="back-to-results">
                 <a
                     class="flex justify-center text-center underline"
@@ -197,6 +227,19 @@ if (yearEstablished !== null) {
                 >
                     Back to results
                 </a>
+            </Section>
+            <Section
+                floatIn={true}
+                pagefindIgnore={true}
+                id="similar-listings"
+                classList="lg:pt-8"
+            >
+                <H2 color="coral" position="center">Similar listings</H2>
+                <div
+                    class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3"
+                >
+                    {similarPlaceCards.map((ap) => <PlaceCardGrid {...ap} />)}
+                </div>
             </Section>
         </article>
     </ScreenWidth>
@@ -219,55 +262,37 @@ if (yearEstablished !== null) {
         grid-area: article-content-grid;
     }
 
-    :global(#map) {
-        grid-area: map;
-    }
-
-    :global(#promoted-tags) {
-        grid-area: promoted-tags;
-    }
-
-    :global(#socials) {
-        grid-area: socials;
+    :global(aside) {
+        grid-area: aside;
     }
 
     :global(#similar-listings) {
         grid-area: similar-listings;
     }
 
-    :global(#tables) {
-        grid-area: tables;
-    }
-
     :global(#business-content) {
         grid-template-columns: 1fr;
-        gap: 1rem;
 
         grid-template-areas:
             "description"
             "images"
             "tables"
             "article-content-grid"
-            "map"
-            "promoted-tags"
-            "socials"
+            "aside"
             "similar-listings"
             "back-to-results";
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 64rem) {
         :global(#business-content) {
             grid-template-columns: 1fr 2fr;
 
             grid-template-areas:
-                "map description"
-                "map images"
-                "tables images"
-                "tables article-content-grid"
-                "socials article-content-grid"
-                ". promoted-tags"
-                "similar-listings similar-listings"
-                "back-to-results back-to-results";
+                "aside description"
+                "aside images"
+                "aside article-content-grid"
+                "aside back-to-results"
+                "similar-listings similar-listings";
         }
     }
 </style>

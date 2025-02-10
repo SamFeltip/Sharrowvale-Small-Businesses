@@ -138,7 +138,7 @@ HeaderContent={HeaderContent}
                 id="article-author"
                 class="pb-6 flex flex-col items-center md:items-end gap-2"
             >
-                <H3 position="center" color="coral">Contributors</H3>
+                <H3 position={{default: "center"}} color="coral">Contributors</H3>
                 <SerifBody position="center">{author}</SerifBody>
             </section>
 
@@ -146,7 +146,7 @@ HeaderContent={HeaderContent}
                 id="article-share"
                 class="flex flex-col items-center md:items-end gap-2"
             >
-                <H3 position="center" color="coral">Share</H3>
+                <H3 position={{default: "center"}} color="coral">Share</H3>
 
                 <div class="flex flex-row flex-wrap gap-5 justify-center">
                     {

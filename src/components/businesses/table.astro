@@ -1,28 +1,27 @@
 ---
 import H3 from "@/components/elements/headers/H3.vue";
-import SerifBody from "../elements/body/SerifBody.astro";
+import P from "../elements/body/P.vue";
 
 type Props = {
     title?: string;
     tableData: [string, string][];
+    tableClassList?: string;
 };
 
-const { title, tableData } = Astro.props;
+const { tableClassList, title, tableData } = Astro.props;
 ---
 
-<div class="flex flex-col gap-2">
-    {title && <H3 color="coral">{title}</H3>}
-
-    <table>
+<div class="flex w-full flex-col gap-2">
+    <table class={tableClassList}>
         <tbody>
             {
                 tableData.map(([key, value]) => (
                     <tr>
-                        <td>
-                            <SerifBody>{key}:</SerifBody>
+                        <td class="line">
+                            <P>{key}:</P>
                         </td>
-                        <td>
-                            <SerifBody>{value}:</SerifBody>
+                        <td class="text-end">
+                            <P>{value}</P>
                         </td>
                     </tr>
                 ))
@@ -30,3 +29,5 @@ const { title, tableData } = Astro.props;
         </tbody>
     </table>
 </div>
+
+<style></style>
