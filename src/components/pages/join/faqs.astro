@@ -1,14 +1,19 @@
 ---
+import H2 from "@/components/elements/headers/H2.astro";
 import { getCollection } from "astro:content";
-import { render } from "astro:content";
+import FAQ from "./faq.astro";
 
-const faqCollection = await getCollection("faqs");
+const faqs = await getCollection("faqs");
 ---
 
+<H2>FAQ's</H2>
 <section>
     {
-        faqCollection.forEach(async (faq) => {
-            return <div>{faq.rendered}</div>;
-        })
+        faqs.map(async (faq, index: number) => (
+            <details>
+                <summary>{faq.data.preview}</summary>
+                <FAQ key={index} position={faq} />
+            </details>
+        ))
     }
 </section>
