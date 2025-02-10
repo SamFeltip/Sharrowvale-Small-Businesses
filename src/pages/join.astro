@@ -5,8 +5,13 @@ import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 import HeaderContent from "@/components/HeaderContent.astro";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import H2 from "@/components/elements/headers/H2.astro";
-import H3 from "@/components/elements/headers/H3.vue";
-import H4 from "@/components/elements/headers/H4.vue";
+import BlogContentCollectionItem from "@/components/elements/contentCollectionWrapper/BlogContentCollectionItem.astro";
+
+import * as markdown from "@/content/pages/join/content.mdx";
+
+const Content = markdown.Content;
+
+const { videoId, videoDescription, signupDescription } = markdown.frontmatter;
 ---
 
 <ContentLayout
@@ -21,7 +26,7 @@ import H4 from "@/components/elements/headers/H4.vue";
                     <div class="block md:hidden">
                         <YouTube
                             class="m-auto max-w-full rounded-t-2xl"
-                            id="zZd_WL1HGBM"
+                            id={videoId}
                             posterQuality="max"
                             title="Welcome to the Sharrow Vale Directory!"
                         />
@@ -30,128 +35,21 @@ import H4 from "@/components/elements/headers/H4.vue";
                         class="flex w-full max-w-screen-xl flex-col items-start gap-x-6 gap-y-6 rounded-b-2xl bg-white px-10 py-12 md:rounded-2xl"
                     >
                         <H2>Hey! 👋</H2>
-                        <p>
-                            An introduction to the site from its founders Dan &
-                            Sam
-                        </p>
+                        <p>{videoDescription}</p>
                         <div class="hidden h-full w-full md:block">
                             <YouTube
                                 class="m-auto max-w-full rounded-2xl"
-                                id="zZd_WL1HGBM"
+                                id={videoId}
                                 posterQuality="max"
                                 title="Welcome to the Sharrow Vale Directory!"
                             />
                         </div>
                     </div>
                 </section>
-                <section
-                    class="flex w-full max-w-screen-xl flex-col items-start gap-x-6 gap-y-6 rounded-2xl bg-white px-10 py-12"
-                >
-                    <H2>Our Vision</H2>
-                    <p>
-                        Our vision is to help grow and support small businesses
-                        in Sharrow Vale.
-                    </p>
-                    <p>
-                        As locals we love the unique collection of shops in the
-                        Vale and see that a central website would improve the
-                        accessibility of the shops and services available,
-                        making it easy for locals and visitors to easily search
-                        and see what's on offer.
-                    </p>
-                    <p>
-                        To support this we'll be maintaining and growing the
-                        site as well as providing regular web articles like:
-                        'Top 5 places to grab a drink in Sheffield this Summer'
-                        or 'Best places to get graduation gifts in Sheffield'
-                        which continue to bring new traffic to the site and to
-                        the businesses on it. This alongside promotion at events
-                        like the markets will help lead local people to consider
-                        Sharrow Vale as the place to go for their local needs.
-                    </p>
-                    <p>
-                        There's lots of ways we could develop this site but for
-                        now we're not looking to replace any existing sites,
-                        just looking for businesses that want to partner with us
-                        in boosting business in the area.
-                    </p>
-                    <p>
-                        This site is not a replacement of the Sharrow Vale
-                        Community Association but we are aspiring to partner
-                        with them.
-                    </p>
-                </section>
-                <section
-                    class="flex w-full max-w-screen-xl flex-col items-start gap-x-6 gap-y-6 rounded-2xl bg-white px-10 py-12"
-                >
-                    <H2>Why be on the site?</H2>
-                    <H3 position={{default: "center"}}>Benefits for you</H3>
-                    <ol
-                        class="grid list-decimal grid-cols-2 gap-3 lg:grid-cols-4"
-                    >
-                        <li
-                            class="flex max-w-xs items-start justify-center rounded-2xl border border-dashed border-black bg-yellow-300 bg-opacity-25 p-4 text-center font-serif font-normal text-black"
-                        >
-                            Top class SEO (Google ranking + Analytics)
-                        </li>
-                        <li
-                            class="flex max-w-xs items-start justify-center rounded-2xl border border-dashed border-black bg-yellow-300 bg-opacity-25 p-4 text-center font-serif font-normal text-black"
-                        >
-                            Fee free set-up, welcome pack & future edits
-                        </li>
-                        <li
-                            class="flex max-w-xs items-start justify-center rounded-2xl border border-dashed border-black bg-yellow-300 bg-opacity-25 p-4 text-center font-serif font-normal text-black"
-                        >
-                            Regular site promotion with web articles & local
-                            promotion
-                        </li>
-                        <li
-                            class="flex max-w-xs items-start justify-center rounded-2xl border border-dashed border-black bg-yellow-300 bg-opacity-25 p-4 text-center font-serif font-normal text-black"
-                        >
-                            Excellent design with a personal touch
-                        </li>
-                        <li
-                            class="flex max-w-xs items-start justify-center rounded-2xl border border-dashed border-black bg-yellow-300 bg-opacity-25 p-4 text-center font-serif font-normal text-black"
-                        >
-                            Friendly and accessible support from S11 locals
-                        </li>
-                    </ol>
-                    <H4>Further benefits:</H4>
-                    <ul class="list-disc">
-                        <li>A site for locals run by locals</li>
-                        <li>A cheap alternative to a custom website</li>
-                        <li>
-                            Mobile first design that looks good on mobile phones
-                            every time Promote events and offers in our ad
-                            banner
-                        </li>
-                        <li>
-                            Easy, full set up assistance Free photography &
-                            copywriting available
-                        </li>
-                        <li>Easy, cancel anytime payments</li>
-                    </ul>
 
-                    <H3>Benefits for the community</H3>
-                    <ul class="list-disc">
-                        <li>Build the community of small businesses</li>
-                        <li>
-                            Increasing footfall to the area, a new customer for
-                            you could be one for your neighbour
-                        </li>
-                        <li>Help tourists and locals find something new</li>
-                        <li>
-                            Invest in the reputation of Sharrow Vale Central
-                            place for promoting community events
-                        </li>
-                    </ul>
-                </section>
-
-                <section
-                    class="flex w-full max-w-screen-xl flex-col items-start gap-x-6 gap-y-6 rounded-2xl bg-white px-10 py-12"
-                >
-                    <!-- <AccordionFAQ client:load /> -->
-                </section>
+                <BlogContentCollectionItem>
+                    <Content />
+                </BlogContentCollectionItem>
 
                 <section
                     class="grid w-full max-w-screen-xl grid-cols-1 gap-x-6 gap-y-6 rounded-2xl bg-white px-10 py-12 md:grid-cols-2"
@@ -159,9 +57,7 @@ import H4 from "@/components/elements/headers/H4.vue";
                     <div>
                         <H2>Interested?</H2>
                         <p>
-                            Start a conversation using the form and we'll be in
-                            touch with next steps or email us directly at
-                            info@sharrowvale.co.uk
+                            {signupDescription}
                         </p>
                     </div>
 

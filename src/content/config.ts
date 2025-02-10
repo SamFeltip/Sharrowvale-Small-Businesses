@@ -5,6 +5,7 @@ import { articleSchema } from "@/schemas/articles";
 import { tagSchema } from "@/schemas/tag";
 import { categorySchema } from "@/schemas/category";
 import { pricingSchema } from "@/schemas/pricing";
+import { faqSchema } from "@/schemas/faq";
 import { file, glob } from "astro/loaders";
 
 import { parse as parseCsv } from "csv-parse/sync";
@@ -46,11 +47,6 @@ const tagCollection = defineCollection({
     schema: tagSchema,
 });
 
-const exampleData = [
-    { id: "something", one: "wow" },
-    { id: "else", two: "wowiee" },
-];
-
 const pricingCollection = defineCollection({
     loader: file("src/content/pricing.csv", {
         parser: (text) => {
@@ -64,10 +60,20 @@ const pricingCollection = defineCollection({
     schema: pricingSchema,
 });
 
+const faqCollection = defineCollection({
+    loader: glob({
+        pattern: "**/*.{md,mdx}",
+        base: "src/content/pages/join/FAQs",
+    }),
+
+    schema: faqSchema,
+});
+
 export const collections = {
     prices: pricingCollection,
     businesses: businessCollection,
     tags: tagCollection,
     articles: articleCollection,
     categories: categoryCollection,
+    faqs: faqCollection,
 };

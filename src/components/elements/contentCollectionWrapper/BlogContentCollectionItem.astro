@@ -14,7 +14,7 @@ const positionClass = `text-${position}`;
 
 <style>
     section :global(h2) {
-        @apply mb-2 text-center font-merriweather text-xl font-normal capitalize leading-6 text-coral md:text-2xl lg:text-3xl;
+        @apply mb-2 font-merriweather text-xl font-normal capitalize leading-6 text-coral md:text-2xl lg:text-3xl;
     }
 
     section :global(h3) {
@@ -34,12 +34,6 @@ const positionClass = `text-${position}`;
 
 <style>
     section {
-        /* grid-template-areas:
-            "open-hours-title"
-            "open-hours"
-            "business-contact-title"
-            "business-contact"; */
-
         grid-template-columns: 1fr;
     }
     section :global(p) {
@@ -51,47 +45,4 @@ const positionClass = `text-${position}`;
         grid-column: 1/-1;
         margin-left: 1.5rem;
     }
-
-    section :global(h2) {
-        + table tr :last-child {
-            text-align: right;
-        }
-    }
-
-    /* section :global(h2#open-hours) {
-        grid-area: open-hours-title;
-        text-align: center;
-    }
-
-    section :global(h2#open-hours + table) {
-        grid-area: open-hours;
-    } */
-
-    section :global(h2#open-hours + table td:first-child:not(:empty)::after) {
-        content: ":";
-    }
-
-    /* section :global(h2#business-contact) {
-        grid-area: business-contact-title;
-    }
-
-    section :global(h2#business-contact + table) {
-        grid-area: business-contact;
-    } */
-
-    section :global(table) {
-        table-layout: auto;
-        margin-bottom: 1rem;
-    }
-
-    /* @media screen and (min-width: 768px) {
-        section {
-            grid-template-areas:
-                "open-hours-title . business-contact-title"
-                "open-hours spacer business-contact";
-
-            grid-template-columns: 1fr 0.5px 1fr;
-            column-gap: 2rem;
-        }
-    } */
 </style>

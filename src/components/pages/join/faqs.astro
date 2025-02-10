@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+
+const faqCollection = await getCollection("faqs");
+---
+
+<section>
+    {
+        faqCollection.forEach(async (faq) => {
+            return <div>{faq.rendered}</div>;
+        })
+    }
+</section>
