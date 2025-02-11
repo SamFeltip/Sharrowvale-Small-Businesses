@@ -168,49 +168,45 @@ if (yearEstablished !== null) {
 
                 <Section floatIn={true} id="promoted-tags">
                     <PromotedTags size="sm" promotedItems={promoTagRefs} />
-                    <div
-                        class="hidden"
-                        data-pagefind-filter="category:Directory"
-                    >
+                    <div class="hidden" data-pagefind-filter="category">
+                        Directory
                     </div>
                 </Section>
             </aside>
-            <Section floatIn={true} id="description">
-                <P classList="text-xl" position="center">{description}</P>
-            </Section>
-            <Section floatIn={true} id="images">
-                <LightBox slides={slides} client:load />
-            </Section>
-            <Section id="tables" floatIn={true} classList="flex lg:hidden">
-                <Tables {...entry.data} />
-            </Section>
-            <Section floatIn={true} id="article-content-grid">
-                <BlogContentCollectionItem>
-                    <Content />
-                </BlogContentCollectionItem>
-            </Section>
-            <Section floatIn={true} id="back-to-results">
-                <a
-                    class="flex justify-center text-center underline"
-                    href="/categories/directory"
-                >
-                    Back to results
-                </a>
-            </Section>
-            <Section
-                floatIn={true}
-                pagefindIgnore={true}
-                id="similar-listings"
-                classList="lg:pt-8"
-            >
-                <H2 color="coral" position="center">Similar listings</H2>
-                <div
-                    class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3"
-                >
-                    {similarPlaceCards.map((ap) => <PlaceCardGrid {...ap} />)}
-                </div>
-            </Section>
         </article>
+        <Section floatIn={true} id="description">
+            <P classList="text-xl" position="center">{description}</P>
+        </Section>
+        <Section floatIn={true} id="images">
+            <LightBox slides={slides} client:load />
+        </Section>
+        <Section id="tables" floatIn={true} classList="flex lg:hidden">
+            <Tables {...entry.data} />
+        </Section>
+        <Section floatIn={true} id="article-content-grid">
+            <BlogContentCollectionItem>
+                <Content />
+            </BlogContentCollectionItem>
+        </Section>
+        <Section floatIn={true} id="back-to-results">
+            <a
+                class="flex justify-center text-center underline"
+                href="/categories/directory"
+            >
+                Back to results
+            </a>
+        </Section>
+        <Section
+            floatIn={true}
+            pagefindIgnore={true}
+            id="similar-listings"
+            classList="lg:pt-8"
+        >
+            <H2 color="coral" position="center">Similar listings</H2>
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+                {similarPlaceCards.map((ap) => <PlaceCardGrid {...ap} />)}
+            </div>
+        </Section>
     </ScreenWidth>
 </ContentLayout>
 

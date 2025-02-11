@@ -8,7 +8,6 @@ import FAQAccordion from "./faqAccordion.vue";
 const faqs = await getCollection("faqs");
 ---
 
-<H2>FAQ's</H2>
 <section>
     {
         faqs.map(async (faq, index: number) => (

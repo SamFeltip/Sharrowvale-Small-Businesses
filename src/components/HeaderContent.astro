@@ -38,24 +38,19 @@ const { title, headerTop = [], headerBottom = [] } = Astro.props;
                 {title}
             </span>
         </H1>
-        {
-            headerBottom && (
-                <MonoBody
-                    classList="flex gap-3 justify-center flex-col md:flex-row"
-                    size="small"
-                    data-pagefind-meta="content[data-src]"
-                    data-pagefind-body
-                >
-                    {headerBottom.map((text) => (
-                        <span>{text}</span>
-                    ))}
-                    <span class="hidden" id="header-bottom-search-content">
-                        <span>Showing search results for</span>
-                        <span class="underline" id="search-term" />
-                    </span>
-                </MonoBody>
-            )
-        }
+
+        <MonoBody
+            classList="flex gap-3 justify-center flex-col md:flex-row"
+            size="small"
+            data-pagefind-meta="content[data-src]"
+            data-pagefind-body
+        >
+            {headerBottom.map((text) => <span>{text}</span>)}
+            <span class="hidden" id="header-bottom-search-content">
+                <span>Showing search results for</span>
+                <span class="underline" id="search-term"></span>
+            </span>
+        </MonoBody>
     </Section>
 </div>
 
