@@ -103,14 +103,17 @@ const listingPromo = pricing.filter((price) => price.id === "listing")[0];
                 pricingPromotion={listingPromo}
             />
         </Section>
-        {
-            promotedItems.length > 0 && (
-                <PromotedTags
-                    title="Explore more Categories"
-                    promotedItems={promotedItems}
-                />
-            )
-        }
+        <Section classList="items-center">
+            {
+                promotedItems.length > 0 && (
+                    <PromotedTags
+                        size="lg"
+                        title="Explore more Categories"
+                        promotedItems={promotedItems}
+                    />
+                )
+            }
+        </Section>
         {isGridLayout && <PromoBanner pricingPromotion={listingPromo} />}
     </ScreenWidth>
 </ContentLayout>

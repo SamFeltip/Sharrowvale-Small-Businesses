@@ -41,8 +41,8 @@ sortedCategoryPlaceCards.forEach(
 ---
 
 <Section floatIn={true}>
-    <ScreenWidth>
-        <H2 color="coral" position="center"> {title} </H2>
+    <ScreenWidth classList="items-center">
+        <H2 color="coral"> {title} </H2>
     </ScreenWidth>
 
     <CarouselWrapper client:load items={sortedCategoryPlaceCards} />

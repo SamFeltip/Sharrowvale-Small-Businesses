@@ -1,7 +1,12 @@
 ---
 import HeaderContent from "@/components/HeaderContent.astro";
 import ContentLayout from "@/layouts/ContentLayout.astro";
-import { getCollection, getEntries, render, type CollectionEntry } from "astro:content";
+import {
+    getCollection,
+    getEntries,
+    render,
+    type CollectionEntry,
+} from "astro:content";
 import { Image } from "astro:assets";
 import Button from "@/components/elements/Button.vue";
 import SerifBody from "@/components/elements/body/SerifBody.astro";
@@ -22,6 +27,9 @@ import ContentCollectionItem from "@/components/elements/contentCollectionWrappe
 import H2 from "@/components/elements/headers/H2.astro";
 import Section from "@/components/elements/sections/FloatSection.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
+import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
+import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
+import Socials from "@/components/businesses/Socials.astro";
 
 export async function getStaticPaths() {
     const article: CollectionEntry<"articles">[] =
@@ -52,6 +60,8 @@ const categoryItems = await getEntries(categories);
 
 const tagItems = await getEntries(tags);
 
+const promoTagRefs = getPlaceCardRefs("tags", tagItems);
+
 let promotedCard: PlaceCard | undefined = undefined;
 
 if (promotedBusiness !== undefined) {
@@ -60,7 +70,7 @@ if (promotedBusiness !== undefined) {
         promotedBusiness.id
     );
 
-    if(promoBusinessEntry === undefined) {
+    if (promoBusinessEntry === undefined) {
         throw new Error("Promoted business not found");
     }
 
@@ -78,11 +88,12 @@ const moreArticles = await getCollection(
 
 const articlePages = await getPlaceCardsFromArticles(moreArticles);
 ---
+
 <ContentLayout
-title={name}
-description="Sharrow Vale Blog"
-image={bannerImage}
-HeaderContent={HeaderContent}
+    title={name}
+    description="Sharrow Vale Blog"
+    image={bannerImage}
+    HeaderContent={HeaderContent}
 >
     <ScreenWidth>
         <div id="pagefind-metadata">
@@ -116,90 +127,60 @@ HeaderContent={HeaderContent}
                 </ContentCollectionItem>
             </section>
 
-            <section
-                id="article-tags"
-                class="pb-6 flex flex-col items-center md:items-end gap-2"
-            >
-                {tagItems.length > 0 && 
-                    <H3 color="coral">Article Tags</H3>
-                    <div class="flex flex-wrap justify-center">
-                        {
-                            tagItems.map((tag) => 
-                                    (<Button href={`/tags/${tag.id}`} data-pagefind-filter="tags">
-                                        {tag.data.name}
-                                    </Button>)
-                        )}
-                    </div>
-                }
-            </section>
-
-            <section
-                id="article-author"
-                class="pb-6 flex flex-col items-center md:items-end gap-2"
-            >
-                <H3 position={{default: "center"}} color="coral">Contributors</H3>
-                <SerifBody position="center">{author}</SerifBody>
-            </section>
-
-            <section
-                id="article-share"
-                class="flex flex-col items-center md:items-end gap-2"
-            >
-                <H3 position={{default: "center"}} color="coral">Share</H3>
-
-                <div class="flex flex-row flex-wrap gap-5 justify-center">
+            <aside class="flex flex-col gap-4">
+                <section id="article-promotion">
                     {
-                        (
-                            <Button size="lg" href={"#instagramLink"}>
-                                <span>
-                                    <FontAwesomeIcon
-                                        className="h-5 w-5"
-                                        icon={faInstagram}
-                                    />
-                                </span>
-                            </Button>
+                        promotedCard !== undefined && (
+                            <div class="h-[400px]">
+                                <LargePromotionalItem card={promotedCard} />
+                            </div>
                         )
                     }
-                    {
-                        (
-                            <Button size="lg" href={"#websiteLink"}>
-                                <span>
-                                    <FontAwesomeIcon
-                                        className="h-5 w-5"
-                                        icon={faLink}
-                                    />
-                                </span>
-                            </Button>
-                        )
-                    }
-                    {
-                        (
-                            <Button size="lg" href={"#facebookLink"}>
-                                <span>
-                                    <FontAwesomeIcon
-                                        className="h-5 w-5"
-                                        icon={faFacebook}
-                                    />
-                                </span>
-                            </Button>
-                        )
-                    }
-                </div>
-            </section>
+                </section>
 
-            <section id="article-promotion">
-                {
-                    promotedCard !== undefined && (
-                        <div class="h-[400px]">
-                            <LargePromotionalItem card={promotedCard} />
-                        </div>
-                    )
-                }
-            </section>
+                <section
+                    id="article-tags"
+                    class="flex flex-col items-center gap-2 pb-6 md:items-end"
+                >
+                    <PromotedTags
+                        title="Article Tags"
+                        pagefindMetadata="tags"
+                        size="sm"
+                        promotedItems={promoTagRefs}
+                    />
+                </section>
 
-            <Section id="article-more" pagefindIgnore={true}>
+                <section
+                    id="article-author"
+                    class="flex flex-col items-center gap-2 pb-6 md:items-end"
+                >
+                    <H3 color="coral">Contributors</H3>
+                    <SerifBody position="center">{author}</SerifBody>
+                </section>
+
+                <section
+                    id="article-share"
+                    class="flex flex-col items-center gap-2 md:items-end"
+                >
+                    <H3 color="coral">Share</H3>
+
+                    <Socials
+                        instagramLink={"#instagram"}
+                        websiteLink={"#website"}
+                        facebookLink={"#facebook"}
+                    />
+                </section>
+            </aside>
+
+            <Section
+                id="article-more"
+                pagefindIgnore={true}
+                classList="items-center"
+            >
                 <H2 position="center" color="coral"> More Articles</H2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+                >
                     {
                         articlePages &&
                             articlePages.map((article) => (
@@ -223,37 +204,22 @@ HeaderContent={HeaderContent}
         grid-area: content;
     }
 
-    #article-tags {
-        grid-area: tags;
+    aside {
+        grid-area: aside;
     }
 
-    #article-author {
-        grid-area: author;
-    }
-
-    #article-promotion {
-        grid-area: promotion;
-    }
-
-    #article-more {
+    :global(#article-more) {
         grid-area: more;
     }
 
-    #article-share {
-        grid-area: share;
-    }
-
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 48rem) {
         #article {
             display: grid;
             gap: 2rem;
             grid-template-columns: 2fr 1fr;
 
             grid-template-areas:
-                "content promotion"
-                "content tags"
-                "content author"
-                "content share"
+                "content aside"
                 "more more";
         }
     }

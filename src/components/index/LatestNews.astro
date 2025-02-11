@@ -20,6 +20,7 @@ const promotionItems = await getPlaceCardsFromArticles(news.slice(0, 4));
                     <H2 classList="text-center md:text-start" color="coral"
                         >The latest news <wbr /> & updates</H2
                     >
+
                     <Button display="hidden md:flex" href="/articles"
                         >See all posts</Button
                     >
@@ -35,10 +36,11 @@ const promotionItems = await getPlaceCardsFromArticles(news.slice(0, 4));
                 ))
             }
         </UnorderedList>
-
-        <Button display="md:hidden flex" size="lg" href="/articles"
-            >See all posts</Button
-        >
+        <div class="flex items-center justify-center">
+            <Button display="md:hidden flex" size="lg" href="/articles"
+                >See all posts</Button
+            >
+        </div>
     </section>
 </Section>
 
