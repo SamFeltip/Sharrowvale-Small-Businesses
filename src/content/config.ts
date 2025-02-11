@@ -5,6 +5,7 @@ import { articleSchema } from "@/schemas/articles";
 import { tagSchema } from "@/schemas/tag";
 import { categorySchema } from "@/schemas/category";
 import { pricingSchema } from "@/schemas/pricing";
+import { contactSchema } from "@/schemas/contact";
 import { faqSchema } from "@/schemas/faq";
 import { file, glob } from "astro/loaders";
 
@@ -60,6 +61,19 @@ const pricingCollection = defineCollection({
     schema: pricingSchema,
 });
 
+const contactCollection = defineCollection({
+    loader: file("src/content/contact.csv", {
+        parser: (text) => {
+            return parseCsv(text, {
+                cast: true,
+                columns: true,
+                skipEmptyLines: true,
+            });
+        },
+    }),
+    schema: contactSchema,
+});
+
 const faqCollection = defineCollection({
     loader: glob({
         pattern: "**/*.{md,mdx}",
@@ -75,5 +89,6 @@ export const collections = {
     tags: tagCollection,
     articles: articleCollection,
     categories: categoryCollection,
+    contacts: contactCollection,
     faqs: faqCollection,
 };

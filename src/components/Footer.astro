@@ -1,6 +1,26 @@
 ---
+import { getEntry } from "astro:content";
 import { LOGO_URL_DARK } from "../consts";
 import ScreenWidth from "./elements/ScreenWidth.vue";
+
+const email = await getEntry("contacts", "email");
+
+if (email == undefined) {
+    throw new Error("email not provided");
+}
+
+console.log(email.data.href);
+
+const danSite = await getEntry("contacts", "design-and-narrative");
+
+if (danSite == undefined) {
+    throw new Error("danSite not provided");
+}
+
+const github = await getEntry("contacts", "gitHub");
+if (github == undefined) {
+    throw new Error("gitHub not provided");
+}
 ---
 
 <footer class="bg-gray-800 text-gray-50">
@@ -20,11 +40,8 @@ import ScreenWidth from "./elements/ScreenWidth.vue";
                         All rights reserved
                     </p>
                     <p class="text-center text-base font-light md:text-start">
-                        <a
-                            class="hover:text-coral"
-                            href="mailto:info@sharrowvale.co.uk"
-                        >
-                            info@sharrowvale.co.uk
+                        <a class="hover:text-coral" href={`${email.data.href}`}>
+                            {email.data.value}
                         </a>
                     </p>
                 </div>
@@ -58,23 +75,22 @@ import ScreenWidth from "./elements/ScreenWidth.vue";
                     <p class="text-base font-light">
                         Like this site? <a
                             class="underline underline-offset-2 hover:text-coral"
-                            href="https://www.design-narrative.com/"
-                            >Check out D&n</a
+                            href={`${danSite.data.href}`}
+                            >{danSite.data.description}</a
                         >
                     </p>
                     <p class="text-base font-light">
                         <span class="hidden md:inline">
                             Have something to contribute? <a
                                 class="underline underline-offset-2 hover:text-coral"
-                                href="https://github.com/SamFeltip/Sharrowvale-Small-Businesses"
-                                >Checkout our GitHub</a
+                                href={`${github.data.href}`}
+                                >{github.data.description}</a
                             >
                         </span>
                         <span class="inline md:hidden">
                             Contribute on <a
                                 class="underline underline-offset-2 hover:text-coral"
-                                href="https://github.com/SamFeltip/Sharrowvale-Small-Businesses"
-                                >GitHub</a
+                                href={`${github.data.href}`}>GitHub</a
                             >
                         </span>
                     </p>

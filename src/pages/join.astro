@@ -1,4 +1,8 @@
 ---
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { YouTube } from "@astro-community/astro-embed-youtube";
 
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
@@ -7,10 +11,25 @@ import ContentLayout from "@/layouts/ContentLayout.astro";
 import H2 from "@/components/elements/headers/H2.astro";
 
 import * as markdown from "@/content/pages/join/content.mdx";
+import Button from "@/components/elements/Button.vue";
+import { getEntry } from "astro:content";
+import SerifBody from "@/components/elements/body/SerifBody.vue";
 
 const Content = markdown.Content;
 
-const { videoId, videoDescription, signupDescription } = markdown.frontmatter;
+const { videoId, videoDescription, contactDescription } = markdown.frontmatter;
+
+const whatsapp = await getEntry("contacts", "whatsapp");
+
+if (whatsapp == undefined) {
+    throw new Error("whatsapp not provided");
+}
+
+const email = await getEntry("contacts", "email");
+
+if (email == undefined) {
+    throw new Error("email not provided");
+}
 ---
 
 <ContentLayout
@@ -49,17 +68,33 @@ const { videoId, videoDescription, signupDescription } = markdown.frontmatter;
                 <Content />
             </section>
 
-            <section
-                class="grid w-full max-w-screen-xl grid-cols-1 gap-x-6 gap-y-6 rounded-2xl py-12 md:grid-cols-2"
-            >
+            <section class="flex flex-col items-start gap-4">
                 <div>
                     <H2>Interested?</H2>
-                    <p>
-                        {signupDescription}
-                    </p>
+                    <SerifBody position="start">{contactDescription}</SerifBody>
                 </div>
 
-                <!-- <SignupForm url={Astro.url.host} /> -->
+                <div class="flex flex-col items-start gap-2">
+                    <Button type="coral" href={whatsapp.data.href}>
+                        <FontAwesomeIcon
+                            className="h-5 w-5"
+                            icon={faWhatsapp}
+                        />
+                        <span class="lowercase">
+                            {whatsapp.data.description}
+                        </span>
+                    </Button>
+
+                    <Button type="coral" href={email.data.href}>
+                        <FontAwesomeIcon
+                            className="h-5 w-5"
+                            icon={faEnvelope}
+                        />
+                        <span class="lowercase">
+                            {email.data.description}
+                        </span>
+                    </Button>
+                </div>
             </section>
         </article>
     </ScreenWidth>
@@ -89,7 +124,6 @@ const { videoId, videoDescription, signupDescription } = markdown.frontmatter;
 
     #blog-content :global(ul) {
         list-style: circle;
-        grid-column: 1/-1;
         margin-left: 1.5rem;
     }
 </style>
