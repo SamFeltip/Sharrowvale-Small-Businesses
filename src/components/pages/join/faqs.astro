@@ -15,6 +15,8 @@ const sortFaqsById = (a: { id: string }, b: { id: string }) => {
 
 let faqs = await getCollection("faqs");
 
+faqs = faqs.filter((faq) => faq.body != null);
+
 faqs.sort(sortFaqsById);
 ---
 
