@@ -7,12 +7,12 @@ import HeaderContent from "@/components/HeaderContent.astro";
 
 import bannerImage from "@/assets/images/category/guest-road.jpg";
 import Section from "@/components/elements/sections/FloatSection.astro";
-import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
 
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { getPlaceCardsFromArticles } from "@/scripts/placeCard/handler";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
+import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.astro";
 
 const events: CollectionEntry<"articles">[] = await getCollection(
     "articles",
@@ -51,11 +51,10 @@ const advertisingPromotion = pricing.filter(
     pagefindIgnore={true}
 >
     <ScreenWidth classList="md:gap-10 gap-6">
+        <Section floatIn={true} classList="items-center">
+            <H2 color="coral"> Find out what's happening in The Vale </H2>
+        </Section>
         <Section floatIn={true}>
-            <H2 color="coral" position="center"
-                >Find out what's happening in The Vale</H2
-            >
-
             <SearchWrapper
                 client:only="vue"
                 requiredCategories={searchCategories}
@@ -67,15 +66,10 @@ const advertisingPromotion = pricing.filter(
         {
             upcomingEventPlaceCards.length > 0 && (
                 <Section floatIn={true}>
-                    <H2 position="center" color="coral">
-                        Upcoming events
-                    </H2>
-
-                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                        {upcomingEventPlaceCards.map((event) => (
-                            <PlaceCardGrid {...event} />
-                        ))}
-                    </div>
+                    <PlaceCardGrid
+                        placeCards={upcomingEventPlaceCards}
+                        title="Upcoming Events"
+                    />
                 </Section>
             )
         }

@@ -1,35 +1,28 @@
 ---
 import HeaderContent from "@/components/HeaderContent.astro";
 import ContentLayout from "@/layouts/ContentLayout.astro";
+
 import {
     getCollection,
     getEntries,
     render,
     type CollectionEntry,
 } from "astro:content";
+
 import { Image } from "astro:assets";
-import Button from "@/components/elements/Button.vue";
 import SerifBody from "@/components/elements/body/SerifBody.astro";
 import H3 from "@/components/elements/headers/H3.vue";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
-import { faLink } from "@fortawesome/free-solid-svg-icons/faLink";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
 import LargePromotionalItem from "@/components/businesses/LargePromotionalItem.astro";
 import { getEntry } from "astro:content";
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
-import {
-    getPlaceCardsFromArticles,
-    getPlaceCardsFromBusinesses,
-} from "@/scripts/placeCard/handler";
-import PlaceCardWide from "@/components/placeCards/PlaceCardWide.vue";
+import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
 import ContentCollectionItem from "@/components/elements/contentCollectionWrapper/ContentCollectionItem.astro";
-import H2 from "@/components/elements/headers/H2.astro";
 import Section from "@/components/elements/sections/FloatSection.astro";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
 import Socials from "@/components/businesses/Socials.astro";
+import SimilarArticles from "@/components/pages/articles/SimilarArticles.astro";
 
 export async function getStaticPaths() {
     const article: CollectionEntry<"articles">[] =
@@ -80,13 +73,6 @@ if (promotedBusiness !== undefined) {
     );
     promotedCard = promotedCards[0];
 }
-
-const moreArticles = await getCollection(
-    "articles",
-    (article) => article.id !== entry.id
-);
-
-const articlePages = await getPlaceCardsFromArticles(moreArticles);
 ---
 
 <ContentLayout
@@ -177,17 +163,7 @@ const articlePages = await getPlaceCardsFromArticles(moreArticles);
                 pagefindIgnore={true}
                 classList="items-center"
             >
-                <H2 position="center" color="coral"> More Articles</H2>
-                <div
-                    class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
-                >
-                    {
-                        articlePages &&
-                            articlePages.map((article) => (
-                                <PlaceCardWide {...article} />
-                            ))
-                    }
-                </div>
+                <SimilarArticles articleId={entry.id} />
             </Section>
         </div>
     </ScreenWidth>

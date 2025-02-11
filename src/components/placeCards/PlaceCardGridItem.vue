@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 
-import type { PlaceCard } from "./PlaceCard.d.ts";
+import type { PlaceCard } from "./PlaceCard";
 
 import H4 from "../elements/headers/H4.vue";
 import P from "../elements/body/P.vue";

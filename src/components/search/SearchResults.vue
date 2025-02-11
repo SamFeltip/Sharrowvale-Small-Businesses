@@ -8,7 +8,7 @@
         <TransitionGroup name="list" tag="div" v-else class="gap-6" :class="{ gridLayout: isGridLayout }"
             id="search-results">
 
-            <PlaceCardGrid v-if="isGridLayout" v-for="result in searchResults" :key="`gridLayout-${result.url}`"
+            <PlaceCardGridItem v-if="isGridLayout" v-for="result in searchResults" :key="`gridLayout-${result.url}`"
                 :tags="getDisplayTags(result)" :image="result.meta?.image || ''" :content="result.meta?.content"
                 :title="result.meta?.title || ''" :href="result.url" :color="color" />
 
@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import PlaceCardWide from "../placeCards/PlaceCardWide.vue";
-import PlaceCardGrid from "../placeCards/PlaceCardGrid.vue";
+import PlaceCardGridItem from "../placeCards/PlaceCardGridItem.vue";
 import type { PagefindSearchResult } from "./src/PagefindSearchResult";
 
 const props = defineProps<{

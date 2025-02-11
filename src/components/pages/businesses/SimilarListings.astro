@@ -1,0 +1,47 @@
+---
+import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.astro";
+import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
+import type { ReferenceDataEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+//**
+// * A Grid of businesses that share tags with a given business
+// */
+
+type Props = {
+    businessTags: ReferenceDataEntry<"tags", string>[];
+    title: string;
+};
+
+const { businessTags, title }: Props = Astro.props;
+
+const businesses: CollectionEntry<"businesses">[] =
+    await getCollection("businesses");
+
+function similarTags(business: CollectionEntry<"businesses">) {
+    const categorySlugs = new Set(businessTags.map((tag) => tag.id));
+
+    return business.data.tags.filter((item) => categorySlugs.has(item.id));
+}
+
+function similarCategories(
+    a: CollectionEntry<"businesses">,
+    b: CollectionEntry<"businesses">
+) {
+    return similarTags(b).length - similarTags(a).length;
+}
+
+const similarListings = businesses.sort(similarCategories).slice(1, 4);
+
+const similarPlaceCards = await getPlaceCardsFromBusinesses(similarListings);
+
+similarPlaceCards.forEach(
+    (placeCard) =>
+        (placeCard.content =
+            placeCard.content && placeCard.content.length > 120
+                ? placeCard.content?.substring(0, 120) + "..."
+                : placeCard.content)
+);
+---
+
+<PlaceCardGrid placeCards={similarPlaceCards} title={title} />

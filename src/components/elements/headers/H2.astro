@@ -3,7 +3,6 @@ type Props = {
     classList?: string;
     color?: "white" | "coral" | "black";
     id?: string;
-    position?: "start" | "center" | "end";
 };
 
 const props: Props = Astro.props;
@@ -11,7 +10,6 @@ const props: Props = Astro.props;
 // Assign default value for props
 export const defaultProps: Props = {
     color: "white",
-    position: "start",
 };
 ---
 

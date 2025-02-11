@@ -1,6 +1,6 @@
 ---
 import H2 from "@/components/elements/headers/H2.astro";
-import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.vue";
+import PlaceCardGridItem from "@/components/placeCards/PlaceCardGridItem.vue";
 
 import newsImage from "@/assets/images/index/home/guest-road.jpg";
 import tradeImage from "@/assets/images/index/home/tradespeople.png";
@@ -60,14 +60,22 @@ const placeCards = [
 ---
 
 <Section floatIn={true} classList="items-center">
-    <H2 position="center" color="coral">Info for Locals</H2>
+    <H2 color="coral">Info for Locals</H2>
     <div class="flex justify-center">
         <div class="grid w-full grid-cols-2 gap-4 md:gap-8 xl:hidden">
-            {placeCards.slice(0, 4).map((item) => <PlaceCardGrid {...item} />)}
+            {
+                placeCards
+                    .slice(0, 4)
+                    .map((item) => <PlaceCardGridItem {...item} />)
+            }
         </div>
 
         <div class="hidden w-full grid-cols-3 gap-4 md:gap-8 xl:grid">
-            {placeCards.slice(0, 3).map((item) => <PlaceCardGrid {...item} />)}
+            {
+                placeCards
+                    .slice(0, 3)
+                    .map((item) => <PlaceCardGridItem {...item} />)
+            }
         </div>
     </div>
 </Section>
