@@ -9,8 +9,6 @@ if (email == undefined) {
     throw new Error("email not provided");
 }
 
-console.log(email.data.href);
-
 const danSite = await getEntry("contacts", "design-and-narrative");
 
 if (danSite == undefined) {
