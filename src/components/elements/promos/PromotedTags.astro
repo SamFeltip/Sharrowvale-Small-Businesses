@@ -24,9 +24,13 @@ const {
 {
     title &&
         (size == "sm" ? (
-            <H3 color="coral">{title}</H3>
+            <H3 color="coral" classList="text-center">
+                {title}
+            </H3>
         ) : (
-            <H2 color="coral">{title}</H2>
+            <H2 color="coral" classList="text-center">
+                {title}
+            </H2>
         ))
 }
 <TagList

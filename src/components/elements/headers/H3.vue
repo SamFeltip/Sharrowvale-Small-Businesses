@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
   classList: "",
   weight: "normal",
 });
-const { color, position, weight, classList } = props;
+const { color, weight, classList } = props;
 
 // Computed property for dynamic classes
 const computedClasses = computed(() => {
