@@ -3,6 +3,8 @@ import H2 from "@/components/elements/headers/H2.astro";
 import { getCollection } from "astro:content";
 import FAQ from "./faq.astro";
 
+import FAQAccordion from "./faqAccordion.vue";
+
 const faqs = await getCollection("faqs");
 ---
 
@@ -10,10 +12,9 @@ const faqs = await getCollection("faqs");
 <section>
     {
         faqs.map(async (faq, index: number) => (
-            <details>
-                <summary>{faq.data.preview}</summary>
+            <FAQAccordion client:only="vue" preview={faq.data.preview}>
                 <FAQ key={index} position={faq} />
-            </details>
+            </FAQAccordion>
         ))
     }
 </section>
