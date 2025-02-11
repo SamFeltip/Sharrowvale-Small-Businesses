@@ -1,11 +1,21 @@
 ---
-import H2 from "@/components/elements/headers/H2.astro";
 import { getCollection } from "astro:content";
 import FAQ from "./faq.astro";
 
 import FAQAccordion from "./faqAccordion.vue";
 
-const faqs = await getCollection("faqs");
+const sortFaqsById = (a: { id: string }, b: { id: string }) => {
+    const idA = a.id.toLowerCase();
+    const idB = b.id.toLowerCase();
+
+    if (idA < idB) return -1;
+    if (idA > idB) return 1;
+    return 0;
+};
+
+let faqs = await getCollection("faqs");
+
+faqs.sort(sortFaqsById);
 ---
 
 <section>
