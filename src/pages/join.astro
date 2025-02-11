@@ -20,49 +20,47 @@ const { videoId, videoDescription, signupDescription } = markdown.frontmatter;
 >
     <ScreenWidth classList="gap-8">
         <article data-pagefind-ignore="all">
-            <div class="grid px-9">
-                <section>
-                    <div class="block md:hidden">
+            <section>
+                <div class="block md:hidden">
+                    <YouTube
+                        class="m-auto max-w-full rounded-2xl"
+                        id={videoId}
+                        posterQuality="max"
+                        title="Welcome to the Sharrow Vale Directory!"
+                    />
+                </div>
+                <div
+                    class="flex w-full max-w-screen-xl flex-col items-start gap-4 gap-x-6 pt-4"
+                >
+                    <H2>Hey! 👋</H2>
+                    <p>{videoDescription}</p>
+                    <div class="hidden h-full w-full md:block">
                         <YouTube
-                            class="m-auto max-w-full rounded-t-2xl"
+                            class="m-auto max-w-full rounded-2xl"
                             id={videoId}
                             posterQuality="max"
                             title="Welcome to the Sharrow Vale Directory!"
                         />
                     </div>
-                    <div
-                        class="flex w-full max-w-screen-xl flex-col items-start gap-4 gap-x-6 rounded-b-2xl px-10"
-                    >
-                        <H2>Hey! 👋</H2>
-                        <p>{videoDescription}</p>
-                        <div class="hidden h-full w-full md:block">
-                            <YouTube
-                                class="m-auto max-w-full rounded-2xl"
-                                id={videoId}
-                                posterQuality="max"
-                                title="Welcome to the Sharrow Vale Directory!"
-                            />
-                        </div>
-                    </div>
-                </section>
+                </div>
+            </section>
 
-                <section id="blog-content">
-                    <Content />
-                </section>
+            <section id="blog-content">
+                <Content />
+            </section>
 
-                <section
-                    class="grid w-full max-w-screen-xl grid-cols-1 gap-x-6 gap-y-6 rounded-2xl px-10 py-12 md:grid-cols-2"
-                >
-                    <div>
-                        <H2>Interested?</H2>
-                        <p>
-                            {signupDescription}
-                        </p>
-                    </div>
+            <section
+                class="grid w-full max-w-screen-xl grid-cols-1 gap-x-6 gap-y-6 rounded-2xl py-12 md:grid-cols-2"
+            >
+                <div>
+                    <H2>Interested?</H2>
+                    <p>
+                        {signupDescription}
+                    </p>
+                </div>
 
-                    <!-- <SignupForm url={Astro.url.host} /> -->
-                </section>
-            </div>
+                <!-- <SignupForm url={Astro.url.host} /> -->
+            </section>
         </article>
     </ScreenWidth>
 </ContentLayout>
@@ -78,6 +76,10 @@ const { videoId, videoDescription, signupDescription } = markdown.frontmatter;
 
     #blog-content :global(h3) {
         @apply mb-2 mt-[2.5rem] font-lato text-xl text-coral;
+    }
+
+    #blog-content :global(h4 button) {
+        text-align: start;
     }
 
     #blog-content :global(p),
