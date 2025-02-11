@@ -9,10 +9,12 @@ type Props = {
     promotedItems: PlaceCardRef[];
     title?: string;
     size?: "sm" | "lg";
+    side?: "left" | "right" | "center";
 };
 
 const {
     size,
+    side,
     promotedItems,
     title,
     pagefindMetadata = undefined,
@@ -27,4 +29,9 @@ const {
             <H2 color="coral">{title}</H2>
         ))
 }
-<TagList size={size} tags={promotedItems} pagefindMetadata={pagefindMetadata} />
+<TagList
+    side={side}
+    size={size}
+    tags={promotedItems}
+    pagefindMetadata={pagefindMetadata}
+/>
