@@ -36,9 +36,7 @@ const { card, className = "" } = Astro.props;
         class="absolute bottom-0 right-0 w-full p-6 text-right"
         id="card-content"
     >
-        <H3 color="white" position={{ default: "end" }} classList="text-3xl"
-            >{card.title}</H3
-        >
+        <H3 color="white" classList="text-3xl">{card.title}</H3>
         <p id="card-text" class="text-sm text-white/90 md:text-base">
             {card.content}
         </p>
