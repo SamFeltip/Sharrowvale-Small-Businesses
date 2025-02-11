@@ -17,5 +17,5 @@ export const articleSchema = ({ image }: { image: ImageFunction }) =>
 
         promotedBusiness: reference("businesses").optional(),
 
-        websiteLink: z.string().url().nullable(),
+        websiteLink: z.string().url().optional(),
     });
