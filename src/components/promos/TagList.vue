@@ -16,10 +16,11 @@ const props = defineProps<{
     tags: PlaceCardRef[],
     type?: "white-clear" | "yellow" | "clear";
     size?: "sm" | "lg";
+    pagefindIgnore?: boolean;
 }>();
 
-const { size = "lg" } = props;
+const { size = "lg", type = "clear" } = props;
 
-const { type = "clear" } = props;
+const { } = props;
 
 </script>

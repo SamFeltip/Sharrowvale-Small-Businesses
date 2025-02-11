@@ -123,9 +123,16 @@ if (yearEstablished !== null) {
     HeaderContent={HeaderContent}
 >
     <ScreenWidth>
-        <div>
+        <div class="hidden">
             <div data-pagefind-meta="content[data-src]" data-src={preview}>
             </div>
+            {
+                promoTagRefs.map((tag) => (
+                    <div data-pagefind-filter="tags">
+                        {tag.collectionEntry.data.name}
+                    </div>
+                ))
+            }
         </div>
 
         <article

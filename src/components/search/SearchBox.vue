@@ -110,11 +110,6 @@ let pagefind = ref<PagefindResource | null>(null); //inject('pagefind', ref(null
 const showFilters = ref(true);
 const sortAscending = ref(true);
 
-watch(availableTags, () => {
-    console.log(availableTags.length);
-    console.log(showFilters && availableTags.length > 0);
-})
-
 onMounted(async () => {
     loading.value = true;
 
@@ -135,7 +130,12 @@ async function handleSearch() {
         return;
     }
 
+    console.log({ searchQuery: searchQuery.value, searchOptionsConfig })
+
     const searchResult = await search(searchQuery.value, searchOptionsConfig, pagefind.value);
+
+
+    console.log(searchResult);
 
     const [d, t] = searchResult;
 
@@ -184,7 +184,7 @@ function createSearchOptionsFromRefs(): SearchOptionsConfig {
         sortAscending: sortAscending.value,
         selectedTags: selectedTags.value,
         requiredTag: props.requiredTag,
-        requiredCategories: props.requiredCategories
+        requiredCategories: props.requiredCategories.map((c) => c.toLowerCase()),
     }
 }
 

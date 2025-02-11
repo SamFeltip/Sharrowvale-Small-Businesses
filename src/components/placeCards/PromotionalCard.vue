@@ -7,7 +7,7 @@
         <div class="absolute bottom-0 w-full p-3">
             <H4 color="white" :position>{{ card.title }}</H4>
 
-            <SerifBody position="end" color="white">{{ card.content }}</SerifBody>
+            <SerifBody position="start" color="white">{{ card.content }}</SerifBody>
         </div>
     </HoverSection>
 </template>
