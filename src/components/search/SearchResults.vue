@@ -1,6 +1,6 @@
 <!-- SearchResults.vue -->
 <template>
-    <div class="w-full mx-auto px-4">
+    <div class="w-full mx-auto">
         <div v-if="searchResults.length === 0" class="text-center py-8 text-gray-500">
             No results found
         </div>
