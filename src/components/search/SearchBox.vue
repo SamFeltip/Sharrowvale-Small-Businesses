@@ -184,7 +184,7 @@ function createSearchOptionsFromRefs(): SearchOptionsConfig {
         sortAscending: sortAscending.value,
         selectedTags: selectedTags.value,
         requiredTag: props.requiredTag,
-        requiredCategories: props.requiredCategories.map((c) => c.toLowerCase()),
+        requiredCategories: props.requiredCategories,
     }
 }
 
