@@ -99,7 +99,7 @@ if (yearEstablished !== null) {
         <article
             data-pagefind-body
             id="business-content"
-            class="align-content-start grid grid-cols-1 gap-x-10 gap-y-6 xl:grid-cols-[1fr_2fr]"
+            class="align-content-start grid grid-cols-1 gap-x-10 gap-y-6 lg:grid-cols-[1fr_2fr]"
         >
             <div data-pagefind-sort="title" class="hidden">
                 <p>{name}</p>
@@ -115,7 +115,7 @@ if (yearEstablished !== null) {
                     <GoogleMap address={streetAddress} title={name} />
                 </Section>
 
-                <Section id="tables" floatIn={true} classList="hidden xl:flex">
+                <Section id="tables" floatIn={true} classList="hidden lg:flex">
                     <Tables {...entry.data} />
                 </Section>
 
@@ -150,7 +150,7 @@ if (yearEstablished !== null) {
             <Section floatIn={true} id="images">
                 <LightBox slides={slides} client:load />
             </Section>
-            <Section id="tables" floatIn={true} classList="flex xl:hidden">
+            <Section id="tables" floatIn={true} classList="flex lg:hidden">
                 <Tables {...entry.data} />
             </Section>
             <Section floatIn={true} id="article-content-grid">
@@ -170,7 +170,7 @@ if (yearEstablished !== null) {
                 floatIn={true}
                 pagefindIgnore={true}
                 id="similar-listings"
-                classList="xl:pt-8 items-center"
+                classList="lg:pt-8 items-center"
             >
                 <SimilarListings businessTags={tags} title="Similar Listings" />
             </Section>
