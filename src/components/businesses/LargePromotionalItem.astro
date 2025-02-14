@@ -1,0 +1,61 @@
+---
+import HoverSection from "@/components/elements/sections/HoverSection.vue";
+import type { PlaceCard } from "../placeCards/PlaceCard";
+import H4 from "../elements/headers/H4.vue";
+
+interface Props {
+    card: PlaceCard;
+    className?: string;
+    position?: "start" | "end";
+}
+
+const { card, className = "" } = Astro.props;
+---
+
+<HoverSection
+    classList="relative w-full h-full overflow-hidden group"
+    outerClassList={className}
+    href={card.href}
+>
+    {
+        (
+            <img
+                src={card.image}
+                alt={card.title}
+                class="absolute inset-0 h-full w-full rounded-2xl object-cover"
+            />
+        )
+    }
+
+    <div
+        class="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+    >
+    </div>
+
+    <div
+        class="absolute bottom-0 right-0 w-full p-6 text-right"
+        id="card-content"
+    >
+        <H4 color="white" position="end" classList="text-2xl">{card.title}</H4>
+        <p id="card-text" class="text-sm text-white/90 md:text-base">
+            {card.content}
+        </p>
+    </div>
+</HoverSection>
+
+<style>
+    #card-content {
+        container-name: card-content;
+        container-type: inline-size;
+    }
+
+    #card-text {
+        display: none;
+    }
+
+    @container (min-width: 300px) {
+        #card-text {
+            display: block;
+        }
+    }
+</style>

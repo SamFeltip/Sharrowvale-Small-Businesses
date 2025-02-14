@@ -1,0 +1,99 @@
+---
+import H1 from "@/components/elements/headers/H1.astro";
+import MonoBody from "@/components/elements/body/MonoBody.astro";
+
+import { faCalendarDays } from "@fortawesome/free-solid-svg-icons/faCalendarDays";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons/faCircleInfo";
+import { faGem } from "@fortawesome/free-solid-svg-icons/faGem";
+import { faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons/faScrewdriverWrench";
+import { faNewspaper } from "@fortawesome/free-solid-svg-icons/faNewspaper";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons/faArrowRight";
+
+import BannerBox from "./BannerBox.astro";
+import ScreenWidth from "@/components/elements/ScreenWidth.vue";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Section from "@/components/elements/sections/FloatSection.astro";
+
+import Button from "@/components/elements/Button.vue";
+
+type Props = {
+    title: string;
+    description?: string;
+    headerTop?: string[];
+    headerBottom?: string[];
+};
+---
+
+<div class="flex h-full flex-col items-center justify-center text-center">
+    <div class="flex flex-col items-center gap-4">
+        <Section floatIn={true}>
+            <div class="flex flex-col items-center gap-2">
+                <MonoBody size="large">DISCOVER</MonoBody>
+                <H1 color="coral" position="center">Sharrow Vale</H1>
+                <MonoBody size="small"
+                    >SHEFFIELD'S HOME FOR INDEPENDENT BUSINESSES</MonoBody
+                >
+            </div>
+            <form
+                class="rouded-full my-3 flex w-full max-w-[500px] flex-row items-center gap-2 rounded-full bg-white p-2 px-3 lg:max-w-[800px] lg:p-3 lg:px-4"
+                action="/search"
+                method="get"
+            >
+                <input
+                    name="search"
+                    type="text"
+                    class="h-full w-full p-3 text-base leading-8 focus:outline-none lg:text-xl"
+                    placeholder="Search for shops, blogs, events & more..."
+                />
+                <Button shape="circle" size="lg" type="coral">
+                    <FontAwesomeIcon
+                        icon={faArrowRight}
+                        height={20}
+                        width={20}
+                        fontSize={20}
+                    />
+                </Button>
+            </form>
+        </Section>
+    </div>
+    <div class="absolute bottom-0 flex flex-row items-center pb-10">
+        <ScreenWidth>
+            <div class="flex flex-row gap-6">
+                <BannerBox
+                    animationDelay={300}
+                    classList="hidden md:flex"
+                    href="/tags/cafe"
+                    iconDef={faGem}
+                    text="Discover a hidden gem"
+                />
+                <BannerBox
+                    animationDelay={400}
+                    href="/categories/events"
+                    iconDef={faCalendarDays}
+                    text="Attend local events"
+                />
+                <BannerBox
+                    animationDelay={500}
+                    classList="hidden md:flex"
+                    href="/categories/directory"
+                    iconDef={faCircleInfo}
+                    text="Discover businesses"
+                />
+                <BannerBox
+                    animationDelay={600}
+                    href="/articles"
+                    iconDef={faNewspaper}
+                    text="News & Updates"
+                />
+
+                <BannerBox
+                    animationDelay={700}
+                    href="/categories/directory"
+                    iconDef={faScrewdriverWrench}
+                    text="Find local tradespeople"
+                />
+            </div>
+        </ScreenWidth>
+    </div>
+</div>

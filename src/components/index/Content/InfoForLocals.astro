@@ -1,0 +1,81 @@
+---
+import H2 from "@/components/elements/headers/H2.astro";
+import PlaceCardGridItem from "@/components/placeCards/PlaceCardGridItem.vue";
+
+import newsImage from "@/assets/images/index/home/guest-road.jpg";
+import tradeImage from "@/assets/images/index/home/tradespeople.png";
+import marketImage from "@/assets/images/index/sharrow-vale-market/666576a0c2d4c780054817d3_market-.jpeg";
+import aboutImage from "@/assets/images/index/about.png";
+
+import Section from "@/components/elements/sections/FloatSection.astro";
+import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
+import { getPlaceCards } from "@/scripts/placeCard/handler";
+import { getImageHelper } from "@/scripts/images/getImageHelper";
+
+const placeCardRefs: PlaceCardRef[] = [
+    {
+        type: "articles",
+        collectionEntry: {
+            id: "",
+            data: {
+                name: "News & Updates",
+                heroImage: newsImage,
+            },
+        },
+    },
+    {
+        type: "categories",
+        collectionEntry: {
+            id: "directory",
+            data: {
+                name: "Find a local tradesperson",
+                heroImage: tradeImage,
+            },
+        },
+    },
+    {
+        type: "tags",
+        collectionEntry: {
+            id: "sharrow-vale-market",
+            data: {
+                name: "Sharrow Vale Market",
+                heroImage: marketImage,
+            },
+        },
+    },
+];
+
+const contentCollectionPlaceCards = await getPlaceCards(placeCardRefs);
+
+const aboutImageLoaded = await getImageHelper(aboutImage);
+
+const placeCards = [
+    ...contentCollectionPlaceCards,
+    {
+        image: aboutImageLoaded,
+        title: "About this site",
+        href: "/join",
+    },
+];
+---
+
+<Section floatIn={true} classList="items-center">
+    <H2 color="coral" classList="text-center">Info for Locals</H2>
+    <div class="flex justify-center">
+        <div class="grid w-full grid-cols-2 gap-4 md:gap-8 xl:hidden">
+            {
+                placeCards
+                    .slice(0, 4)
+                    .map((item) => <PlaceCardGridItem {...item} />)
+            }
+        </div>
+
+        <div class="hidden w-full grid-cols-3 gap-4 md:gap-8 xl:grid">
+            {
+                placeCards
+                    .slice(0, 3)
+                    .map((item) => <PlaceCardGridItem {...item} />)
+            }
+        </div>
+    </div>
+</Section>

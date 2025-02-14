@@ -1,0 +1,48 @@
+---
+type Props = {
+    classList?: string;
+    position?: "center" | "start" | "end";
+    color?: "white" | "coral" | "black";
+    size?: "sm" | "md" | "lg";
+    id?: string;
+};
+
+const {
+    classList,
+    id,
+    position = "start",
+    color = "black",
+    size = "md",
+}: Props = Astro.props;
+
+const sizeClass = {
+    sm: "text-sm",
+    md: "text-base",
+    lg: "text-lg",
+};
+
+const colorClass = {
+    white: "text-white",
+    coral: "text-coral",
+    black: "text-black",
+};
+
+const positionClass = {
+    center: "text-center",
+    start: "text-left",
+    end: "text-right",
+};
+---
+
+<p
+    id={id}
+    class:list={[
+        "font-merriweather text-base font-light no-underline lg:text-lg xl:text-xl",
+        sizeClass[size],
+        colorClass[color],
+        positionClass[position],
+        classList,
+    ]}
+>
+    <slot />
+</p>

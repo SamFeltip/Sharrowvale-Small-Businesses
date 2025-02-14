@@ -2,8 +2,15 @@
 
 astro website showcasing businesses on sharrow vale.
 
-this website is currently being rebuilt in astro to avoid webflow charges.
+This website is built for the community, by the community.
 
-Visit [sharrowvale.co.uk](https://www.sharrowvale.co.uk) to see the webflow project.
+## Contributors
 
-you can see this project at [preview.sharrowvale.co.uk](https://preview.sharrowvale.co.uk)
+-   Sam Felton: [github](https://github.com/SamFeltip) 
+    -   Software Lead
+-   Dan Tarrant: [Portfolio](https://design-narrative.com/) 
+    -   Designer Lead
+
+## Ethos
+
+We are committed to the practices outlined in [The Faithtech Playbook](https://faithtech.com/wp-content/uploads/The-FaithTech-Playbook.pdf).

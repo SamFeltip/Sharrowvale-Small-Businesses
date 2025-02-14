@@ -1,0 +1,40 @@
+---
+import Nav from "@/components/elements/Nav.astro";
+import { Image } from "astro:assets";
+import ScreenWidth from "../elements/ScreenWidth.vue";
+type Props = {
+    image: ImageMetadata;
+    title: string;
+    description?: string;
+
+    headerTop?: string[];
+    headerBottom?: string[];
+
+    Content: (_props: any) => JSX.Element;
+};
+
+const { image, title, description, headerTop, headerBottom, Content }: Props =
+    Astro.props;
+---
+
+<header class="relative h-[85vh] w-full overflow-hidden">
+    <div class="absolute left-0 right-0 top-0 z-10">
+        <Nav />
+    </div>
+    <Image
+        src={image}
+        alt={title}
+        class="absolute inset-0 h-full object-cover"
+        width={2500}
+    />
+    <div class="40 absolute inset-0 z-[5] bg-black/40">
+        <ScreenWidth>
+            <Content
+                title={title}
+                description={description}
+                headerTop={headerTop}
+                headerBottom={headerBottom}
+            />
+        </ScreenWidth>
+    </div>
+</header>

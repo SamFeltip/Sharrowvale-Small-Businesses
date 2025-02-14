@@ -1,0 +1,20 @@
+---
+import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
+import Section from "@/components/elements/sections/FloatSection.astro";
+import { getCollection } from "astro:content";
+
+const categories = await getCollection("categories");
+
+const promotedItems = categories.map((category) => ({
+    type: "categories",
+    collectionEntry: category,
+}));
+---
+
+<Section floatIn={true} classList="items-center">
+    <PromotedTags
+        size="lg"
+        promotedItems={promotedItems}
+        title="Discover more"
+    />
+</Section>

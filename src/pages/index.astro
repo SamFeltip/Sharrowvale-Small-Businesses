@@ -1,162 +1,54 @@
 ---
-import { InteractiveCarousel } from "../components/index/HomeCarousel.tsx";
+import ContentLayout from "@/layouts/ContentLayout.astro";
 
-import Layout from "@/layouts/Layout.astro";
-import SearchField from "@/components/search/SearchField.astro";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
-import { type CollectionEntry, getCollection } from "astro:content";
-
-const promotions: CollectionEntry<"promotion">[] =
-    await getCollection("promotion");
-
-let promotionsData = await promotions.map((promotion) => ({
-    ...promotion.data,
-}));
+import bannerImage from "../assets/images/index/heroImage.jpg";
+import HeaderContent from "@/components/index/Header/HeaderContent.astro";
+import CategoryCarousel from "@/components/index/Content/CategoryCarousel.astro";
+import InfoForLocals from "@/components/index/Content/InfoForLocals.astro";
+import Spotlight from "@/components/index/Content/Spotlight.astro";
+import LatestNews from "@/components/index/LatestNews.astro";
+import SharrowValeMarket from "@/components/index/Content/SharrowValeMarket.astro";
+import ScreenWidth from "@/components/elements/ScreenWidth.vue";
+import BusinessCarousel from "@/components/index/Content/BusinessCarousel.astro";
+import PromotedCategory from "@/components/index/Content/PromotedCategory.astro";
 ---
 
-<Layout>
-    <div data-pagefind-ignore class="max-w-screen-xl">
-        <section
-            class="text-center h-[80svh] mh-[600px] pt-[80px] px-7 md:px-5 md:flex flex-col items-center justify-center"
-        >
-            <div class="mb-[120px] flex flex-col items-center gap-[5rem]">
-                <div
-                    class="bg-amber-100 border-black border-[1px] rounded-full text-center text-sm px-4 py-2"
-                >
-                    <a href="https://forms.gle/M7dq5bslguThKZkr8" class="">
-                        Want to join our site? <wbr /> Fill out the content form
-                        <span class="text-blue-500 underline">here</span>
-                    </a>
-                </div>
-
-                <div>
-                    <h4 class="text-center">Welcome to</h4>
-                    <h1 id="hero-title" class="text-coral text-center">
-                        Sharrow Vale
-                    </h1>
-                    <h4 class="text-center">small businesses</h4>
-                    <p>
-                        The home for exploring the unique community of
-                        businesses
-                        <br />
-                        and services in Sharrow Vale, Sheffield
-                    </p>
-                </div>
-            </div>
-            <div class="text-center">
-                <a href="#directory" class="flex flex-col gap-2">
-                    <span
-                        class="text-black mt-0 mb-0 font-lato text-base font-light leading-[1.24] no-underline"
-                    >
-                        Search businesses
-                    </span>
-                    <FontAwesomeIcon
-                        className="text-black h-5"
-                        icon={faChevronDown}
-                    />
-                </a>
-            </div>
-        </section>
-
-        <section class="flex justify-center p-8 px-7 md:px-5">
-            <InteractiveCarousel
-                client:only="react"
-                promotions={promotionsData}
+<ContentLayout
+    image={bannerImage}
+    title="Sharrow vale small businesses"
+    description="the place to find independent small businesses in Sharrow Vale, and what's going on in the community"
+    HeaderContent={HeaderContent}
+    pagefindIgnore={true}
+>
+    <div class="flex flex-col gap-20 md:gap-40">
+        <CategoryCarousel
+            title="Independent Businesses"
+            promotedCategories={[
+                "food-and-drink",
+                "art-and-design",
+                "cafe",
+                "lunch",
+                "pubs-and-bars",
+                "restaurant",
+                "healthcare",
+            ]}
+        />
+        <ScreenWidth classList="flex flex-col gap-20 md:gap-40">
+            <InfoForLocals />
+            <!-- when we have more content, we can add this component -->
+            <Spotlight
+                title="Business Spotlight"
+                slugs={[
+                    "dyson-place",
+                    "made-in-sheffield",
+                    "new-to-the-area",
+                    "events",
+                ]}
             />
-        </section>
-
-        <section
-            id="directory"
-            class="text-center flex flex-col items-center justify-center gap-y-5 pb-5 pt-14 px-7 md:px-5"
-        >
-            <h4 class="text-center">sharrow vale directory</h4>
-            <h2 class="text-coral">
-                Search For Local Restaurants,<br /> Shops, Cafes And More
-            </h2>
-        </section>
-
-        <section
-            class="mb-[8rem] px-7 md:px-5 w-full flex flex-col items-center"
-        >
-            <SearchField startResult="true" />
-
-            <a
-                href="/businesses"
-                class="hover:scale-110 transition-all border border-black rounded-full py-1 px-2"
-            >
-                Visit the directory
-            </a>
-        </section>
-
-        <section
-            class="flex flex-col lg:flex-row-reverse items-center justify-center px-7 mb-[8rem] w-full px-7 md:px-5"
-        >
-            <img
-                class="h-[600px] object-cover rounded-mega aspect-video lg:aspect-[4/5] lg:translate-x-[-50px]"
-                src="/images/promotion/sharrow-vale-market/666576a0c2d4c780054817d3_market-.jpeg"
-                alt="sharrow vale market"
-            />
-            <div
-                class="bg-white rounded-mega py-[56px] px-8 md:px-10 mx-3 lg:mx-0 translate-y-[-100px] lg:translate-y-0 lg:translate-x-[50px] flex flex-col gap-y-4 items-start"
-            >
-                <h3 class="text-coral">Sharrow Vale Market</h3>
-
-                <div>
-                    <p class="mb-4">
-                        Sharrow Vale Market is one of the Sharrows most beloved
-                        features, running three times a year from hunters bar
-                        roundabout all the way down stewart road.
-                    </p>
-                    <p class="mb-4">
-                        The market hosts around 100 stalls selling a wide
-                        variety of locally reared and home made produce as well
-                        as hot food, crafts, clothing and plants. In addition to
-                        the stalls, most of the shops, pubs and cafes are also
-                        open on market days.
-                    </p>
-                    <p class="mb-4">
-                        The market is managed by the Sharrow Vale Community
-                        Association. For more information you can visit their
-                        website below.
-                    </p>
-                </div>
-
-                <a
-                    href="http://sharrowvalemarket.co.uk/"
-                    class="font-merriweather hover:bg-black hover:text-cream text-sm border border-black rounded-full py-3 px-6"
-                >
-                    Find out more
-                </a>
-            </div>
-        </section>
-
-        <section
-            class="flex flex-col lg:flex-row items-center justify-center px-7 mb-[8rem] w-full"
-        >
-            <img
-                class="w-[700px] object-cover rounded-mega aspect-[3/2] lg:translate-x-[50px]"
-                src="/images/home/guest-road.jpg"
-                alt=""
-            />
-            <div
-                class="bg-white rounded-mega px-8 md:px-10 py-[56px] flex flex-col gap-y-4 items-start mx-3 lg:mx-0 translate-y-[-100px] lg:translate-y-0 lg:translate-x-[-50px]"
-            >
-                <h3 class="text-coral">About</h3>
-                <p>
-                    This directory is run by local Sharrow Vale residents aiming
-                    to help locals and tourists find out more about the Vale,
-                    highlighting unique collection of many small businesses that
-                    live here. If you would like to find out more about how it
-                    works click below
-                </p>
-                <a
-                    href="/join"
-                    class="font-merriweather hover:bg-black hover:text-cream text-sm border border-black rounded-full py-3 px-6"
-                >
-                    Find out more
-                </a>
-            </div>
-        </section>
+            <LatestNews />
+            <SharrowValeMarket />
+        </ScreenWidth>
+        <BusinessCarousel />
+        <PromotedCategory />
     </div>
-</Layout>
+</ContentLayout>

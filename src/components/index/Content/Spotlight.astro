@@ -1,0 +1,46 @@
+---
+import ContentPromotions from "@/components/content/ContentPromotions.astro";
+import H2 from "@/components/elements/headers/H2.astro";
+import Section from "@/components/elements/sections/FloatSection.astro";
+import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
+import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
+import { getPlaceCards } from "@/scripts/placeCard/handler";
+import { sortByIndex } from "@/scripts/placeCard/sorting";
+import { type CollectionEntry, getCollection } from "astro:content";
+
+type Props = {
+    title: string;
+    slugs: string[];
+};
+
+const { title, slugs }: Props = Astro.props;
+
+const categories: CollectionEntry<"categories">[] = await getCollection(
+    "categories",
+    (category) => slugs.includes(category.id)
+);
+
+const categoryItems: PlaceCardRef[] = getPlaceCardRefs(
+    "categories",
+    categories
+);
+
+const tags: CollectionEntry<"tags">[] = await getCollection(
+    "tags",
+    (category) => slugs.includes(category.id)
+);
+
+const tagItems: PlaceCardRef[] = getPlaceCardRefs("tags", tags);
+
+const businessPlaceCards = await getPlaceCards(
+    [...categoryItems, ...tagItems],
+    800
+);
+
+const sortedBusinessPlaceCards = sortByIndex(businessPlaceCards, slugs);
+---
+
+<Section floatIn={true} classList="items-center">
+    <H2 color="coral" classList="text-center">{title}</H2>
+    <ContentPromotions promotionPlaceCards={sortedBusinessPlaceCards} />
+</Section>

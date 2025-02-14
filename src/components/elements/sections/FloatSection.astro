@@ -1,0 +1,55 @@
+---
+type Props = {
+    direction?: "column" | "row";
+    classList?: string;
+    id?: string;
+    pagefindIgnore?: boolean;
+    floatIn?: boolean;
+};
+
+const props: Props = Astro.props;
+
+const { direction = "column", id, pagefindIgnore, floatIn } = props;
+
+const flexDirection = direction == "column" ? "flex-col" : "flex-row";
+---
+
+<section
+    data-float={floatIn}
+    data-pagefind-ignore={pagefindIgnore}
+    id={id}
+    class:list={[
+        floatIn ? "translate-y-[-50px] opacity-0" : "opacity-100",
+        "align-items flex w-full gap-8",
+        flexDirection,
+        props.classList,
+    ]}
+>
+    <slot />
+</section>
+
+<script>
+    const sections = document.querySelectorAll("[data-float]");
+
+    if (!sections) {
+        console.error("No section found");
+    }
+
+    const observerOptions = {
+        root: null,
+    };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("animate-appear");
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach((section) => {
+        sectionObserver.observe(section);
+    });
+</script>

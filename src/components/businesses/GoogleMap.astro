@@ -8,7 +8,7 @@ const { address, title } = Astro.props;
 ---
 
 <div class="w-full">
-    <div id="map" class="h-[400px] w-full rounded-3xl"></div>
+    <div id="map" class="h-[400px] w-full overflow-hidden rounded-3xl"></div>
 
     <template data-address={address} data-title={title}></template>
 

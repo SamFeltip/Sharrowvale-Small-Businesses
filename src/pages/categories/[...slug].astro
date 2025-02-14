@@ -1,0 +1,90 @@
+---
+import SearchWrapper from "@/components/search/SearchWrapper.vue";
+
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import HeaderContent from "@/components/HeaderContent.astro";
+
+import Section from "@/components/elements/sections/FloatSection.astro";
+
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import ContentCollectionItem from "@/components/elements/contentCollectionWrapper/ContentCollectionItem.astro";
+import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
+import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
+import ScreenWidth from "@/components/elements/ScreenWidth.vue";
+
+export async function getStaticPaths() {
+    const category: CollectionEntry<"categories">[] =
+        await getCollection("categories");
+    return category.map((category) => ({
+        params: { slug: category.id },
+        props: category,
+    }));
+}
+
+type Props = CollectionEntry<"categories">;
+
+const entry: Props = Astro.props;
+
+const { Content } = await render(entry);
+
+const { name, description, bannerImage, isGridLayout } = entry.data;
+
+// const promoTagPlaceCards = await getPlaceCardsFromTags(promoTags);
+
+const searchCategoryCollection = [name];
+
+const categories = await getCollection("categories");
+
+const promotedItems = categories
+    .filter((category) => category.id.toLowerCase() !== name.toLowerCase())
+    .map((category) => ({
+        type: "categories",
+        collectionEntry: category,
+    }));
+
+const pricing = await getCollection("prices");
+
+const listingPromo = pricing.filter((price) => price.id === "listing")[0];
+---
+
+<ContentLayout
+    title={name}
+    description={description}
+    image={bannerImage}
+    HeaderContent={HeaderContent}
+    classList="gap-8"
+    pagefindIgnore={true}
+>
+    <ScreenWidth classList="gap-10">
+        <div class="flex flex-col items-center gap-4">
+            <ContentCollectionItem>
+                <Content />
+            </ContentCollectionItem>
+        </div>
+
+        <Section floatIn={true}>
+            <SearchWrapper
+                client:only="vue"
+                requiredCategories={searchCategoryCollection}
+                isGridLayout={isGridLayout}
+                pricingPromotion={listingPromo}
+            />
+        </Section>
+
+        <Section floatIn={true} classList="items-center">
+            <PromotedTags
+                size="lg"
+                title="Explore more Categories"
+                promotedItems={promotedItems}
+            />
+        </Section>
+
+        {
+            isGridLayout && (
+                <div class="flex flex-col items-center">
+                    <PromoBanner pricingPromotion={listingPromo} />
+                </div>
+            )
+        }
+    </ScreenWidth>
+</ContentLayout>

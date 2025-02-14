@@ -22,24 +22,28 @@ export default function LightBox({ slides }: { slides: SlideImage[] }) {
         <>
             <div
                 id="lightbox-preview-grid"
-                className="w-full grid grid-cols-1 md:grid-cols-[1fr_150px] gap-4"
+                className="grid w-full grid-flow-dense gap-4 grid-cols-1 grid-rows-4 md:grid-cols-4 md:grid-rows-2"
             >
-                <img
-                    className="cursor-pointer rounded-xl md:rounded-3xl w-full h-[400px] object-cover"
-                    src={slides[0].src}
-                    alt=""
-                    onClick={openOnIndex(0)}
-                />
-                <div className="flex flex-row md:flex-col gap-4 md:h-[400px] overflow-y-scroll">
-                    {slides.slice(1).map((slide, index) => (
-                        <img
-                            className="cursor-pointer object-cover rounded-xl md:rounded-3xl h-[100px]"
-                            src={slide.src}
-                            alt=""
-                            key={index}
-                            onClick={openOnIndex(index + 1)}
-                        />
-                    ))}
+                <div className="col-span-1 md:col-span-3 row-span-3 md:row-span-2 relative">
+                    <img
+                        className="w-full h-full object-cover absolute inset-0 cursor-pointer rounded-xl md:rounded-3xl"
+                        src={slides[0].src}
+                        alt=""
+                        onClick={openOnIndex(0)}
+                    />
+                </div>
+                <div className="col-span-1 md:col-start-4 row-span-1 md:row-span-2">
+                    <div className="transition-[height] duration-300 ease-in-out flex flex-row gap-4 overflow-y-scroll md:h-[300px] lg:h-[400px] md:flex-col">
+                        {slides.slice(1).map((slide, index) => (
+                            <img
+                                className=" aspect-[3/2] h-[100px] w-full cursor-pointer rounded-lg object-cover md:h-auto md:w-auto md:rounded-xl"
+                                src={slide.src}
+                                alt=""
+                                key={index}
+                                onClick={openOnIndex(index + 1)}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
 

@@ -1,29 +1,94 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection } from "astro:content";
 
-import { businessSchema as businessSchema } from '@/schemas/businesses';
+import { businessSchema } from "@/schemas/businesses";
+import { articleSchema } from "@/schemas/articles";
+import { tagSchema } from "@/schemas/tag";
+import { categorySchema } from "@/schemas/category";
+import { pricingSchema } from "@/schemas/pricing";
+import { contactSchema } from "@/schemas/contact";
+import { faqSchema } from "@/schemas/faq";
+import { file, glob } from "astro/loaders";
 
-import { businessCategorySchema as businessCategorySchema } from '@/schemas/businessCategory';
-import { promotionSchema as promotionSchema } from '@/schemas/promotion';
+import { parse as parseCsv } from "csv-parse/sync";
 
-const businesses = defineCollection({
-	type: 'content',
-	// Type-check frontmatter using a schema
-	schema: businessSchema,
+const businessCollection = defineCollection({
+    loader: glob({
+        pattern: "**/*.{md,mdx}",
+        base: "src/content/businesses",
+    }),
+
+    schema: businessSchema,
 });
 
-const businessCatCollection = defineCollection({
-	type: 'data',
-	// Type-check frontmatter using a schema
-	schema: businessCategorySchema,
+const articleCollection = defineCollection({
+    loader: glob({
+        pattern: "**/*.{md,mdx}",
+        base: "src/content/articles",
+    }),
+
+    schema: articleSchema,
 });
 
-const promotionCollection = defineCollection({
-	type: 'data',
-	schema: promotionSchema,
+const categoryCollection = defineCollection({
+    loader: glob({
+        pattern: "**/*.{md,mdx}",
+        base: "src/content/categories",
+    }),
+
+    schema: categorySchema,
+});
+
+const tagCollection = defineCollection({
+    loader: glob({
+        pattern: "**/*.{md,mdx}",
+        base: "src/content/tags",
+    }),
+
+    // Type-check frontmatter using a schema
+    schema: tagSchema,
+});
+
+const pricingCollection = defineCollection({
+    loader: file("src/content/pricing.csv", {
+        parser: (text) => {
+            return parseCsv(text, {
+                cast: true,
+                columns: true,
+                skipEmptyLines: true,
+            });
+        },
+    }),
+    schema: pricingSchema,
+});
+
+const contactCollection = defineCollection({
+    loader: file("src/content/contact.csv", {
+        parser: (text) => {
+            return parseCsv(text, {
+                cast: true,
+                columns: true,
+                skipEmptyLines: true,
+            });
+        },
+    }),
+    schema: contactSchema,
+});
+
+const faqCollection = defineCollection({
+    loader: glob({
+        pattern: "**/*.{md,mdx}",
+        base: "src/content/pages/join/FAQs",
+    }),
+
+    schema: faqSchema,
 });
 
 export const collections = {
-	"businesses": businesses,
-	"business-category": businessCatCollection,
-	"promotion": promotionCollection
+    prices: pricingCollection,
+    businesses: businessCollection,
+    tags: tagCollection,
+    articles: articleCollection,
+    categories: categoryCollection,
+    contacts: contactCollection,
+    faqs: faqCollection,
 };

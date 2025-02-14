@@ -1,0 +1,40 @@
+---
+import LargePromotionalItem from "../businesses/LargePromotionalItem.astro";
+import ExtraLargePromotionalItem from "../businesses/ExtraLargePromotionalItem.astro";
+import type { PlaceCard } from "../placeCards/PlaceCard";
+
+type Props = {
+    promotionPlaceCards: PlaceCard[];
+    classList?: string;
+};
+
+const { promotionPlaceCards, classList } = Astro.props;
+
+if (promotionPlaceCards.length < 4) {
+    throw new Error("At least 4 businesses must be provided");
+}
+
+const primaryItem = promotionPlaceCards[0];
+const secondaryItems = promotionPlaceCards.slice(1, 4);
+---
+
+<div
+    id="whats-on"
+    class:list={[
+        `grid h-[400px] w-full grid-cols-2 gap-4 pb-4 md:h-[600px] md:grid-cols-[1fr_300px] md:pb-5`,
+        classList,
+    ]}
+>
+    {/* Primary promotional item - spans full height */}
+    <ExtraLargePromotionalItem
+        card={primaryItem}
+        position="start"
+        className="md:row-span-3"
+    />
+
+    {
+        secondaryItems.map((item) => (
+            <LargePromotionalItem position="end" card={item} />
+        ))
+    }
+</div>

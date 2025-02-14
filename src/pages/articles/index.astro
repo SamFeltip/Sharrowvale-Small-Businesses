@@ -1,0 +1,77 @@
+---
+import H2 from "@/components/elements/headers/H2.astro";
+import SearchWrapper from "@/components/search/SearchWrapper.vue";
+
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import HeaderContent from "@/components/HeaderContent.astro";
+
+import bannerImage from "@/assets/images/category/guest-road.jpg";
+import Section from "@/components/elements/sections/FloatSection.astro";
+
+import type { PlaceCard } from "@/components/placeCards/PlaceCard";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getPlaceCardsFromArticles } from "@/scripts/placeCard/handler";
+import ScreenWidth from "@/components/elements/ScreenWidth.vue";
+import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.astro";
+
+const events: CollectionEntry<"articles">[] = await getCollection(
+    "articles",
+    (article) =>
+        article.data.categories.some((tag: any) => tag.slug === "events")
+);
+
+const eventPlaceCards: PlaceCard[] = await getPlaceCardsFromArticles(events);
+
+const upcomingEventPlaceCards: PlaceCard[] = eventPlaceCards.filter(
+    (event) => event.dateTime && event.dateTime > new Date()
+);
+
+// get every category except for the directory and events
+const searchCategoryCollection = await getCollection(
+    "categories",
+    (category) => ["directory", "events"].includes(category.id) == false
+);
+
+const searchCategories = searchCategoryCollection.map(
+    (category) => category.data.name
+);
+
+const pricing = await getCollection("prices");
+
+const advertisingPromotion = pricing.filter(
+    (price) => price.id === "promotion"
+)[0];
+---
+
+<ContentLayout
+    title="News & Updates"
+    description="what's happening in the area"
+    image={bannerImage}
+    HeaderContent={HeaderContent}
+    pagefindIgnore={true}
+>
+    <ScreenWidth classList="md:gap-10 gap-6">
+        <Section floatIn={true} classList="items-center">
+            <H2 color="coral"> Find out what's happening in The Vale </H2>
+        </Section>
+        <Section floatIn={true}>
+            <SearchWrapper
+                client:only="vue"
+                requiredCategories={searchCategories}
+                isGridLayout={false}
+                pricingPromotion={advertisingPromotion}
+            />
+        </Section>
+
+        {
+            upcomingEventPlaceCards.length > 0 && (
+                <Section floatIn={true}>
+                    <PlaceCardGrid
+                        placeCards={upcomingEventPlaceCards}
+                        title="Upcoming Events"
+                    />
+                </Section>
+            )
+        }
+    </ScreenWidth>
+</ContentLayout>

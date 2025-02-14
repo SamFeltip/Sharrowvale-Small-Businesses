@@ -6,8 +6,15 @@ import react from "@astrojs/react";
 import pagefind from "astro-pagefind";
 import embeds from "astro-embed/integration";
 
+import vue from "@astrojs/vue";
+
 // https://astro.build/config
 export default defineConfig({
+    experimental: {
+        // contentCollectionCache: false,
+        contentIntellisense: true,
+        // contentLayer: true,
+    },
     site: "https://www.sharrowvale.co.uk",
     integrations: [
         embeds(),
@@ -19,5 +26,6 @@ export default defineConfig({
         react(),
         tailwind(),
         pagefind(),
+        vue(),
     ],
 });

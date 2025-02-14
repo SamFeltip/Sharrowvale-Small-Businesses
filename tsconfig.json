@@ -7,9 +7,10 @@
     "paths": {
       "@/*": [
         "./src/*"
-      ]
+      ],
+      "@scripts/*": ["./src/scripts/*"]
     },
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "jsxImportSource": "react"
   }
 }

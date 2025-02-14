@@ -1,0 +1,20 @@
+---
+import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.astro";
+import { getPlaceCardsFromArticles } from "@/scripts/placeCard/handler";
+import { getCollection } from "astro:content";
+
+type Props = {
+    articleId: string;
+};
+
+const { articleId }: Props = Astro.props;
+
+const moreArticles = await getCollection(
+    "articles",
+    (article) => article.id !== articleId
+);
+
+const articlePages = await getPlaceCardsFromArticles(moreArticles);
+---
+
+<PlaceCardGrid placeCards={articlePages} title="More Articles" />

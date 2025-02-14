@@ -1,0 +1,48 @@
+---
+type Props = {
+    position?: "start" | "center" | "end";
+};
+
+const { position = "start" } = Astro.props;
+
+const positionClass = `text-${position}`;
+---
+
+<section class:list={["empty:hidden", positionClass]}>
+    <slot />
+</section>
+
+<style>
+    section :global(h2) {
+        @apply mb-2 font-merriweather text-xl font-normal capitalize leading-6 text-coral md:text-2xl lg:text-3xl;
+    }
+
+    section :global(h3) {
+        @apply mb-2 font-merriweather text-lg;
+    }
+
+    section :global(p),
+    section :global(td) {
+        @apply mt-3 font-lato text-xl font-light leading-6 no-underline;
+    }
+
+    section :global(#business-content),
+    section :global(#article-content) {
+        @apply text-coral;
+    }
+</style>
+
+<style>
+    section {
+        grid-template-columns: 1fr;
+    }
+    section :global(p) {
+        grid-column: 1/-1;
+    }
+
+    section :global(ul) {
+        list-style: circle;
+        grid-column: 1/-1;
+        margin-left: 1.5rem;
+    }
+</style>

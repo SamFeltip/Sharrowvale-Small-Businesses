@@ -1,0 +1,24 @@
+---
+import H3 from "../elements/headers/H3.vue";
+import Table from "./table.astro";
+
+type Props = {
+    openHours: [string, string][];
+    businessContacts: [string, string][];
+};
+
+const { openHours, businessContacts }: Props = Astro.props;
+---
+
+<div
+    class="grid grid-flow-col grid-cols-[1fr_auto_1fr] grid-rows-[auto_1fr] gap-6 lg:grid-flow-row lg:grid-cols-1"
+>
+    <H3 classList="text-center lg:text-start" color="coral">Open hours</H3>
+    <Table tableData={openHours} tableClassList="" />
+    <div class="lg:hidden"></div>
+    <div class="h-full w-[0.1px] bg-black lg:hidden"></div>
+    <H3 classList="text-center lg:text-start" color="coral"
+        >Business Contacts</H3
+    >
+    <Table tableData={businessContacts} />
+</div>

@@ -1,4 +1,4 @@
-#article-content-grid {
+section {
     display: grid;
 
     grid-template-areas:
@@ -9,65 +9,46 @@
 
     grid-template-columns: 1fr;
 
-    & p {
+    :global(p) {
         grid-column: 1/-1;
-        margin-top: 1rem;
     }
 
-    & ul {
+    :global(ul) {
         list-style: circle;
         grid-column: 1/-1;
         margin-left: 1.5rem;
     }
 
-    & td {
-        font-size: 1rem;
-        font-weight: 300;
-        line-height: 124%;
-    }
-
-    & td {
-        padding-bottom: 10px;
-    }
-
-    & h2 {
-        font-family: "Merriweather", serif;
-        font-weight: 400;
-        font-size: 2rem;
-        line-height: 1.12;
-        margin-bottom: 0.75rem;
-        text-align: center;
-        color: var(--coral);
-
+    :global(h2) {
         + table tr :last-child {
             text-align: right;
         }
     }
 
-    & h2#open-hours {
+    :global(h2#open-hours) {
         grid-area: open-hours-title;
         text-align: center;
     }
 
-    & h2#open-hours + table {
+    :global(h2#open-hours + table) {
         grid-area: open-hours;
     }
 
-    & h2#business-contact {
+    :global(h2#business-contact) {
         grid-area: business-contact-title;
     }
 
-    & h2#business-contact + table {
+    :global(h2#business-contact + table) {
         grid-area: business-contact;
     }
 
-    & table {
+    :global(table) {
         table-layout: auto;
     }
 }
 
 @media screen and (min-width: 768px) {
-    #article-content-grid {
+    section {
         grid-template-areas:
             "open-hours-title . business-contact-title"
             "open-hours spacer business-contact";
@@ -77,7 +58,7 @@
     }
 }
 
-#article-content-grid::before {
+section::before {
     grid-area: spacer;
     content: "";
     height: 100%;

@@ -1,27 +1,28 @@
 ---
-import "@/styles/business-content.css";
-import "@/styles/parallax.css";
-
-import { getImage, Image } from "astro:assets";
-import { getCollection, type CollectionEntry } from "astro:content";
-import Layout from "@/layouts/Layout.astro";
+import { getImage } from "astro:assets";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import GoogleMap from "@/components/businesses/GoogleMap.astro";
 import LightBox from "@/components/businesses/LightBox.tsx";
 import type { SlideImage } from "yet-another-react-lightbox";
-import PlaceCard from "@/components/businesses/PlaceCard.astro";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { faLink } from "@fortawesome/free-solid-svg-icons/faLink";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
 import { getEntries } from "astro:content";
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import HeaderContent from "@/components/HeaderContent.astro";
+import P from "@/components/elements/body/P.vue";
+import BlogContentCollectionItem from "@/components/elements/contentCollectionWrapper/BlogContentCollectionItem.astro";
+import Section from "@/components/elements/sections/FloatSection.astro";
+import ScreenWidth from "@/components/elements/ScreenWidth.vue";
+import Socials from "@/components/businesses/Socials.astro";
+import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
+import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
+import Tables from "@/components/businesses/Tables.astro";
+import SimilarListings from "@/components/pages/businesses/SimilarListings.astro";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
         await getCollection("businesses");
     return businesses.map((business) => ({
-        params: { slug: business.slug },
+        params: { slug: business.id },
         props: business,
     }));
 }
@@ -30,280 +31,202 @@ type Props = CollectionEntry<"businesses">;
 
 const entry: Props = Astro.props;
 const {
-    title,
+    name,
     preview,
     description,
-    type,
     bannerImage,
     heroImage,
     streetAddress,
     additionalImages,
+    yearEstablished,
     tags,
     openDaysStatement,
-    yearEstablished,
     websiteLink,
     facebookLink,
     instagramLink,
-    businessCategories,
 } = entry.data;
 
-// const heroImageObj = await getImage(heroImage);
+const { Content } = await render(entry);
 
-const { Content } = await entry.render();
+const slides: SlideImage[] = await Promise.all(
+    additionalImages.map(async (slide: ImageMetadata) => {
+        const image = await getImage({ src: slide });
 
-const slides: SlideImage[] = additionalImages.map((slide: string) => ({
-    src: slide,
-}));
+        return {
+            src: image.src,
+        };
+    })
+);
 
-const businesses: CollectionEntry<"businesses">[] =
-    await getCollection("businesses");
+const heroImageResult = await getImage({
+    src: heroImage,
+    format: "webp",
+});
 
-function shuffleBusinesses(array: CollectionEntry<"businesses">[]) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+const heroImageSrc = heroImageResult.src;
+
+const tagEntries: CollectionEntry<"tags">[] = await getEntries(tags);
+
+const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
+
+const promoTagRefs = getPlaceCardRefs("tags", promoTags);
+
+const headerBottom = [];
+
+if (openDaysStatement !== null) {
+    headerBottom.push(openDaysStatement);
 }
 
-const additional_places = shuffleBusinesses(
-    businesses.filter((x) => x.data.type === type && x.data.title != title)
-).slice(0, 3);
+if (yearEstablished !== null) {
+    headerBottom.push(`Est. ${yearEstablished}`);
+}
 ---
 
-<Layout>
-    <div class="hidden">
-        <div data-pagefind-meta="content[data-src]" data-src={preview}></div>
-    </div>
-    <article
-        class="my-5 mx-0 sm:mx-3 md:mx-8 max-w-screen-xl"
-        data-pagefind-body
-    >
-        <div class="h-[50vh]" id="parallax-background">
-            <img
-                id="banner-image"
-                class="sm:rounded-3xl w-full h-[80vh] object-cover sticky"
-                src={bannerImage}
-                alt="banner image"
-            />
+<ContentLayout
+    image={bannerImage}
+    title={name}
+    description={preview}
+    headerTop={[tagEntries[0].data.name]}
+    headerBottom={headerBottom}
+    HeaderContent={HeaderContent}
+>
+    <ScreenWidth classList="gap-6">
+        <div class="hidden">
+            <div data-pagefind-meta="content[data-src]" data-src={preview}>
+            </div>
+        </div>
+
+        <article
+            data-pagefind-body
+            id="business-content"
+            class="align-content-start grid grid-cols-1 gap-x-10 gap-y-6 xl:grid-cols-[1fr_2fr]"
+        >
+            <div data-pagefind-sort="title" class="hidden">
+                <p>{name}</p>
+            </div>
             <img
                 data-pagefind-meta="image[src], image_alt[alt]"
-                src={heroImage}
+                src={heroImageSrc}
                 alt="hero image"
                 class="hidden"
             />
-        </div>
-        <div id="parallax-foreground">
-            <div
-                id="business-content"
-                class="flex flex-col items-center gap-6 mx-2 md:mx-6 mb-5"
+            <aside class="flex flex-col gap-x-10 gap-y-6">
+                <Section floatIn={true}>
+                    <GoogleMap address={streetAddress} title={name} />
+                </Section>
+
+                <Section id="tables" floatIn={true} classList="hidden xl:flex">
+                    <Tables {...entry.data} />
+                </Section>
+
+                <Section floatIn={true} id="socials">
+                    <Socials
+                        instagramLink={instagramLink}
+                        websiteLink={websiteLink}
+                        facebookLink={facebookLink}
+                    />
+                </Section>
+
+                <Section
+                    floatIn={true}
+                    id="promoted-tags"
+                    classList="items-center"
+                >
+                    <PromotedTags
+                        pagefindMetadata="tags"
+                        size="sm"
+                        side="left"
+                        promotedItems={promoTagRefs}
+                    />
+                    <div class="hidden" data-pagefind-filter="category">
+                        Directory
+                    </div>
+                </Section>
+            </aside>
+
+            <Section floatIn={true} id="description">
+                <P classList="text-xl" position="center">{description}</P>
+            </Section>
+            <Section floatIn={true} id="images">
+                <LightBox slides={slides} client:load />
+            </Section>
+            <Section id="tables" floatIn={true} classList="flex xl:hidden">
+                <Tables {...entry.data} />
+            </Section>
+            <Section floatIn={true} id="article-content-grid">
+                <BlogContentCollectionItem>
+                    <Content />
+                </BlogContentCollectionItem>
+            </Section>
+            <Section floatIn={true} id="back-to-results">
+                <a
+                    class="flex justify-center text-center underline"
+                    href="/categories/directory"
+                >
+                    Back to results
+                </a>
+            </Section>
+            <Section
+                floatIn={true}
+                pagefindIgnore={true}
+                id="similar-listings"
+                classList="xl:pt-8 items-center"
             >
-                <section
-                    class="w-full gap-12
-							bg-white
-							rounded-[40px]
-							flex
-							flex-col
-							justify-center
-							items-center
-							max-w-[1200px]
-							mt-0
-							p-3 md:p-14 py-12 pb-18 static"
-                >
-                    <div class="prose w-full">
-                        <div class="title grid gap-[24px]">
-                            <div
-                                class="flex flex-row flex-wrap gap-5 justify-center"
-                            >
-                                {
-                                    businessCategories &&
-                                        businessCategories.map((bc: any) => (
-                                            <p class="uppercase text-center">
-                                                <span data-pagefind-filter="type">
-                                                    {bc.id}
-                                                </span>
-                                            </p>
-                                        ))
-                                }
-                            </div>
-                            <h1 class="text-coral text-center">
-                                {title}
-                            </h1>
-                            <p
-                                class="text-gray-dark text-center flex flex-row gap-4 justify-center"
-                            >
-                                <span>{openDaysStatement}</span>
-                                <span>Est. {yearEstablished}</span>
-                            </p>
+                <SimilarListings businessTags={tags} title="Similar Listings" />
+            </Section>
+        </article>
+    </ScreenWidth>
+</ContentLayout>
 
-                            <div
-                                class="flex flex-row flex-wrap gap-5 justify-center"
-                            >
-                                {
-                                    instagramLink && (
-                                        <a
-                                            href={instagramLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
-                                        >
-                                            <span>
-                                                <FontAwesomeIcon
-                                                    className="h-5 w-5"
-                                                    icon={faInstagram}
-                                                />
-                                            </span>
-                                        </a>
-                                    )
-                                }
+<style>
+    :global(#back-to-results) {
+        grid-area: back-to-results;
+    }
 
-                                {
-                                    websiteLink && (
-                                        <a
-                                            href={websiteLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
-                                        >
-                                            <span>
-                                                <FontAwesomeIcon
-                                                    className="h-5 w-5"
-                                                    icon={faLink}
-                                                />
-                                            </span>
-                                        </a>
-                                    )
-                                }
-                                {
-                                    facebookLink && (
-                                        <a
-                                            href={facebookLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
-                                        >
-                                            <span>
-                                                <FontAwesomeIcon
-                                                    className="h-5 w-5"
-                                                    icon={faFacebook}
-                                                />
-                                            </span>
-                                        </a>
-                                    )
-                                }
-                            </div>
-                            <p class="text-gray-dark">
-                                {description}
-                            </p>
-                            <div>
-                                <LightBox slides={slides} client:load />
-                            </div>
+    :global(#description) {
+        grid-area: description;
+    }
 
-                            <div id="article-content-grid">
-                                <Content />
-                            </div>
-                            {
-                                tags && (
-                                    <div class="flex flex-col items-center">
-                                        <div class="flex flex-wrap gap-2 mt-4 justify-center w-[60%]">
-                                            {tags.map(
-                                                (tag: string, i: number) => (
-                                                    <span class="text-center tracking-wide uppercase whitespace-nowrap rounded-xl py-2 px-3 text-xs font-normal leading-none text-black bg-[#ffd77a] font-lato">
-                                                        {tag}
-                                                    </span>
-                                                )
-                                            )}
-                                        </div>
-                                    </div>
-                                )
-                            }
-                            <div class="flex flex-row gap-5 justify-center">
-                                {
-                                    instagramLink && (
-                                        <a
-                                            href={instagramLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
-                                        >
-                                            <span>
-                                                <FontAwesomeIcon
-                                                    className="h-5 w-5"
-                                                    icon={faInstagram}
-                                                />
-                                            </span>
-                                        </a>
-                                    )
-                                }
+    :global(#images) {
+        grid-area: images;
+    }
 
-                                {
-                                    websiteLink && (
-                                        <a
-                                            href={websiteLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
-                                        >
-                                            <span>
-                                                <FontAwesomeIcon
-                                                    className="h-5 w-5"
-                                                    icon={faLink}
-                                                />
-                                            </span>
-                                        </a>
-                                    )
-                                }
-                                {
-                                    facebookLink && (
-                                        <a
-                                            href={facebookLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-center text-gray-dark p-3 border border-1 border-black rounded-full"
-                                        >
-                                            <span>
-                                                <FontAwesomeIcon
-                                                    className="h-5 w-5"
-                                                    icon={faFacebook}
-                                                />
-                                            </span>
-                                        </a>
-                                    )
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="w-full max-w-[1200px] px-8">
-                    <GoogleMap address={streetAddress} title={title} />
-                </section>
-                <section
-                    data-pagefind-ignore
-                    class="w-full max-w-[1200px] px-8"
-                >
-                    <h2
-                        class="mb-5 color-coral text-center font-merriweather text-coral text-2xl line-height-relaxed"
-                    >
-                        Similar listings
-                    </h2>
+    :global(#article-content-grid) {
+        grid-area: article-content-grid;
+    }
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {additional_places.map((ap) => <PlaceCard {...ap} />)}
-                    </div>
-                </section>
+    :global(aside) {
+        grid-area: aside;
+    }
 
-                <div
-                    class="w-full max-w-[1200px] flex justify-center align-center"
-                >
-                    <a
-                        href="/businesses"
-                        role="button"
-                        class="border border-black text-gray bg-transparent rounded-full justify-center items-center px-4 py-2 font-serif text-base no-underline flex hover:bg-black hover:text-cream"
-                    >
-                        Back to results
-                    </a>
-                </div>
-            </div>
-        </div>
-    </article>
-</Layout>
+    :global(#similar-listings) {
+        grid-area: similar-listings;
+    }
+
+    #business-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto 1fr;
+
+        grid-template-areas:
+            "description"
+            "images"
+            "tables"
+            "article-content-grid"
+            "aside"
+            "similar-listings"
+            "back-to-results";
+    }
+
+    @media screen and (min-width: 64rem) {
+        #business-content {
+            grid-template-columns: 1fr 2fr;
+
+            grid-template-areas:
+                "aside description"
+                "aside images"
+                "aside article-content-grid"
+                "aside back-to-results"
+                "similar-listings similar-listings";
+        }
+    }
+</style>

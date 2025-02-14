@@ -1,0 +1,41 @@
+---
+import H2 from "@/components/elements/headers/H2.astro";
+import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
+import TagList from "@/components/promos/TagList.vue";
+import H3 from "../headers/H3.vue";
+
+type Props = {
+    pagefindMetadata?: string;
+    promotedItems: PlaceCardRef[];
+    title?: string;
+    size?: "sm" | "lg";
+    side?: "left" | "right" | "center";
+};
+
+const {
+    size,
+    side,
+    promotedItems,
+    title,
+    pagefindMetadata = undefined,
+}: Props = Astro.props;
+---
+
+{
+    title &&
+        (size == "sm" ? (
+            <H3 color="coral" classList="text-center">
+                {title}
+            </H3>
+        ) : (
+            <H2 color="coral" classList="text-center">
+                {title}
+            </H2>
+        ))
+}
+<TagList
+    side={side}
+    size={size}
+    tags={promotedItems}
+    pagefindMetadata={pagefindMetadata}
+/>

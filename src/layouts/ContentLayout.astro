@@ -1,0 +1,49 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/content/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+import defaultBannerImage from "@/assets/images/index/home/guest-road.jpg";
+
+type Props = {
+    pagefindIgnore?: boolean;
+    image?: ImageMetadata;
+    description?: string;
+    title: string;
+    classList?: string;
+    headerTop?: string[];
+    headerBottom?: string[];
+    HeaderContent: (_props: any) => JSX.Element;
+};
+
+const {
+    pagefindIgnore,
+    image = defaultBannerImage,
+    HeaderContent,
+    title,
+    headerTop,
+    headerBottom,
+}: Props = Astro.props;
+---
+
+<html lang="en" class="scroll-smooth">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body class="bg-cream font-lato" data-pagefind-ignore={pagefindIgnore}>
+        <Header
+            image={image}
+            title={title}
+            headerTop={headerTop}
+            headerBottom={headerBottom}
+            Content={HeaderContent}
+        />
+
+        <main class="pb-20 pt-8 md:pt-16">
+            <slot />
+        </main>
+
+        <Footer />
+    </body>
+</html>
