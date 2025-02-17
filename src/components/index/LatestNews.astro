@@ -9,7 +9,14 @@ import UnorderedList from "@/components/elements/articles/UnorderedList.vue";
 
 const news = await getCollection("articles");
 
-const promotionItems = await getPlaceCardsFromArticles(news.slice(0, 4));
+const sortedNews = news
+    .toSorted(
+        (a, b) =>
+            Date.parse(b.data.publishDate) - Date.parse(a.data.publishDate)
+    )
+    .slice(0, 4);
+
+const promotionItems = await getPlaceCardsFromArticles(sortedNews);
 ---
 
 <Section floatIn={true}>
