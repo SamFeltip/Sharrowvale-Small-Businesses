@@ -93,7 +93,7 @@ if (contactPromo === undefined) {
     description="Sharrow Vale Blog"
     image={bannerImage}
     HeaderContent={HeaderContent}
-    headerBottom={preview ? [preview] : []}
+    headerBottom={preview === undefined ? [] : [preview]}
 >
     <ScreenWidth>
         <div id="pagefind-metadata">
