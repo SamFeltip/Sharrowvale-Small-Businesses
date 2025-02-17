@@ -1,11 +1,8 @@
 ---
-import LightBox from "@/components/businesses/LightBox";
-import { getImageHelper } from "@/scripts/images/getImageHelper";
 import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
 import TagList from "../promos/TagList.vue";
 import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
-import { getCollection } from "astro:content";
 import { getEntries } from "astro:content";
 
 type Props = {
@@ -22,7 +19,7 @@ if (business === undefined) {
 
 const tagEntries = await getEntries(business.data.tags);
 
-const tags = await getPlaceCardRefs("tags", tagEntries);
+const tags = getPlaceCardRefs("tags", tagEntries);
 ---
 
 <div class="collection-component">

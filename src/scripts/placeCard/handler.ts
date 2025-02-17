@@ -22,7 +22,7 @@ export async function getPlaceCardsFromArticles(
 
             return {
                 title: item.data.name,
-                image: imageUrl,
+                image: imageUrl.src,
                 tags: tagPreviews,
                 content: item.data.description,
                 lightContent: itemBody,
@@ -52,7 +52,7 @@ export async function getPlaceCardsFromBusinesses(
 
             return {
                 title: item.data.name,
-                image: imageUrl,
+                image: imageUrl.src,
                 tags: tagPreviews,
                 content: item.data.preview,
                 href: `/businesses/${item.id}`,
@@ -78,7 +78,7 @@ export async function getPlaceCards(
 
             return {
                 id: itemRef.collectionEntry.id,
-                image: imageUrl,
+                image: imageUrl.src,
                 title: itemRef.collectionEntry.data.name,
                 content: itemRef.collectionEntry.data.description,
                 href: `/${itemRef.type}/${itemRef.collectionEntry.id}`,
