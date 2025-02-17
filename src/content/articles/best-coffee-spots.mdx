@@ -13,10 +13,15 @@ tags:
 
 author: Dan Tarrant
 ---
+import BusinessLightBox from "@/components/articles/BusinessLightBox.astro"
+import BusinessTags  from "@/components/articles/BusinessTags.astro"
+import ProsConsList from "@/components/articles/spotlight/ProsConsList.astro"
 
 # Best Coffee Spots on Sharrow Vale
 
 Sharrow Vale is home to some of the best independent coffee spots in Sheffield. Whether you're after a quick takeaway, a cozy spot to work, or a stylish café to catch up with friends, this area has it all. In this article, we'll explore some of the best places to get your caffeine fix, detailing what makes each spot special and what you can expect when you visit.
+
+---
 
 ## Porter Coffee
 
@@ -24,20 +29,30 @@ A relatively new addition to Sharrow Vale, **Porter Coffee** has quickly made a 
 
 They also serve a great selection of sandwiches, baked goods, and snacks—perfect if you fancy a bite to eat with your coffee.
 
-![chai latte from porter coffee](@/assets/images/articles/coffee-spots/porter-coffee.jpeg)
+<BusinessLightBox businessKey="cask-and-keg"/>
 
 **Tags:** Coffee, Cafe, Take-out  
 **Pros:** High-quality coffee, Instagram-worthy, fantastic food  
 **Cons:** Limited seating  
 **Owner Contact:** [Ben@portercoffee.co.uk](mailto:Ben@portercoffee.co.uk)
 
+<ProsConsList pros={["High-quality coffee, instagram worthy, fantastic food"]} cons={["Limited seating"]}/>
+
+<BusinessTags businessKey="cask-and-keg"/>
+
 ## Nue
 
 Bringing a touch of Greek heritage to Sharrow Vale, [Nue](/businesses/nue) blends traditional café culture with Mediterranean flavors. They offer a great selection of gluten-friendly options, making it a top choice for those with dietary preferences. Expect rich, well-balanced coffee paired with homemade pastries and friendly service.
 
+<BusinessLightBox businessKey="nue"/>
+
+
 **Tags:** Coffee, Cafe, Gluten-friendly  
 **Pros:** Unique flavors, welcoming atmosphere, great pastry selection  
 **Cons:** Limited indoor seating  
+
+
+<BusinessTags businessKey="nue"/>
 
 ## Cornerstone
 

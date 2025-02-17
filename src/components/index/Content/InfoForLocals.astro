@@ -47,12 +47,12 @@ const placeCardRefs: PlaceCardRef[] = [
 
 const contentCollectionPlaceCards = await getPlaceCards(placeCardRefs);
 
-const aboutImageLoaded = await getImageHelper(aboutImage);
+const { src } = await getImageHelper(aboutImage);
 
 const placeCards = [
     ...contentCollectionPlaceCards,
     {
-        image: aboutImageLoaded,
+        image: src,
         title: "About this site",
         href: "/join",
     },

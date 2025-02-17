@@ -17,6 +17,7 @@ import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
 import Tables from "@/components/businesses/Tables.astro";
 import SimilarListings from "@/components/pages/businesses/SimilarListings.astro";
+import { getImageHelper } from "@/scripts/images/getImageHelper";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
@@ -48,14 +49,10 @@ const {
 
 const { Content } = await render(entry);
 
-const slides: SlideImage[] = await Promise.all(
-    additionalImages.map(async (slide: ImageMetadata) => {
-        const image = await getImage({ src: slide });
-
-        return {
-            src: image.src,
-        };
-    })
+const slides = await Promise.all(
+    additionalImages.map(
+        async (slide: ImageMetadata) => await getImageHelper(slide)
+    )
 );
 
 const heroImageResult = await getImage({

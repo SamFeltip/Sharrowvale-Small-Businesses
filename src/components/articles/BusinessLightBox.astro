@@ -1,0 +1,28 @@
+---
+import LightBox from "@/components/businesses/LightBox";
+import { getImageHelper } from "@/scripts/images/getImageHelper";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+type Props = {
+    businessKey: CollectionEntry<"businesses">["id"];
+};
+
+const { businessKey }: Props = Astro.props;
+
+const business = await getEntry("businesses", businessKey);
+
+if (business === undefined) {
+    throw new Error(`business ${businessKey} does not exist`);
+}
+
+const images = business?.data.additionalImages ?? [];
+
+const slides = await Promise.all(
+    images.map(async (slide: ImageMetadata) => await getImageHelper(slide))
+);
+---
+
+<div class="collection-component">
+    <LightBox slides={slides} client:only="react" />
+</div>

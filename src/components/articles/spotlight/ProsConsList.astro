@@ -1,0 +1,60 @@
+---
+import Button from "@/components/elements/Button.vue";
+import H4 from "@/components/elements/headers/H4.vue";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons/faArrowRight";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+type Props = {
+    pros: string[];
+    cons: string[];
+};
+
+const { pros, cons }: Props = Astro.props;
+---
+
+<div class="collection-component">
+    <div class="rounded-xl bg-white px-3 py-5">
+        <div>
+            <span class="font-merriweather text-xl font-bold text-coral"
+                >Pros:</span
+            >
+            {
+                pros.map((pro) => (
+                    <span class="font-lato text-xl font-light italic">
+                        {pro}
+                    </span>
+                ))
+            }
+        </div>
+        <div>
+            <span class="font-merriweather text-xl font-bold text-coral"
+                >Cons:</span
+            >
+            {
+                cons.map((con) => (
+                    <span class="font-lato text-xl font-light italic">
+                        {con}
+                    </span>
+                ))
+            }
+        </div>
+
+        <div class="flex flex-row justify-between">
+            <div>
+                <H4>Like this place?</H4>
+                <p class="font-lato text-xl font-light italic">
+                    View their full directory listing
+                </p>
+            </div>
+            <Button size="sm" type="coral">
+                View Full Listing
+
+                <FontAwesomeIcon
+                    icon={faArrowRight}
+                    width={20}
+                    height={20}
+                /></Button
+            >
+        </div>
+    </div>
+</div>

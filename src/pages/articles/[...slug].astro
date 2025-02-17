@@ -169,48 +169,42 @@ if (promotedBusiness !== undefined) {
 </ContentLayout>
 
 <style>
-    #article-content :global(img) {
+    #article-content > :global(img) {
         float: left;
         object-fit: cover;
         @apply mb-4 me-4 aspect-[3/2] w-full rounded-xl md:aspect-[4/5] md:w-[50%];
     }
 
-    #article-content :global(h1) {
+    #article-content > :global(h1) {
         display: flex;
         width: 100%;
         @apply mb-1 mt-4 font-merriweather text-2xl font-normal capitalize text-coral md:text-3xl lg:text-4xl;
     }
 
-    #article-content :global(h2) {
+    #article-content > :global(h2) {
         display: flex;
         width: 100%;
         @apply mb-1 mt-4 font-merriweather text-xl font-normal capitalize text-coral md:text-2xl lg:text-3xl;
     }
 
-    #article-content :global(h3) {
+    #article-content > :global(h3) {
         @apply mb-2 font-merriweather text-lg md:text-xl lg:text-2xl;
     }
 
-    #article-content :global(p),
-    #article-content :global(td) {
+    #article-content > :global(p),
+    #article-content :not(.collection-component) :global(td) {
         @apply mb-6 font-lato text-xl font-light leading-6 no-underline;
     }
 
-    #article-content :global(a) {
+    #article-content > :global(a) {
         @apply text-coral underline;
     }
 
-    #article-content :global(a:hover) {
+    #article-content > :global(a:hover) {
         @apply font-normal;
     }
 
-    #article {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    #article-content {
+    #article-content > {
         grid-area: content;
     }
 
@@ -220,6 +214,12 @@ if (promotedBusiness !== undefined) {
 
     :global(#article-more) {
         grid-area: more;
+    }
+
+    #article {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
     }
 
     @media screen and (min-width: 48rem) {
