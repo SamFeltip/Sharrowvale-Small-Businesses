@@ -1,3 +1,4 @@
-id,name,description,priceSterling,frequency
-listing,Listing,Get listed on this site for just £25,25,one time
-promotion,Promotion,Advertise on this site for only £3 a month,3,monthly
+id,name,href,description,priceSterling,frequency,callToAction
+listing,Listing,/join,Get listed on this site for just £25,25,one time,find out more
+promotion,Promotion,/join,Advertise on this site for only £3 a month,3,monthly,find out more
+contact,Contact,/join,Like this article? Want to be in the next one?,0,null,talk to us

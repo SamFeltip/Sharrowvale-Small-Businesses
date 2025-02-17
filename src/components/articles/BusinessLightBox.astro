@@ -1,22 +1,20 @@
 ---
+import path from "path";
+
 import LightBox from "@/components/businesses/LightBox";
 import { getImageHelper } from "@/scripts/images/getImageHelper";
 import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
 
 type Props = {
-    businessKey: CollectionEntry<"businesses">["id"];
+    articleDirPath: string;
 };
 
-const { businessKey }: Props = Astro.props;
+const { articleDirPath }: Props = Astro.props;
 
-const business = await getEntry("businesses", businessKey);
+const imgPath = path.join(articleDirPath, "*.{jpeg,jpg,png,gif}");
 
-if (business === undefined) {
-    throw new Error(`business ${businessKey} does not exist`);
-}
-
-const images = business?.data.additionalImages ?? [];
+const imgImports = await import.meta.glob<{ default: ImageMetadata }>(imgPath);
 
 const slides = await Promise.all(
     images.map(async (slide: ImageMetadata) => await getImageHelper(slide))

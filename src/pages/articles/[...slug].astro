@@ -23,6 +23,7 @@ import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
 import Socials from "@/components/businesses/Socials.astro";
 import SimilarArticles from "@/components/pages/articles/SimilarArticles.astro";
+import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
 
 export async function getStaticPaths() {
     const article: CollectionEntry<"articles">[] =
@@ -72,6 +73,18 @@ if (promotedBusiness !== undefined) {
         900
     );
     promotedCard = promotedCards[0];
+}
+
+const advertisingPromo = await getEntry("prices", "promotion");
+
+if (advertisingPromo === undefined) {
+    throw new Error(`advertisment 'promotion' does not exist`);
+}
+
+const contactPromo = await getEntry("prices", "contact");
+
+if (contactPromo === undefined) {
+    throw new Error(`advertisment 'contact' does not exist`);
 }
 ---
 
@@ -155,6 +168,25 @@ if (promotedBusiness !== undefined) {
                         facebookLink={"#facebook"}
                     />
                 </section>
+
+                <div class="relative h-full">
+                    <div class="sticky top-[5%]">
+                        <div class="flex flex-col gap-3">
+                            <section>
+                                <PromoBanner
+                                    pricingPromotion={advertisingPromo}
+                                    style="primary"
+                                />
+                            </section>
+                            <section>
+                                <PromoBanner
+                                    pricingPromotion={contactPromo}
+                                    style="secondary"
+                                />
+                            </section>
+                        </div>
+                    </div>
+                </div>
             </aside>
 
             <Section
