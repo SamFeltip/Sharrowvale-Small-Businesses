@@ -1,15 +1,17 @@
 ---
 name: Best Coffee Spots On Sharrow Vale
 description: The best price, seating or variety for your next coffee visit.
+preview: Small Businesses Blog
 bannerImage: "@/assets/images/tags/coffee/banner.jpeg"
 heroImage: "@/assets/images/tags/coffee/thumbnail.jpeg"
 categories: 
     - spotlight
 tags:
     - cafe
-    - coffee
-    - sit-in
-    - take-out
+    - lunch
+    - restaurants
+    - accessible
+    - breakfast
 
 author: Dan Tarrant
 ---
@@ -17,9 +19,9 @@ import BusinessLightBox from "@/components/articles/BusinessLightBox.astro"
 import BusinessTags  from "@/components/articles/BusinessTags.astro"
 import ProsConsList from "@/components/articles/spotlight/ProsConsList.astro"
 
-# Best Coffee Spots on Sharrow Vale
+**Sharrow Vale and it's surrounding roads have some of the best Coffee Spots to boast in the whole of Sheffield.**
 
-Sharrow Vale is home to some of the best independent coffee spots in Sheffield. Whether you're after a quick takeaway, a cozy spot to work, or a stylish café to catch up with friends, this area has it all. In this article, we'll explore some of the best places to get your caffeine fix, detailing what makes each spot special and what you can expect when you visit.
+**Whether you're looking for cosy corners, tasty take-outs or not so WFH options there's somewhere for everyone. Here's 5 of our top recommendations:**
 
 ---
 
@@ -27,25 +29,23 @@ Sharrow Vale is home to some of the best independent coffee spots in Sheffield. 
 
 A relatively new addition to Sharrow Vale, **Porter Coffee** has quickly made a name for itself. They focus on high-quality beans and use advanced extraction techniques to craft more than just your average brew. The indie aesthetic and rustic, cozy atmosphere make it a great place for coffee lovers, especially those grabbing a take-out.
 
+import img1 from "@/assets/images/articles/coffee-spots/porter-coffee/img1.jpeg"
+import img2 from "@/assets/images/articles/coffee-spots/porter-coffee/img2.jpeg"
+import img3 from "@/assets/images/articles/coffee-spots/porter-coffee/img3.jpeg"
+
+<BusinessLightBox imgs={[img1, img2, img3]}/>
+
 They also serve a great selection of sandwiches, baked goods, and snacks—perfect if you fancy a bite to eat with your coffee.
-
-<BusinessLightBox businessKey="cask-and-keg"/>
-
-**Tags:** Coffee, Cafe, Take-out  
-**Pros:** High-quality coffee, Instagram-worthy, fantastic food  
-**Cons:** Limited seating  
-**Owner Contact:** [Ben@portercoffee.co.uk](mailto:Ben@portercoffee.co.uk)
 
 <ProsConsList pros={["High-quality coffee, instagram worthy, fantastic food"]} cons={["Limited seating"]}/>
 
 <BusinessTags businessKey="cask-and-keg"/>
 
+---
+
 ## Nue
 
 Bringing a touch of Greek heritage to Sharrow Vale, [Nue](/businesses/nue) blends traditional café culture with Mediterranean flavors. They offer a great selection of gluten-friendly options, making it a top choice for those with dietary preferences. Expect rich, well-balanced coffee paired with homemade pastries and friendly service.
-
-<BusinessLightBox articleDirPath="@/assets/images/articles/best-coffee-spots/porter-coffee"/>
-
 
 **Tags:** Coffee, Cafe, Gluten-friendly  
 **Pros:** Unique flavors, welcoming atmosphere, great pastry selection  
@@ -54,16 +54,30 @@ Bringing a touch of Greek heritage to Sharrow Vale, [Nue](/businesses/nue) blend
 
 <BusinessTags businessKey="nue"/>
 
+---
+
 ## Cornerstone
 
-Located in Dyson Place, [Cornerstone](/businesses/cornerstone) operates from a beautifully converted barn. By day, it's a spacious and stylish café, and by night, it transforms into a lively restaurant and bar. Whether you're stopping by for a solo coffee break, meeting a friend, or bringing the family, it's a fantastic choice.
+**Spacious and upmarket restaurant, bar, cafe in Dyson Place**
 
-Their food menu is equally impressive, and in the summer months, the outdoor seating in Dyson Place's courtyard is a great spot for families, dog owners, or anyone who enjoys the fresh air.
+import cornerstoneImg1 from "@/assets/images/articles/coffee-spots/cornerstone/img1.jpg"
+import cornerstoneImg2 from "@/assets/images/articles/coffee-spots/cornerstone/img2.jpg"
+import cornerstoneImg3 from "@/assets/images/articles/coffee-spots/cornerstone/img3.jpg"
 
-**Tags:** Coffee, Cafe, Dinner, Bar, Outdoor Seating, Accessible Entrance, Event Space, Free Wifi  
-**Pros:** Spacious, large menu, quiet atmosphere  
-**Cons:** Food is on the pricier side  
-**Flat White Cost:** [To be updated]  
+<BusinessLightBox imgs={[cornerstoneImg1, cornerstoneImg2, cornerstoneImg3]}/>
+
+Based in Dyson Place, Cornerstone thrives out of a converted barn, running as a spacious and classy space to eat, drink and relax nestled in the Dyson Place courtyard. 
+
+Despite it's broad appeal the Coffee was still superb with zero compromise on the taste or texture. Making the most of the menu we also tired some of their chips which were a great addition after a long day.
+
+The atmosphere is also great, with two floors of varied seating ideal for groups, prams and pets or those looking for a laptop friendly place to be mid-week.
+
+
+<ProsConsList pros={["Lots of space", "light and airy", "good atmosphere", "really good coffee"]} cons={["Expect restaurant quality & prices for food"]} listing="cornerstone"/>
+
+<BusinessTags businessKey="cornerstone"/>
+
+---
 
 ## Eve Kitchen
 
@@ -73,6 +87,8 @@ Famous for its handmade doughnuts, [Eve Kitchen](/businesses/eve-kitchen) is a m
 **Pros:** Amazing doughnuts, great coffee pairings, friendly service  
 **Cons:** Small seating area  
 
+---
+
 ## Tonco Bakery
 
 If you're after artisanal bread and high-quality coffee, **Tonco Bakery** should be on your list. This hidden gem specializes in freshly baked goods, from sourdough loaves to delicious pastries, all best enjoyed with a perfectly brewed coffee.
@@ -80,6 +96,8 @@ If you're after artisanal bread and high-quality coffee, **Tonco Bakery** should
 **Tags:** Coffee, Bakery, Artisan Bread  
 **Pros:** Freshly baked goods, relaxed atmosphere, high-quality ingredients  
 **Cons:** Sells out quickly  
+
+---
 
 ## Final Thoughts
 

@@ -30,14 +30,14 @@ const { title, href, type = "clear", size = "sm", disabled = false, shape = "rou
 let baseStyles = `capitalize flex-row gap-2 items-center justify-center touch-manipulation text-center ${display}`;
 
 if (size == "lg") {
-    baseStyles += " text-xl "
+    baseStyles += " text-xl/normal "
 } else {
-    baseStyles += " text-base "
+    baseStyles += " text-base/normal "
 }
 
 if (shape == "rounded") {
     if (size == "lg") {
-        baseStyles += " py-3 px-5 "
+        baseStyles += " py-3 px-5"
     } else {
         baseStyles += " py-1 px-3 "
     }

@@ -45,6 +45,7 @@ const {
     bannerImage,
     heroImage,
     author,
+    preview,
     promotedBusiness,
 } = entry.data;
 
@@ -93,6 +94,7 @@ if (contactPromo === undefined) {
     description="Sharrow Vale Blog"
     image={bannerImage}
     HeaderContent={HeaderContent}
+    headerBottom={preview ? [preview] : []}
 >
     <ScreenWidth>
         <div id="pagefind-metadata">
@@ -119,10 +121,14 @@ if (contactPromo === undefined) {
             }
         </div>
 
-        <div data-pagefind-body id="article">
-            <section id="article-content">
+        <div
+            data-pagefind-body
+            id="article"
+            class="flex flex-col gap-6 md:grid md:gap-8 lg:gap-12 xl:gap-20"
+        >
+            <article id="article-content">
                 <Content />
-            </section>
+            </article>
 
             <aside class="flex flex-col gap-4">
                 <section id="article-promotion">
@@ -158,7 +164,7 @@ if (contactPromo === undefined) {
 
                 <section
                     id="article-share"
-                    class="flex flex-col items-center gap-2 md:items-end"
+                    class="flex flex-col items-center gap-2 pb-6 md:items-end"
                 >
                     <H3 color="coral">Share</H3>
 
@@ -171,7 +177,7 @@ if (contactPromo === undefined) {
 
                 <div class="relative h-full">
                     <div class="sticky top-[5%]">
-                        <div class="flex flex-col gap-3">
+                        <div class="flex flex-col gap-6">
                             <section>
                                 <PromoBanner
                                     pricingPromotion={advertisingPromo}
@@ -210,22 +216,22 @@ if (contactPromo === undefined) {
     #article-content > :global(h1) {
         display: flex;
         width: 100%;
-        @apply mb-1 mt-4 font-merriweather text-2xl font-normal capitalize text-coral md:text-3xl lg:text-4xl;
+        @apply mb-1 mt-4 font-merriweather text-4xl/normal font-bold capitalize text-coral lg:text-5xl/normal;
     }
 
     #article-content > :global(h2) {
         display: flex;
         width: 100%;
-        @apply mb-1 mt-4 font-merriweather text-xl font-normal capitalize text-coral md:text-2xl lg:text-3xl;
+        @apply mb-1 mt-4 font-merriweather text-3xl/normal font-bold capitalize text-coral lg:text-4xl/normal;
     }
 
     #article-content > :global(h3) {
-        @apply mb-2 font-merriweather text-lg md:text-xl lg:text-2xl;
+        @apply mb-2 font-merriweather text-xl/normal lg:text-2xl/normal;
     }
 
     #article-content > :global(p),
     #article-content :not(.collection-component) :global(td) {
-        @apply mb-6 font-lato text-xl font-light leading-6 no-underline;
+        @apply mb-10 font-lato text-xl/normal font-light no-underline;
     }
 
     #article-content > :global(a) {
@@ -236,8 +242,13 @@ if (contactPromo === undefined) {
         @apply font-normal;
     }
 
-    #article-content > {
+    #article-content {
         grid-area: content;
+    }
+
+    #article-content :global(hr) {
+        @apply mx-2 my-14 lg:mx-4 lg:my-16;
+        border-top: 0.25px solid black; /* or any color */
     }
 
     aside {
@@ -248,16 +259,8 @@ if (contactPromo === undefined) {
         grid-area: more;
     }
 
-    #article {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
     @media screen and (min-width: 48rem) {
         #article {
-            display: grid;
-            gap: 2rem;
             grid-template-columns: 2fr 1fr;
 
             grid-template-areas:

@@ -1,26 +1,18 @@
 ---
-import path from "path";
-
 import LightBox from "@/components/businesses/LightBox";
 import { getImageHelper } from "@/scripts/images/getImageHelper";
-import type { CollectionEntry } from "astro:content";
-import { getEntry } from "astro:content";
 
 type Props = {
-    articleDirPath: string;
+    imgs: ImageMetadata[];
 };
 
-const { articleDirPath }: Props = Astro.props;
-
-const imgPath = path.join(articleDirPath, "*.{jpeg,jpg,png,gif}");
-
-const imgImports = await import.meta.glob<{ default: ImageMetadata }>(imgPath);
+const { imgs }: Props = Astro.props;
 
 const slides = await Promise.all(
-    images.map(async (slide: ImageMetadata) => await getImageHelper(slide))
+    imgs.map(async (slide: ImageMetadata) => await getImageHelper(slide))
 );
 ---
 
-<div class="collection-component">
+<div class="collection-component pb-5">
     <LightBox slides={slides} client:only="react" />
 </div>

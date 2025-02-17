@@ -5,6 +5,7 @@ export const articleSchema = ({ image }: { image: ImageFunction }) =>
         name: z.string(),
         author: z.string().optional(),
         description: z.string(),
+        preview: z.string().optional(),
 
         heroImage: image(),
         bannerImage: image(),
