@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import ScreenWidth from "../elements/ScreenWidth.vue";
 type Props = {
     image: ImageMetadata;
+    imgAlt?: string;
     title: string;
     description?: string;
 
@@ -13,8 +14,15 @@ type Props = {
     Content: (_props: any) => JSX.Element;
 };
 
-const { image, title, description, headerTop, headerBottom, Content }: Props =
-    Astro.props;
+const {
+    image,
+    imgAlt,
+    title,
+    description,
+    headerTop,
+    headerBottom,
+    Content,
+}: Props = Astro.props;
 ---
 
 <header class="relative h-[85vh] min-h-[600px] w-full overflow-hidden">
@@ -23,7 +31,7 @@ const { image, title, description, headerTop, headerBottom, Content }: Props =
     </div>
     <Image
         src={image}
-        alt={title}
+        alt={imgAlt || title}
         class="absolute inset-0 h-full object-cover"
         width={2500}
     />

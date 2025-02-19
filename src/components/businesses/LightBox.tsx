@@ -24,7 +24,7 @@ export default function LightBox({ slides }: { slides: SlideImage[] }) {
                 id="lightbox-preview-grid"
                 className="grid w-full grid-flow-dense gap-4 grid-cols-1 grid-rows-4 md:grid-cols-4 md:grid-rows-2"
             >
-                <div className="col-span-1 md:col-span-3 row-span-3 md:row-span-2 relative">
+                <div className="col-span-1 md:col-span-3 row-span-3 md:row-span-2 relative min-h-[300px]">
                     <img
                         className="w-full h-full object-cover absolute inset-0 cursor-pointer rounded-xl md:rounded-3xl"
                         src={slides[0].src}

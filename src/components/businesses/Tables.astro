@@ -11,7 +11,7 @@ const { openHours, businessContacts }: Props = Astro.props;
 ---
 
 <div
-    class="grid grid-flow-col grid-cols-[1fr_auto_1fr] grid-rows-[auto_1fr] gap-6 lg:grid-flow-row lg:grid-cols-1"
+    class="grid grid-flow-row grid-cols-1 grid-rows-[auto_1fr] gap-6 overflow-x-scroll sm:grid-flow-col sm:grid-cols-[1fr_auto_1fr] lg:grid-flow-row lg:grid-cols-1"
 >
     <H3 classList="text-center lg:text-start" color="coral">Open hours</H3>
     <Table tableData={openHours} />
