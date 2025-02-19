@@ -9,6 +9,7 @@ import defaultBannerImage from "@/assets/images/index/home/guest-road.jpg";
 type Props = {
     pagefindIgnore?: boolean;
     image?: ImageMetadata;
+    imgAlt?: string;
     description?: string;
     title: string;
     classList?: string;
@@ -20,6 +21,7 @@ type Props = {
 const {
     pagefindIgnore,
     image = defaultBannerImage,
+    imgAlt,
     HeaderContent,
     title,
     headerTop,
@@ -34,6 +36,7 @@ const {
     <body class="bg-cream font-lato" data-pagefind-ignore={pagefindIgnore}>
         <Header
             image={image}
+            imgAlt={imgAlt}
             title={title}
             headerTop={headerTop}
             headerBottom={headerBottom}
