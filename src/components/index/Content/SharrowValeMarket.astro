@@ -8,10 +8,10 @@ import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import img from "@/assets/images/index/sharrow-vale-market/666576a0c2d4c780054817d3_market-.jpeg";
 import { getImageHelper } from "@/scripts/images/getImageHelper";
 
-const imgSrc = await getImageHelper(img);
+const { src } = await getImageHelper(img);
 
 const item: PlaceCard = {
-    image: imgSrc,
+    image: src,
     title: "Sharrow Vale Market",
     href: "/categories/community",
     content: "Discover more about the community",

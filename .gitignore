@@ -29,3 +29,5 @@ bun.lockb
 .idea/
 
 playground.*
+
+src/content/.obsidian/*

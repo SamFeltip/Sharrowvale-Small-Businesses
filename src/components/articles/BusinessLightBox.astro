@@ -1,0 +1,18 @@
+---
+import LightBox from "@/components/businesses/LightBox";
+import { getImageHelper } from "@/scripts/images/getImageHelper";
+
+type Props = {
+    imgs: ImageMetadata[];
+};
+
+const { imgs }: Props = Astro.props;
+
+const slides = await Promise.all(
+    imgs.map(async (slide: ImageMetadata) => await getImageHelper(slide))
+);
+---
+
+<div class="collection-component pb-5">
+    <LightBox slides={slides} client:only="react" />
+</div>

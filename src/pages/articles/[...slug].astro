@@ -22,6 +22,7 @@ import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
 import Socials from "@/components/businesses/Socials.astro";
 import SimilarArticles from "@/components/pages/articles/SimilarArticles.astro";
+import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
 
 export async function getStaticPaths() {
     const article: CollectionEntry<"articles">[] =
@@ -43,6 +44,7 @@ const {
     bannerImage,
     heroImage,
     author,
+    preview,
     promotedBusiness,
 } = entry.data;
 
@@ -72,6 +74,18 @@ if (promotedBusiness !== undefined) {
     );
     promotedCard = promotedCards[0];
 }
+
+const advertisingPromo = await getEntry("prices", "promotion");
+
+if (advertisingPromo === undefined) {
+    throw new Error(`advertisment 'promotion' does not exist`);
+}
+
+const contactPromo = await getEntry("prices", "contact");
+
+if (contactPromo === undefined) {
+    throw new Error(`advertisment 'contact' does not exist`);
+}
 ---
 
 <ContentLayout
@@ -79,6 +93,7 @@ if (promotedBusiness !== undefined) {
     description="Sharrow Vale Blog"
     image={bannerImage}
     HeaderContent={HeaderContent}
+    headerBottom={preview === undefined ? [] : [preview]}
 >
     <ScreenWidth>
         <div id="pagefind-metadata">
@@ -105,10 +120,14 @@ if (promotedBusiness !== undefined) {
             }
         </div>
 
-        <div data-pagefind-body id="article">
-            <section id="article-content">
+        <div
+            data-pagefind-body
+            id="article"
+            class="flex flex-col gap-6 md:grid md:gap-8 lg:gap-12 xl:gap-20"
+        >
+            <article id="article-content">
                 <Content />
-            </section>
+            </article>
 
             <aside class="flex flex-col gap-4">
                 <section id="article-promotion">
@@ -144,7 +163,7 @@ if (promotedBusiness !== undefined) {
 
                 <section
                     id="article-share"
-                    class="flex flex-col items-center gap-2 md:items-end"
+                    class="flex flex-col items-center gap-2 pb-6 md:items-end"
                 >
                     <H3 color="coral">Share</H3>
 
@@ -154,6 +173,25 @@ if (promotedBusiness !== undefined) {
                         facebookLink={"#facebook"}
                     />
                 </section>
+
+                <div class="relative h-full">
+                    <div class="sticky top-[5%]">
+                        <div class="flex flex-col gap-6">
+                            <section>
+                                <PromoBanner
+                                    pricingPromotion={advertisingPromo}
+                                    style="primary"
+                                />
+                            </section>
+                            <section>
+                                <PromoBanner
+                                    pricingPromotion={contactPromo}
+                                    style="secondary"
+                                />
+                            </section>
+                        </div>
+                    </div>
+                </div>
             </aside>
 
             <Section
@@ -168,49 +206,52 @@ if (promotedBusiness !== undefined) {
 </ContentLayout>
 
 <style>
-    #article-content :global(img) {
+    #article-content > :global(img) {
         float: left;
         object-fit: cover;
         @apply mb-4 me-4 aspect-[3/2] w-full rounded-xl md:aspect-[4/5] md:w-[50%];
     }
 
-    #article-content :global(h1) {
+    #article-content > :global(h1) {
         display: flex;
         width: 100%;
-        @apply mb-1 mt-4 font-merriweather text-2xl font-normal capitalize text-coral md:text-3xl lg:text-4xl;
+        @apply mb-1 mt-4 font-merriweather text-4xl/normal font-bold capitalize text-coral lg:text-5xl/normal;
     }
 
-    #article-content :global(h2) {
+    #article-content > :global(h2) {
         display: flex;
         width: 100%;
-        @apply mb-1 mt-4 font-merriweather text-xl font-normal capitalize text-coral md:text-2xl lg:text-3xl;
+        @apply mb-1 mt-4 font-merriweather text-3xl/normal font-bold capitalize text-coral lg:text-4xl/normal;
     }
 
-    #article-content :global(h3) {
-        @apply mb-2 font-merriweather text-lg md:text-xl lg:text-2xl;
+    #article-content > :global(h3) {
+        @apply mb-2 font-merriweather text-xl/normal lg:text-2xl/normal;
     }
 
-    #article-content :global(p),
-    #article-content :global(td) {
-        @apply mb-6 font-lato text-xl font-light leading-6 no-underline;
+    #article-content > :global(p),
+    #article-content :not(.collection-component) :global(td) {
+        @apply mb-6 font-lato text-xl/normal font-normal no-underline;
     }
 
-    #article-content :global(a) {
+    #article-content :global(strong) {
+        @apply text-2xl/normal font-medium;
+    }
+
+    #article-content > :global(a) {
         @apply text-coral underline;
     }
 
-    #article-content :global(a:hover) {
+    #article-content > :global(a:hover) {
         @apply font-normal;
-    }
-
-    #article {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
     }
 
     #article-content {
         grid-area: content;
+    }
+
+    #article-content :global(hr) {
+        @apply mx-2 my-14 lg:mx-4 lg:my-16;
+        border-top: 0.25px solid black; /* or any color */
     }
 
     aside {
@@ -223,8 +264,6 @@ if (promotedBusiness !== undefined) {
 
     @media screen and (min-width: 48rem) {
         #article {
-            display: grid;
-            gap: 2rem;
             grid-template-columns: 2fr 1fr;
 
             grid-template-areas:

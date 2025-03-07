@@ -1,11 +1,11 @@
 <template>
-    <HoverSection href="/join">
-        <div class="bg-coral-light rounded-xl p-2 px-4 text-center flex flex-col gap-2">
-            <h4 class="font-merriweather text-white text-2xl">
+    <HoverSection :href="pricingPromotion?.data?.href">
+        <div class="rounded-xl p-6 text-center flex flex-col gap-2" :class="styleStyle">
+            <h4 class="font-merriweather text-2xl/normal">
                 {{ pricingPromotion?.data?.description }}
             </h4>
-            <p class="text-base">
-                FIND OUT MORE
+            <p class="text-base/normal uppercase underline" :class="ctaStyle">
+                {{ pricingPromotion?.data?.callToAction ?? "find out more" }}
             </p>
         </div>
     </HoverSection>
@@ -17,8 +17,24 @@ import HoverSection from '../sections/HoverSection.vue';
 
 const props = defineProps<{
     pricingPromotion: CollectionEntry<"prices">;
+    style?: "primary" | "secondary";
 }>();
 
-const pricingPromotion = props.pricingPromotion;
+const { pricingPromotion, style } = props;
+
+let styleStyle: string;
+let ctaStyle: string;
+
+switch (style) {
+    case "secondary":
+        styleStyle = "border-coral border-2 text-coral";
+        ctaStyle = "text-black";
+        break;
+    default:
+        styleStyle = "bg-coral-light text-white"
+        ctaStyle = "text-white";
+
+
+}
 
 </script>

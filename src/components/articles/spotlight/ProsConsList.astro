@@ -1,0 +1,76 @@
+---
+import Button from "@/components/elements/Button.vue";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons/faArrowRight";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+type Props = {
+    pros: string[];
+    cons: string[];
+    listing?: string;
+};
+
+const { pros, cons, listing }: Props = Astro.props;
+---
+
+<div class="collection-component">
+    <div
+        class="mb-10 flex flex-col gap-10 rounded-xl bg-white px-6 py-8 lg:px-8 lg:py-10"
+    >
+        <div class="flex flex-col gap-4 lg:gap-6">
+            <div class="flex flex-row flex-wrap gap-2">
+                <span
+                    class="font-merriweather text-xl/normal font-bold text-coral"
+                    >Pros:</span
+                >
+                {
+                    pros.map((pro) => (
+                        <span class="font-lato text-xl/normal font-normal italic">
+                            {pro}
+                        </span>
+                    ))
+                }
+            </div>
+            <div class="flex flex-row flex-wrap gap-2">
+                <span
+                    class="font-merriweather text-xl/normal font-bold text-coral"
+                    >Cons:</span
+                >
+                {
+                    cons.map((con) => (
+                        <span class="font-lato text-xl/normal font-normal italic">
+                            {con}
+                        </span>
+                    ))
+                }
+            </div>
+        </div>
+
+        {
+            listing && (
+                <div class="flex flex-row items-center justify-between">
+                    <div>
+                        <h4 class="font-merriweather text-xl italic">
+                            Like this place?
+                        </h4>
+                        <p class="font-lato text-xl/normal font-light italic">
+                            View their full directory listing
+                        </p>
+                    </div>
+                    <Button
+                        size="lg"
+                        type="coral"
+                        href={`/businesses/${listing}`}
+                    >
+                        <span class="hidden md:inline">View Full Listing</span>
+
+                        <FontAwesomeIcon
+                            icon={faArrowRight}
+                            width={20}
+                            height={20}
+                        />
+                    </Button>
+                </div>
+            )
+        }
+    </div>
+</div>

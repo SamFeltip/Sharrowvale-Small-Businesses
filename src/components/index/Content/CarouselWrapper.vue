@@ -59,8 +59,6 @@ const props = defineProps<{
   height?: "sm" | "lg"
 }>();
 
-console.log(props.height);
-
 const { type = "clear", height = "lg" } = props;
 
 let heightStyle = "h-[380px]";

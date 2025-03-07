@@ -9,5 +9,5 @@ export async function getImageHelper(
         width: imageWidth,
         format: "avif",
     });
-    return image.src;
+    return { src: image.src, width: imageWidth };
 }

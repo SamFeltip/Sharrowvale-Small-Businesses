@@ -13,8 +13,6 @@ const props = defineProps<{ searchResults: PagefindSearchResult[], type?: "white
 
 const { type = "clear", height = "lg" } = props;
 
-console.log(height);
-
 let carouselItems: PlaceCard[] = [];
 
 watchEffect(() => {
@@ -34,7 +32,6 @@ watchEffect(() => {
         href: result.url || "",
     }));
 
-    console.log(carouselItems.length);
 })
 
 </script>

@@ -67,7 +67,6 @@ export function getPagefindSearchOptions(
     }
 
     if (config.selectedTags.length > 0) {
-        console.log("adding filters");
         searchOptions.filters.tags?.push(...config.selectedTags);
     }
 

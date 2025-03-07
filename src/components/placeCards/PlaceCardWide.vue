@@ -29,9 +29,6 @@ const props = defineProps<PlaceCard>();
 
 const { image, title, content, tags, href, lightContent, color = "black" } = props;
 
-tags?.forEach(tag => {
-    console.log(tag)
-});
 
 const croppedLightContent = lightContent && lightContent.slice(0, 180) + (lightContent.length > 180 ? "..." : "");
 

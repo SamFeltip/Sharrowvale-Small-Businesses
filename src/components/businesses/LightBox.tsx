@@ -36,7 +36,7 @@ export default function LightBox({ slides }: { slides: SlideImage[] }) {
                     <div className="transition-[height] duration-300 ease-in-out flex flex-row gap-4 overflow-y-scroll md:h-[300px] lg:h-[400px] md:flex-col">
                         {slides.slice(1).map((slide, index) => (
                             <img
-                                className=" aspect-[3/2] h-[100px] w-full cursor-pointer rounded-lg object-cover md:h-auto md:w-auto md:rounded-xl"
+                                className="w-[200px] aspect-[3/2] cursor-pointer rounded-lg object-cover md:h-auto md:w-auto md:rounded-xl"
                                 src={slide.src}
                                 alt=""
                                 key={index}

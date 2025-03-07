@@ -130,12 +130,9 @@ async function handleSearch() {
         return;
     }
 
-    console.log({ searchQuery: searchQuery.value, searchOptionsConfig })
-
     const searchResult = await search(searchQuery.value, searchOptionsConfig, pagefind.value);
 
 
-    console.log(searchResult);
 
     const [d, t] = searchResult;
 

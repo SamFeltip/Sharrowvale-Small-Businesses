@@ -21,7 +21,6 @@ export function buildString(
         const positionKey = position[key];
 
         if (positionKey == undefined) {
-            console.log(`position ${key} not found`);
             return;
         }
 
@@ -57,8 +56,6 @@ export function buildString(
             positionClass += ` ${keyClass}${positionKeyword}`;
         });
     });
-
-    console.log(positionClass);
 
     return positionClass;
 }

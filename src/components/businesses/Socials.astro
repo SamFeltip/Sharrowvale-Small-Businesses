@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../elements/Button.vue";
 
 type Props = {
-    instagramLink: string | null;
-    websiteLink: string | null;
-    facebookLink: string | null;
+    instagramLink: string | undefined;
+    websiteLink: string | undefined;
+    facebookLink: string | undefined;
 };
 
 const { instagramLink, websiteLink, facebookLink }: Props = Astro.props;
