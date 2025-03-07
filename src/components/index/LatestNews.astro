@@ -10,7 +10,8 @@ import UnorderedList from "@/components/elements/articles/UnorderedList.vue";
 const news = await getCollection("articles");
 
 const sortedNews = news
-    .toSorted(
+    .slice()
+    .sort(
         (a, b) =>
             Date.parse(b.data.publishDate) - Date.parse(a.data.publishDate)
     )
