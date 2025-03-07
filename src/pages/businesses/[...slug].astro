@@ -21,10 +21,12 @@ import { getImageHelper } from "@/scripts/images/getImageHelper";
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] =
         await getCollection("businesses");
-    return businesses.map((business) => ({
-        params: { slug: business.id },
-        props: business,
-    }));
+    return businesses
+        .filter((business) => business.data.hidden === false)
+        .map((business) => ({
+            params: { slug: business.id },
+            props: business,
+        }));
 }
 
 type Props = CollectionEntry<"businesses">;
@@ -67,13 +69,13 @@ const promoTags = tagEntries.filter((tag) => tag.data.isVisible);
 
 const promoTagRefs = getPlaceCardRefs("tags", promoTags);
 
-const headerBottom = [];
+const headerBottom: string[] = [];
 
-if (openDaysStatement !== null) {
+if (openDaysStatement !== undefined) {
     headerBottom.push(openDaysStatement);
 }
 
-if (yearEstablished !== null) {
+if (yearEstablished !== undefined) {
     headerBottom.push(`Est. ${yearEstablished}`);
 }
 ---
