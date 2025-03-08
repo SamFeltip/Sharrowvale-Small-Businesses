@@ -1,27 +1,58 @@
 ---
-import { LOGO_URL_DARK } from "@/consts";
+import { LOGO_URL, LOGO_URL_DARK } from "@/consts";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 
 import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
+
+type Props = {
+    color?: "primary" | "secondary";
+};
+
+const { color = "primary" }: Props = Astro.props;
 ---
 
 <nav class="w-full">
     <div class="w-full lg:hidden">
-        <BurgerMenu logo={LOGO_URL_DARK} client:load />
+        <BurgerMenu
+            color={color}
+            logo={LOGO_URL}
+            logoDark={LOGO_URL_DARK}
+            client:load
+        />
     </div>
 
     <ScreenWidth>
         <div class="hidden w-full items-end justify-between pt-8 lg:flex">
             <a href="/">
-                <img
-                    src={LOGO_URL_DARK}
-                    alt="Sharrow Vale Logo"
-                    width="160"
-                    height="160"
-                />
+                {
+                    color === "primary" && (
+                        <img
+                            src={LOGO_URL_DARK}
+                            alt="Sharrow Vale Logo"
+                            width="160"
+                            height="160"
+                        />
+                    )
+                }
+                {
+                    color === "secondary" && (
+                        <img
+                            src={LOGO_URL}
+                            alt="Sharrow Vale Logo"
+                            width="160"
+                            height="160"
+                        />
+                    )
+                }
             </a>
 
-            <div class="internal-links flex items-center gap-8 text-white">
+            <div
+                class:list={[
+                    "internal-links flex items-center gap-8",
+                    { "text-white": color === "primary" },
+                    { "text-black": color === "secondary" },
+                ]}
+            >
                 <a
                     href="/tags/sharrow-vale-market"
                     class="mb-0 mt-0 font-lato text-xl font-light">The Market</a
@@ -38,7 +69,13 @@ import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
                 <a href="/join" class="mb-0 mt-0 font-lato text-xl font-light"
                     >About</a
                 >
-                <div class="border-b border-white">
+                <div
+                    class:list={[
+                        "border-b",
+                        { "border-white": color === "primary" },
+                        { "border-black": color === "secondary" },
+                    ]}
+                >
                     <form
                         action="/search"
                         method="GET"
@@ -69,7 +106,17 @@ import BurgerMenu from "@/components/elements/Nav/BurgerMenu.vue";
                             id="nav-search"
                             name="search"
                             type="text"
-                            class="bg-transparent text-xl font-light text-white placeholder-white focus:outline-none"
+                            class:list={[
+                                "bg-transparent text-xl font-light focus:outline-none",
+                                {
+                                    "text-white placeholder-white":
+                                        color === "primary",
+                                },
+                                {
+                                    "text-black placeholder-black":
+                                        color === "secondary",
+                                },
+                            ]}
                             placeholder="Search"
                         />
                     </form>

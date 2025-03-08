@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 import defaultBannerImage from "@/assets/images/index/home/guest-road.jpg";
+import Nav from "@/components/elements/Nav.astro";
 
 type Props = {
     pagefindIgnore?: boolean;
@@ -15,7 +16,7 @@ type Props = {
     classList?: string;
     headerTop?: string[];
     headerBottom?: string[];
-    HeaderContent: (_props: any) => JSX.Element;
+    HeaderContent?: (_props: any) => JSX.Element;
 };
 
 const {
@@ -33,17 +34,32 @@ const {
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
-    <body class="bg-cream font-lato" data-pagefind-ignore={pagefindIgnore}>
-        <Header
-            image={image}
-            imgAlt={imgAlt}
-            title={title}
-            headerTop={headerTop}
-            headerBottom={headerBottom}
-            Content={HeaderContent}
-        />
+    <body
+        class="flex min-h-screen flex-col bg-cream font-lato"
+        data-pagefind-ignore={pagefindIgnore}
+    >
+        {
+            HeaderContent && (
+                <Header
+                    image={image}
+                    imgAlt={imgAlt}
+                    title={title}
+                    headerTop={headerTop}
+                    headerBottom={headerBottom}
+                    Content={HeaderContent}
+                />
+            )
+        }
 
-        <main class="pb-20 pt-8 md:pt-16">
+        {
+            HeaderContent === undefined && (
+                <div class="">
+                    <Nav color="secondary" />
+                </div>
+            )
+        }
+
+        <main class="flex flex-1 flex-col pb-20 pt-8 md:pt-16">
             <slot />
         </main>
 

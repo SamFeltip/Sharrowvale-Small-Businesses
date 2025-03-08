@@ -3,11 +3,12 @@
         <div class="py-8 px-6 w-full flex justify-between items-center z-50 top-0 transition-all"
             :class="{ 'bg-black ': isMenuOpen }">
             <!-- Logo -->
-            <a href="/" class="relative">
-                <img :src="LOGO_URL_DARK" alt="Sharrow Vale Logo" width="160" height="160" />
+            <a href="/">
+                <img :src="LIGHTDARK_LOGO_URL" alt="Sharrow Vale Logo" width="160" height="48" />
             </a>
             <!-- Replace with actual menu icon -->
-            <button @click="toggleMenu" class="relative h-[20px] w-[20px] text-white">
+            <button @click="toggleMenu" class="relative h-[20px] w-[20px]"
+                :class="{ 'text-white': color === 'primary' || isMenuOpen, 'text-black': color === 'secondary' && !isMenuOpen }">
                 <faMenu v-if="!isMenuOpen" />
                 <faCross v-else />
             </button>
@@ -47,19 +48,31 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import NavSearchWrapper from "@/components/search/NavSearchWrapper.vue";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 import faCross from "@/components/icons/faCross.vue";
 import faMenu from "@/components/icons/faMenu.vue";
 
-const props = defineProps<{
-    logo: string
-}>();
+const props = withDefaults(defineProps<{
+    logo: string,
+    logoDark: string,
+    color: "primary" | "secondary"
+}>(), {
+    color: "primary",
+});
 
-const LOGO_URL_DARK = props.logo
+const LOGO_URL_DARK = props.logoDark
+const LOGO_URL = props.logo
+
 
 const isMenuOpen = ref(false)
+
+const LIGHTDARK_LOGO_URL = computed(() => {
+    const rex = isMenuOpen.value || props.color === 'primary' ? LOGO_URL_DARK : LOGO_URL;
+    console.log(rex);
+    return rex;
+})
 
 const menuLinks = [
     { href: "/tags/sharrow-vale-market", label: "The Market" },

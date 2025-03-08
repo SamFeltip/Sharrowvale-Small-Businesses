@@ -3,6 +3,12 @@ import PromotedTags from "@/components/elements/promos/PromotedTags.astro";
 import Section from "@/components/elements/sections/FloatSection.astro";
 import { getCollection } from "astro:content";
 
+type Props = {
+    title?: string;
+};
+
+const { title = "Discover more" } = Astro.props;
+
 const categories = await getCollection("categories");
 
 const promotedItems = categories.map((category) => ({
@@ -12,9 +18,5 @@ const promotedItems = categories.map((category) => ({
 ---
 
 <Section floatIn={true} classList="items-center">
-    <PromotedTags
-        size="lg"
-        promotedItems={promotedItems}
-        title="Discover more"
-    />
+    <PromotedTags size="lg" promotedItems={promotedItems} title={title} />
 </Section>
