@@ -13,7 +13,8 @@ const sortedNews = news
     .slice()
     .sort(
         (a, b) =>
-            Date.parse(b.data.publishDate) - Date.parse(a.data.publishDate)
+            new Date(b.data.publishDate).getTime() -
+            new Date(a.data.publishDate).getTime()
     )
     .slice(0, 4);
 
