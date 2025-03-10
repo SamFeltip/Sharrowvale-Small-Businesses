@@ -11,7 +11,7 @@ export const articleSchema = ({ image }: { image: ImageFunction }) =>
         bannerImage: image(),
 
         dateTime: z.string().datetime().optional(),
-        publishDate: z.string().date(),
+        publishDate: z.date(),
 
         tags: z.array(reference("tags")),
         categories: z.array(reference("categories")),
