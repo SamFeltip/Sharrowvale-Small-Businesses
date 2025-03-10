@@ -15,8 +15,10 @@ type Props = {
 
 const { businessTags, title }: Props = Astro.props;
 
-const businesses: CollectionEntry<"businesses">[] =
-    await getCollection("businesses");
+const businesses: CollectionEntry<"businesses">[] = await getCollection(
+    "businesses",
+    (b) => b.data.hidden === false || b.data.hidden === undefined
+);
 
 function similarTags(business: CollectionEntry<"businesses">) {
     const categorySlugs = new Set(businessTags.map((tag) => tag.id));
