@@ -20,7 +20,7 @@
             <div id="mobile-menu-overlay"
                 class="fixed inset-0 bg-black bg-opacity-95 z-40 overflow-hidden transition-all duration-500 ease-in-out"
                 :class="{ 'h-0': !isMenuOpen, 'h-full': isMenuOpen }" @click="closeMenu">
-                <div class="flex flex-col items-end pt-24 h-full overflow-y-scroll" @click.stop>
+                <div class="flex flex-col items-end pt-24 h-full overflow-y-auto" @click.stop>
                     <div class="w-full">
                         <div class="mt-8 flex flex-col justify-end">
                             <NavSearchWrapper />
