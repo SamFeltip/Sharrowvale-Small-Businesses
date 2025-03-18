@@ -23,7 +23,7 @@ const events: CollectionEntry<"articles">[] = await getCollection(
 const eventPlaceCards: PlaceCard[] = await getPlaceCardsFromArticles(events);
 
 const upcomingEventPlaceCards: PlaceCard[] = eventPlaceCards.filter(
-    (event) => event.dateTime && event.dateTime > new Date()
+    (event) => event.publishDate && event.publishDate > new Date()
 );
 
 // get every category except for the directory and events
