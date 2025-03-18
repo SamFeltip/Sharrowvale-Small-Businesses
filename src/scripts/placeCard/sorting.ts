@@ -13,14 +13,14 @@ export function sortByIndex(
 }
 
 /**
- * Sorts the place cards by the order of a list of ids
+ * Sorts the place cards by the order of published date, with the most recent first
  */
 export function sortByDateTime(placeCards: PlaceCard[]): PlaceCard[] {
     return placeCards
         .filter((a) => a.publishDate !== undefined)
         .sort(
             (a, b) =>
-                (a.publishDate ?? new Date()).getTime() -
-                (b.publishDate ?? new Date()).getTime()
+                (b.publishDate ?? new Date()).getTime() -
+                (a.publishDate ?? new Date()).getTime()
         );
 }
