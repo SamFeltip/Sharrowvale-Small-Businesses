@@ -1,0 +1,40 @@
+---
+import H2 from "@/components/elements/headers/H2.astro";
+import PlaceCardGridItem from "@/components/placeCards/PlaceCardGridItem.vue";
+import Section from "@/components/elements/sections/FloatSection.astro";
+import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
+import { sortByDateTime, sortByIndex } from "@/scripts/placeCard/sorting";
+import { getCollection } from "astro:content";
+import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
+import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
+import PlaceCardWide from "@/components/placeCards/PlaceCardWide.vue";
+import UnorderedList from "@/components/elements/articles/UnorderedList.vue";
+
+const businesses = await getCollection("businesses");
+
+const businessPlaceCards = await getPlaceCardsFromBusinesses(businesses, 800);
+
+const sortedBusinessPlaceCards = sortByDateTime(businessPlaceCards);
+---
+
+<Section floatIn={true} classList="items-center">
+    <H2 color="coral" classList="text-center">New to the Site</H2>
+    <div class="flex w-full max-w-[900px] justify-center">
+        <UnorderedList gap={3} id="new-to-the-area">
+            {
+                sortedBusinessPlaceCards.slice(0, 2).map((item) => (
+                    <li>
+                        <PlaceCardWide {...item} />
+                    </li>
+                ))
+            }
+        </UnorderedList>
+    </div>
+</Section>
+
+<style>
+    #new-to-the-area {
+        container-name: new-to-the-area;
+        container-type: inline-size;
+    }
+</style>

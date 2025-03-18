@@ -11,6 +11,7 @@ import SharrowValeMarket from "@/components/index/Content/SharrowValeMarket.astr
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 import BusinessCarousel from "@/components/index/Content/BusinessCarousel.astro";
 import PromotedCategory from "@/components/index/Content/PromotedCategory.astro";
+import NewToTheSite from "@/components/index/Content/NewToTheSite.astro";
 ---
 
 <ContentLayout
@@ -37,6 +38,7 @@ import PromotedCategory from "@/components/index/Content/PromotedCategory.astro"
         <ScreenWidth classList="flex flex-col gap-20 md:gap-40">
             <InfoForLocals />
             <!-- when we have more content, we can add this component -->
+            <NewToTheSite />
             <Spotlight
                 title="Business Spotlight"
                 slugs={[
