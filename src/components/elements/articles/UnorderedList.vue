@@ -16,7 +16,7 @@ const directionClasses = props.direction === "row" ? "flex-row" : "flex-col";
 </script>
 
 <template>
-    <ul :id="props.id" :class="['flex', gapClasses, directionClasses]">
+    <ul :id="props.id" :class="['flex w-full', gapClasses, directionClasses]">
         <slot />
     </ul>
 </template>

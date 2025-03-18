@@ -7,5 +7,5 @@ export type PlaceCard = {
     href?: string;
     tags?: { id: string; name: string }[];
     color?: "white" | "black";
-    dateTime?: Date;
+    publishDate?: Date;
 };

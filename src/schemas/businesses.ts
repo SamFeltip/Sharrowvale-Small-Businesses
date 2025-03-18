@@ -19,7 +19,7 @@ export const businessSchema = ({ image }: { image: ImageFunction }) =>
         openHours: z.array(z.tuple([z.string(), z.string()])),
         businessContacts: z.array(z.tuple([z.string(), z.string()])),
 
-        datePublished: z.date().optional(),
+        publishDate: z.date().optional(),
 
         // Remaining fields
         streetAddress: z.string().optional(), // Street address
