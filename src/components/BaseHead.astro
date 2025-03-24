@@ -62,31 +62,3 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 
 <!-- pagefind -->
 <link rel="modulepreload" href="/pagefind/pagefind.js" />
-
-<!-- <ViewTransitions /> -->
-
-<!-- <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const sections = document.querySelectorAll("section");
-
-        const observerOptions = {
-            root: null,
-        };
-
-        const sectionObserver = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            observerOptions
-        );
-
-        sections.forEach((section) => {
-            sectionObserver.observe(section);
-        });
-    });
-</script> -->
