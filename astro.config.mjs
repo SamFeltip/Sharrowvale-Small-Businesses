@@ -10,6 +10,10 @@ import vue from "@astrojs/vue";
 
 // https://astro.build/config
 export default defineConfig({
+    redirects: {
+        "/businesses": "/categories/directory",
+        "/about": "/join",
+    },
     experimental: {
         // contentCollectionCache: false,
         contentIntellisense: true,
@@ -21,7 +25,7 @@ export default defineConfig({
         mdx(),
         sitemap({
             changefreq: "weekly",
-            lastmod: new Date("2024-11-04"),
+            lastmod: new Date("2025-03-23"),
         }),
         react(),
         tailwind(),

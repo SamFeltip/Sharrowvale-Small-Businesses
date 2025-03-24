@@ -79,13 +79,19 @@ if (openDaysStatement !== undefined) {
 if (yearEstablished !== undefined) {
     headerBottom.push(`Est. ${yearEstablished}`);
 }
+
+const previewTag = tagEntries[1];
+
+let headerTop = [];
+
+if (previewTag !== undefined) headerTop.push(previewTag.data.name);
 ---
 
 <ContentLayout
     image={bannerImage}
     title={name}
     description={preview}
-    headerTop={[tagEntries[0].data.name]}
+    headerTop={headerTop}
     headerBottom={headerBottom}
     HeaderContent={HeaderContent}
 >
