@@ -13,6 +13,7 @@ export default defineConfig({
     redirects: {
         "/businesses": "/categories/directory",
         "/about": "/join",
+        "/categories/tradespeople": "/coming-soon",
     },
     experimental: {
         // contentCollectionCache: false,
