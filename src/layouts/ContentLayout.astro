@@ -23,6 +23,7 @@ const {
     pagefindIgnore,
     image = defaultBannerImage,
     imgAlt,
+    description,
     HeaderContent,
     title,
     headerTop,
@@ -32,7 +33,10 @@ const {
 
 <html lang="en" class="scroll-smooth">
     <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <BaseHead
+            title={title || SITE_TITLE}
+            description={description || SITE_DESCRIPTION}
+        />
     </head>
     <body
         class="flex min-h-screen flex-col bg-cream font-lato"
