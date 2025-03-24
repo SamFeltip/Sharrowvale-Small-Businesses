@@ -4,52 +4,50 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons/faArrowRight";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type Props = {
-    pros: string[];
-    cons: string[];
+    pros?: string[];
+    cons?: string[];
     listing?: string;
 };
 
-const { pros, cons, listing }: Props = Astro.props;
+const { pros = [], cons = [], listing }: Props = Astro.props;
+
+const showProsAndCons = pros.length > 0 || cons.length > 0;
 ---
 
 <div class="collection-component">
     <div
         class="mb-10 flex flex-col gap-10 rounded-xl bg-white px-6 py-8 lg:px-8 lg:py-10"
     >
-        <div class="flex flex-col gap-4 lg:gap-6">
-            <div class="flex flex-row flex-wrap gap-2">
-                {
-                    pros.length > 0 && (
-                        <span class="font-merriweather text-xl/normal font-bold text-coral">
-                            Pros:
-                        </span>
-                    )
-                }
-                {
-                    pros.map((pro) => (
-                        <span class="font-lato text-xl/normal font-normal italic">
-                            {pro}
-                        </span>
-                    ))
-                }
-            </div>
-            <div class="flex flex-row flex-wrap gap-2">
-                {
-                    cons.length > 0 && (
-                        <span class="font-merriweather text-xl/normal font-bold text-coral">
-                            Cons:
-                        </span>
-                    )
-                }
-                {
-                    cons.map((con) => (
-                        <span class="font-lato text-xl/normal font-normal italic">
-                            {con}
-                        </span>
-                    ))
-                }
-            </div>
-        </div>
+        {
+            showProsAndCons && (
+                <div class="flex flex-col gap-4 lg:gap-6">
+                    {pros.length > 0 && (
+                        <div class="flex flex-row flex-wrap gap-2">
+                            <span class="font-merriweather text-xl/normal font-bold text-coral">
+                                Pros:
+                            </span>
+                            {pros.map((pro) => (
+                                <span class="font-lato text-xl/normal font-normal italic">
+                                    {pro}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+                    {cons.length > 0 && (
+                        <div class="flex flex-row flex-wrap gap-2">
+                            <span class="font-merriweather text-xl/normal font-bold text-coral">
+                                Cons:
+                            </span>
+                            {cons.map((con) => (
+                                <span class="font-lato text-xl/normal font-normal italic">
+                                    {con}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            )
+        }
 
         {
             listing && (
