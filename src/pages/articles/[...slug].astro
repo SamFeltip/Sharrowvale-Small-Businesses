@@ -230,18 +230,18 @@ if (contactPromo === undefined) {
 
     #article-content > :global(p),
     #article-content :not(.collection-component) :global(td) {
-        @apply mb-6 font-lato text-xl/normal font-normal no-underline;
+        @apply mb-6 font-lato text-xl/normal font-light no-underline;
     }
 
     #article-content :global(strong) {
         @apply text-2xl/normal font-medium;
     }
 
-    #article-content > :global(a) {
+    #article-content > :global(p) > :global(a) {
         @apply text-coral underline;
     }
 
-    #article-content > :global(a:hover) {
+    #article-content > :global(p) > :global(a):hover {
         @apply font-normal;
     }
 
