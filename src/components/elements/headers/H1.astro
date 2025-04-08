@@ -16,15 +16,16 @@ const {
 } = Astro.props;
 
 const fontFamilies = {
-    merriweather: "font-merriweather",
-    crimson: "font-crimson",
+    merriweather:
+        "font-merriweather text-6xl/tight lg:text-7xl/tight xl:text-8xl/tight",
+    crimson: "font-crimson text-6xl/[1.1] lg:text-7xl/[1.1] xl:text-8xl/[1.1]",
 };
 ---
 
 <h1
     id={props.id}
     class:list={[
-        "underline-none mb-0 mt-0 w-full text-6xl/normal font-semibold capitalize md:font-bold lg:text-7xl/normal xl:text-8xl/normal",
+        "underline-none mb-0 mt-0 w-full font-semibold capitalize md:font-bold",
         `text-${color}`,
         `text-${position}`,
         props.classList,
