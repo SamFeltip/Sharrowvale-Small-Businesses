@@ -14,16 +14,33 @@ const positionClass = `text-${position}`;
 
 <style>
     section :global(h2) {
-        @apply mb-2 font-merriweather text-xl font-normal capitalize leading-6 text-coral md:text-2xl lg:text-3xl;
+        @apply mb-2 font-merriweather text-xl/normal font-normal capitalize leading-6 text-coral md:text-2xl/normal lg:text-3xl/normal;
     }
 
     section :global(h3) {
-        @apply mb-2 font-merriweather text-lg;
+        @apply mb-2 font-merriweather text-lg/normal;
+    }
+
+    section :global(p),
+    section :not(.collection-component) :global(td) {
+        @apply mb-6 font-lato text-xl/normal font-normal no-underline;
+    }
+
+    section :global(strong) {
+        @apply text-2xl/normal font-medium;
+    }
+
+    section :global(a) {
+        @apply text-coral underline;
+    }
+
+    section :global(a:hover) {
+        @apply font-normal;
     }
 
     section :global(p),
     section :global(td) {
-        @apply mt-3 font-lato text-xl font-light leading-6 no-underline;
+        @apply mt-3 font-lato text-xl/normal font-light leading-6 no-underline;
     }
 
     section :global(#business-content),

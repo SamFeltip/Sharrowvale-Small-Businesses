@@ -27,6 +27,7 @@ export async function getPlaceCardsFromArticles(
                 content: item.data.description,
                 lightContent: itemBody,
                 href: `/articles/${item.id}`,
+                publishDate: item.data.publishDate,
                 datetime: item.data.dateTime
                     ? new Date(item.data.dateTime)
                     : null,
@@ -56,6 +57,7 @@ export async function getPlaceCardsFromBusinesses(
                 tags: tagPreviews,
                 content: item.data.preview,
                 href: `/businesses/${item.id}`,
+                publishDate: item.data.publishDate,
             };
         })
     );
@@ -82,6 +84,7 @@ export async function getPlaceCards(
                 title: itemRef.collectionEntry.data.name,
                 content: itemRef.collectionEntry.data.description,
                 href: `/${itemRef.type}/${itemRef.collectionEntry.id}`,
+                publishDate: itemRef.collectionEntry.data.publishDate,
             } as PlaceCard;
         })
     );

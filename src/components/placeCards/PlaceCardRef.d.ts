@@ -9,5 +9,6 @@ export type GenericCollectionEntry = {
         name: string;
         description?: string;
         heroImage: ImageMetadata;
+        publishDate?: Date;
     };
 };

@@ -11,3 +11,16 @@ export function sortByIndex(
         (a, b) => idList.indexOf(a.id ?? "") - idList.indexOf(b.id ?? "")
     );
 }
+
+/**
+ * Sorts the place cards by the order of a list of ids
+ */
+export function sortByDateTime(placeCards: PlaceCard[]): PlaceCard[] {
+    return placeCards
+        .filter((a) => a.publishDate !== undefined)
+        .sort(
+            (a, b) =>
+                (a.publishDate ?? new Date()).getTime() -
+                (b.publishDate ?? new Date()).getTime()
+        );
+}
