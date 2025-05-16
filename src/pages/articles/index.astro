@@ -10,21 +10,37 @@ import Section from "@/components/elements/sections/FloatSection.astro";
 
 import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 import { getCollection, type CollectionEntry } from "astro:content";
-import { getPlaceCardsFromArticles } from "@/scripts/placeCard/handler";
+import {
+    getPlaceCards,
+    getPlaceCardsFromArticles,
+} from "@/scripts/placeCard/handler";
 import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 import PlaceCardGrid from "@/components/placeCards/PlaceCardGrid.astro";
+import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
+import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
 
-const events: CollectionEntry<"articles">[] = await getCollection(
+const upcomingEvents: CollectionEntry<"events">[] = await getCollection(
+    "events",
+    (event) => {
+        console.log(
+            event.data.dateTimes.filter((dt) => new Date(dt) >= new Date())
+        );
+        return (
+            event.data.dateTimes.filter((dt) => new Date(dt) >= new Date())
+                .length > 0
+        );
+    }
+);
+
+console.log(upcomingEvents);
+
+const upcomingEventItems: PlaceCardRef[] = getPlaceCardRefs(
     "articles",
-    (article) =>
-        article.data.categories.some((tag: any) => tag.slug === "events")
+    upcomingEvents
 );
+const upcomingEventPlaceCards = await getPlaceCards(upcomingEventItems, 800);
 
-const eventPlaceCards: PlaceCard[] = await getPlaceCardsFromArticles(events);
-
-const upcomingEventPlaceCards: PlaceCard[] = eventPlaceCards.filter(
-    (event) => event.publishDate && event.publishDate > new Date()
-);
+// const eventPlaceCards: PlaceCard[] = await getPlaceCardsFromArticles(events);
 
 // get every category except for the directory and events
 const searchCategoryCollection = await getCollection(
@@ -65,7 +81,7 @@ const advertisingPromotion = pricing.filter(
 
         {
             upcomingEventPlaceCards.length > 0 && (
-                <Section floatIn={true}>
+                <Section floatIn={true} classList="items-center">
                     <PlaceCardGrid
                         placeCards={upcomingEventPlaceCards}
                         title="Upcoming Events"

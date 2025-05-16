@@ -10,6 +10,7 @@ import { faqSchema } from "@/schemas/faq";
 import { file, glob } from "astro/loaders";
 
 import { parse as parseCsv } from "csv-parse/sync";
+import { eventSchema } from "@/schemas/events";
 
 const businessCollection = defineCollection({
     loader: glob({
@@ -27,6 +28,15 @@ const articleCollection = defineCollection({
     }),
 
     schema: articleSchema,
+});
+
+const eventCollection = defineCollection({
+    loader: glob({
+        pattern: "**/*.{md,mdx}",
+        base: "src/content/events",
+    }),
+
+    schema: eventSchema,
 });
 
 const categoryCollection = defineCollection({
@@ -88,6 +98,7 @@ export const collections = {
     businesses: businessCollection,
     tags: tagCollection,
     articles: articleCollection,
+    events: eventCollection,
     categories: categoryCollection,
     contacts: contactCollection,
     faqs: faqCollection,

@@ -27,7 +27,12 @@ import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
 export async function getStaticPaths() {
     const article: CollectionEntry<"articles">[] =
         await getCollection("articles");
-    return article.map((articles) => ({
+
+    const events: CollectionEntry<"events">[] = await getCollection("events");
+
+    const articlesAndEvents = [...article, ...events];
+
+    return articlesAndEvents.map((articles) => ({
         params: { slug: articles.id },
         props: articles,
     }));
