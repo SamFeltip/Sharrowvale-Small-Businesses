@@ -38,6 +38,7 @@ const {
     preview,
     description,
     bannerImage,
+    shopWindowImage,
     heroImage,
     streetAddress,
     additionalImages,
@@ -94,6 +95,11 @@ if (previewTag !== undefined) headerTop.push(previewTag.data.name);
     headerTop={headerTop}
     headerBottom={headerBottom}
     HeaderContent={HeaderContent}
+    Metadata={{
+        image: shopWindowImage ?? bannerImage,
+        description: description,
+        title: name,
+    }}
 >
     <ScreenWidth classList="gap-6">
         <div class="hidden">

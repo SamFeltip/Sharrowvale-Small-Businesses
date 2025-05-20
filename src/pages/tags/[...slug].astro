@@ -29,7 +29,8 @@ export async function getStaticPaths() {
 type TagProps = CollectionEntry<"tags">;
 
 const entry: TagProps = Astro.props;
-const { name, description, bannerImage, promotedBusinesses } = entry.data;
+const { name, description, bannerImage, heroImage, promotedBusinesses } =
+    entry.data;
 
 if (bannerImage == null) {
     throw new Error("isPage tags must have banner images");
@@ -76,6 +77,11 @@ const listingPromo = pricing.filter((price) => price.id === "listing")[0];
     title={name}
     description={description}
     HeaderContent={HeaderContent}
+    Metadata={{
+        image: heroImage,
+        title: name,
+        description: description ?? "",
+    }}
 >
     <div data-pagefind-filter="category" class="hidden">Tag</div>
     <ScreenWidth classList="gap-8">

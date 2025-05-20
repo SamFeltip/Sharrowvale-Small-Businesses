@@ -12,6 +12,7 @@ export const businessSchema = ({ image }: { image: ImageFunction }) =>
 
         heroImage: image(),
         bannerImage: image(),
+        shopWindowImage: image().optional(),
         additionalImages: z.array(image()),
 
         tags: z.array(reference("tags")),

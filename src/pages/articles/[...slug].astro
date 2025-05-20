@@ -94,6 +94,11 @@ if (contactPromo === undefined) {
     image={bannerImage}
     HeaderContent={HeaderContent}
     headerBottom={preview === undefined ? [] : [preview]}
+    Metadata={{
+        image: heroImage,
+        title: name,
+        description: description ?? "",
+    }}
 >
     <ScreenWidth>
         <div id="pagefind-metadata">
