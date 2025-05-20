@@ -12,6 +12,7 @@ import vue from "@astrojs/vue";
 export default defineConfig({
     redirects: {
         "/businesses": "/categories/directory",
+        "/businesses/cornerstone-dyson-place": "/businesses/cornerstone",
         "/about": "/join",
         "/categories/tradespeople": "/coming-soon",
     },
