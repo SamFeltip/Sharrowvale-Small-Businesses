@@ -26,8 +26,8 @@ export default defineConfig({
         embeds(),
         mdx(),
         sitemap({
-            changefreq: "weekly",
-            lastmod: new Date("2025-03-23"),
+            changefreq: "monthly",
+            lastmod: new Date(),
         }),
         react(),
         tailwind(),
