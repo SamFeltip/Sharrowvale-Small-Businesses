@@ -19,7 +19,27 @@ const { tableClassList, tableData } = Astro.props;
                             <P>{key}:</P>
                         </td>
                         <td class="text-end">
-                            <P>{value}</P>
+                            {key === "Email" ? (
+                                <P>
+                                    <a
+                                        href={`mailto:${value}`}
+                                        class="text-coral hover:underline"
+                                    >
+                                        {value}
+                                    </a>
+                                </P>
+                            ) : key === "Phone" ? (
+                                <P>
+                                    <a
+                                        href={`tel:${value}`}
+                                        class="text-coral hover:underline"
+                                    >
+                                        {value}
+                                    </a>
+                                </P>
+                            ) : (
+                                <P>{value}</P>
+                            )}
                         </td>
                     </tr>
                 ))
