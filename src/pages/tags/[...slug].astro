@@ -76,6 +76,7 @@ const listingPromo = pricing.filter((price) => price.id === "listing")[0];
     image={bannerImage}
     title={name}
     description={description}
+    headerBottom={description !== undefined ? [description] : undefined}
     HeaderContent={HeaderContent}
     Metadata={{
         image: heroImage,
