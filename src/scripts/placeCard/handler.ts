@@ -8,7 +8,7 @@ import type { TagPreview } from "../tags/preview";
 
 export async function getPlaceCardsFromArticles(
     articles: CollectionEntry<"articles">[],
-    imgWidth: number = 600
+    imgWidth: number = 800
 ): Promise<PlaceCard[]> {
     const collectionTags = await getCollection("tags");
 
@@ -38,7 +38,7 @@ export async function getPlaceCardsFromArticles(
 
 export async function getPlaceCardsFromBusinesses(
     businesses: CollectionEntry<"businesses">[],
-    imgWidth: number = 600
+    imgWidth: number = 800
 ): Promise<PlaceCard[]> {
     const collectionTags = await getCollection("tags");
 
@@ -69,7 +69,7 @@ export async function getPlaceCardsFromBusinesses(
  */
 export async function getPlaceCards(
     itemRefs: PlaceCardRef[],
-    imgWidth: number = 600
+    imgWidth: number = 800
 ): Promise<PlaceCard[]> {
     return await Promise.all(
         itemRefs.map(async (itemRef) => {

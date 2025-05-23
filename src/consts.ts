@@ -3,6 +3,6 @@
 
 export const SITE_TITLE = "Sharrow Vale Directory";
 export const SITE_DESCRIPTION =
-    "website for all things sharrow vale, based in sheffield and run by the community";
+    "Website for all things Sharrow Vale, based in sheffield and run by the community.";
 export const LOGO_URL = "/images/logo.svg";
 export const LOGO_URL_DARK = "/images/logo-dark.svg";

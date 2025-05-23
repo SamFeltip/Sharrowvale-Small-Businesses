@@ -20,10 +20,13 @@ export function getTagPreviews(
 ): TagPreview[] {
     const itemTagNames = itemTagReferences.tags.map((tag) => tag.id);
 
-    const articleTags = entity.filter((tag) => itemTagNames.includes(tag.id));
+    const articleTags = itemTagNames
+        .map((id) => entity.find((tag) => tag.id === id))
+        .filter((tag) => tag !== undefined);
 
     const tagPreviews = articleTags.map((tag) => {
         return { id: tag.id, name: tag.data.name };
     });
+
     return tagPreviews;
 }

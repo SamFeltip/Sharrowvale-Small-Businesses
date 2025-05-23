@@ -70,7 +70,6 @@ const isMenuOpen = ref(false)
 
 const LIGHTDARK_LOGO_URL = computed(() => {
     const rex = isMenuOpen.value || props.color === 'primary' ? LOGO_URL_DARK : LOGO_URL;
-    console.log(rex);
     return rex;
 })
 

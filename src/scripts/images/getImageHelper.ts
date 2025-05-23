@@ -2,7 +2,7 @@ import { getImage } from "astro:assets";
 
 export async function getImageHelper(
     heroImage: ImageMetadata,
-    imageWidth: number = 600
+    imageWidth: number = 800
 ) {
     let image = await getImage({
         src: heroImage,
