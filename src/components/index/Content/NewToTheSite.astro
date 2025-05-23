@@ -1,12 +1,9 @@
 ---
 import H2 from "@/components/elements/headers/H2.astro";
-import PlaceCardGridItem from "@/components/placeCards/PlaceCardGridItem.vue";
 import Section from "@/components/elements/sections/FloatSection.astro";
 import { getPlaceCardsFromBusinesses } from "@/scripts/placeCard/handler";
-import { sortByDateTime, sortByIndex } from "@/scripts/placeCard/sorting";
+import { sortByDateTime } from "@/scripts/placeCard/sorting";
 import { getCollection } from "astro:content";
-import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
-import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceCardRefs";
 import PlaceCardWide from "@/components/placeCards/PlaceCardWide.vue";
 import UnorderedList from "@/components/elements/articles/UnorderedList.vue";
 
