@@ -15,6 +15,7 @@ export default defineConfig({
         "/businesses/cornerstone-dyson-place": "/businesses/cornerstone",
         "/about": "/join",
         "/categories/tradespeople": "/coming-soon",
+        "/businesses/woodys/": "/coming-soon",
     },
     experimental: {
         // contentCollectionCache: false,
