@@ -1,4 +1,7 @@
 {
+    "engines": {
+        "node": ">=20.12.2"
+    },
     "name": "blog",
     "type": "module",
     "version": "0.0.1",
