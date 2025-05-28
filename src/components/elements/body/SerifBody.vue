@@ -10,7 +10,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, withDefaults } from 'vue';
 
 // Define props with defaults
 const props = withDefaults(
