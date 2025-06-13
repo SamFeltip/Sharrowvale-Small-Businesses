@@ -4,5 +4,5 @@ content:
   - name: businesses
     label: Businesses
     type: collection
-    path: src/content/businesses
+    path: src/content/businesses/
 
