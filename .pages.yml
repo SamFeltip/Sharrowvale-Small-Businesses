@@ -10,5 +10,7 @@ content:
       - name: name
         label: Name
         type: string
-        
+      - name: heroImage
+        label: Hero Image
+        type: image
 
