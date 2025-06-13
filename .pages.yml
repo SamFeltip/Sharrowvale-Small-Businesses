@@ -4,5 +4,11 @@ content:
   - name: businesses
     label: Businesses
     type: collection
-    path: src/content/businesses/
+    path: src/content/businesses
+    filename: '{id}.mdx'
+    fields:
+      - name: id
+        label: Id
+        type: string
+        
 
