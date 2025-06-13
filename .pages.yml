@@ -1,6 +1,6 @@
 media:
   input: src/assets/images
 content:
-- name: businesses
-  type: collection
-  path: src/content/businesses
+  - name: businesses
+    type: collection
+    path: src/content/businesses
