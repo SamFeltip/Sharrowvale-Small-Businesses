@@ -5,7 +5,7 @@ content:
     label: Businesses
     type: collection
     path: src/content/businesses
-    filename: '{id}.mdx'
+    filename: "{id}.mdx"
     fields:
       - name: id
         label: Id
