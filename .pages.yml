@@ -1,7 +1,2 @@
 media:
   input: src/assets/images
-content:
-  - name: businesses
-    label: Businesses
-    type: collection
-    path: src/content/businesses
