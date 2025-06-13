@@ -10,5 +10,8 @@ content:
       - name: id
         label: Id
         type: string
+      - name: name
+        label: Name
+        type: string
         
 
