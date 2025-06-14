@@ -198,7 +198,7 @@ const linkTextDark = computed(() => {
 const handleScroll = () => {
     const scrollPosition = window.scrollY
 
-    isScrolled.value = scrollPosition > 500
+    isScrolled.value = scrollPosition > 200
 
     if (scrollPosition > 700) {
         if (!showStickyNav.value) {
