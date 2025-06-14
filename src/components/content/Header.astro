@@ -1,9 +1,9 @@
 ---
-import Nav from "@/components/elements/Nav.astro";
 import { Image } from "astro:assets";
 import ScreenWidth from "../elements/ScreenWidth.vue";
 import ClaudeNav from "../elements/ClaudeNav.vue";
-import ChatGPTNav from "../elements/ChatGPTNav.vue";
+import { LOGO_URL, LOGO_URL_DARK } from "@/consts";
+
 type Props = {
     image: ImageMetadata;
     imgAlt?: string;
@@ -29,8 +29,15 @@ const {
 
 <header class="relative h-[85vh] min-h-[600px] w-full overflow-hidden">
     <div class="absolute left-0 right-0 top-0 z-10">
-        <!-- <Nav /> -->
-        <ClaudeNav client:only="vue" />
+        <ClaudeNav
+            client:load
+            darkLogo={LOGO_URL_DARK}
+            lightLogo={LOGO_URL}
+            breadcrumbs={[
+                { href: "/categories/directory", label: "tags" },
+                { label: "food & drink", href: "/tags/food-and-drink" },
+            ]}
+        />
         <!-- <ChatGPTNav client:only="vue" /> -->
     </div>
     <Image

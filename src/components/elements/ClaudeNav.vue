@@ -1,114 +1,148 @@
 <template>
     <div>
         <!-- Main Navigation Bar -->
-        <nav :class="[
-            'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out',
-            {
-                'bg-transparent': !isScrolled,
-                'bg-cream shadow-lg': isScrolled,
-                'transform -translate-y-full': !showStickyNav && isScrolled,
-                'transform translate-y-0': showStickyNav || !isScrolled
-            }
-        ]">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <!-- Logo -->
-                    <div class="flex-shrink-0">
-                        <img :src="currentLogoSrc" alt="Company Logo" class="h-8 w-auto" />
-                    </div>
-
-                    <!-- Desktop Navigation -->
-                    <div class="hidden md:flex items-center space-x-8">
-                        <!-- Navigation Links -->
-                        <nav class="flex space-x-6">
-                            <a v-for="link in navigationLinks" :key="link.name" :href="link.href" :class="[
-                                'text-sm font-medium transition-colors duration-200 hover:opacity-70',
-                                linkTextColor
+        <ScreenWidth>
+            <nav :class="[
+                'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out pt-6 pb-3',
+                {
+                    'bg-transparent': !isScrolled && !isMenuOpen,
+                    'bg-cream shadow-lg': isScrolled && !isMenuOpen,
+                    'bg-black': isMenuOpen,
+                    'transform -translate-y-full': !showStickyNav && isScrolled,
+                    'transform translate-y-0': showStickyNav || !isScrolled
+                }
+            ]">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div>
+                        <div class="flex items-center justify-between h-16">
+                            <!-- Logo -->
+                            <div class="flex-shrink-0">
+                                <a href="/">
+                                    <img :src="lightLogo" :class="[{ 'hidden': !logoIsDark }]" alt="Sharrow Vale Logo"
+                                        width="160" height="48" />
+                                    <img :src="darkLogo" :class="[{ 'hidden': logoIsDark }]" alt="Sharrow Vale Logo"
+                                        width="160" height="48" />
+                                </a>
+                            </div>
+                            <!-- Desktop Navigation -->
+                            <div class="hidden md:flex items-center space-x-8" :class="[
+                                {
+                                    'text-white': !linkTextDark,
+                                    'text-black': linkTextDark
+                                }
                             ]">
-                                {{ link.name }}
-                            </a>
-                        </nav>
-
-                        <!-- Desktop Search -->
-                        <div class="relative">
-                            <form action="/search" class="relative">
-                                <input name="search" type="text" placeholder="Search..." :class="[
-                                    'w-64 px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent',
-                                    searchInputClass
-                                ]" />
-                                <button type="submit"
-                                    class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                <!-- Navigation Links -->
+                                <nav class="flex space-x-6">
+                                    <a v-for="link in menuLinks" :key="link.label" :href="link.href" :class="[
+                                        'font-lato text-xl font-light transition-colors duration-200 hover:opacity-70'
+                                    ]">
+                                        {{ link.label }}
+                                    </a>
+                                </nav>
+                                <!-- Desktop Search -->
+                                <div class="relative border-b" :class="[{
+                                    'border-black': linkTextDark,
+                                    'border-white': !linkTextDark
+                                }]">
+                                    <form action="/search" method="GET" class="mb-1 flex flex-row items-center gap-2">
+                                        <button id="nav-search" class="flex">
+                                            <svg xmlns="
+                                            http:
+                                            www.w3.org
+                                            2000
+                                            svg" width="25" height="25" viewBox="0 0 24 24" fill="none"
+                                                class="ikonik-9adjq">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M14.3851 15.4457C11.7348 17.5684 7.85535 17.4013 5.39857 14.9445C2.76253 12.3085 2.76253 8.03464 5.39857 5.3986C8.03461 2.76256 12.3085 2.76256 14.9445 5.3986C17.4013 7.85538 17.5684 11.7348 15.4457 14.3851L20.6013 19.5407C20.8942 19.8336 20.8942 20.3085 20.6013 20.6014C20.3085 20.8943 19.8336 20.8943 19.5407 20.6014L14.3851 15.4457ZM6.45923 13.8839C4.40898 11.8336 4.40898 8.50951 6.45923 6.45926C8.50948 4.40901 11.8336 4.40901 13.8839 6.45926C15.9326 8.50801 15.9341 11.8287 13.8884 13.8794C13.8868 13.8809 13.8853 13.8823 13.8838 13.8839C13.8823 13.8854 13.8808 13.8869 13.8793 13.8884C11.8287 15.9341 8.50798 15.9326 6.45923 13.8839Z"
+                                                    fill="currentColor" class="path-1b5n5"></path>
+                                            </svg>
+                                        </button>
+                                        <input id="nav-search" name="search" type="text" :class="[
+                                            'bg-transparent text-xl font-light focus:outline-none',
+                                            {
+                                                'text-white placeholder-white': !linkTextDark,
+                                                'text-black placeholder-black': linkTextDark
+                                            }
+                                        ]" placeholder="Search" />
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Mobile Hamburger Button -->
+                            <div class="md:hidden">
+                                <button @click="toggleMobileMenu" :class="[
+                                    'inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200 focus:outline-none',
+                                    hamburgerButtonClass
+                                ]" aria-expanded="false">
+                                    <span class="sr-only">Open main menu</span>
+                                    <!-- Hamburger Icon -->
+                                    <svg :class="[
+                                        'h-6 w-6 transition-transform duration-200',
+                                        { 'rotate-90': isMenuOpen }
+                                    ]" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                        <path v-if="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                        <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M6 18L18 6M6 6l12 12" />
                                     </svg>
                                 </button>
-                            </form>
+                            </div>
+                        </div>
+
+                        <div class="font-lato text-sm md:hidden" :class="{
+                            'text-coral': linkTextDark,
+                            'text-white': !linkTextDark,
+                        }" v-if="!isMenuOpen && breadcrumbs.length > 0">
+                            <FontAwesomeIcon :icon="faChevronLeft" width="10" height="10" font-size="10" class="me-1" />
+
+                            <span v-for="(breadcrumb, index) in breadcrumbs">
+                                <a :href="breadcrumb.href" class="hover:underline">{{ breadcrumb.label }}</a>
+                                <span v-if="index < breadcrumbs.length - 1" class="mx-1">/</span>
+                            </span>
                         </div>
                     </div>
-
-                    <!-- Mobile Hamburger Button -->
-                    <div class="md:hidden">
-                        <button @click="toggleMobileMenu" :class="[
-                            'inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white',
-                            hamburgerButtonClass
-                        ]" aria-expanded="false">
-                            <span class="sr-only">Open main menu</span>
-                            <!-- Hamburger Icon -->
-                            <svg :class="[
-                                'h-6 w-6 transition-transform duration-200',
-                                { 'rotate-90': isMobileMenuOpen }
-                            ]" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                <path v-if="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                                <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
                 </div>
-            </div>
-        </nav>
-
+            </nav>
+        </ScreenWidth>
         <!-- Mobile Menu Overlay -->
-        <Transition enter-active-class="transition-opacity duration-300 ease-out" enter-from-class="opacity-0"
-            enter-to-class="opacity-100" leave-active-class="transition-opacity duration-200 ease-in"
-            leave-from-class="opacity-100" leave-to-class="opacity-0">
-            <div v-if="isMobileMenuOpen" class="fixed inset-0 bg-black bg-opacity-90 z-40 md:hidden">
-                <div class="flex flex-col h-full pt-20 px-6">
-                    <!-- Mobile Search Component -->
-                    <div class="mb-8">
-                        <NavSearchWrapper />
-                    </div>
 
-                    <!-- Mobile Navigation Links -->
-                    <nav class="flex flex-col space-y-4">
-                        <a v-for="(link, index) in navigationLinks" :key="link.name" :href="link.href" :class="[
-                            'text-white text-xl font-medium py-3 transition-all duration-300 hover:text-gray-300 transform',
-                            {
-                                'translate-x-0 opacity-100': isMobileMenuOpen,
-                                'translate-x-8 opacity-0': !isMobileMenuOpen
-                            }
-                        ]" :style="{
-                            transitionDelay: `${index * 100}ms`
-                        }" @click="closeMobileMenu">
-                            {{ link.name }}
-                        </a>
-                    </nav>
+        <div class="fixed inset-0 bg-black bg-opacity-95 z-40 overflow-hidden transition-all duration-500 ease-in-out md:hidden"
+            :class="{ 'h-0': !isMenuOpen, 'h-full': isMenuOpen }">
+            <div class="flex flex-col h-full pt-24 px-6 overflow-scroll">
+                <!-- Mobile Search Component -->
+                <div class="my-8 flex flex-col justify-end">
+                    <NavSearchWrapper />
                 </div>
+
+                <!-- Mobile Navigation Links -->
+                <nav class="flex flex-col space-y-4 pb-8">
+                    <ScreenWidth>
+                        <div v-for="(link, index) in menuLinks" :key="link.href"
+                            class="transform transition-all duration-500 ease-in-out" :class="{
+                                'translate-x-full opacity-0': !isMenuOpen,
+                                'translate-x-0 opacity-100': isMenuOpen
+                            }" :style="`transition-delay: ${index * 100}ms`">
+                            <a :href="link.href"
+                                class="text-lato font-light block text-white hover:text-coral text-2xl py-4 text-right"
+                                @click="closeMenu">
+                                {{ link.label }}
+                            </a>
+                        </div>
+                    </ScreenWidth>
+                </nav>
             </div>
-        </Transition>
+        </div>
+
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import NavSearchWrapper from '@/components/search/NavSearchWrapper.vue'
+import ScreenWidth from "@/components/elements/ScreenWidth.vue";
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft"
 
-interface NavigationLink {
-    name: string
-    href: string
-}
+
 
 interface SearchResult {
     title?: string
@@ -117,66 +151,68 @@ interface SearchResult {
     [key: string]: any
 }
 
+interface NavigationLink {
+    label: string
+    href: string
+}
+
 interface Props {
     lightMode?: boolean
     lightLogo?: string
     darkLogo?: string
+    breadcrumbs?: NavigationLink[]
 }
 
-const props = withDefaults(defineProps<Props>(), {
-    lightMode: false,
-    lightLogo: '/logos/logo-light.svg',
-    darkLogo: '/logos/logo-dark.svg'
-})
+
+const {
+    lightMode = false,
+    lightLogo,
+    darkLogo,
+    breadcrumbs = [],
+} = defineProps<Props>()
 
 // Reactive state
 const isScrolled = ref(false)
 const showStickyNav = ref(false)
-const isMobileMenuOpen = ref(false)
+const isMenuOpen = ref(false)
 
 // Navigation links
-const navigationLinks: NavigationLink[] = [
-    { name: 'The Market', href: '/market' },
-    { name: 'Directory', href: '/directory' },
-    { name: 'News & Updates', href: '/news' },
-    { name: 'About', href: '/about' }
+const menuLinks = [
+    { href: "/tags/sharrow-vale-market", label: "The Market" },
+    { href: "/categories/directory", label: "Directory" },
+    { href: "/articles", label: "News & Updates" },
+    { href: "/join", label: "About" }
 ]
 
 // Computed properties
-const currentLogoSrc = computed(() => {
-    if (props.lightMode) {
-        return isMobileMenuOpen.value ? props.darkLogo : props.lightLogo
+const logoIsDark = computed(() => {
+    if (isMenuOpen.value) {
+        return false
     }
-    return props.darkLogo
+
+    if (showStickyNav.value) {
+        return true
+    }
+
+    return lightMode;
 })
 
-const linkTextColor = computed(() => {
-    if (props.lightMode) {
-        return isScrolled.value ? 'text-gray-800' : 'text-gray-800'
-    }
-    return isScrolled.value ? 'text-gray-800' : 'text-white'
+const linkTextDark = computed(() => {
+    return lightMode || showStickyNav.value
 })
 
 const hamburgerButtonClass = computed(() => {
-    if (props.lightMode) {
+    if (lightMode) {
         return 'text-gray-800 hover:text-gray-600'
     }
     return isScrolled.value ? 'text-gray-800 hover:text-gray-600' : 'text-white hover:text-gray-300'
 })
 
-const searchInputClass = computed(() => {
-    if (props.lightMode || isScrolled.value) {
-        return 'bg-white text-gray-900'
-    }
-    return 'bg-white bg-opacity-20 text-white placeholder-gray-300 border-white border-opacity-30'
-})
-
 // Methods
 const handleScroll = () => {
     const scrollPosition = window.scrollY
-    const wasScrolled = isScrolled.value
 
-    isScrolled.value = scrollPosition > 50
+    isScrolled.value = scrollPosition > 500
 
     if (scrollPosition > 700) {
         if (!showStickyNav.value) {
@@ -188,18 +224,18 @@ const handleScroll = () => {
 }
 
 const toggleMobileMenu = () => {
-    isMobileMenuOpen.value = !isMobileMenuOpen.value
+    isMenuOpen.value = !isMenuOpen.value
 
     // Prevent body scroll when menu is open
-    if (isMobileMenuOpen.value) {
+    if (isMenuOpen.value) {
         document.body.style.overflow = 'hidden'
     } else {
         document.body.style.overflow = ''
     }
 }
 
-const closeMobileMenu = () => {
-    isMobileMenuOpen.value = false
+const closeMenu = () => {
+    isMenuOpen.value = false
     document.body.style.overflow = ''
 }
 
@@ -213,11 +249,20 @@ onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
     document.body.style.overflow = '' // Cleanup body scroll lock
 })
+
+watch(isMenuOpen, (newValue) => {
+    if (newValue) {
+        document.body.classList.add("overflow-hidden");
+    } else {
+        document.body.classList.remove("overflow-hidden");
+    }
+});
+
 </script>
 
-<style scoped>
+<!-- <style scoped>
 /* Ensure smooth transitions */
 * {
     transition-property: transform, opacity, background-color, color;
 }
-</style>
+</style> -->
