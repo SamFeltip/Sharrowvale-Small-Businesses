@@ -62,7 +62,6 @@ import Loader from "@/components/elements/Loader.vue";
 
 let searchResults = ref<PagefindSearchResult[]>([]);
 let searchQuery = ref("");
-let selectedTags = ref([]);
 let availableTags = ref<string[]>([]);
 
 let hiddenTags = ["directory"];
@@ -83,14 +82,12 @@ watchEffect(() => {
 })
 
 onMounted(async () => {
-
     pagefind.value = await import(
     /* @vite-ignore */ window.location.origin + "/pagefind/pagefind.js"
     );
 });
 
 async function handleSearch() {
-
     loading.value = true;
 
     const searchOptionsConfig = createSearchOptionsFromRefs();
@@ -111,10 +108,8 @@ async function handleSearch() {
     const searchResult = await search(searchQuery.value, searchOptionsConfig, pagefind.value);
 
     const [d, t] = searchResult;
-
     searchResults.value = d;
     availableTags.value = t;
-
 
     loading.value = false;
 }
