@@ -15,7 +15,7 @@ type Props = {
 
     breadcrumbs?: NavigationLink[];
 
-    Content: (_props: any) => JSX.Element;
+    HeaderContent?: (_props: any) => JSX.Element;
 };
 
 const {
@@ -26,34 +26,47 @@ const {
     headerTop,
     headerBottom,
     breadcrumbs = [],
-    Content,
+    HeaderContent: Content,
 }: Props = Astro.props;
 ---
 
-<header class="relative h-[85vh] min-h-[600px] w-full overflow-hidden">
-    <div class="absolute left-0 right-0 top-0 z-10">
-        <ClaudeNav
-            client:load
-            darkLogo={LOGO_URL_DARK}
-            lightLogo={LOGO_URL}
-            breadcrumbs={breadcrumbs}
-        />
-        <!-- <ChatGPTNav client:only="vue" /> -->
-    </div>
-    <Image
-        src={image}
-        alt={imgAlt || title}
-        class="absolute inset-0 h-full object-cover"
-        width={2500}
-    />
-    <div class="40 absolute inset-0 z-[5] bg-black/40">
-        <ScreenWidth>
-            <Content
-                title={title}
-                description={description}
-                headerTop={headerTop}
-                headerBottom={headerBottom}
+{
+    Content === undefined ? (
+        <div class="">
+            <ClaudeNav
+                client:load
+                lightLogo={LOGO_URL}
+                darkLogo={LOGO_URL_DARK}
+                lightMode={true}
+                breadcrumbs={breadcrumbs}
             />
-        </ScreenWidth>
-    </div>
-</header>
+        </div>
+    ) : (
+        <header class="relative h-[85vh] min-h-[600px] w-full overflow-hidden">
+            <div class="absolute left-0 right-0 top-0 z-10">
+                <ClaudeNav
+                    client:load
+                    darkLogo={LOGO_URL_DARK}
+                    lightLogo={LOGO_URL}
+                    breadcrumbs={breadcrumbs}
+                />
+            </div>
+            <Image
+                src={image}
+                alt={imgAlt || title}
+                class="absolute inset-0 h-full object-cover"
+                width={2500}
+            />
+            <div class="40 absolute inset-0 z-[5] bg-black/40">
+                <ScreenWidth>
+                    <Content
+                        title={title}
+                        description={description}
+                        headerTop={headerTop}
+                        headerBottom={headerBottom}
+                    />
+                </ScreenWidth>
+            </div>
+        </header>
+    )
+}
