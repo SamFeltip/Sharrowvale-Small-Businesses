@@ -4,8 +4,8 @@
         <nav :class="[
             'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out pt-6 pb-3',
             {
-                'bg-transparent': !isScrolled && !isMenuOpen,
-                'bg-cream shadow-lg': isScrolled && !isMenuOpen,
+                'bg-transparent': !showStickyNav && !isMenuOpen,
+                'bg-cream shadow-lg': showStickyNav && !isMenuOpen,
                 'bg-black': isMenuOpen,
                 'transform -translate-y-full': !showStickyNav && isScrolled,
                 'transform translate-y-0': showStickyNav || !isScrolled,
