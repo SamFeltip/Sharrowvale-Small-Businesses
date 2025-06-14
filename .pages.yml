@@ -13,4 +13,9 @@ content:
       - name: heroImage
         label: Hero Image
         type: image
+      - name: body
+        label: Body
+        type: code
+        options:
+          language: markdown
 
