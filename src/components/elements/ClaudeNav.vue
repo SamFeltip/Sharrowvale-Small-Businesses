@@ -72,8 +72,9 @@
                             <div class="md:hidden">
                                 <button @click="toggleMobileMenu" :class="[
                                     'inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200 focus:outline-none',
-                                    hamburgerButtonClass
-                                ]" aria-expanded="false">
+                                    {
+                                        'text-black': linkTextDark, 'text-white': !linkTextDark
+                                    }]" aria-expanded="false">
                                     <span class="sr-only">Open main menu</span>
                                     <!-- Hamburger Icon -->
                                     <svg :class="[
@@ -190,7 +191,7 @@ const logoIsDark = computed(() => {
 })
 
 const linkTextDark = computed(() => {
-    return lightMode || showStickyNav.value
+    return !isMenuOpen.value && (lightMode || showStickyNav.value)
 })
 
 const hamburgerButtonClass = computed(() => {
