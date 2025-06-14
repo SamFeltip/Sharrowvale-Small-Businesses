@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 
 import defaultBannerImage from "@/assets/images/index/home/guest-road.jpg";
 import Nav from "@/components/elements/Nav.astro";
+import type { NavigationLink } from "@/components/elements/ClaudeNav.vue";
 
 type Props = {
     pagefindIgnore?: boolean;
@@ -15,6 +16,7 @@ type Props = {
     classList?: string;
     headerTop?: string[];
     headerBottom?: string[];
+    breadcrumbs?: NavigationLink[];
     HeaderContent?: (_props: any) => JSX.Element;
     Metadata?: {
         image: ImageMetadata;
@@ -32,6 +34,7 @@ const {
     title,
     headerTop,
     headerBottom,
+    breadcrumbs = [],
     Metadata,
 }: Props = Astro.props;
 
@@ -59,6 +62,7 @@ const metaData = Metadata ?? {
                     headerTop={headerTop}
                     headerBottom={headerBottom}
                     Content={HeaderContent}
+                    breadcrumbs={breadcrumbs}
                 />
             )
         }

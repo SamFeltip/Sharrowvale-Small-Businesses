@@ -100,6 +100,10 @@ if (previewTag !== undefined) headerTop.push(previewTag.data.name);
         description: description,
         title: name,
     }}
+    breadcrumbs={[
+        { href: "/categories/directory", label: "businesses" },
+        { href: `/businesses/${entry.id}`, label: name.toLowerCase() },
+    ]}
 >
     <ScreenWidth classList="gap-6">
         <div class="hidden">

@@ -54,6 +54,10 @@ const listingPromo = pricing.filter((price) => price.id === "listing")[0];
     HeaderContent={HeaderContent}
     classList="gap-8"
     pagefindIgnore={true}
+    breadcrumbs={[
+        { href: "/categories", label: "categories" },
+        { href: `/categories/${entry.id}`, label: name.toLowerCase() },
+    ]}
 >
     <ScreenWidth classList="gap-10">
         <div class="flex flex-col items-center gap-4">

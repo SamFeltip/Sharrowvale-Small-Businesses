@@ -17,7 +17,12 @@ const advertisingPromotion = pricing.filter(
 )[0];
 ---
 
-<ContentLayout image={bannerImage} title={name} HeaderContent={HeaderContent}>
+<ContentLayout
+    image={bannerImage}
+    title={name}
+    HeaderContent={HeaderContent}
+    breadcrumbs={[{ href: "/search", label: "search" }]}
+>
     <ScreenWidth classList="gap-8">
         <Section floatIn={true} classList="items-center">
             <H2 color="coral">Search the Site</H2>

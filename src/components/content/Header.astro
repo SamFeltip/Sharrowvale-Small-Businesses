@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import ScreenWidth from "../elements/ScreenWidth.vue";
-import ClaudeNav from "../elements/ClaudeNav.vue";
+import ClaudeNav, { type NavigationLink } from "../elements/ClaudeNav.vue";
 import { LOGO_URL, LOGO_URL_DARK } from "@/consts";
 
 type Props = {
@@ -13,6 +13,8 @@ type Props = {
     headerTop?: string[];
     headerBottom?: string[];
 
+    breadcrumbs?: NavigationLink[];
+
     Content: (_props: any) => JSX.Element;
 };
 
@@ -23,6 +25,7 @@ const {
     description,
     headerTop,
     headerBottom,
+    breadcrumbs = [],
     Content,
 }: Props = Astro.props;
 ---
@@ -33,10 +36,7 @@ const {
             client:load
             darkLogo={LOGO_URL_DARK}
             lightLogo={LOGO_URL}
-            breadcrumbs={[
-                { href: "/categories/directory", label: "tags" },
-                { label: "food & drink", href: "/tags/food-and-drink" },
-            ]}
+            breadcrumbs={breadcrumbs}
         />
         <!-- <ChatGPTNav client:only="vue" /> -->
     </div>

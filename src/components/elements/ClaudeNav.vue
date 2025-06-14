@@ -9,7 +9,8 @@
                     'bg-cream shadow-lg': isScrolled && !isMenuOpen,
                     'bg-black': isMenuOpen,
                     'transform -translate-y-full': !showStickyNav && isScrolled,
-                    'transform translate-y-0': showStickyNav || !isScrolled
+                    'transform translate-y-0': showStickyNav || !isScrolled,
+                    'pt-3 md:pt-6': showStickyNav
                 }
             ]">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,16 +143,7 @@ import ScreenWidth from "@/components/elements/ScreenWidth.vue";
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft"
 
-
-
-interface SearchResult {
-    title?: string
-    name?: string
-    url?: string
-    [key: string]: any
-}
-
-interface NavigationLink {
+export interface NavigationLink {
     label: string
     href: string
 }
@@ -160,7 +152,7 @@ interface Props {
     lightMode?: boolean
     lightLogo?: string
     darkLogo?: string
-    breadcrumbs?: NavigationLink[]
+    breadcrumbs: NavigationLink[]
 }
 
 
@@ -168,7 +160,7 @@ const {
     lightMode = false,
     lightLogo,
     darkLogo,
-    breadcrumbs = [],
+    breadcrumbs,
 } = defineProps<Props>()
 
 // Reactive state

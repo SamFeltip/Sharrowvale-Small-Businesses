@@ -76,6 +76,10 @@ const listingPromo = pricing.filter((price) => price.id === "listing")[0];
     image={bannerImage}
     title={name}
     description={description}
+    breadcrumbs={[
+        { href: "/categories/directory", label: "tags" },
+        { href: `/tags/${entry.id}`, label: name.toLowerCase() },
+    ]}
     headerBottom={description !== undefined ? [description] : undefined}
     HeaderContent={HeaderContent}
     Metadata={{
