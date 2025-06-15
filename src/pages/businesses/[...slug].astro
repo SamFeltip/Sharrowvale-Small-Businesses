@@ -17,6 +17,7 @@ import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceC
 import Tables from "@/components/businesses/Tables.astro";
 import SimilarListings from "@/components/pages/businesses/SimilarListings.astro";
 import { getImageHelper } from "@/scripts/images/getImageHelper";
+import { formatBreadcrumbName } from "@/scripts/breadcrumbs/format";
 
 export async function getStaticPaths() {
     const businesses: CollectionEntry<"businesses">[] = await getCollection(
@@ -102,7 +103,7 @@ if (previewTag !== undefined) headerTop.push(previewTag.data.name);
     }}
     breadcrumbs={[
         { href: "/categories/directory", label: "businesses" },
-        { href: `/businesses/${entry.id}`, label: name.toLowerCase() },
+        { href: `/businesses/${entry.id}`, label: formatBreadcrumbName(name) },
     ]}
 >
     <ScreenWidth classList="gap-6">

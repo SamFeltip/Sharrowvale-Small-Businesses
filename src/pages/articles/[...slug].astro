@@ -23,6 +23,7 @@ import { getPlaceCardRefs } from "@/scripts/placeCard/genericPlaceCard/getPlaceC
 import Socials from "@/components/businesses/Socials.astro";
 import SimilarArticles from "@/components/pages/articles/SimilarArticles.astro";
 import PromoBanner from "@/components/elements/promos/PromoBanner.vue";
+import { formatBreadcrumbName } from "@/scripts/breadcrumbs/format";
 
 export async function getStaticPaths() {
     const article: CollectionEntry<"articles">[] =
@@ -92,6 +93,10 @@ if (contactPromo === undefined) {
     title={name}
     description="Sharrow Vale Blog"
     image={bannerImage}
+    breadcrumbs={[
+        { href: "/articles", label: "articles" },
+        { href: `/articles/${entry.id}`, label: formatBreadcrumbName(name) },
+    ]}
     HeaderContent={HeaderContent}
     headerBottom={preview === undefined ? [] : [preview]}
     Metadata={{

@@ -17,6 +17,7 @@ import {
     type CollectionEntry,
 } from "astro:content";
 import type { PlaceCardRef } from "@/components/placeCards/PlaceCardRef";
+import { formatBreadcrumbName } from "@/scripts/breadcrumbs/format";
 
 export async function getStaticPaths() {
     const tag: CollectionEntry<"tags">[] = await getCollection("tags");
@@ -78,7 +79,7 @@ const listingPromo = pricing.filter((price) => price.id === "listing")[0];
     description={description}
     breadcrumbs={[
         { href: "/categories/directory", label: "tags" },
-        { href: `/tags/${entry.id}`, label: name.toLowerCase() },
+        { href: `/tags/${entry.id}`, label: formatBreadcrumbName(name) },
     ]}
     headerBottom={description !== undefined ? [description] : undefined}
     HeaderContent={HeaderContent}
