@@ -96,7 +96,9 @@
                     'text-coral': linkTextDark,
                     'text-white': !linkTextDark,
                 }" v-if="!isMenuOpen && breadcrumbs.length > 0">
-                    <FontAwesomeIcon :icon="faChevronLeft" width="10" height="10" font-size="10" class="me-1" />
+                    <a href="/">
+                        <FontAwesomeIcon :icon="faChevronLeft" width="10" height="10" font-size="10" class="me-1" />
+                    </a>
 
                     <span v-for="(breadcrumb, index) in breadcrumbs">
                         <a :href="breadcrumb.href" class="hover:underline">{{ breadcrumb.label }}</a>
