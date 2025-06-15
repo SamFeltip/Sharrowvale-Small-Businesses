@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import ScreenWidth from "../elements/ScreenWidth.vue";
-import ClaudeNav, { type NavigationLink } from "../elements/Nav/ClaudeNav.vue";
+import Nav, { type NavigationLink } from "../elements/Nav/Nav.vue";
 import { LOGO_URL, LOGO_URL_DARK } from "@/consts";
 
 type Props = {
@@ -33,7 +33,7 @@ const {
 {
     Content === undefined ? (
         <div class="">
-            <ClaudeNav
+            <Nav
                 client:load
                 lightLogo={LOGO_URL}
                 darkLogo={LOGO_URL_DARK}
@@ -44,7 +44,7 @@ const {
     ) : (
         <header class="relative h-[85vh] min-h-[600px] w-full overflow-hidden">
             <div class="absolute left-0 right-0 top-0 z-10">
-                <ClaudeNav
+                <Nav
                     client:load
                     darkLogo={LOGO_URL_DARK}
                     lightLogo={LOGO_URL}
