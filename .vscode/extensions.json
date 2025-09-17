@@ -3,7 +3,9 @@
     "astro-build.astro-vscode",
     "unifiedjs.vscode-mdx",
     "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "johnsoncodehk.vscode-typescript-web",
+    "vue.volar"
   ],
   "unwantedRecommendations": []
 }
