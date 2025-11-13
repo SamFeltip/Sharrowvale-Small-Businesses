@@ -4,14 +4,17 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram";
 import { faLink } from "@fortawesome/free-solid-svg-icons/faLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../elements/Button.vue";
+import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 
 type Props = {
     instagramLink: string | undefined;
     websiteLink: string | undefined;
     facebookLink: string | undefined;
+    tiktokLink?: string | undefined;
 };
 
-const { instagramLink, websiteLink, facebookLink }: Props = Astro.props;
+const { instagramLink, websiteLink, facebookLink, tiktokLink }: Props =
+    Astro.props;
 ---
 
 <div>
@@ -28,7 +31,15 @@ const { instagramLink, websiteLink, facebookLink }: Props = Astro.props;
                 </Button>
             )
         }
-
+        {
+            tiktokLink && (
+                <Button shape="circle" size="lg" href={tiktokLink}>
+                    <span>
+                        <FontAwesomeIcon className="h-5 w-5" icon={faTiktok} />
+                    </span>
+                </Button>
+            )
+        }
         {
             websiteLink && (
                 <Button shape="circle" size="lg" href={websiteLink}>

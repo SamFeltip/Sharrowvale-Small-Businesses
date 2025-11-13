@@ -28,6 +28,7 @@ export const businessSchema = ({ image }: { image: ImageFunction }) =>
         phoneNumber: z.string().optional(), // Phone number
         instagramLink: z.string().url().optional(), // Instagram link
         facebookLink: z.string().url().optional(), // Facebook link
+        tiktokLink: z.string().url().optional(), // tiktok link
         websiteLink: z.string().url().optional(), // Website link
         yearEstablished: z.string().optional(), // Year established
         owner: z.string().optional(), // Owner
