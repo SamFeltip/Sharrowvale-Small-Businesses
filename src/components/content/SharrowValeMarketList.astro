@@ -1,0 +1,190 @@
+---
+export const prerender = false;
+import * as chrono from "chrono-node";
+
+import * as cheerio from "cheerio";
+import type { RequestOptions } from "http";
+// 💡 Node's native 'https' module is still necessary for better SSL control
+import http from "http";
+import CarouselWrapper from "../index/Content/CarouselWrapper.vue";
+import type { Cheerio } from "cheerio";
+
+// --- Data Fetching and Parsing Logic ---
+
+const SITE_URL = "https://sharrowvalemarket.co.uk/";
+
+// Explicitly type the result variables
+let formattedDates: string[] = [];
+let yearNum: number | undefined;
+
+// Function to fetch content using the Node.js 'https' module
+const fetchHtml = (url: string): Promise<string> => {
+    return new Promise((resolve, reject) => {
+        console.log("Fetching HTML from:", url);
+        const urlOptions = new URL(url);
+
+        const options: RequestOptions = {
+            hostname: urlOptions.hostname,
+            path: urlOptions.pathname,
+            method: "GET",
+            headers: {
+                "User-Agent":
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+            },
+        };
+
+        const req = http.request(options, (res) => {
+            let data = "";
+            console.log("Response status code:", res.statusCode);
+
+            // Explicitly check for status code and ensure res.statusCode is defined
+            if (
+                !res.statusCode ||
+                res.statusCode < 200 ||
+                res.statusCode >= 300
+            ) {
+                // Use res.statusMessage if available, or fallback
+                return reject(
+                    new Error(
+                        `Server responded with status code ${res.statusCode} ${res.statusMessage || ""}`
+                    )
+                );
+            }
+
+            res.on("data", (chunk) => {
+                data += chunk;
+            });
+
+            res.on("end", () => {
+                resolve(data);
+            });
+        });
+
+        req.on("error", (e) => {
+            // Explicitly reject with the error object
+            reject(e);
+        });
+
+        req.end();
+    });
+};
+
+// Helper function to parse a single date string
+const parseDate = (str: string, year: number): Date | null => {
+    const date = chrono.parse(str);
+    if (date.length === 0) return null;
+
+    date.setFullYear(year);
+    return date;
+};
+
+try {
+    const htmlText = await fetchHtml(SITE_URL);
+    const $ = cheerio.load(htmlText);
+
+    const article = $("article").first();
+
+    if (article.length === 0)
+        throw new Error("Article element not found on the page.");
+
+    // --- START: Change for h3 cutoff ---
+    const firstH3 = article.find("h3").first();
+    let $targetParagraphs;
+
+    if (firstH3.length > 0) {
+        // Select all sibling <p> elements that precede the h3
+        $targetParagraphs = firstH3.prevAll("p");
+    } else {
+        // If no h3, select all paragraphs in the article
+        $targetParagraphs = article.find("p");
+    }
+
+    // Ensure the mapped array is strictly string[]
+    // .get() returns the elements, .reverse() puts them in document order (top-down)
+    const paragraphTexts: string[] = $targetParagraphs
+        .get()
+        .reverse()
+        .map((el: any) => $(el).text());
+    // --- END: Change for h3 cutoff ---
+
+    console.log("Extracted paragraph texts:", paragraphTexts);
+
+    const index = paragraphTexts.findIndex((text) =>
+        text.includes("Dates for")
+    );
+    if (index === -1) throw new Error("'Dates for' paragraph not found.");
+
+    const dateForText = paragraphTexts[index];
+    const extractedYear = Number(
+        dateForText.replace(/.*Dates for\s*/i, "").trim()
+    );
+
+    if (isNaN(extractedYear) || extractedYear < 2000) {
+        throw new Error("Invalid year number extracted.");
+    }
+    yearNum = extractedYear; // Assign to the typed variable
+
+    console.log("Extracted year:", yearNum);
+
+    // get paragraphs that might have dates in them
+    const start = article
+        .find("p")
+        .filter((_, el) => {
+            return $(el).text().trim().includes("Date For");
+        })
+        .first();
+
+    let pTags = [];
+    let node = start.next();
+
+    while (node.length) {
+        if (node.is("h3")) break;
+        if (node.is("p")) pTags.push(node);
+        node = node.next();
+    }
+
+    const remainingParagraphs = pTags.map((el) => $(el).text().trim());
+
+    console.log(remainingParagraphs);
+
+    // Type the filtered array of dates
+    const dates: Date[] = paragraphTexts
+        .map((p) => parseDate(p, yearNum as number)) // Safe casting after the check above
+        .filter((d): d is Date => d !== null)
+        .sort((a, b) => a.getTime() - b.getTime());
+
+    console.log("dates", dates);
+
+    formattedDates = dates.map((date) =>
+        date.toLocaleDateString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour:
+                date.getHours() > 0 || date.getMinutes() > 0
+                    ? "numeric"
+                    : undefined,
+            minute:
+                date.getHours() > 0 || date.getMinutes() > 0
+                    ? "2-digit"
+                    : undefined,
+        })
+    );
+} catch (e: unknown) {
+    // Robust error handling to satisfy TypeScript's 'unknown' error type
+    const error = e as Error;
+    console.error("Data fetching or parsing error:", error.message);
+    formattedDates = [`Error loading market dates: ${error.message}`];
+    yearNum = undefined;
+}
+---
+
+<ul>
+    {
+        formattedDates
+            .toSorted((a, b) => a.localeCompare(b))
+            .map((date) => <li class="mb-2 text-lg md:text-xl">{date}</li>)
+    }
+</ul>
+<!-- <CarouselWrapper client:load items={marketEvents} /> -->

@@ -7,14 +7,15 @@ import type { PlaceCard } from "@/components/placeCards/PlaceCard";
 
 import img from "@/assets/images/index/sharrow-vale-market/666576a0c2d4c780054817d3_market-.jpeg";
 import { getImageHelper } from "@/scripts/images/getImageHelper";
+import SharrowValeMarketList from "@/components/content/SharrowValeMarketList.astro";
 
 const { src } = await getImageHelper(img);
 
 const item: PlaceCard = {
     image: src,
     title: "Sharrow Vale Market",
-    href: "/categories/community",
-    content: "Discover more about the community",
+    href: "/tags/sharrow-vale-market",
+    content: "Discover more about the market",
 };
 ---
 
