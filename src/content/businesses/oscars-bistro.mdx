@@ -1,19 +1,21 @@
 ---
 name: Oscar's Bistro
-preview: Spacious cafe with live music and cake.
-description: A cafe on ecclesall road with space to work, and a fantastic selection of cake.
+preview: Spacious cafe with live music and Pollard's coffee.
+description: A cafe on Ecclesall Road with space to work, and a fantastic selection of Pollard's coffee.
 type: cafe
 
-shopWindowImage: ../../assets/images/businesses/oscars-bistro/bench.jpeg
-heroImage: ../../assets/images/businesses/oscars-bistro/martin-and-lewis.jpeg
+shopWindowImage: ../../assets/images/businesses/oscars-bistro/outside.jpeg
+heroImage: ../../assets/images/businesses/oscars-bistro/sofas.jpeg
 bannerImage: ../../assets/images/businesses/oscars-bistro/bench.jpeg
+
 # used for lightbox
 additionalImages:
     [
-        "../../assets/images/businesses/oscars-bistro/placeholder-carosel1.png",
-        "../../assets/images/businesses/oscars-bistro/placeholder-carosel2.png",
+        "../../assets/images/businesses/oscars-bistro/poster.jpeg",
+        "../../assets/images/businesses/oscars-bistro/sofas.jpeg",
+        "../../assets/images/businesses/oscars-bistro/view.jpeg",
+        "../../assets/images/businesses/oscars-bistro/guitar.jpeg",
     ]
-
 # Other metadata
 streetAddress: 617 Ecclesall Rd, Sheffield
 email: ad@oscarskettle.com
@@ -24,7 +26,6 @@ tiktokLink: "https://tiktok.com/@oscars_s11"
 yearEstablished: "2025"
 owner: "Lewis and Martin"
 openDaysStatement: Open Monday to Sunday, closed Tuesdays.
-
 publishDate: 2025-11-13
 
 # Listing types
@@ -37,15 +38,57 @@ tags:
     - coffee
     - sit-in
     - free-wifi
-
 openHours:
 - ["Monday - Friday", "7am - 4pm"]
 - ["Tuesday", "Closed"]
 - ["Saturday & Sunday", "8am - 4pm"]
-
 businessContacts:
 - ["Email", "ad@oscarskettle.com"]
 - ["Phone", "01145500126"]
-
-
 ---
+
+import BusinessLightBox from "@/components/articles/BusinessLightBox.astro";
+
+Oscar's Bistro is a spacious cafe on ecclesall road. It serves cusomers coffee and tea 
+from [Pollards](https://pollardscoffee.co.uk/), Yorkshire's oldest Coffee Roaster and a 
+fan favourite for people in the local area. Oscar's is run by Martin and Lewis, who are 
+excited to bring their experience with coffee and food to eccy road for us to enjoy.
+
+import Outdoor1 from "../../assets/images/businesses/oscars-bistro/banner.jpeg";
+import Outdoor2 from "../../assets/images/businesses/oscars-bistro/bench.jpeg";
+import Outdoor3 from "../../assets/images/businesses/oscars-bistro/chess.jpeg";
+import People1 from "../../assets/images/businesses/oscars-bistro/martin-and-lewis.jpeg"
+
+<BusinessLightBox imgs={[People1, Outdoor1, Outdoor2, Outdoor3]} />
+
+As well as food and drinks, Oscar's bistro regularly hosts music evenings. These unplugged 
+acoustic sets are a fantastic opportunity to meet those in the local area and have a sing-along 
+in a safe and relaxed environment. You'll spot announcements for these events on their 
+[Instagram](https://www.instagram.com/oscars_s11/), so be sure to give them a follow!
+
+import Music1 from "../../assets/images/businesses/oscars-bistro/guitar.jpeg";
+import Music2 from "../../assets/images/businesses/oscars-bistro/bench.jpeg";
+import Music3 from "../../assets/images/businesses/oscars-bistro/placeholder-carosel2.png";
+
+<BusinessLightBox imgs={[Music1, Music2, Music3]} />
+
+And of course, no bistro is complete without its excellent choices of food - and Oscar's is no exception. 
+They offer a great selection of pastries, bakery items, and cakes in the morning and throughout the day, 
+along with an excellent all-day menu to enjoy for a meal out. 
+
+import Food1 from "../../assets/images/businesses/oscars-bistro/food3.jpg";
+import Food2 from "../../assets/images/businesses/oscars-bistro/food2.jpg";
+import Food3 from "../../assets/images/businesses/oscars-bistro/food1.jpg";
+import Food3a from "../../assets/images/businesses/oscars-bistro/food4.jpg";
+
+<BusinessLightBox imgs={[Food1, Food2, Food3, Food3a]} />
+
+import Food4 from "../../assets/images/businesses/oscars-bistro/cookie.jpeg";
+import Food5 from "../../assets/images/businesses/oscars-bistro/croissant.jpeg";
+import Food6 from "../../assets/images/businesses/oscars-bistro/mince-pie.jpeg";
+
+<BusinessLightBox imgs={[Food4, Food5, Food6]} />
+
+Oscar's Bistro is a great addition to Ecclesall Road since openning in 2025, Offering relaxed daytime 
+workspaces, a varied dinner menu, and cosy evening entertainment with their unplugged acoustic sessions. 
+Check out Oscar's Bistro today!
